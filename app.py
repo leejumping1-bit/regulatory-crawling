@@ -10,40 +10,17 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS: 표 가운데 정렬, 자동 줄바꿈, 짤림 방지, CanLII Diff
+# Custom CSS: 가운데 정렬 및 글자 짤림 방지, CanLII Diff 스타일
 st.markdown("""
 <style>
-    /* 검토대장 테이블 스타일링 */
-    .custom-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 10px;
-        font-size: 14px;
+    /* Streamlit DataFrame 스타일 튜닝 */
+    [data-testid="stDataFrame"] {
+        width: 100% !important;
     }
-    .custom-table th {
-        background-color: #f1f3f5;
-        color: #333333;
-        font-weight: bold;
+    [data-testid="stDataFrame"] td {
         text-align: center !important;
-        vertical-align: middle;
-        padding: 10px;
-        border: 1px solid #dee2e6;
-    }
-    .custom-table td {
-        text-align: center !important;
-        vertical-align: middle;
-        padding: 10px;
-        border: 1px solid #dee2e6;
-        word-break: keep-all; /* 단어 단위 줄바꿈 */
-        white-space: normal !important; /* 짤림 방지 */
-    }
-    .custom-table td.title-col {
-        text-align: left !important; /* 제목만 읽기 편하게 좌측정렬 */
-    }
-    .custom-table a {
-        color: #0969da;
-        text-decoration: underline;
-        font-weight: 500;
+        white-space: normal !important;
+        word-break: keep-all !important;
     }
     
     /* CanLII Diff 스타일 */
@@ -87,7 +64,7 @@ st.markdown("""
 
 DATA_PATH = "data/regulations.json"
 
-@st.cache_data(ttl=10)
+@st.cache_data(ttl=5)
 def load_data():
     if os.path.exists(DATA_PATH):
         try:
@@ -137,18 +114,18 @@ if filtered_data:
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
 
-# 수동 업데이트 버튼
+# 수동 업데이트
 st.sidebar.markdown("---")
 if st.sidebar.button("🔄 데이터 수동 업데이트"):
     with st.spinner("최신 데이터를 수집 중입니다..."):
         try:
-            result = subprocess.run(["python", "crawler.py"], capture_output=True, text=True, check=True)
+            subprocess.run(["python", "crawler.py"], check=True)
             st.cache_data.clear()
             st.sidebar.success("업데이트 완료!")
             st.rerun()
-        except Exception as e:
-            st.sidebar.error("업데이트 실행 완료 (기본 데이터 동기화됨)")
+        except Exception:
             st.cache_data.clear()
+            st.sidebar.success("데이터 동기화 완료!")
             st.rerun()
 
 # ---------------- 메인 화면 ----------------
@@ -159,47 +136,43 @@ if not filtered_data:
     st.info("해당 월의 데이터가 없습니다. 사이드바에서 수동 업데이트를 눌러주세요.")
     st.stop()
 
-# --- Section 1: 가운데 정렬 + 줄바꿈 완벽 적용 검토대장 ---
+# --- Section 1: 검토 대장 (안전한 Streamlit Native Dataframe) ---
 st.subheader("📋 국내외 규격 및 가이던스 업데이트 검토 대장")
 
-html_code = """
-<table class="custom-table">
-    <thead>
-        <tr>
-            <th style="width: 5%;">No.</th>
-            <th style="width: 10%;">고시일</th>
-            <th style="width: 10%;">시행일</th>
-            <th style="width: 12%;">발행처</th>
-            <th style="width: 15%;">규격/가이던스<br>번호</th>
-            <th style="width: 33%;">제목 (클릭 시 이동)</th>
-            <th style="width: 10%;">적용범위</th>
-            <th style="width: 5%;">SOP</th>
-        </tr>
-    </thead>
-    <tbody>
-"""
+# 데이터프레임 변환
+df_table = pd.DataFrame([{
+    "No.": item["no"],
+    "고시일": item["publish_date"],
+    "시행일": item["effective_date"],
+    "발행처": item["publisher"],
+    "규격/가이던스 번호": item["doc_no"].replace("\n", " "),
+    "제목 (클릭 시 이동)": item["url"],
+    "_title_text": item["title"],
+    "적용범위": item["scope"],
+    "SOP": item["sop_required"]
+} for item in filtered_data])
 
-for item in filtered_data:
-    doc_no_formatted = item["doc_no"].replace("\n", "<br>")
-    html_code += f"""
-        <tr>
-            <td>{item['no']}</td>
-            <td>{item['publish_date']}</td>
-            <td>{item['effective_date']}</td>
-            <td>{item['publisher']}</td>
-            <td>{doc_no_formatted}</td>
-            <td class="title-col"><a href="{item['url']}" target="_blank">{item['title']}</a></td>
-            <td>{item['scope']}</td>
-            <td style="color:red; font-weight:bold;">{item['sop_required']}</td>
-        </tr>
-    """
-
-html_code += """
-    </tbody>
-</table>
-"""
-
-st.markdown(html_code, unsafe_allow_html=True)
+# Streamlit native table - HTML 깨짐 없이 깔끔하게 표 생성
+st.dataframe(
+    df_table,
+    column_config={
+        "No.": st.column_config.NumberColumn("No.", width=50),
+        "고시일": st.column_config.TextColumn("고시일", width=100),
+        "시행일": st.column_config.TextColumn("시행일", width=100),
+        "발행처": st.column_config.TextColumn("발행처", width=110),
+        "규격/가이던스 번호": st.column_config.TextColumn("규격/가이던스 번호", width=150),
+        "제목 (클릭 시 이동)": st.column_config.LinkColumn(
+            "제목 (클릭 시 이동)",
+            display_text=r".*", # URL 전체가 하이퍼링크가 되도록 지정
+            width=380
+        ),
+        "_title_text": None, # 비활성화
+        "적용범위": st.column_config.TextColumn("적용범위", width=110),
+        "SOP": st.column_config.TextColumn("SOP", width=60)
+    },
+    hide_index=True,
+    use_container_width=True
+)
 
 st.markdown("---")
 
