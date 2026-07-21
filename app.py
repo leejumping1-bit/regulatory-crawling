@@ -25,19 +25,76 @@ def render_html(html: str):
 
 st.markdown(textwrap.dedent("""
 <style>
-.reg-table-container { width: 100%; overflow-x: auto; margin-bottom: 20px; }
-.reg-table { width: 100%; border-collapse: collapse; font-size: 13.5px; background:#fff; }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --navy-950:#0b1220; --navy-900:#101a30; --navy-800:#16223d;
+  --slate-100:#f4f6fb; --slate-300:#d3d8e6; --teal:#0f8b8d; --amber:#c8811a;
+}
+
+html, body, [class*="css"] { font-family: 'Noto Sans KR', sans-serif; }
+.stApp { background: var(--slate-100); }
+
+/* 상단 배너 */
+.rw-topbar {
+  background: linear-gradient(120deg, var(--navy-950) 0%, var(--navy-800) 100%);
+  border-bottom: 3px solid var(--teal); border-radius: 10px;
+  padding: 18px 22px; margin-bottom: 18px; color: #fff;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
+}
+.rw-brand { display:flex; align-items:center; gap:14px; }
+.rw-brand-mark {
+  font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:12px; letter-spacing:.12em;
+  background:rgba(15,139,141,.25); border:1px solid var(--teal); color:#8fe3e4;
+  padding:6px 10px; border-radius:6px; white-space:nowrap;
+}
+.rw-brand h1 { font-size:19px; margin:0 0 2px; font-weight:700; }
+.rw-brand p { margin:0; font-size:12.5px; color:#9fb0d6; font-family:'IBM Plex Mono',monospace; }
+.rw-topbar-meta { font-size:12px; color:#b9c4e0; font-family:'IBM Plex Mono',monospace; text-align:right; }
+
+/* 패널(카드) 헤더 */
+.rw-panel-head { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.rw-panel-head h2 { font-size:16px; margin:0; font-weight:700; color:var(--navy-900); }
+.rw-step {
+  font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; color:#fff;
+  background:var(--navy-800); border-radius:5px; padding:3px 7px;
+}
+
+/* 카드(container border) 스타일 */
+div[data-testid="stVerticalBlockBorderWrapper"] {
+  background:#fff; border:1px solid var(--slate-300) !important; border-radius:10px !important;
+  box-shadow:0 1px 2px rgba(16,26,48,.04);
+}
+
+/* 버튼 - 틸 색상 */
+.stButton>button, .stDownloadButton>button, .stFormSubmitButton>button {
+  background: var(--teal); color:#fff; border:none; border-radius:7px; font-weight:600;
+}
+.stButton>button:hover, .stDownloadButton>button:hover, .stFormSubmitButton>button:hover {
+  filter: brightness(1.08); color:#fff;
+}
+
+/* 사이드바 */
+[data-testid="stSidebar"] { background: var(--navy-950); }
+[data-testid="stSidebar"] * { color:#dfe6f7 !important; }
+[data-testid="stSidebar"] input, [data-testid="stSidebar"] select,
+[data-testid="stSidebar"] [data-baseweb="select"] > div { background:#1a2744 !important; color:#fff !important; }
+
+.reg-table-container { width: 100%; overflow-x: auto; margin-bottom: 6px; }
+.reg-table { width: 100%; border-collapse: collapse; font-size: 12.8px; background:#fff; }
 .reg-table th {
-  background:#12203c; color:#e7ecfa; font-weight:700; text-align:center;
-  vertical-align:middle; padding:10px 8px; border:1px solid #223154; white-space:nowrap;
+  background:var(--navy-900); color:#e7ecfa; font-weight:700; text-align:center;
+  vertical-align:middle; padding:9px 8px; border:1px solid #223154; white-space:nowrap; font-size:11.5px;
 }
 .reg-table td {
   text-align:center; vertical-align:middle; padding:9px 8px; border:1px solid #dee2e6;
   word-break:keep-all; white-space:normal; line-height:1.5;
 }
 .reg-table td.title-cell { text-align:left; }
-.reg-table td.title-cell a { color:#0969da; text-decoration:underline; font-weight:600; }
-.reg-table tr:hover td { background:#f6f8fa; }
+.reg-table td.title-cell a { color:var(--teal); text-decoration:underline; font-weight:600; }
+.reg-table tr:hover td { background:#f1f6f8; }
+.reg-scope-tag { display:inline-block; font-size:11px; font-weight:600; padding:2px 8px; border-radius:99px; background:var(--slate-100); color:var(--navy-900); }
+
 .diff-box {
   background:#fff; border:1px solid #d0d7de; border-radius:6px; padding:16px;
   font-family:'IBM Plex Mono','Courier New',monospace; line-height:1.8; font-size:13px;
@@ -45,7 +102,7 @@ st.markdown(textwrap.dedent("""
 .diff-del { background:#ffebe9; color:#cf222e; text-decoration:line-through; padding:2px 4px; border-radius:3px; }
 .diff-add { background:#e6ffec; color:#1a7f37; font-weight:700; padding:2px 4px; border-radius:3px; }
 .diff-omit { color:#6e7781; font-style:italic; margin:8px 0; }
-.summary-card { background:#f6f8fa; border-left:4px solid #0969da; padding:16px; border-radius:6px; margin-bottom:20px; }
+.summary-card { background:var(--slate-100); border-left:4px solid var(--teal); padding:16px; border-radius:0 8px 8px 0; margin-bottom:6px; }
 </style>
 """), unsafe_allow_html=True)
 
@@ -62,12 +119,20 @@ data = _load()
 # ==================== 사이드바 ====================
 st.sidebar.title("⚙️ 규제 모니터링 제어")
 
-all_months = sorted({(item.get("search_month") or DEFAULT_SINCE) for item in data}, reverse=True)
+def effective_month(item):
+    """search_month가 비어있는(날짜 파싱 실패) 항목도 조용히 사라지지 않도록
+    'UNKNOWN' 버킷으로 명시적으로 분류한다 (목록 생성과 필터링에 동일하게 적용)."""
+    return item.get("search_month") or "UNKNOWN"
+
+
+all_months = sorted({effective_month(item) for item in data}, reverse=True)
 if not all_months:
     all_months = [date.today().strftime("%Y-%m")]
 selected_month = st.sidebar.selectbox("📅 조회 월 선택", all_months, index=0)
+if selected_month == "UNKNOWN":
+    st.sidebar.caption("⚠ 날짜를 파싱하지 못한 항목들입니다 (수집기 점검 필요).")
 
-filtered_data = [d for d in data if d.get("search_month") == selected_month]
+filtered_data = [d for d in data if effective_month(d) == selected_month]
 
 if filtered_data:
     df_export = pd.DataFrame([{
