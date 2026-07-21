@@ -124,19 +124,18 @@ if not filtered_data:
 # --- Section 1: 검토 대장 (LinkColumn 및 너비 조절 적용) ---
 st.subheader("📋 국내외 규격 및 가이던스 업데이트 검토 대장")
 
+# app.py 의 DataFrame 표시 부분
 df_display = pd.DataFrame([{
     "No.": item["no"],
     "고시일": item["publish_date"],
     "시행일": item["effective_date"],
     "발행처": item["publisher"],
     "규격/가이던스 번호": item["doc_no"],
-    "제목": item["url"], # LinkColumn으로 연결
-    "제목 텍스트": item["title"],
+    "제목 (클릭 시 이동)": item["url"],
     "적용범위": item["scope"],
     "SOP": item["sop_required"]
 } for item in filtered_data])
 
-# Streamlit Dataframe 링크 및 너비 설정
 st.dataframe(
     df_display,
     column_config={
@@ -145,12 +144,10 @@ st.dataframe(
         "시행일": st.column_config.TextColumn("시행일", width="small"),
         "발행처": st.column_config.TextColumn("발행처", width="small"),
         "규격/가이던스 번호": st.column_config.TextColumn("규격/가이던스 번호", width="medium"),
-        "제목": st.column_config.LinkColumn(
+        "제목 (클릭 시 이동)": st.column_config.LinkColumn(
             "제목 (클릭 시 이동)",
-            display_text=r".*", # URL 대신 제목 텍스트 표시
             width="large"
         ),
-        "제목 텍스트": None, # 화면에서 숨김
         "적용범위": st.column_config.TextColumn("적용범위", width="small"),
         "SOP": st.column_config.TextColumn("SOP", width="small")
     },
