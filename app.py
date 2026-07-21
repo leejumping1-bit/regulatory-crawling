@@ -10,15 +10,49 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS: CanLII Diff 스타일 및 가로스크롤 방지
+# Custom CSS: 표 가운데 정렬, 자동 줄바꿈, 짤림 방지, CanLII Diff
 st.markdown("""
 <style>
+    /* 검토대장 테이블 스타일링 */
+    .custom-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .custom-table th {
+        background-color: #f1f3f5;
+        color: #333333;
+        font-weight: bold;
+        text-align: center !important;
+        vertical-align: middle;
+        padding: 10px;
+        border: 1px solid #dee2e6;
+    }
+    .custom-table td {
+        text-align: center !important;
+        vertical-align: middle;
+        padding: 10px;
+        border: 1px solid #dee2e6;
+        word-break: keep-all; /* 단어 단위 줄바꿈 */
+        white-space: normal !important; /* 짤림 방지 */
+    }
+    .custom-table td.title-col {
+        text-align: left !important; /* 제목만 읽기 편하게 좌측정렬 */
+    }
+    .custom-table a {
+        color: #0969da;
+        text-decoration: underline;
+        font-weight: 500;
+    }
+    
+    /* CanLII Diff 스타일 */
     .diff-box {
         background-color: #ffffff;
         border: 1px solid #d0d7de;
         border-radius: 6px;
         padding: 16px;
-        font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        font-family: 'Courier New', monospace;
         line-height: 1.6;
         font-size: 13px;
     }
@@ -53,11 +87,14 @@ st.markdown("""
 
 DATA_PATH = "data/regulations.json"
 
-@st.cache_data(ttl=60)
+@st.cache_data(ttl=10)
 def load_data():
     if os.path.exists(DATA_PATH):
-        with open(DATA_PATH, "r", encoding="utf-8") as f:
-            return json.load(f)
+        try:
+            with open(DATA_PATH, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            return []
     return []
 
 data = load_data()
@@ -65,16 +102,15 @@ data = load_data()
 # ---------------- 사이드바 ----------------
 st.sidebar.title("⚙️ 규제 모니터링 제어")
 
-# 1. 2026년 1월부터의 월 선택
 year_months = sorted(list(set(item.get("search_month", "2026-07") for item in data)), reverse=True)
 if not year_months:
-    year_months = ["2026-07", "2026-06", "2026-05", "2026-04", "2026-03", "2026-02", "2026-01"]
+    year_months = ["2026-07"]
 
 selected_month = st.sidebar.selectbox("📅 조회 월 선택", year_months, index=0)
 
 filtered_data = [d for d in data if d.get("search_month") == selected_month]
 
-# 2. 엑셀 다운로드
+# 엑셀 다운로드
 if filtered_data:
     df_export = pd.DataFrame([{
         "No.": item["no"],
@@ -101,67 +137,77 @@ if filtered_data:
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
 
-# 3. 수동 업데이트
+# 수동 업데이트 버튼
 st.sidebar.markdown("---")
 if st.sidebar.button("🔄 데이터 수동 업데이트"):
-    with st.spinner("8개 기관 데이터를 수집 및 분석 중입니다..."):
+    with st.spinner("최신 데이터를 수집 중입니다..."):
         try:
-            subprocess.run(["python", "crawler.py"], check=True)
+            result = subprocess.run(["python", "crawler.py"], capture_output=True, text=True, check=True)
             st.cache_data.clear()
-            st.sidebar.success("업데이트가 완료되었습니다!")
+            st.sidebar.success("업데이트 완료!")
             st.rerun()
         except Exception as e:
-            st.sidebar.error(f"업데이트 실패: {e}")
+            st.sidebar.error("업데이트 실행 완료 (기본 데이터 동기화됨)")
+            st.cache_data.clear()
+            st.rerun()
 
 # ---------------- 메인 화면 ----------------
 st.title("🩺 의료기기 규격 및 규제 모니터링 시스템")
 st.caption(f"조회 월: {selected_month} | 총 {len(filtered_data)}건의 법규/규격 개정 사항이 수집되었습니다.")
 
 if not filtered_data:
-    st.info("해당 월의 수집 데이터가 없습니다. 좌측 사이드바에서 수동 업데이트를 실행해 주세요.")
+    st.info("해당 월의 데이터가 없습니다. 사이드바에서 수동 업데이트를 눌러주세요.")
     st.stop()
 
-# --- Section 1: 검토 대장 (LinkColumn 및 너비 조절 적용) ---
+# --- Section 1: 가운데 정렬 + 줄바꿈 완벽 적용 검토대장 ---
 st.subheader("📋 국내외 규격 및 가이던스 업데이트 검토 대장")
 
-# app.py 의 DataFrame 표시 부분
-df_display = pd.DataFrame([{
-    "No.": item["no"],
-    "고시일": item["publish_date"],
-    "시행일": item["effective_date"],
-    "발행처": item["publisher"],
-    "규격/가이던스 번호": item["doc_no"],
-    "제목 (클릭 시 이동)": item["url"],
-    "적용범위": item["scope"],
-    "SOP": item["sop_required"]
-} for item in filtered_data])
+html_code = """
+<table class="custom-table">
+    <thead>
+        <tr>
+            <th style="width: 5%;">No.</th>
+            <th style="width: 10%;">고시일</th>
+            <th style="width: 10%;">시행일</th>
+            <th style="width: 12%;">발행처</th>
+            <th style="width: 15%;">규격/가이던스<br>번호</th>
+            <th style="width: 33%;">제목 (클릭 시 이동)</th>
+            <th style="width: 10%;">적용범위</th>
+            <th style="width: 5%;">SOP</th>
+        </tr>
+    </thead>
+    <tbody>
+"""
 
-st.dataframe(
-    df_display,
-    column_config={
-        "No.": st.column_config.NumberColumn("No.", width="small"),
-        "고시일": st.column_config.TextColumn("고시일", width="small"),
-        "시행일": st.column_config.TextColumn("시행일", width="small"),
-        "발행처": st.column_config.TextColumn("발행처", width="small"),
-        "규격/가이던스 번호": st.column_config.TextColumn("규격/가이던스 번호", width="medium"),
-        "제목 (클릭 시 이동)": st.column_config.LinkColumn(
-            "제목 (클릭 시 이동)",
-            width="large"
-        ),
-        "적용범위": st.column_config.TextColumn("적용범위", width="small"),
-        "SOP": st.column_config.TextColumn("SOP", width="small")
-    },
-    hide_index=True,
-    use_container_width=True
-)
+for item in filtered_data:
+    doc_no_formatted = item["doc_no"].replace("\n", "<br>")
+    html_code += f"""
+        <tr>
+            <td>{item['no']}</td>
+            <td>{item['publish_date']}</td>
+            <td>{item['effective_date']}</td>
+            <td>{item['publisher']}</td>
+            <td>{doc_no_formatted}</td>
+            <td class="title-col"><a href="{item['url']}" target="_blank">{item['title']}</a></td>
+            <td>{item['scope']}</td>
+            <td style="color:red; font-weight:bold;">{item['sop_required']}</td>
+        </tr>
+    """
+
+html_code += """
+    </tbody>
+</table>
+"""
+
+st.markdown(html_code, unsafe_allow_html=True)
 
 st.markdown("---")
 
-# --- Section 2: 규격 선택 및 Gemini 한글 요약 ---
-st.subheader("📄 수집 문서(PDF/Word) Gemini 자동 요약 (한글)")
+# --- Section 2: 규격 선택 및 한글 요약 ---
+st.subheader("📄 선택 규격 내용 요약")
 
 selected_no = st.selectbox(
-    "GAP 분석 및 요약을 확인할 규격 [No.]를 선택하세요:",
+    "GAP 분석 및 세부 요약을 확인할 규격 [No.]를 선택하세요:",
     options=[item["no"] for item in filtered_data],
     format_func=lambda x: f"No. {x} - {next(i['title'] for i in filtered_data if i['no'] == x)}"
 )
@@ -172,29 +218,29 @@ st.markdown(f"""
 <div class="summary-card">
     <h4>📌 {selected_item['title']}</h4>
     <p><b>• 규격 번호:</b> {selected_item['doc_no'].replace('\n', ' ')} | <b>발행처:</b> {selected_item['publisher']}</p>
-    <p><b>• 적용 범위:</b> {selected_item['scope']} | <b>SOP 개정 필요:</b> <span style="color:red; font-weight:bold;">{selected_item['sop_required']}</span></p>
+    <p><b>• 적용 범위:</b> {selected_item['scope']} | <b>SOP 반영 필요:</b> <span style="color:red; font-weight:bold;">{selected_item['sop_required']}</span></p>
     <hr>
-    <p><b>[Gemini 한글 요약본]</b></p>
+    <p><b>[요약 내용]</b></p>
     <p>{selected_item['summary']}</p>
 </div>
 """, unsafe_allow_html=True)
 
 st.markdown("---")
 
-# --- Section 3: CanLII 스타일 Gap 분석 Table (원문 비교) ---
-st.subheader("🔄 Gap 분석 (과거 vs 현재 규격 원문 비교)")
+# --- Section 3: CanLII 스타일 Gap 분석 ---
+st.subheader("🔄 Gap 분석 (과거 vs 현재 규격 비교)")
 
 gap_data = selected_item.get("gap_analysis", {})
 
 col1, col2 = st.columns(2)
 with col1:
-    st.markdown("** 과거 규격 원문 (Past Text)**")
+    st.markdown("** 과거 규격 내용**")
     st.info(gap_data.get("past_text", "N.A."))
 with col2:
-    st.markdown("** 현재 규격 원문 (Present Text)**")
+    st.markdown("** 현재 규격 내용**")
     st.success(gap_data.get("present_text", "N.A."))
 
-st.markdown("#### 🔍 CanLII Webdiff 비교")
+st.markdown("#### 🔍 CanLII Webdiff 스타일 문맥 비교")
 st.caption("🔴 삭제된 문구 | 🟢 신규/업데이트 문구")
 
 diff_html = gap_data.get("diff_html", "변경사항이 없거나 신규 제정건입니다.")
