@@ -10,17 +10,50 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS: 가운데 정렬 및 글자 짤림 방지, CanLII Diff 스타일
+# Custom CSS: 가운데 정렬, 줄바꿈 짤림 방지, CanLII Diff 스타일
 st.markdown("""
 <style>
-    /* Streamlit DataFrame 스타일 튜닝 */
-    [data-testid="stDataFrame"] {
-        width: 100% !important;
+    /* 검토대장 HTML 표 완벽 스타일링 */
+    .reg-table-container {
+        width: 100%;
+        overflow-x: auto;
+        margin-bottom: 20px;
     }
-    [data-testid="stDataFrame"] td {
+    .reg-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+        background-color: #ffffff;
+    }
+    .reg-table th {
+        background-color: #f1f3f5;
+        color: #333333;
+        font-weight: bold;
         text-align: center !important;
-        white-space: normal !important;
-        word-break: keep-all !important;
+        vertical-align: middle;
+        padding: 12px 8px;
+        border: 1px solid #dee2e6;
+        white-space: nowrap;
+    }
+    .reg-table td {
+        text-align: center !important;
+        vertical-align: middle;
+        padding: 10px 8px;
+        border: 1px solid #dee2e6;
+        word-break: keep-all; /* 단어 단위 줄바꿈 */
+        white-space: normal !important; /* 짤림 방지 */
+        line-height: 1.5;
+    }
+    .reg-table td.title-cell {
+        text-align: center !important; /* 제목도 가운데 정렬 */
+    }
+    .reg-table td.title-cell a {
+        color: #0969da;
+        text-decoration: underline;
+        font-weight: 600;
+    }
+    .reg-table td.title-cell a:hover {
+        color: #054da7;
     }
     
     /* CanLII Diff 스타일 */
@@ -136,43 +169,50 @@ if not filtered_data:
     st.info("해당 월의 데이터가 없습니다. 사이드바에서 수동 업데이트를 눌러주세요.")
     st.stop()
 
-# --- Section 1: 검토 대장 (안전한 Streamlit Native Dataframe) ---
+# --- Section 1: 가운데 정렬 + 제목 링크 검토대장 ---
 st.subheader("📋 국내외 규격 및 가이던스 업데이트 검토 대장")
 
-# 데이터프레임 변환
-df_table = pd.DataFrame([{
-    "No.": item["no"],
-    "고시일": item["publish_date"],
-    "시행일": item["effective_date"],
-    "발행처": item["publisher"],
-    "규격/가이던스 번호": item["doc_no"].replace("\n", " "),
-    "제목 (클릭 시 이동)": item["url"],
-    "_title_text": item["title"],
-    "적용범위": item["scope"],
-    "SOP": item["sop_required"]
-} for item in filtered_data])
+# HTML 테이블 생성
+table_html = """
+<div class="reg-table-container">
+    <table class="reg-table">
+        <thead>
+            <tr>
+                <th style="width: 5%;">No.</th>
+                <th style="width: 10%;">고시일</th>
+                <th style="width: 10%;">시행일</th>
+                <th style="width: 12%;">발행처</th>
+                <th style="width: 15%;">규격/가이던스 번호</th>
+                <th style="width: 33%;">제목 (클릭 시 이동)</th>
+                <th style="width: 10%;">적용범위</th>
+                <th style="width: 5%;">SOP</th>
+            </tr>
+        </thead>
+        <tbody>
+"""
 
-# Streamlit native table - HTML 깨짐 없이 깔끔하게 표 생성
-st.dataframe(
-    df_table,
-    column_config={
-        "No.": st.column_config.NumberColumn("No.", width=50),
-        "고시일": st.column_config.TextColumn("고시일", width=100),
-        "시행일": st.column_config.TextColumn("시행일", width=100),
-        "발행처": st.column_config.TextColumn("발행처", width=110),
-        "규격/가이던스 번호": st.column_config.TextColumn("규격/가이던스 번호", width=150),
-        "제목 (클릭 시 이동)": st.column_config.LinkColumn(
-            "제목 (클릭 시 이동)",
-            display_text=r".*", # URL 전체가 하이퍼링크가 되도록 지정
-            width=380
-        ),
-        "_title_text": None, # 비활성화
-        "적용범위": st.column_config.TextColumn("적용범위", width=110),
-        "SOP": st.column_config.TextColumn("SOP", width=60)
-    },
-    hide_index=True,
-    use_container_width=True
-)
+for item in filtered_data:
+    doc_no_clean = item["doc_no"].replace("\n", " ")
+    table_html += f"""
+            <tr>
+                <td>{item['no']}</td>
+                <td>{item['publish_date']}</td>
+                <td>{item['effective_date']}</td>
+                <td>{item['publisher']}</td>
+                <td>{doc_no_clean}</td>
+                <td class="title-cell"><a href="{item['url']}" target="_blank">{item['title']}</a></td>
+                <td>{item['scope']}</td>
+                <td style="color: red; font-weight: bold;">{item['sop_required']}</td>
+            </tr>
+    """
+
+table_html += """
+        </tbody>
+    </table>
+</div>
+"""
+
+st.markdown(table_html, unsafe_allow_html=True)
 
 st.markdown("---")
 
