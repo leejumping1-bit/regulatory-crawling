@@ -1,0 +1,36 @@
+name: Scheduled Regulatory Crawl
+
+on:
+  schedule:
+    # 매월 1일 00:10 UTC = 한국시간 09:10 (MFDS 제외 7개 기관만 자동 실행)
+    - cron: "10 0 1 * *"
+  workflow_dispatch: {}
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run collectors (MDCG/FDA/MHRA/MDSAP/TGA/Health Canada/PMDA)
+        run: python crawler.py --since 2026-01
+        # OPENAI_API_KEY / ANTHROPIC_API_KEY 를 GitHub Secrets에 등록하면
+        # summarizer.py가 자동으로 LLM 요약으로 전환됩니다 (미등록 시 규칙기반 요약).
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Commit and push if updated
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/regulations.json data/snapshots/*.txt
+          git commit -m "chore: scheduled regulatory data update [skip ci]" || exit 0
+          git push
