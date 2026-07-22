@@ -177,14 +177,29 @@ with ctrl2:
 
 with ctrl3:
     st.markdown('<div class="rw-controlbar-label">🔄 데이터 수동 업데이트</div>', unsafe_allow_html=True)
-    if st.button("지금 실행 (8개 기관)", use_container_width=True):
-        with st.spinner("최신 데이터를 수집 중입니다... (수 분 소요될 수 있습니다)"):
-            from crawler import run_crawler
-            since_y, since_m = int(DEFAULT_SINCE[:4]), int(DEFAULT_SINCE[5:7])
-            saved, summary = run_crawler(since_y, since_m)
+    run_clicked = st.button("지금 실행 (8개 기관)", use_container_width=True)
+    if run_clicked:
+        from crawler import run_crawler
+        since_y, since_m = int(DEFAULT_SINCE[:4]), int(DEFAULT_SINCE[5:7])
+
+        progress_box = st.empty()
+        log_lines = []
+
+        def _progress(agency_key, status):
+            log_lines.append(f"· {agency_key}: {status}")
+            progress_box.markdown("\n\n".join(log_lines))
+
+        with st.spinner("최신 데이터를 수집 중입니다... (기관별로 끝나는 대로 즉시 저장됩니다)"):
+            saved, summary = run_crawler(since_y, since_m, progress_cb=_progress)
             st.cache_data.clear()
-        st.success("업데이트 완료! " + " · ".join(f"{k}: {v}" for k, v in summary.items()))
+        st.success(f"완료! 총 {len(saved)}건 저장됨")
         st.rerun()
+
+st.caption(
+    "⚠ 이 버튼으로 수집한 데이터는 이 앱이 실행 중인 서버(임시 저장소)에만 반영됩니다. "
+    "GitHub 저장소에는 커밋되지 않으므로, 앱이 재시작되면 사라질 수 있습니다. "
+    "영구 반영은 매일 아침 9시(KST) GitHub Actions 자동 수집이 담당합니다."
+)
 
 st.caption(
     "MFDS는 robots.txt 상 자동접근 비권장 사이트이나, 비상업적 사내 QA 모니터링 목적으로 "
