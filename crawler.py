@@ -15,7 +15,7 @@ import os
 sys.path.append(os.path.dirname(__file__))
 from collectors.store import upsert_regulations  # noqa: E402
 
-AUTO_AGENCIES = ["mdcg", "fda", "mhra", "mdsap", "tga", "health_canada", "pmda"]
+AUTO_AGENCIES = ["mfds", "mdcg", "fda", "mhra", "mdsap", "tga", "health_canada", "pmda"]
 
 
 def run_crawler(since_year=2026, since_month=1, only=None):

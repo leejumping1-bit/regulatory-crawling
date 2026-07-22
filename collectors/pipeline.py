@@ -48,10 +48,13 @@ def fetch_detail_text(url, attachment_exts=(".pdf", ".docx", ".hwpx")):
 
 
 def build_item(agency_label, title, url, pub_date, doc_no, effective_date=None,
-                fetch_detail=True):
-    body_text, status = ("", "상세 미조회")
-    if fetch_detail:
+                fetch_detail=True, prefetched_text=None):
+    if prefetched_text is not None:
+        body_text, status = prefetched_text, "OK (사전 추출됨)"
+    elif fetch_detail:
         body_text, status = fetch_detail_text(url)
+    else:
+        body_text, status = "", "상세 미조회"
 
     summary_source = body_text or title
     prev = load_previous_snapshot(agency_label, doc_no)

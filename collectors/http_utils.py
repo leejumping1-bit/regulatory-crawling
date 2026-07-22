@@ -53,7 +53,10 @@ def _robots_allowed(url: str, user_agent: str = "*") -> bool:
 
 
 def fetch(url, timeout=15, retries=2, backoff=2.0, session=None,
-          respect_robots=True) -> FetchResult:
+          respect_robots=True, politeness_delay=0.0) -> FetchResult:
+    if politeness_delay:
+        time.sleep(politeness_delay)
+
     if respect_robots and not _robots_allowed(url):
         return FetchResult(False, blocked=False, robots_disallowed=True,
                             error=f"robots.txt 에 의해 접근이 차단된 URL: {url}")
@@ -81,8 +84,10 @@ def fetch(url, timeout=15, retries=2, backoff=2.0, session=None,
     return FetchResult(False, None, blocked=False, error=str(last_err))
 
 
-def fetch_binary(url, timeout=25, respect_robots=True):
+def fetch_binary(url, timeout=25, respect_robots=True, politeness_delay=0.0):
     """첨부파일(PDF/DOCX/HWPX) 다운로드용. 성공 시 bytes, 실패 시 None."""
+    if politeness_delay:
+        time.sleep(politeness_delay)
     if respect_robots and not _robots_allowed(url):
         return None
     try:
