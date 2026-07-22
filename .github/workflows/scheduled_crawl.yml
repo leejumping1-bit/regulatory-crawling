@@ -2,8 +2,11 @@ name: Scheduled Regulatory Crawl
 
 on:
   schedule:
-    # 매월 1일 00:10 UTC = 한국시간 09:10 (MFDS 제외 7개 기관만 자동 실행)
-    - cron: "10 0 1 * *"
+    # 매일 00:00 UTC = 한국시간 09:00 — 매일 아침 재수집
+    # (crawler.py는 매번 2026-01-01부터 다시 훑지만, data/regulations.json에는
+    #  publisher+doc_no 기준으로 upsert되므로 기존 항목은 갱신되고 새 항목만 추가됩니다.
+    #  최초 실행 시에만 시간이 오래 걸리고, 이후에는 신규/변경분만 반영되는 셈입니다.)
+    - cron: "0 0 * * *"
   workflow_dispatch: {}
 
 jobs:
@@ -19,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run collectors (MDCG/FDA/MHRA/MDSAP/TGA/Health Canada/PMDA)
+      - name: Run collectors (MFDS/MDCG/FDA/MHRA/MDSAP/TGA/Health Canada/PMDA)
         run: python crawler.py --since 2026-01
         # OPENAI_API_KEY / ANTHROPIC_API_KEY 를 GitHub Secrets에 등록하면
         # summarizer.py가 자동으로 LLM 요약으로 전환됩니다 (미등록 시 규칙기반 요약).
