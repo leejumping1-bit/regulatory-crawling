@@ -27,9 +27,10 @@ jobs:
 
       - name: Run collectors (MFDS/MDCG/FDA/MHRA/MDSAP/TGA/Health Canada/PMDA)
         run: python crawler.py --since 2026-01
-        # OPENAI_API_KEY / ANTHROPIC_API_KEY 를 GitHub Secrets에 등록하면
-        # summarizer.py가 자동으로 LLM 요약으로 전환됩니다 (미등록 시 규칙기반 요약).
+        # GEMINI_API_KEY / OPENAI_API_KEY / ANTHROPIC_API_KEY 를 GitHub Secrets에 등록하면
+        # summarizer.py가 자동으로 LLM 요약으로 전환됩니다 (미등록 시 규칙기반 요약, GEMINI 우선).
         env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
