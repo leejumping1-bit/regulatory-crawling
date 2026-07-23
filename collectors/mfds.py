@@ -1,15 +1,22 @@
 """
-MFDS(식품의약품안전처) 자동 수집기
+MFDS(식품의약품안전처) 자동 수집기 — v2 (제목검색 방식)
 
-※ 참고: mfds.go.kr 은 robots.txt로 자동화된 접근을 비권장(Disallow)하고 있습니다.
-사용자가 개인/사내 QA 모니터링 목적(비상업적 이용)임을 확인하고, 이 신호를 의도적으로
-우회하도록 요청하여 respect_robots=False 로 접근합니다. 서버 부담을 최소화하기 위해
-요청 사이에 politeness_delay를 두고, 게시판당 최신 게시물 소수만 확인합니다.
-IP 차단·CAPTCHA 등 '기술적' 차단이 걸리는 경우는 우회하지 않고 실패로 처리합니다.
+이전 버전 문제: 게시판 최신글을 무작정 훑어서 상세페이지를 일일이 방문 → 느림.
+이번 버전: MFDS 게시판이 자체 제공하는 "제목 검색" 기능을 그대로 사용한다.
+  예) https://www.mfds.go.kr/brd/m_203/list.do?srchTp=0&srchWord=의료기기
+사용자가 화면에서 확인해준 대로, 이 검색은 서버가 직접 필터링해서 결과를 돌려주므로
+우리가 최신글을 판단할 필요 없이 "의료기기" 또는 "약전" 이 제목에 포함된 글만 정확히 받는다.
 
-※ 시간 예산: Streamlit Cloud 등 호스팅 플랫폼은 너무 오래 걸리는 요청을 강제
-종료시킬 수 있다. 이를 대비해 전체 처리 시간이 TIME_BUDGET_SECONDS를 넘으면
-남은 후보는 건너뛰고 그때까지 모은 결과만 반환한다(부분 결과라도 유실 방지).
+또한 board m_207(제개정고시등)처럼 첨부파일(PDF/HWPX) 링크가 목록 화면에 이미 노출되는
+게시판은 상세페이지를 방문하지 않고 목록에서 바로 첨부파일을 받아 처리한다 — 훨씬 빠르다.
+목록에 첨부가 없는 게시판만 상세페이지(view.do)를 방문해서 첨부를 찾는다.
+
+법 자체가 통째로 갱신되는 「의료기기법」/「의료기기법 시행규칙」/「의료기기법 시행령」은
+Gap 분석이 특히 중요하므로 SOP(★)를 항상 강제로 켠다.
+
+※ robots.txt 우회에 대한 안내는 이전과 동일 — 사용자가 비상업적 사내 QA 모니터링 목적임을
+확인하고 명시적으로 요청하여 respect_robots=False로 접근한다. 서버 부담 최소화를 위해
+요청 사이에 딜레이를 둔다.
 """
 import re
 import sys
@@ -19,7 +26,9 @@ import time
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch, fetch_binary  # noqa: E402
 from collectors.file_extract import extract_text  # noqa: E402
-from collectors.pipeline import build_item, is_medical_device_related  # noqa: E402
+from collectors.summarizer import summarize, guess_scope, guess_sop_flag  # noqa: E402
+from collectors.diff_engine import generate_gap  # noqa: E402
+from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
 
 try:
     from bs4 import BeautifulSoup
@@ -36,14 +45,21 @@ BOARDS = {
     "법률 제개정 현황": "https://www.mfds.go.kr/brd/m_1087/list.do",
 }
 
+# 제목에 이 키워드가 포함된 경우만 수집 대상으로 삼는다 (서버 검색 + 클라이언트 재확인 이중 체크)
+TITLE_KEYWORDS = ["의료기기", "약전"]
+
+# 이 문서들은 "법 원문 자체"가 통째로 교체되는 문서라 Gap 분석 중요도가 특히 높다 → SOP 강제 ★
+FULL_LAW_PATTERNS = ["의료기기법 시행규칙", "의료기기법 시행령", "「의료기기법」"]
+
 DATE_RE = re.compile(r"(20\d{2})[.\-](\d{1,2})[.\-](\d{1,2})")
-POLITENESS_DELAY = 1.0       # 초 — 서버 부담 최소화
-MAX_ROWS_PER_BOARD = 5       # 게시판당 최신 N건만 (기존 10 → 5)
-MAX_TOTAL_CANDIDATES = 20    # 상세페이지까지 확인할 전체 후보 상한
-TIME_BUDGET_SECONDS = 150    # 이 함수 전체가 넘지 않도록 하는 시간 예산 (약 2.5분)
+DOC_NO_RE = re.compile(r"(제\s*20\d{2}-\d+\s*호|총리령\s*제\d+호|대통령령\s*제\d+호|법률\s*제\d+호)")
+ATTACHMENT_EXTS = (".pdf", ".hwpx", ".hwp")
+
+POLITENESS_DELAY = 1.0
 LIST_TIMEOUT = 10
 DETAIL_TIMEOUT = 10
 FILE_TIMEOUT = 15
+TIME_BUDGET_SECONDS = 150
 
 
 def _normalize_date(text):
@@ -54,8 +70,16 @@ def _normalize_date(text):
     return f"{y}-{int(mo):02d}-{int(d):02d}"
 
 
-def _crawl_board(board_name, board_url, since_year, since_month, max_rows=MAX_ROWS_PER_BOARD):
-    res = fetch(board_url, respect_robots=False, politeness_delay=POLITENESS_DELAY, timeout=LIST_TIMEOUT)
+def _is_full_law(title):
+    return any(p.replace("「", "").replace("」", "") in title for p in FULL_LAW_PATTERNS)
+
+
+def _search_board(board_name, board_url, keyword, since_year, since_month):
+    """MFDS 게시판의 제목검색 기능을 이용한다. 다른 파라미터(board_id 등)는 게시판마다
+    다를 수 있어 최소 파라미터(srchTp, srchWord)만 사용한다 — 서버가 기본값을 채워주는
+    것으로 가정한다(사용자가 확인해준 실제 URL 기준)."""
+    url = f"{board_url}?srchTp=0&srchWord={keyword}"
+    res = fetch(url, respect_robots=False, politeness_delay=POLITENESS_DELAY, timeout=LIST_TIMEOUT)
     if not res.ok:
         return [], res
     if BeautifulSoup is None:
@@ -67,110 +91,153 @@ def _crawl_board(board_name, board_url, since_year, since_month, max_rows=MAX_RO
         title = a.get_text(strip=True)
         if not title or len(title) < 4:
             continue
+        if not any(kw in title for kw in TITLE_KEYWORDS):
+            continue  # 클라이언트 재확인
+
         href = a.get("href")
         view_url = href if href.startswith("http") else board_url.rsplit("/", 1)[0] + "/" + href.lstrip("./")
 
-        tr = a.find_parent("tr")
-        row_text = tr.get_text(" ", strip=True) if tr else ""
-        pub_date = _normalize_date(row_text)
+        block = a.find_parent("li") or a.find_parent("tr") or a.find_parent("div") or a
+        block_text = block.get_text(" ", strip=True)
+        pub_date = _normalize_date(block_text)
         if pub_date:
             y, mo = int(pub_date[:4]), int(pub_date[5:7])
             if (y, mo) < (since_year, since_month):
                 continue
 
-        rows.append({"board": board_name, "title": title, "url": view_url, "pub_date": pub_date})
-        if len(rows) >= max_rows:
-            break
+        # 목록 화면에 이미 노출된 첨부파일 링크가 있는지 확인 (있으면 상세페이지 스킵 가능)
+        attachments = []
+        for att_a in block.select('a[href$=".pdf"], a[href$=".hwpx"], a[href$=".hwp"]'):
+            att_href = att_a.get("href")
+            if not att_href:
+                continue
+            att_url = att_href if att_href.startswith("http") else board_url.rsplit("/", 1)[0] + "/" + att_href.lstrip("./")
+            attachments.append(att_url)
+
+        m_no = DOC_NO_RE.search(block_text)
+
+        rows.append({
+            "board": board_name,
+            "title": title,
+            "view_url": view_url,
+            "pub_date": pub_date,
+            "attachments": attachments,
+            "doc_no": m_no.group(1) if m_no else None,
+        })
     return rows, None
 
 
-def _process_candidate(c):
-    """실패해도 예외를 밖으로 던지지 않고 None을 반환 — 후보 하나의 오류가
-    이미 처리된 다른 후보들의 결과까지 날려버리지 않도록 한다."""
-    try:
-        detail_res = fetch(c["url"], respect_robots=False,
-                            politeness_delay=POLITENESS_DELAY, timeout=DETAIL_TIMEOUT)
-        detail_text = ""
-        doc_no = None
-
-        if detail_res.ok and BeautifulSoup is not None:
-            dsoup = BeautifulSoup(detail_res.text, "html.parser")
-            page_text = dsoup.get_text(" ", strip=True)
-
-            m_no = re.search(r"(제\s*\d{4}-\d+\s*호|총리령\s*제\d+호|법률\s*제\d+호)", page_text)
-            doc_no = m_no.group(1) if m_no else None
-
-            if not c.get("pub_date"):
-                m_dates = DATE_RE.findall(page_text)
-                if m_dates:
-                    y, mo, d = m_dates[0]
-                    c["pub_date"] = f"{y}-{int(mo):02d}-{int(d):02d}"
-
-            for ext in (".pdf", ".hwpx", ".docx"):
-                att = dsoup.select_one(f'a[href$="{ext}"]')
-                if not att:
-                    continue
-                href = att.get("href")
-                file_url = href if href.startswith("http") else c["url"].rsplit("/", 1)[0] + "/" + href.lstrip("./")
-                content = fetch_binary(file_url, respect_robots=False,
-                                        politeness_delay=POLITENESS_DELAY, timeout=FILE_TIMEOUT)
-                if content:
-                    text, status = extract_text(content, f"file{ext}")
-                    if text:
-                        detail_text = text
-                        break
-
-            if not detail_text:
-                main = dsoup.select_one("main") or dsoup.body
-                detail_text = main.get_text("\n", strip=True) if main else ""
-
-        combined_text = f"{c['title']} {detail_text}"
-        if "의료기기" not in combined_text and not is_medical_device_related(combined_text):
-            return None
-
-        return build_item(
-            agency_label="MFDS (Korea)",
-            title=c["title"],
-            url=c["url"],
-            pub_date=c.get("pub_date"),
-            effective_date=None,
-            doc_no=doc_no or c["board"],
-            prefetched_text=detail_text,
-        )
-    except Exception as e:
-        print(f"[mfds] 후보 처리 중 오류(건너뜀): {c.get('title')} — {e}")
-        return None
-
-
-def run(since_year=2026, since_month=1):
-    start = time.time()
-    all_candidates = []
-
-    for name, url in BOARDS.items():
-        if time.time() - start > TIME_BUDGET_SECONDS:
-            print(f"[mfds] 시간 예산 초과로 남은 게시판 건너뜀 (목록 수집 단계)")
-            break
-        rows, err = _crawl_board(name, url, since_year, since_month)
-        if err:
-            print(f"[mfds] '{name}' 게시판 접속 실패: {err.error}")
+def _fetch_attachment_text(urls):
+    for u in urls:
+        content = fetch_binary(u, respect_robots=False, politeness_delay=POLITENESS_DELAY, timeout=FILE_TIMEOUT)
+        if not content:
             continue
-        all_candidates.extend(rows)
+        filename = u.rsplit("/", 1)[-1]
+        text, status = extract_text(content, filename)
+        if text:
+            return text, "OK (목록 첨부)"
+    return "", "첨부 추출 실패 또는 없음"
 
-    all_candidates = all_candidates[:MAX_TOTAL_CANDIDATES]
+
+def _fetch_detail_and_attachment(view_url):
+    """목록에 첨부가 없을 때만 상세페이지를 방문한다."""
+    res = fetch(view_url, respect_robots=False, politeness_delay=POLITENESS_DELAY, timeout=DETAIL_TIMEOUT)
+    if not res.ok or BeautifulSoup is None:
+        return "", None, (res.error if not res.ok else "beautifulsoup4 미설치")
+
+    dsoup = BeautifulSoup(res.text, "html.parser")
+    page_text = dsoup.get_text(" ", strip=True)
+    m_no = DOC_NO_RE.search(page_text)
+
+    for ext in ATTACHMENT_EXTS:
+        att = dsoup.select_one(f'a[href$="{ext}"]')
+        if not att:
+            continue
+        href = att.get("href")
+        file_url = href if href.startswith("http") else view_url.rsplit("/", 1)[0] + "/" + href.lstrip("./")
+        content = fetch_binary(file_url, respect_robots=False, politeness_delay=POLITENESS_DELAY, timeout=FILE_TIMEOUT)
+        if content:
+            text, status = extract_text(content, f"file{ext}")
+            if text:
+                return text, (m_no.group(1) if m_no else None), "OK (상세페이지 첨부)"
+
+    main = dsoup.select_one("main") or dsoup.body
+    fallback_text = main.get_text("\n", strip=True) if main else ""
+    return fallback_text, (m_no.group(1) if m_no else None), "OK (첨부 없음 — 본문 텍스트)"
+
+
+def run(since_year=2026, since_month=1, today_only=False):
+    start = time.time()
+    if today_only:
+        from datetime import date
+        since_year, since_month = date.today().year, date.today().month
+
+    all_rows = {}
+    for board_name, board_url in BOARDS.items():
+        if time.time() - start > TIME_BUDGET_SECONDS:
+            print("[mfds] 시간 예산 초과 — 목록 검색 단계에서 중단")
+            break
+        for kw in TITLE_KEYWORDS:
+            rows, err = _search_board(board_name, board_url, kw, since_year, since_month)
+            if err:
+                print(f"[mfds] '{board_name}'({kw}) 검색 실패: {err.error}")
+                continue
+            for r in rows:
+                all_rows[r["view_url"]] = r  # URL 기준 중복 제거
+
+    if today_only:
+        from datetime import date
+        today_str = date.today().isoformat()
+        all_rows = {k: v for k, v in all_rows.items() if v.get("pub_date") == today_str}
 
     results = []
-    for c in all_candidates:
+    for c in all_rows.values():
         if time.time() - start > TIME_BUDGET_SECONDS:
-            print(f"[mfds] 시간 예산 초과로 남은 {len(all_candidates) - len(results)}건 건너뜀 "
-                  f"(지금까지 {len(results)}건은 보존됨)")
+            print(f"[mfds] 시간 예산 초과 — 남은 {len(all_rows) - len(results)}건 건너뜀")
             break
-        item = _process_candidate(c)
-        if item:
-            results.append(item)
+        try:
+            if c["attachments"]:
+                body_text, status = _fetch_attachment_text(c["attachments"])
+                doc_no = c["doc_no"]
+            else:
+                body_text, doc_no_from_detail, status = _fetch_detail_and_attachment(c["view_url"])
+                doc_no = c["doc_no"] or doc_no_from_detail
+
+            doc_no = doc_no or c["board"]
+            prev = load_previous_snapshot("MFDS", doc_no)
+            gap = generate_gap(prev, body_text or c["title"])
+            if body_text:
+                save_snapshot("MFDS", doc_no, body_text)
+
+            summary_source = body_text or c["title"]
+            forced_sop = _is_full_law(c["title"])
+
+            results.append({
+                "search_month": (c["pub_date"] or "")[:7],
+                "publish_date": c["pub_date"],
+                "effective_date": None,
+                "publisher": "MFDS (Korea)",
+                "doc_no": doc_no,
+                "title": c["title"],
+                "summary": summarize(c["title"], summary_source) + (
+                    "" if body_text else f"\n\n(원문 확보 실패: {status})") + (
+                    "\n\n⚠ 법 원문 전체가 교체되는 문서입니다 — 아래 Gap 분석을 반드시 확인하세요."
+                    if forced_sop else ""
+                ),
+                "scope": guess_scope(c["title"] + " " + summary_source),
+                "sop_required": "★" if (forced_sop or guess_sop_flag(c["title"] + " " + summary_source)) else "",
+                "url": c["view_url"],
+                "gap_analysis": gap,
+            })
+        except Exception as e:
+            print(f"[mfds] 후보 처리 중 오류(건너뜀): {c.get('title')} — {e}")
+            continue
 
     return results, None
 
 
 if __name__ == "__main__":
-    found, block = run()
-    print(f"수집 {len(found)}건")
+    found, block = run(today_only=True)
+    print(f"오늘자 수집 {len(found)}건")
+    for f in found:
+        print(" -", f["title"], f["url"])
