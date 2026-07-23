@@ -122,10 +122,20 @@ def _crawl_feed(url_tmpl, since_year, since_month, today_only, require_keyword):
         if res.robots_disallowed:
             return [], res
         if not res.ok:
+            print(f"[mdcg][DEBUG] page={page} 요청 실패: {res.error}")
             break
 
+        marker_count = res.text.count(SPLIT_MARKER)
+        print(f"[mdcg][DEBUG] page={page} 응답 {len(res.text)}자, "
+              f"'{SPLIT_MARKER}' 문자열 {marker_count}회 발견")
+
         items = _extract_items(res.text)
+        print(f"[mdcg][DEBUG] page={page} 파싱된 항목 {len(items)}개")
         if not items:
+            if marker_count > 0:
+                print(f"[mdcg][DEBUG]   ⚠ 마커는 있는데 항목 추출 실패 — 정규식(ANCHOR_RE/DATE_RE) 불일치 의심")
+            else:
+                print(f"[mdcg][DEBUG]   ⚠ 마커 자체가 없음 — 자바스크립트 렌더링(빈 뼈대 HTML) 의심")
             break
 
         stop = False
