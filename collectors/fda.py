@@ -40,15 +40,24 @@ LAST_SEEN_KEY = "FDA_last_issue_date"
 def _get_latest_issue_date():
     res = fetch(VERSIONS_API)
     if not res.ok:
+        print(f"[fda][DEBUG] 버전 API 요청 실패: {res.error}")
         return None, res
+    print(f"[fda][DEBUG] 버전 API 응답 {len(res.text)}자")
     try:
         import json
         data = json.loads(res.text)
     except Exception as e:
+        print(f"[fda][DEBUG] JSON 파싱 실패, 응답 앞부분: {res.text[:300]!r}")
         return None, f"버전 API 응답 파싱 실패: {e}"
+
+    print(f"[fda][DEBUG] 최상위 키: {list(data.keys())}")
 
     # 응답 스키마 후보 여러 개를 시도한다 (실제 구조 미검증에 대한 방어적 처리)
     candidates = data.get("content_versions") or data.get("versions") or []
+    print(f"[fda][DEBUG] content_versions/versions 항목 수: {len(candidates)}")
+    if candidates:
+        print(f"[fda][DEBUG] 첫 항목 예시: {candidates[0]}")
+
     part_versions = [v for v in candidates if str(v.get("part")) == "820"]
     if not part_versions:
         return None, "Part 820 버전 정보를 응답에서 찾지 못했습니다 (스키마 확인 필요)"
