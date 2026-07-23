@@ -1,16 +1,23 @@
 """
-MDCG(EU) 수집기 — 정규식 기반 재작성판
+MDCG(EU) 수집기 — v3
 
-기존 버전의 버그: a.find_parent()로 "주변 컨텍스트"를 잡을 때 페이지 전체/여러 항목을
-아우르는 큰 덩어리를 잡아버려 제목·날짜·의료기기 키워드가 서로 엉뚱하게 섞였다.
+두 개의 소스를 구분해서 처리한다 (사용자 확인·검증 완료):
 
-이번 버전은 CSS 클래스에 의존하지 않고, 이 사이트가 항상 지키는 URL 규칙
-( /latest-updates/<slug>-YYYY-MM-DD_en )에서 정규식으로 직접 (제목, 링크, 날짜)를
-한 번에 추출한다. 사이트의 디자인/클래스가 바뀌어도 이 URL 패턴만 유지되면 계속 동작한다.
+A) 의료기기 전용 피드 — 키워드 필터 없이 전부 수집
+   https://health.ec.europa.eu/medical-devices-new-regulations/latest-updates_en
+   (실제 확인: 62건, 전부 의료기기/MDR/IVDR/MDCG 관련. 사용자가 원래 알려준
+    "medical-devices-sector/latest-updates_en"은 실제로는 존재하지 않는 주소였고,
+    실제 의료기기 전용 피드는 이 URL이었다.)
 
-목록: https://health.ec.europa.eu/latest-updates_en (페이지네이션 ?page=0,1,2,... 0-index)
-상세: 각 항목 페이지에서 /document/download/... 링크(?filename=... 로 실제 확장자 확인 가능)를 찾아
-      PDF/DOCX 원문을 추출한다.
+B) 그 외 페이지(EU 보건 전체 소식) — "medical device" 또는 "mdr" 키워드가 제목에
+   있을 때만 수집
+   https://health.ec.europa.eu/latest-updates_en
+
+파싱 방식: 이전 버전은 특정 URL 패턴(/latest-updates/...-YYYY-MM-DD_en)에만 의존해서
+eur-lex.europa.eu, ec.europa.eu/newsroom 등 다른 도메인으로 연결되는 항목을 놓쳤다.
+이번에는 "News announcement" 라는 이 사이트가 각 항목마다 항상 표시하는 라벨 문자열을
+기준으로 원문 HTML을 조각내고, 각 조각 안에서 날짜와 (텍스트가 있는) 첫 링크를 뽑는
+방식으로 바꿔 도메인에 상관없이 항목을 잡아낸다.
 """
 import re
 import sys
@@ -26,22 +33,27 @@ from collectors.diff_engine import generate_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
 
 BASE = "https://health.ec.europa.eu"
-LIST_URL_TMPL = BASE + "/latest-updates_en?page={page}"
+SCOPED_URL_TMPL = BASE + "/medical-devices-new-regulations/latest-updates_en?page={page}"
+GENERAL_URL_TMPL = BASE + "/latest-updates_en?page={page}"
 
-# 이 사이트의 상세 URL은 항상 이 패턴을 따른다: /latest-updates/<slug>-YYYY-MM-DD_en
-# (실제 확인된 예: /latest-updates/update-mdcg-2021-24-rev1-guidance-classification-medical-devices-april-2026-2026-04-20_en)
-ITEM_RE = re.compile(
-    r'<a[^>]+href="(?P<url>(?:https://health\.ec\.europa\.eu)?/latest-updates/[a-z0-9\-]+-'
-    r'(?P<y>\d{4})-(?P<m>\d{2})-(?P<d>\d{2})_en)"[^>]*>(?P<title>[^<]{6,300})</a>',
-    re.IGNORECASE,
-)
+SPLIT_MARKER = "News announcement"
+DATE_RE = re.compile(r"(\d{1,2}\s+[A-Za-z]+\s+20\d{2})")
+ANCHOR_RE = re.compile(r'<a[^>]+href="(?P<url>[^"]+)"[^>]*>(?P<title>[^<]{6,300})</a>')
 DOWNLOAD_RE = re.compile(r'href="(?P<url>https://health\.ec\.europa\.eu/document/download/[^"]+)"')
+
+MONTHS = {m: i + 1 for i, m in enumerate(
+    ["January", "February", "March", "April", "May", "June",
+     "July", "August", "September", "October", "November", "December"])}
 
 MD_KEYWORDS = ["medical device", "in vitro diagnostic", "ivdr", "mdcg", " mdr", "eudamed",
                "notified bod", "udi", "emdn", "combine programme", "well-established technolog"]
 
-MAX_PAGES_FULL = 60     # 2026-01부터 전체를 훑을 때 페이지 상한 (안전장치, 뒤 페이지일수록 오래된 글)
-MAX_PAGES_TODAY = 3     # '오늘자만' 조회할 때 페이지 상한 — 최신순 정렬이라 보통 1페이지면 충분
+MAX_PAGES_FULL = 15
+MAX_PAGES_TODAY = 2
+CHUNK_WINDOW = 3000  # 한 항목의 컨텍스트로 볼 최대 글자 수 (다음 항목까지 침범 방지)
+
+# 링크 텍스트가 이런 것들이면 항목 제목이 아니라 사이트 내비게이션/언어선택 등이다
+EXCLUDE_TITLE_SUBSTR = ["Skip to", "RSS", "Show", "Read more", "Next", "Previous"]
 
 
 def _is_md_related(title: str) -> bool:
@@ -49,56 +61,118 @@ def _is_md_related(title: str) -> bool:
     return any(kw in t for kw in MD_KEYWORDS)
 
 
-def run(since_year=2026, since_month=1, today_only=False):
+def _parse_date_text(text):
+    m = DATE_RE.search(text)
+    if not m:
+        return None
+    parts = m.group(1).split()
+    if len(parts) != 3:
+        return None
+    d, mon, y = parts
+    mo = MONTHS.get(mon)
+    if not mo:
+        return None
+    try:
+        return f"{y}-{mo:02d}-{int(d):02d}"
+    except ValueError:
+        return None
+
+
+def _extract_items(html):
+    """SPLIT_MARKER 기준으로 조각을 내고, 각 조각에서 날짜 + 첫 제목링크를 뽑는다."""
+    chunks = html.split(SPLIT_MARKER)[1:]  # 첫 조각은 마커 이전(헤더 영역)이라 제외
+    items = []
+    for chunk in chunks:
+        window = chunk[:CHUNK_WINDOW]
+        pub_date = _parse_date_text(window)
+        if not pub_date:
+            continue
+
+        found_title = None
+        found_url = None
+        for m in ANCHOR_RE.finditer(window):
+            title = m.group("title").strip()
+            url = m.group("url")
+            if any(x in title for x in EXCLUDE_TITLE_SUBSTR):
+                continue
+            if url.startswith("#") or url.startswith("/latest-updates_") or "_bg" == url[-3:]:
+                continue
+            found_title, found_url = title, url
+            break
+
+        if not found_title:
+            continue
+
+        full_url = found_url if found_url.startswith("http") else BASE + found_url
+        items.append({"title": found_title, "url": full_url, "pub_date": pub_date})
+    return items
+
+
+def _crawl_feed(url_tmpl, since_year, since_month, today_only, require_keyword):
     today_str = date.today().isoformat()
     max_pages = MAX_PAGES_TODAY if today_only else MAX_PAGES_FULL
 
     candidates = []
     for page in range(max_pages):
-        res = fetch(LIST_URL_TMPL.format(page=page))
+        res = fetch(url_tmpl.format(page=page))
         if res.robots_disallowed:
             return [], res
         if not res.ok:
             break
 
-        found_on_page = 0
-        stop_after_page = False
-        for m in ITEM_RE.finditer(res.text):
-            found_on_page += 1
-            pub_date = f"{m.group('y')}-{m.group('m')}-{m.group('d')}"
-
-            if today_only:
-                if pub_date != today_str:
-                    stop_after_page = True
-                    continue
-            else:
-                y, mo = int(m.group("y")), int(m.group("m"))
-                if (y, mo) < (since_year, since_month):
-                    stop_after_page = True
-                    continue
-
-            title = m.group("title").strip()
-            if not _is_md_related(title):
-                continue
-
-            raw_url = m.group("url")
-            full_url = raw_url if raw_url.startswith("http") else BASE + raw_url
-            candidates.append({"title": title, "url": full_url, "pub_date": pub_date})
-
-        if found_on_page == 0 or stop_after_page:
+        items = _extract_items(res.text)
+        if not items:
             break
 
-    # 페이지 경계에서 같은 글이 중복 매칭될 수 있어 URL 기준으로 중복 제거
+        stop = False
+        for it in items:
+            if today_only:
+                if it["pub_date"] != today_str:
+                    stop = True
+                    continue
+            else:
+                y, mo = int(it["pub_date"][:4]), int(it["pub_date"][5:7])
+                if (y, mo) < (since_year, since_month):
+                    stop = True
+                    continue
+
+            if require_keyword and not _is_md_related(it["title"]):
+                continue
+
+            candidates.append(it)
+
+        if stop:
+            break
+
     seen = set()
-    unique_candidates = []
+    unique = []
     for c in candidates:
         if c["url"] in seen:
             continue
         seen.add(c["url"])
-        unique_candidates.append(c)
+        unique.append(c)
+    return unique, None
+
+
+def run(since_year=2026, since_month=1, today_only=False):
+    scoped, err1 = _crawl_feed(SCOPED_URL_TMPL, since_year, since_month, today_only, require_keyword=False)
+    if err1:
+        return [], err1
+    general, err2 = _crawl_feed(GENERAL_URL_TMPL, since_year, since_month, today_only, require_keyword=True)
+    if err2:
+        # 일반 피드가 막혀도 전용 피드 결과는 살린다
+        general = []
+
+    seen_urls = set()
+    all_candidates = []
+    for c in scoped + general:
+        if c["url"] in seen_urls:
+            continue
+        seen_urls.add(c["url"])
+        all_candidates.append(c)
 
     results = []
-    for c in unique_candidates:
+    for c in all_candidates:
         body_text, status = _fetch_detail(c["url"])
         doc_no = _extract_mdcg_no(c["title"]) or c["title"][:40]
 
@@ -122,7 +196,6 @@ def run(since_year=2026, since_month=1, today_only=False):
             "url": c["url"],
             "gap_analysis": gap,
         })
-
     return results, None
 
 
@@ -132,8 +205,6 @@ def _extract_mdcg_no(title):
 
 
 def _fetch_detail(url):
-    """상세 페이지에서 첨부파일(/document/download/...?filename=실제파일명.pdf)을 찾아 텍스트를 추출한다.
-    filename 쿼리파라미터로 실제 확장자를 알 수 있어 PDF/DOCX 여부를 추측하지 않아도 된다."""
     res = fetch(url)
     if not res.ok:
         return "", res.error or "상세 페이지 접속 실패"
@@ -150,7 +221,6 @@ def _fetch_detail(url):
                 return text, "OK (첨부 원문)"
             return "", f"첨부파일 추출 실패: {extract_status}"
 
-    # 첨부가 없으면 본문 HTML에서 태그만 제거한 대략적인 텍스트라도 사용
     text_only = re.sub(r"<[^>]+>", " ", res.text)
     text_only = re.sub(r"\s+", " ", text_only).strip()
     return text_only[:5000], "OK (첨부 없음 — 본문 HTML 발췌)"
