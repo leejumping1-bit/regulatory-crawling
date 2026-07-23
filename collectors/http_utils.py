@@ -33,19 +33,31 @@ class FetchResult:
 
 
 def _robots_allowed(url: str, user_agent: str = "*") -> bool:
+    """
+    urllib.robotparser.read()는 내부적으로 자체 User-Agent("Python-urllib/x.y")로
+    robots.txt를 요청하는데, 이게 일부 사이트(특히 EU 기관 사이트)의 방화벽에 막혀 403을
+    받으면 robotparser가 "이 사이트는 전면 차단"으로 잘못 해석해버리는 알려진 동작이 있다
+    (실제 robots.txt 내용과 무관하게 disallow_all=True가 되어버림).
+
+    이를 피하기 위해 robots.txt를 우리가 쓰는 일반 브라우저형 User-Agent(requests,
+    DEFAULT_HEADERS)로 직접 가져온 뒤, 그 텍스트를 robotparser에 넘겨(parse) 판단한다.
+    """
     parsed = urlparse(url)
     origin = f"{parsed.scheme}://{parsed.netloc}"
     if origin not in _robots_cache:
-        rp = robotparser.RobotFileParser()
-        rp.set_url(origin + "/robots.txt")
+        rp = None
         try:
-            rp.read()
+            resp = requests.get(origin + "/robots.txt", headers=DEFAULT_HEADERS, timeout=10)
+            if resp.status_code == 200:
+                rp = robotparser.RobotFileParser()
+                rp.parse(resp.text.splitlines())
+            # 404 등 robots.txt가 없거나, 403 등 애매한 상태코드는 규칙 없음(허용)으로 처리.
+            # (403은 robots.txt 정책 자체가 아니라 우리 요청이 방화벽에 걸렸을 가능성이 높다 —
+            #  실제 정책 차단이 아닌 것을 차단으로 오판하지 않기 위한 보수적 선택.)
         except Exception:
-            # robots.txt를 읽을 수 없으면 안전하게 '허용'으로 간주하지 않고,
-            # 보수적으로 허용(대부분 정부 공개정보 사이트는 robots.txt가 없거나 관대함)
-            _robots_cache[origin] = None
-            return True
+            rp = None
         _robots_cache[origin] = rp
+
     rp = _robots_cache[origin]
     if rp is None:
         return True
