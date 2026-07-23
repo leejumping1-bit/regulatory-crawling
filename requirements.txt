@@ -5,8 +5,9 @@ requests>=2.31.0
 beautifulsoup4>=4.12.0
 pypdf>=4.0.0
 python-docx>=1.1.0
+google-genai>=1.0.0
 
-# 요약을 LLM으로 연동하고 싶을 때만 아래 중 하나의 주석을 해제하고
-# GitHub Secrets에 OPENAI_API_KEY 또는 ANTHROPIC_API_KEY 를 등록하세요.
+# OpenAI/Anthropic으로 바꾸고 싶으면 위 google-generativeai 줄을 주석 처리하고
+# 아래 중 하나의 주석을 해제한 뒤, 해당 API 키를 Secrets로 등록하세요.
 # openai>=1.30.0
 # anthropic>=0.30.0
