@@ -81,13 +81,21 @@ def _search_board(board_name, board_url, keyword, since_year, since_month):
     url = f"{board_url}?srchTp=0&srchWord={keyword}"
     res = fetch(url, respect_robots=False, politeness_delay=POLITENESS_DELAY, timeout=LIST_TIMEOUT)
     if not res.ok:
+        print(f"[mfds][DEBUG] '{board_name}'({keyword}) 요청 실패: {res.error}")
         return [], res
     if BeautifulSoup is None:
         raise RuntimeError("beautifulsoup4 미설치")
 
     soup = BeautifulSoup(res.text, "html.parser")
+    all_view_links = soup.select('a[href*="view.do"]')
+    print(f"[mfds][DEBUG] '{board_name}'({keyword}) 응답 {len(res.text)}자, "
+          f"view.do 링크 {len(all_view_links)}개 발견")
+    if all_view_links:
+        sample_titles = [a.get_text(strip=True)[:30] for a in all_view_links[:3]]
+        print(f"[mfds][DEBUG]   샘플 제목: {sample_titles}")
+
     rows = []
-    for a in soup.select('a[href*="view.do"]'):
+    for a in all_view_links:
         title = a.get_text(strip=True)
         if not title or len(title) < 4:
             continue
