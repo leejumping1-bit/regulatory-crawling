@@ -176,11 +176,10 @@ with ctrl2:
         st.button("엑셀 다운로드", disabled=True, use_container_width=True)
 
 with ctrl3:
-    st.markdown('<div class="rw-controlbar-label">🔄 데이터 수동 업데이트</div>', unsafe_allow_html=True)
-    run_clicked = st.button("지금 실행 (8개 기관)", use_container_width=True)
+    st.markdown('<div class="rw-controlbar-label">🔄 오늘자 데이터 수동 조회</div>', unsafe_allow_html=True)
+    run_clicked = st.button("지금 실행 (오늘자, 8개 기관)", use_container_width=True)
     if run_clicked:
         from crawler import run_crawler
-        since_y, since_m = int(DEFAULT_SINCE[:4]), int(DEFAULT_SINCE[5:7])
 
         progress_box = st.empty()
         log_lines = []
@@ -189,16 +188,17 @@ with ctrl3:
             log_lines.append(f"· {agency_key}: {status}")
             progress_box.markdown("\n\n".join(log_lines))
 
-        with st.spinner("최신 데이터를 수집 중입니다... (기관별로 끝나는 대로 즉시 저장됩니다)"):
-            saved, summary = run_crawler(since_y, since_m, progress_cb=_progress)
+        with st.spinner("오늘 게시된 항목을 확인 중입니다... (전체 기간 재수집이 아니라 빠르게 끝납니다)"):
+            saved, summary = run_crawler(progress_cb=_progress, today_only=True)
             st.cache_data.clear()
-        st.success(f"완료! 총 {len(saved)}건 저장됨")
+        st.success(f"완료! 오늘자 기준 총 {len(saved)}건 (전체 누적 기준)")
         st.rerun()
 
 st.caption(
-    "⚠ 이 버튼으로 수집한 데이터는 이 앱이 실행 중인 서버(임시 저장소)에만 반영됩니다. "
-    "GitHub 저장소에는 커밋되지 않으므로, 앱이 재시작되면 사라질 수 있습니다. "
-    "영구 반영은 매일 아침 9시(KST) GitHub Actions 자동 수집이 담당합니다."
+    "⚠ 이 버튼은 '오늘 게시된 항목'만 빠르게 확인합니다 (전체 기간 재수집이 아닙니다). "
+    "2026-01-01부터의 전체 이력 수집은 매일 아침 9시(KST) GitHub Actions가 백그라운드에서 자동으로 담당하며, "
+    "그 결과만 GitHub 저장소(data/regulations.json)에 영구 반영됩니다. "
+    "이 버튼으로 확인한 오늘자 데이터는 이 앱 서버의 임시 저장소에만 남아 재시작 시 사라질 수 있습니다."
 )
 
 st.caption(
