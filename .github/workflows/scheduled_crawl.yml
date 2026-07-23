@@ -16,9 +16,9 @@ jobs:
     # 수집에 적합하다. 넉넉하게 90분까지 허용한다 (기본값은 360분이지만 명시적으로 제한).
     timeout-minutes: 90
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
 
