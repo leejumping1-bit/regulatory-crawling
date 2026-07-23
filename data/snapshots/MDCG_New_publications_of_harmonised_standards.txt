@@ -1,0 +1,1825 @@
+EN   EN 
+ 
+ 
+ 
+EUROPEAN 
+COMMISSION  
+Brussels, 14.4.2021 
+C(2021) 2406 final 
+ 
+COMMISSION IMPLEMENTING DECISION 
+of 14.4.2021 
+on a standardisation request to the European Committee for Standardization and the 
+European Committee for Electrotechnical Standardization as regards medical devices in 
+support of Regulation (EU) 2017/745 of the European Parliament and of the Council 
+and in vitro diagnostic medical devices in support of Regulation (EU) 2017/746 of the 
+European Parliament and of the Council 
+(Only the English, French and German texts are authentic) 
+ 
+EN 1  EN 
+COMMISSION IMPLEMENTING DECISION 
+of 14.4.2021 
+on a standardisation request to the European Committee for Standardization and the 
+European Committee for Electrotechnical Standardization as regards medical devices in 
+support of Regulation (EU) 2017/745 of the European Parliament and of the Council 
+and in vitro diagnostic medical devices in support of Regulation (EU) 2017/746 of the 
+European Parliament and of the Council 
+(Only the English, French and German texts are authentic) 
+THE EUROPEAN COMMISSION, 
+Having regard to the Treaty on the Functioning of the European Union, 
+Having regard to Regulation (EU) No 1025/2012 of the European Parliament and of the 
+Council of 25 October 2012 on European standardisation, amending Council Directives 
+89/686/EEC and 93/15/EEC and Directives 94/9/EC, 94/25/EC, 95/16/EC, 97 /23/EC, 
+98/34/EC, 2004/22/EC, 2007/23/EC, 2009/23/EC and 2009/105/EC of the European 
+Parliament and of the Council and repealing Council Decision 87/95/EEC and Decision No 
+1673/2006/EC of the European Parliament and of the Council 1, and in particular Article 10(1) 
+thereof, 
+Whereas: 
+(1) Regulation (EU) 2017/745 of the European Parliament and of the Council 2 lays down 
+safety and performance requirements for medical devices for human use and system 
+and process requirements for economic operators and sponsors o f clinical 
+investigations, in order to ensure a high level of protection of health and safety for 
+patients and users and the smooth functioning of the internal market. Regulation (EU) 
+2017/746 of the European Parliament and of the Council 3 lays down such 
+requirements for in vitro diagnostic medical devices for human use. 
+(2) In accordance with Article 8(1) of Regulation (EU) 2017/745 and Article 8(1) of 
+Regulation (EU) 2017/746, devices and economic operators or sponsors that are in 
+conformity with the rele vant harmonised standards or the relevant parts thereof, the 
+references of which have been published in the Official Journal of the European 
+Union, are to be presumed to be in conformity with the requirements of Regulations 
+(EU) 2017/745 or (EU) 2017/746 covered by those standards or parts thereof. 
+(3) Harmonised standards help ensuring a high level of protection of the health and safety 
+for patients and users throughout the Union and thus contribute to the free movement 
+of devices in the Union. Given that such standards are technology -neutral and 
+                                                 
+1 OJ L 316, 14.11.2012, p. 12. 
+2 Regulation (EU) 2017/745 of the European Parliament and of the Council of 5 April 2017 on medical 
+devices, amending Directive 2001/83/EC, Regulation (EC) No 178/2002 and Regulation (EC) No 
+1223/2009 and repealing Council Directives 90/385/EEC and 93/42/EEC (OJ L 117, 5.5.2017, p. 1). 
+3 Regulation (EU) 2017/746 of the European Parliament and of the Council of 5 April 2017 on in vitro 
+diagnostic medical devices and repealing Directive 98/79/EC and Commission Decision 2010/227/EU 
+(OJ L 117, 5.5.2017, p. 176). 
+EN 2  EN 
+performance-based, they also contribute to ensuring equal conditions of competition 
+among economic operators dealing with devices, in particular small and medium -sized 
+enterprises that are active in this sector. In directly, those standards also contribute to 
+lower sales costs, benefitting patients and users in particular. 
+(4) Regulation (EU) 2017/745 replacing Council Directive 90/385/EEC 4 and Council 
+Directive 93/42/EEC5, and Regulation (EU) 2017/746 replacing Directive 98/79/EC of 
+the European Parliament and of the Council 6 modify, among others, the requirements 
+regarding design and manufacture of devices, labelling and instructions for use of such 
+devices, and clinical investigation and performance studies concern ing such devices. 
+Those Regulations also modify the rules on the quality management system and set 
+out detailed principles for the risk management requiring reduction of risks as far as 
+possible without adversely affecting the benefit-risk ratio. 
+(5) Several harmonised standards have been drafted in support of Directives 90/385/EEC, 
+93/42/EEC and 98/79/EC on the basis of standardisation mandates issued by the 
+Commission. Those harmonised standards need to be revised to take into account the 
+requirements set out in Regulations (EU) 2017/745 and (EU) 2017/746.  
+(6) Standards developed at international level by the International Organization for 
+Standardization (ISO) and the International Electrotechnical Commission (IEC) on the 
+basis of the Vienna agreement 7 and the Frankfurt agreement 8 need to be adopted as 
+harmonised standards by the European Committee for Standardization (CEN) and the 
+European Committee for Electrotechnical Standardization (Cenelec) after adapting 
+them to the Union legal framework. 
+(7) It is also necessary to draft new harmonised standards in relation to the requirements 
+set out in Regulations (EU) 2017/745 and (EU) 2017/746. 
+(8) The intention to request a review or an update of the existing harmonised standards 
+and drafting of new harmonised standards in support of Regulations (EU) 2017/745 
+and (EU) 2017/746 is stated in point 18 of the Commission Staff Working Document 
+on the imp lementation of the actions foreseen in the annual Union work programme 
+for European standardisation for 20189 accompanying that programme10. 
+(9) CEN and Cenelec have indicated that the work covered by the request falls within 
+their area of competence. 
+(10) It is therefore appropriate to request CEN and Cenelec to revise the existing 
+harmonised standards and to draft new harmonised standards in support of Regulations 
+(EU) 2017/745 and (EU) 2017/746. 
+(11) The harmonised standards should include detailed techni cal specifications in relation 
+to the requirements set out in Regulations (EU) 2017/745 and (EU) 2017/746 , 
+especially with respect to the design and manufacture of devices, risk management and 
+the obligations on economic operators and sponsors, including those relating to quality 
+                                                 
+4 Council Directive 90/385/EEC of 20 June 1990 on the approximation of the laws of the Member States 
+relating to active implantable medical devices (OJ L 189, 20.7.1990, p. 17). 
+5 Council Directive 93/42/EEC of 14 June 1993 concerning medical devices (OJ L 169, 12.7.1993, p. 1). 
+6 Directive 98/79/EC of the European Parliament and of the Council of 27 October 1998 on in vitro  
+diagnostic medical devices (OJ L 331, 7.12.1998, p. 1). 
+7 Agreement on technical co-operation between ISO and CEN (Version 3.3 of 20 September 2001). 
+8 IEC-CENELEC Agreement on common planning of new work and parallel voting (Edition 3 of 
+October 2016). 
+9 SWD(2017) 284 final of 25 August 2017. 
+10 COM(2017) 453 final of 25 August 2017. 
+EN 3  EN 
+management systems, risk management, clinical investigations and performance 
+studies, and clinical evaluation and clinical evidence. They should also indicate clearly 
+the correspondence between the technical specifications and the requirements they aim 
+to cover. 
+(12) In accordance with point 1 of Chapter I of Annex I to Regulation (EU) 2017/745 and 
+point 1 of Chapter I of Annex I to Regulation (EU) 2017/746, devices are to be safe 
+and effective and not compromise the clinical condition or the safety of patients, or the 
+safety and health of users or, where applicable, other persons, provided that any risks 
+which may be associated with their use constitute acceptable risks when weighed 
+against the benefits to the patient and are compat ible with a high level of protection of 
+health and safety, taking into account the generally acknowledged state of the art. 
+Technical specifications included in the harmonised standards should support the 
+attainment of those objectives. 
+(13) In accordance with point (h) of section 23.1 of Chapter III of Annex I to Regulation 
+(EU) 2017/745 and point (h) of section 20.1 of Chapter III of Annex I to Regulation 
+(EU) 2017/746, the information supplied by the manufacturer of the device is to take 
+the form of inte rnationally recognised symbols conforming to the harmonised 
+standards or common specifications. Moreover, in accordance with Article 10(11) of 
+Regulation (EU) 2017/745 and Article 10(10) of Regulation (EU) 2017/746, the use of 
+symbols in device information is to take into account the intended users or patients. In 
+order to ensure that users, patients and economic operators understand correctly the 
+meaning of any such symbols, a description of the meaning of the symbols should be 
+publicly available, without prejudice to any copyright to the relevant harmonised 
+standard or its parts. 
+(14) Information as to which legal requirements are covered or partially covered by a 
+harmonised standard is necessary when assessing, in accordance with Article 10(5) of 
+Regulation (EU) No 1025/2012, the compliance of the documents drafted by CEN and 
+Cenelec. Such information is also necessary before publication of references of 
+harmonised standards in the Official Journal of the European Union in accordance 
+with Article 10(6) of Regulation (EU) No 1025/2012. In each harmonised standard, 
+CEN and Cenelec should therefore specify the extent to which the technical 
+specifications included in the harmonised standard aim to cover one or several 
+requirements set out in Regulation (EU) 2017/745 or Regulation (EU) 2017/746. 
+(15) The European standardisation organisations have agreed to follow the Guidelines for 
+the execution of standardisation requests11. 
+(16) In order to ensure transparency and facilitate the execution of the requested 
+standardisation activities, CEN and Cenelec should prepare a work programme and 
+submit it to the Commission. 
+(17) In order to enable the Commission to better monitor the requested standardisation 
+work, CEN and Cenelec should provide the Commission with access t o an overall 
+project plan containing detailed information on the execution of the standardisation 
+request and should report regularly on the execution of that request. 
+(18) Experience shows that during execution of the standardisation request, it may be 
+necessary to adjust the scope of the request or the deadlines set therein. CEN and 
+Cenelec should therefore promptly report to the Commission if they consider that 
+more time is required to draft the standards than initially foreseen or that it is 
+                                                 
+11 SWD(2015) 205 final of 27 October 2015. 
+EN 4  EN 
+appropriate to adapt the scope of the request in order to allow the Commission to take 
+appropriate action. 
+(19) In accordance with Article 10(3) of Regulation (EU) No 1025/2012, each 
+standardisation request is subject to acceptance by the relevant European 
+standardisation organisation. It is therefore necessary to provide for rules on the 
+validity of this request if it is not accepted by CEN or Cenelec. 
+(20) In order to ensure legal certainty as to the validity of the request after its execution, it 
+is appropriate to provide for a date of expiry of this Decision. 
+(21) Given that Directives 90/385/EEC and 93/42/EEC are repealed as of 26 May 2021 and 
+Directive 98/79/EC is repealed as of 26 May 2022, it is appropriate to provide for the 
+end of validity of standardisation mandates that have been issued by the Commission 
+for drafting harmonised standards in support of those Directives. 
+(22) Given that a standardisation request as regards medical devices in support of 
+Regulations (EU) 2017/745 and (EU) 2017/746 set out in Imp lementing Decision 
+C(2020) 253212 was not accepted by CEN and Cenelec, it is appropriate to repeal that 
+Decision. 
+(23) The European standardisation organisations, the European stakeholders’ organisations 
+receiving Union financing, and the Medical Device Coordination Group established by 
+Article 103 of Regulation (EU) 2017/745 have been consulted. 
+(24) Article 5(1) of Implementing Decision C(2020) 2532 contains an error by providing 
+for expiry of standardisation mandate ‘M/321 of 13 June 2002’ on 26 May 2020.  
+Mandate ‘M/321 of 13 June 2002’ is also referred to in Article 5(2) of Implementing 
+Decision C(2020) 2532 providing for its expiry on 26 May 2022, which is the correct 
+expiry date. 
+(25) The measures provided for in this Decision are in accordance with the  opinion of the 
+Committee established by Article 22 of Regulation (EU) No 1025/2012, 
+HAS ADOPTED THIS DECISION: 
+Article 1 
+Requested standardisation activities 
+1. The European Committee for Standardization (CEN) and the European Committee 
+for Electrotechnic al Standardization (Cenelec) are requested to revise the existing 
+harmonised standards listed in Table 1 of Annex I to this Decision and to draft the 
+new harmonised standards listed in Table 2 of that Annex in support of Regulation 
+(EU) 2017/745 for medical devices by the deadlines set in that Annex. 
+2. CEN and Cenelec are requested to revise the existing standards listed in Table 1 of 
+Annex II to this Decision and to draft the new harmonised standards listed in Table 2 
+of that Annex in support of Regulation (EU) 2017/746 for in vitro diagnostic medical 
+devices by the deadlines set in that Annex. 
+3. The standards referred to in paragraphs 1 and 2 shall meet the requirements set out in 
+Annex III. 
+                                                 
+12 Commission Implementing Decision C(2020) 2532 of 15 May 2020 on a standardisation request to the 
+European Committee for Standardization and the European Committee for Electrotechnical 
+Standardization as regards medical devices in support of  Regulation (EU) 2017/745 of the European 
+Parliament and of the Council and in vitro diagnostic medical devices in support of Regulation (EU) 
+2017/746 of the European Parliament and of the Council. 
+EN 5  EN 
+4. CEN and Cenelec shall provide the Commission with the titles  of the requested 
+standards in all official languages of the Union. 
+Article 2 
+Work programme 
+1. CEN and Cenelec shall prepare a joint work programme indicating all the standards 
+listed in Annexes I and II,  the responsible technical bodies and a timetable f or the 
+execution of the requested standardisation activities in line with the deadlines set out 
+in those Annexes. 
+2. CEN and Cenelec shall submit the joint work programme to the Commission by 28 
+May 2021. CEN and Cenelec shall inform the Commission of any amendments to the 
+joint work programme. 
+3. CEN and Cenelec shall provide the Commission with access to an overall project 
+plan. 
+Article 3 
+Reporting 
+1. CEN and Cenelec shall report annually to the Commission on the execution of the 
+standardisation request r eferred to in Article 1, indicating the progress made in 
+implementation of the work programme referred to in Article 2. 
+2. CEN and Cenelec shall submit the first joint annual report to the Commission by 16 
+April 2022. Subsequent joint annual reports shall be submitted to the Commission by 
+31 October each year. 
+3. CEN and Cenelec shall provide the Commission with the joint final report by 30 
+June 2024. 
+4. CEN and Cenelec shall promptly report to the Commission any major concerns 
+relating to the scope of the standardisation request referred to in Article 1 or the 
+deadlines set in Annexes I and II. 
+Article 4 
+Validity of the standardisation request 
+If CEN or Cenelec do not accept the standardisation request referred to in Article 1 within a 
+month of receiving it , the request may not constitute a basis for the standardisation activities 
+referred to in that Article. 
+This Decision shall expire on 31 December 2024. 
+Article 5 
+Expiry of existing standardisation mandates and repeal of Implementing Decision C(2020) 
+2532 
+1. The following standardisation mandates shall expire on 26 May 2022: 
+(a) M/252 of 12 September 1997; 
+(b) M/321 of 13 June 2002; 
+(c) M/384 of 6 April 2006. 
+2. Implementing Decision C(2020) 2532 is repealed. 
+EN 6  EN 
+Article 6 
+Addressees 
+This Decision is addressed to the European Committee for Standardization and the European 
+Committee for Electrotechnical Standardization. 
+Done at Brussels, 14.4.2021 
+ For the Commission 
+ Stella KYRIAKIDES 
+ Member of the Commission 
+ 
+ 
+ 
+ 
+EN   EN 
+ 
+ 
+ 
+EUROPEAN 
+COMMISSION  
+Brussels, 14.4.2021 
+C(2021) 2406 final 
+ANNEXES 1 to 3 
+ 
+ANNEXES 
+to the 
+COMMISSION IMPLEMENTING DECISION 
+on a standardisation request to the European Committee for Standardization and the 
+European Committee for Electrotechnical Standardization as regards medical devices in 
+support of Regulation (EU) 2017/745 of the European Parliament and of the Council 
+and in vitro diagnostic medical devices in support of Regulation (EU) 2017/746 of the 
+European Parliament and of the Council 
+ 
+ 
+EN 1  EN 
+ANNEX I 
+List of existing standards to be revised and list of new standards to be drafted as 
+referred to in Article 1(1) 
+ 
+Table 1: List of existing harmonised standards to be revised and deadlines for the 
+adoption of the revised harmonised standards 
+Reference information Deadline for the adoption 
+1.  EN 285:2015 
+Sterilization - Steam sterilizers - Large sterilizers 
+27 May 2024 
+2.  EN 455-1:2020 
+Medical gloves for single use - Part 1: Requirements 
+and testing for freedom from holes 
+27 May 2024 
+3.  EN 455-2:2015 
+Medical gloves for single use - Part 2: Requirements 
+and testing for physical properties 
+27 May 2024 
+4.  EN 455-3:2015 
+Medical gloves for single use - Part 3: Requirements 
+and testing for biological evaluation 
+27 May 2024 
+5.  EN 455-4:2009 
+Medical gloves for single use - Part 4: Requirements 
+and testing for shelf life determination 
+27 May 2024 
+6.  EN 556-1:2001+AC:2006 
+Sterilization of medical devices - Requirements for 
+medical devices to be designated "STERILE" - Part 1: 
+Requirements for terminally sterilized medical devices 
+27 May 2024 
+7.  EN 556-2:2015 
+Sterilization of medical devices - Requirements for 
+medical devices to be designated ''STERILE" - Part 2: 
+Requirements for aseptically processed medical 
+devices 
+27 May 2024 
+8.  EN 1422:2014 
+Sterilizers for medical purposes - Ethylene oxide 
+sterilizers - Requirements and test methods 
+27 May 2024 
+ 
+EN 2  EN 
+9.  EN 1865-1:2010+A1:2015 
+Patient handling equipment used in road ambulances - 
+Part 1: General stretcher systems and patient handling 
+equipment 
+27 May 2024 
+10.  EN 1865-2:2010+A1:2015 
+Patient handling equipment used in road ambulances - 
+Part 2: Power assisted stretcher 
+27 May 2024 
+11.  EN 1865-3:2012+A1:2015 
+Patient handling equipment used in road ambulances - 
+Part 3: Heavy duty stretcher 
+27 May 2024 
+12.  EN 1865-4:2012 
+Patient handling equipment used in road ambulances - 
+Part 4: Foldable patient transfer chair 
+27 May 2024 
+13.  EN 1985:1998 
+Walking aids - General requirements and test methods 
+27 May 2024 
+14.  EN ISO 4074:2015 
+Natural rubber latex male condoms - Requirements 
+and test methods 
+27 May 2024 
+15.  EN ISO 5359:2014+A1:2017 
+Anaesthetic and respiratory equipment - Low-pressure 
+hose assemblies for use with medical gases 
+27 May 2024 
+16.  EN ISO 5840-1:2015 
+Cardiovascular implants - Cardiac valve prostheses - 
+Part 1: General requirements 
+27 May 2024 
+17.  EN ISO 5840-2:2015 
+Cardiovascular implants - Cardiac valve prostheses - 
+Part 2: Surgically implanted heart valve substitutes 
+27 May 2024 
+18.  EN ISO 5840-3:2013 
+Cardiovascular implants - Cardiac valve prostheses - 
+Part 3: Heart valve substitutes implanted by 
+transcatheter techniques 
+27 May 2024 
+19.  EN ISO 7010:2020+A1:2020 27 May 2024 
+ 
+EN 3  EN 
+Graphical symbols - Safety colours and safety signs - 
+Registered safety signs 
+20.  EN ISO 7197:2009 
+Neurosurgical implants - Sterile, single -use 
+hydrocephalus shunts and components 
+27 May 2024 
+21.  EN ISO 7396-1:2016+A1:2019 
+Medical gas pipeline systems - Part 1: Pipeline 
+systems for compressed medical gases and vacuum 
+27 May 2024 
+22.  EN ISO 7396-2:2007 
+Medical gas pipeline systems - Part 2: Anaesthetic gas 
+scavenging disposal systems 
+27 May 2024 
+23.  EN ISO 9713:2009 
+Neurosurgical implants - Self-closing intracranial 
+aneurysm clips 
+27 May 2024 
+24.  EN ISO 10328:2016 
+Prosthetics - Structural testing of lower -limb 
+prostheses - Requirements and test methods 
+27 May 2024 
+25.  EN ISO 10524-1:2019 
+Pressure regulators for use with medical gases - Part 1: 
+Pressure regulators and pressure regulators with flow -
+metering devices 
+27 May 2024 
+26.  EN ISO 10524-2:2019 
+Pressure regulators for use with medical gases - Part 2: 
+Manifold and line pressure regulators 
+27 May 2024 
+27.  EN ISO 10524-3:2019 
+Pressure regulators for use with medical gases - Part 3: 
+Pressure regulators integrated with cylinder valve s 
+(VIPRs) 
+27 May 2024 
+28.  EN ISO 10535:2006 
+Hoists for the transfer of disabled persons - 
+Requirements and test methods 
+27 May 2024 
+29.  EN ISO 10993-1:2020 
+Biological evaluation of medical devices - Part 1: 
+27 May 2024 
+ 
+EN 4  EN 
+Evaluation and testing within a risk management 
+process 
+30.  EN ISO 10993-3:2014 
+Biological evaluation of medical devices - Part 3: 
+Tests for genotoxicity, carcinogenicity and 
+reproductive toxicity 
+27 May 2024 
+31.  EN ISO 10993-4:2017 
+Biological evaluation of medical devices - Part 4: 
+Selection of tests for interactions with blood 
+27 May 2024 
+32.  EN ISO 10993-5:2009 
+Biological evaluation of medical devices - Part 5: 
+Tests for in vitro cytotoxicity 
+27 May 2024 
+33.  EN ISO 10993-6:2016 
+Biological evaluation of medical devices - Part 6: 
+Tests for local effects after implantation 
+27 May 2024 
+34.  EN ISO 10993-7:2008+AC:2009 
+Biological evaluation of medical devices - Part 7: 
+Ethylene oxide sterilization residuals 
+27 May 2024 
+35.  EN ISO 10993-9:2009 
+Biological evaluation of medical devices - Part 9: 
+Framework for identification and quantification of 
+potential degradation products 
+27 May 2024 
+36.  EN ISO 10993-10:2013 
+Biological evaluation of medical devices - Part 10: 
+Tests for irritation and skin sensitization 
+27 May 2024 
+37.  EN ISO 10993-11:2018 
+Biological evaluat ion of medical devices - Part 11: 
+Tests for systemic toxicity 
+27 May 2024 
+38.  EN ISO 10993-12:2012 
+Biological evaluation of medical devices - Part 12: 
+Sample preparation and reference materials 
+27 May 2024 
+39.  EN ISO 10993-13:2010 
+Biological evaluation of medical devices - Part 13: 
+27 May 2024 
+ 
+EN 5  EN 
+Identification and quantification of degradation 
+products from polymeric medical devices 
+40.  EN ISO 10993-14:2009 
+Biological evaluation of medical devices - Part 14: 
+Identification and quantification of degradation 
+products from ceramics 
+27 May 2024 
+41.  EN ISO 10993-15:2009 
+Biological evaluation of medical devices - Part 15: 
+Identification and quantification of degradation 
+products from metals and alloys 
+27 May 2024 
+42.  EN ISO 10993-16:2017 
+Biological evaluation of medical devices - Part 16: 
+Toxicokinetic study design for degradation products 
+and leachables 
+27 May 2024 
+43.  EN ISO 10993-17:2009 
+Biological evaluation of medical devices - Part 17: 
+Establishment of allowable limits for leachable 
+substances 
+27 May 2024 
+44.  EN ISO 10993-18:2020 
+Biological evaluation of medical devices - Part 18: 
+Chemical characterization of materials 
+27 May 2024 
+45.  EN ISO 11135:2014+A1:2019 
+Sterilization of health-care products - Ethylene oxide - 
+Requirements for the development, validation and 
+routine control of a sterilization process for medical 
+devices 
+27 May 2024 
+46.  EN ISO 11137-1:2015+A2:2019 
+Sterilization of health care products - Radiation - Part 
+1: Requirements for development, validation and 
+routine control of a sterilization process for medical 
+devices 
+27 May 2024 
+47.  EN ISO 11137-2:2015 
+Sterilization of health care products - Radiation - Part 
+2: Establishing the sterilization dose 
+27 May 2024 
+ 
+EN 6  EN 
+48.  EN ISO 11140-1:2014 
+Sterilization of health care products - Chemical 
+indicators - Part 1: General requirements 
+27 May 2024 
+49.  EN ISO 11140-3:2009 
+Sterilization of health care products - Chemical 
+indicators - Part 3: Class 2 indicator systems for use in 
+the Bowie and Dick-type steam penetration test 
+27 May 2024 
+50.  EN ISO 11140-4:2007 
+Sterilization of health care products - Chemical 
+indicators - Part 4: Class 2 indicators as an alternative 
+to the Bowie and Dick -type test for detection of steam 
+penetration 
+27 May 2024 
+51.  EN ISO 11197:2019 
+Medical supply units 
+27 May 2024 
+52.  EN ISO 11607-1:2020 
+Packaging for terminally sterilized medical devices - 
+Part 1: Requirements for materials, sterile barrier 
+systems and packaging systems 
+27 May 2024 
+53.  EN ISO 11607-2:2020 
+Packaging for terminally sterilized medical devices - 
+Part 2: Validation requirements for forming, sealing 
+and assembly processes 
+27 May 2024 
+54.  EN ISO 11737-1:2018 
+Sterilization of medical devices - Microbiological 
+methods - Part 1: Determination of a population of 
+microorganisms on products 
+27 May 2024 
+55.  EN ISO 11737-2:2020 
+Sterilization of me dical devices - Microbiological 
+methods - Part 2: Tests of sterility performed in the 
+definition, validation and maintenance of a sterilization 
+process 
+27 May 2024 
+56.  EN ISO 11810:2015 
+Lasers and laser -related equipment - Test method and 
+classification for the laser resistance of surgical drapes 
+and/or patient protective covers - Primary ignition, 
+27 May 2024 
+ 
+EN 7  EN 
+penetration, flame spread and secondary ignition 
+57.  EN ISO 11990:2018 
+Lasers and laser -related equipment - Determination of 
+laser resistance of tracheal tube shaft and tracheal cuffs 
+27 May 2024 
+58.  EN 12183:2014 
+Manual wheelchairs - Requirements and test methods 
+27 May 2024 
+59.  EN 12184:2014 
+Electrically powered wheelchairs, scooters and their 
+chargers - Requirements and test methods 
+27 May 2024 
+60.  EN ISO 12417-1:2015 
+Cardiovascular implants and extracorporeal systems - 
+Vascular device -drug combination products - Part 1: 
+General requirements 
+27 May 2024 
+61.  EN ISO 12870:2018 
+Ophthalmic optics - Spectacle frames - Requirements 
+and test methods 
+27 May 2024 
+62.  EN 13060:2014+A1:2018 
+Small steam sterilizers 
+27 May 2024 
+63.  EN ISO 13408-1:2015 
+Aseptic processing of health care products - Part 1: 
+General requirements 
+27 May 2024 
+64.  EN ISO 13408-2:2018 
+Aseptic processing of health care products - Part 2: 
+Filtration 
+27 May 2024 
+65.  EN ISO 13408-3:2011 
+Aseptic processing of health care products - Part 3: 
+Lyophilization 
+27 May 2024 
+66.  EN ISO 13408-4:2011 
+Aseptic processing of health care products - Part 4: 
+Clean-in-place technologies 
+27 May 2024 
+67.  EN ISO 13408-5:2011 27 May 2024 
+ 
+EN 8  EN 
+Aseptic processing of health care products - Part 5: 
+Sterilization in place 
+68.  EN ISO 13408-6:2011+A1:2013 
+Aseptic processing of health care products - Part 6: 
+Isolator systems 
+27 May 2024 
+69.  EN ISO 13408-7:2015 
+Aseptic processing of health care products  - Part 7: 
+Alternative processes for medical devices and 
+combination products 
+27 May 2024 
+70.  EN ISO 13485:2016+AC:2018 
+Medical devices - Quality management systems - 
+Requirements for regulatory purposes 
+27 May 2024 
+71.  EN 13718-1:2014+A1:2020 
+Medical vehicles  and their equipment - Air 
+ambulances - Part 1: Requirements for medical devices 
+used in air ambulances 
+27 May 2024 
+72.  EN 13795-1:2019 
+Surgical clothing and drapes - Requirements and test 
+methods - Part 1: Surgical drapes and gowns 
+27 May 2024 
+73.  EN 13795-2:2019 
+Surgical clothing and drapes - Requirements and test 
+methods - Part 2: Clean air suits 
+27 May 2024 
+74.  EN 13976-1:2018 
+Rescue systems - Transportation of incubators - Part 1: 
+Interface requirements 
+27 May 2024 
+75.  EN 13976-2:2018 
+Rescue systems - Transportation of incubators - Part 2: 
+System requirements 
+27 May 2024 
+76.  EN 14139:2010 
+Ophthalmic optics - Specifications for ready -to-wear 
+spectacles 
+27 May 2024 
+77.  EN ISO 14155:2020 
+Clinical investigation of medical devices for human 
+27 May 2024 
+ 
+EN 9  EN 
+subjects - Good clinical practice 
+78.  EN ISO 14160:2011 
+Sterilization of health care products - Liquid chemical 
+sterilizing agents for single -use medical devices 
+utilizing animal tissues and their derivatives - 
+Requirements for characterization, development, 
+validation and routine control of a sterilization process 
+for medical devices 
+27 May 2024 
+79.  EN 14180:2014 
+Sterilizers for medical purposes - Low temperature 
+steam and formaldehyde sterilizers - Requirements and 
+testing 
+27 May 2024 
+80.  EN ISO 14602:2011 
+Non-active surgical implants - Implants for 
+osteosynthesis - Particular requirements 
+27 May 2024 
+81.  EN ISO 14607:2018 
+Non-active surgical implants - Mammary implants - 
+Particular requirements 
+27 May 2024 
+82.  EN ISO 14630:2012 
+Non-active surgical implants - General requirements 
+27 May 2024 
+83.  EN 14683:2019+AC:2019 
+Medical face masks - Requirements and test methods 
+27 May 2024 
+84.  EN 14885:2018 
+Chemical disinfectants and antiseptics - Application of 
+European standards for chemical disinfectants and 
+antiseptics 
+27 May 2024 
+85.  EN ISO 14889:2013+A1:2017 
+Ophthalmic optics - Spectacle lenses - Fundamental 
+requirements for uncut finished lenses 
+27 May 2024 
+86.  EN ISO 14937:2009 
+Sterilization of health care products - General 
+requirements for characterization of a sterilizing agent 
+and the development, validation and routine control of 
+a sterilization process for medical devices 
+27 May 2024 
+ 
+EN 10  EN 
+87.  EN ISO 14971:2019 
+Medical devices - Application of risk management to 
+medical devices 
+27 May 2024 
+88.  EN ISO 15001:2011 
+Anaesthetic and respiratory equipment - Compatibility 
+with oxygen 
+27 May 2024 
+89.  EN ISO 15004-1:2020 
+Ophthalmic instruments - Fundamental requirements 
+and test methods - Part 1: General requirements 
+applicable to all ophthalmic instruments 
+27 May 2024 
+90.  EN ISO 15223-1:2016 
+Medical devices - Symbols to be used with medical 
+device labels, labelling and information to be supplied 
+- Part 1: General requirements 
+27 May 2024 
+91.  EN ISO 15883-1:2009+A1:2014 
+Washer-disinfectors - Part 1: General requirements, 
+terms and definitions and tests 
+27 May 2024 
+92.  EN ISO 15883-2:2009 
+Washer-disinfectors - Part 2: Requirements and tests 
+for washer-disinfectors employing thermal disinfection 
+for surgical instruments, anaesthetic equipment, bowls, 
+dishes, receivers, utensils, glassware, etc. 
+27 May 2024 
+93.  EN ISO 15883-3:2009 
+Washer-disinfectors - Part 3: Requirements and tests 
+for washer-disinfectors employing thermal disinfection 
+for human waste containers 
+27 May 2024 
+94.  EN ISO 15883-4:2018 
+Washer-disinfectors - Part 4: Require ments and tests 
+for washer -disinfectors employing chemical 
+disinfection for thermolabile endoscopes 
+27 May 2024 
+95.  EN ISO 15883-6:2015 
+Washer-disinfectors - Part 6: Requirements and tests 
+for washer-disinfectors employing thermal disinfection 
+for non-invasive, non -critical medical devices and 
+healthcare equipment 
+27 May 2024 
+ 
+EN 11  EN 
+96.  EN ISO 15883-7:2016 
+Washer-disinfectors - Part 7: Requirements and tests 
+for washer -disinfectors employing chemical 
+disinfection for non-invasive, non-critical thermolabile 
+medical devices and healthcare equipment 
+27 May 2024 
+97.  EN ISO 16061:2015 
+Instrumentation for use in association with non -active 
+surgical implants - General requirements 
+27 May 2024 
+98.  EN ISO 17664:2017 
+Processing of health care products - Information to be 
+provided by the medical device manufacturer for the 
+processing of medical devices 
+27 May 2024 
+99.  EN ISO 17665-1:2006 
+Sterilization of health care products - Moist heat - Part 
+1: Requirements for the development, validation and 
+routine control of a steriliza tion process for medical 
+devices 
+27 May 2024 
+100.  EN ISO 18562-1:2020 
+Biocompatibility evaluation of breathing gas pathways 
+in healthcare applications - Part 1: Evaluation and 
+testing within a risk management process 
+27 May 2024 
+101.  EN ISO 18562-2:2020 
+Biocompatibility evaluation of breathing gas pathways 
+in healthcare applications - Part 2: Tests for emissions 
+of particulate matter 
+27 May 2024 
+102.  EN ISO 18562-3:2020 
+Biocompatibility evaluation of breathing gas pathways 
+in healthcare applications - Part 3: Tests for emissions 
+of volatile organic compounds (VOCs) 
+27 May 2024 
+103.  EN ISO 18562-4:2020 
+Biocompatibility evaluation of breathing gas pathways 
+in healthcare applications - Part 4: Tests for leachables 
+in condensate 
+27 May 2024 
+104.  EN ISO 20857:2013 
+Sterilization of health care products - Dry heat - 
+27 May 2024 
+ 
+EN 12  EN 
+Requirements for the development, validation and 
+routine control of a sterilization process for medical 
+devices 
+105.  EN ISO 21534:2009 
+Non-active surgical implants - Joint replacement 
+implants - Particular requirements 
+27 May 2024 
+106.  EN ISO 21535:2009+A1:2016 
+Non-active surgical implants - Joint replacement 
+implants - Specific requirements for hip -joint 
+replacement implants 
+27 May 2024 
+107.  EN ISO 21536:2009+A1:2014 
+Non-active surgical implants - Joint replacement 
+implants - Specific requirements for knee -joint 
+replacement implants 
+27 May 2024 
+108.  EN ISO 21987:2017 
+Ophthalmic optics - Mounted spectacle lenses 
+27 May 2024 
+109.  EN ISO 22442-1:2020 
+Medical devices utilizing animal tissues and their 
+derivatives - Part 1: Application of risk management 
+27 May 2024 
+110.  EN ISO 22442-2:2020 
+Medical devices utilizing animal tissues and their 
+derivatives - Part 2: Controls on sourcing, collection 
+and handling 
+27 May 2024 
+111.  EN ISO 22442-3:2007 
+Medical devices utilizing animal tissues and their 
+derivatives - Part 3: Validation of the elimination 
+and/or inactivation of viruses and transmissible 
+spongiform encephalopathy (TSE) agents 
+27 May 2024 
+112.  EN ISO 22523:2006 
+External limb prostheses and external orthoses - 
+Requirements and test methods 
+27 May 2024 
+113.  EN ISO 22675:2016 
+Prosthetics - Testing of ankle -foot devices and foot 
+units - Requirements and test methods 
+27 May 2024 
+ 
+EN 13  EN 
+114.  EN ISO 23908:2013 
+Sharps injury protection - Requirements and test 
+methods - Sharps protection features for single -use 
+hypodermic needles, introducers for catheters and 
+needles used for blood sampling 
+27 May 2024 
+115.  EN ISO 25424:2019 
+Sterilization of health care products - Low temperature 
+steam and formaldehyde - Requirements for 
+development, validat ion and routine control of a 
+sterilization process for medical devices 
+27 May 2024 
+116.  EN ISO 25539-1:2017 
+Cardiovascular implants - Endovascular devices - Part 
+1: Endovascular prostheses 
+27 May 2024 
+117.  EN ISO 25539-2:2020 
+Cardiovascular implants - Endovascular devices - Part 
+2: Vascular stents 
+27 May 2024 
+118.  EN ISO 25539-3:2011 
+Cardiovascular implants - Endovascular devices - Part 
+3: Vena cava filters 
+27 May 2024 
+119.  EN 50637:2017 
+Medical electrical equipment - Particular requirements 
+for the basic safety and essential performance of 
+medical beds for children 
+27 May 2024 
+120.  EN 60118-0:2015 
+Electroacoustics - Hearing aids - Part 0: Measurement 
+of the performance characteristics of hearing aids 
+27 May 2024 
+121.  EN IEC 60118-13:2020 
+Electroacoustics - Hearing aids - Part 13: 
+Requirements and methods of measurement for 
+electromagnetic immunity to mobile digital wireless 
+devices 
+27 May 2024 
+122.  EN 60601 -1:2006+A1:2013+AC:2014+A12:2014 
++A2:2020 
+Medical electrical equipment - Part 1: General 
+requirements for basic  safety and essential 
+27 May 2024 
+ 
+EN 14  EN 
+performance 
+123.  EN 60601-1-2:2015+A1:2020 
+Medical electrical equipment - Part 1 -2: General 
+requirements for basic safety and essential 
+performance - Collateral standard: Electromagnetic 
+compatibility - Requirements and tests 
+27 May 2024 
+124.  EN 60601-1-3:2008+AC:2014+A11:2016+A1:2020 
+Medical electrical equipment - Part 1 -3: General 
+requirements for basic safety and essential 
+performance - Collateral standard: Radiation 
+protection in diagnostic X-ray equipment 
+27 May 2024 
+125.  EN 60601-1-6:2010+A1:2015+A2:2020 
+Medical electrical equipment - Part 1 -6: General 
+requirements for basic safety and essential 
+performance - Collateral standard: Usability 
+27 May 2024 
+126.  EN 60601-1-8:2007+AC:2014+A11:2017+A2:2020 
+Medical electrical equipment - Part 1 -8: General 
+requirements for basic safety and essential 
+performance - Collateral standard: General 
+requirements, tests and guidance for alarm systems in 
+medical electrical equipment and medical electrical 
+systems 
+27 May 2024 
+127.  EN 60601-1-10:2008+A1:2015+A2:2020 
+Medical electrical equipment - Part 1 -10: General 
+requirements for basic safety and essential 
+performance - Collateral standard: Requirements for 
+the development of physiologic closed-loop controller 
+27 May 2024 
+128.  EN 60601-1-11:2015+A1:2020 
+Medical electrical equipment - Part 1 -11: General 
+requirements for basic safety and essential 
+performance - Collateral standard: Requirements for 
+medical electrical equipment and medical electrical 
+systems used in the home healthcare environment 
+27 May 2024 
+129.  EN 60601-1-12:2015+A1:2020 
+Medical electrical equipment - Part 1 -12: General 
+requirements for basic safety and essential 
+performance - Collateral standard: Requirements for 
+medical electrical equipment and medical electrical 
+27 May 2024 
+ 
+EN 15  EN 
+systems intended for use in  the emergency medical 
+services environment 
+130.  EN 60601-2-1:2015 
+Medical electrical equipment - Part 2 -1: Particular 
+requirements for the basic safety and essential 
+performance of electron accelerators in the range 1 
+MeV to 50 MeV 
+27 May 2024 
+131.  EN IEC 60601-2-2:2018 
+Medical electrical equipment - Part 2 -2: Particular 
+requirements for the basic safety and essential 
+performance of high frequency surgical equipment and 
+high frequency surgical accessories 
+27 May 2024 
+132.  EN 60601-2-3:2015+A1:2016 
+Medical electrical equipment - Part 2 -3: Particular 
+requirements for the basic safety and essential 
+performance of short-wave therapy equipment 
+27 May 2024 
+133.  EN 60601-2-4:2011+A1:2019 
+Medical electrical equipment - Part 2 -4: Particular 
+requirements for the basic safety and essential 
+performance of cardiac defibrillators 
+27 May 2024 
+134.  EN 60601-2-5:2015 
+Medical electrical equipment - Part 2 -5: Particular 
+requirements for the basic safety and essential 
+performance of ultrasonic physiotherapy equipment 
+27 May 2024 
+135.  EN 60601-2-6:2015+A1:2016 
+Medical electrical equipment - Part 2 -6: Particular 
+requirements for the basic safety and essential 
+performance of microwave therapy equipment 
+27 May 2024 
+136.  EN 60601-2-8:2015+A1:2016 
+Medical electrical equipment - Part 2 -8: Particular 
+requirements for the basic safety and essential 
+performance of therapeutic X -ray equipment operating 
+in the range 10 kV to 1 MV 
+27 May 2024 
+137.  EN 60601-2-10:2015+A1:2016 
+Medical electrical equipment - Part 2 -10: Particular 
+requirements for the ba sic safety and essential 
+27 May 2024 
+ 
+EN 16  EN 
+performance of nerve and muscle stimulators 
+138.  EN 60601-2-11:2015 
+Medical electrical equipment - Part 2 -11: Particular 
+requirements for the basic safety and essential 
+performance of gamma beam therapy equipment 
+27 May 2024 
+139.  EN IEC 60601-2-16:2019 
+Medical electrical equipment - Part 2 -16: Particular 
+requirements for the basic safety and essential 
+performance of haemodialysis, haemodiafiltration and 
+haemofiltration equipment 
+27 May 2024 
+140.  EN 60601-2-17:2015 
+Medical electrical equipment - Part 2 -17: Particular 
+requirements for the basic safety and essential 
+performance of automatically -controlled 
+brachytherapy afterloading equipment 
+27 May 2024 
+141.  EN 60601-2-18:2015 
+Medical electrical equipment - Part 2 -18: Particular 
+requirements for the basic safety and essential 
+performance of endoscopic equipment 
+27 May 2024 
+142.  EN IEC 60601-2-19:2020 
+Medical electrical equipment - Part 2 -19: Particular 
+requirements for the basic safety and essential 
+performance of infant incubators 
+27 May 2024 
+143.  EN IEC 60601-2-20:2020 
+Medical electrical equipment - Part 2 -20: Particular 
+requirements for the basic safety and essential 
+performance of infant transport incubators 
+27 May 2024 
+144.  EN IEC 60601-2-21:2020 
+Medical electrical equipment - Part 2 -21: Particular 
+requirements for the basic safety and essential 
+performance of infant radiant warmers 
+27 May 2024 
+145.  EN 60601-2-23:2015 
+Medical electrical equipment - Part 2 -23: Particular 
+requirements for the basic safety and essential 
+performance of transcutaneous partial pressure 
+27 May 2024 
+ 
+EN 17  EN 
+monitoring equipment 
+146.  EN 60601-2-24:2015 
+Medical electrical equipment - Part 2 -24: Particular 
+requirements for the basic safety and essential 
+performance of infusion pumps and controllers 
+27 May 2024 
+147.  EN 60601-2-25:2015 
+Medical electrical equipment - Part 2 -25: Particular 
+requirements for the basic safety and essential 
+performance of electrocardiographs 
+27 May 2024 
+148.  EN 60601-2-27:2014 
+Medical electrical equipment - Part 2 -27: Particular 
+requirements for the basic safety and essential 
+performance of electrocardiographic monitoring 
+equipment 
+27 May 2024 
+149.  EN IEC 60601-2-28:2019 
+Medical electrical equipment - Part 2 -28: Particular 
+requirements for the basic safety and essential 
+performance of X -ray tube assembli es for medical 
+diagnosis 
+27 May 2024 
+150.  EN 60601-2-29:2008+A11:2011 
+Medical electrical equipment - Part 2 -29: Particular 
+requirements for the basic safety and essential 
+performance of radiotherapy simulators 
+27 May 2024 
+151.  EN IEC 60601-2-31:2020 
+Medical electrical equipment - Part 2 -31: Particular 
+requirements for the basic safety and essential 
+performance of external cardiac pacemakers with 
+internal power source 
+27 May 2024 
+152.  EN 60601 -2-
+33:2010+A11:2011+A1:2015+A2:2015+A12:2016 
+Medical electrical equipme nt - Part 2 -33: Particular 
+requirements for the basic safety and essential 
+performance of magnetic resonance equipment for 
+medical diagnosis 
+27 May 2024 
+153.  EN 60601-2-34:2014 
+Medical electrical equipment - Part 2 -34: Particular 
+27 May 2024 
+ 
+EN 18  EN 
+requirements for the basic sa fety and essential 
+performance of invasive blood pressure monitoring 
+equipment 
+154.  EN 60601-2-36:2015 
+Medical electrical equipment - Part 2 -36: Particular 
+requirements for the basic safety and essential 
+performance of equipment for extracorporeally 
+induced lithotripsy 
+27 May 2024 
+155.  EN 60601-2-37:2008+A11:2011+A1:2015 
+Medical electrical equipment - Part 2 -37: Particular 
+requirements for the basic safety and essential 
+performance of ultrasonic medical diagnostic and 
+monitoring equipment 
+27 May 2024 
+156.  EN IEC 60601-2-39:2019 
+Medical electrical equipment - Part 2 -39: Particular 
+requirements for basic safety and essential 
+performance of peritoneal dialysis equipment 
+27 May 2024 
+157.  EN 60601-2-40:2019 
+Medical electrical equipment - Part 2 -40: Particular 
+requirements for the basic safety and essential 
+performance of electromyographs and evoked response 
+equipment 
+27 May 2024 
+158.  EN 60601-2-41:2009+A11:2011+A1:2015 
+Medical electrical equipment - Part 2 -41: Particular 
+requirements for basic safety an d essential 
+performance of surgical luminaires and luminaires for 
+diagnosis 
+27 May 2024 
+159.  EN 60601-2-43:2010+AC:2014+A1:2018+A2:2020 
+Medical electrical equipment - Part 2 -43: Particular 
+requirements for the basic safety and essential 
+performance of X -ray e quipment for interventional 
+procedures 
+27 May 2024 
+160.  EN 60601-2-44:2009+A11:2011+A1:2012+A2:2016 
+Medical electrical equipment - Part 2 -44: Particular 
+requirements for the basic safety and essential 
+performance of X -ray equipment for computed 
+tomography 
+27 May 2024 
+ 
+EN 19  EN 
+161.  EN 60601-2-45:2011+A1:2015 
+Medical electrical equipment - Part 2 -45: Particular 
+requirements for the basic safety and essential 
+performance of mammographic X -ray equipment and 
+mammographic stereotactic devices 
+27 May 2024 
+162.  EN IEC 60601-2-46:2019 
+Medical electrical equipment - Part 2 -46: Particular 
+requirements for the basic safety and essential 
+performance of operating tables 
+27 May 2024 
+163.  EN 60601-2-47:2015 
+Medical electrical equipment - Part 2 -47: Particular 
+requirements for the basic safety and essential 
+performance of ambulatory electrocardiographic 
+systems 
+27 May 2024 
+164.  EN 60601-2-50:2009+A11:2011+A1:2016 
+Medical electrical equipment - Part 2 -50: Particular 
+requirements for the basic safety and essential 
+performance of infant phototherapy equipment 
+27 May 2024 
+165.  EN 60601-2-52:2010+AC:2011+A1:2015 
+Medical electrical equipment - Part 2 -52: Particular 
+requirements for the basic safety and essential 
+performance of medical beds 
+27 May 2024 
+166.  EN 60601-2-54:2009+A1:2015+A2:2019 
+Medical electrical equipment - Part 2 -54: Particular 
+requirements for the basic safety and essential 
+performance of X -ray equipment for radiography and 
+radioscopy 
+27 May 2024 
+167.  EN 60601-2-62:2015 
+Medical electrical equipment - Part 2 -62: Particular 
+requirements for the basic  safety and essential 
+performance of high intensity therapeutic ultrasound 
+(HITU) equipment 
+27 May 2024 
+168.  EN 60601-2-63:2015+A1:2019 
+Medical electrical equipment - Part 2 -63: Particular 
+requirements for the basic safety and essential 
+performance of dental extra-oral X-ray equipment 
+27 May 2024 
+ 
+EN 20  EN 
+169.  EN 60601-2-64:2015 
+Medical electrical equipment - Part 2 -64: Particular 
+requirements for the basic safety and essential 
+performance of light ion beam medical electrical 
+equipment 
+27 May 2024 
+170.  EN 60601-2-65:2013+A1:2020 
+Medical electrical equipment - Part 2 -65: Particular 
+requirements for the basic safety and essential 
+performance of dental intra-oral X-ray equipment 
+27 May 2024 
+171.  EN IEC 60601-2-66:2020 
+Medical electrical equipment - Part 2 -66: Par ticular 
+requirements for the basic safety and essential 
+performance of hearing aids and hearing aid systems 
+27 May 2024 
+172.  EN 60601-2-68:2015 
+Medical electrical equipment - Part 2 -68: Particular 
+requirements for the basic safety and essential 
+performance of  X-ray-based image -guided 
+radiotherapy equipment for use with electron 
+accelerators, light ion beam therapy equipment and 
+radionuclide beam therapy equipment 
+27 May 2024 
+173.  EN IEC 60601-2-75:2019 
+Medical electrical equipment - Part 2 -75: Particular 
+requirements for the basic safety and essential 
+performance of photodynamic therapy and 
+photodynamic diagnosis equipment 
+27 May 2024 
+174.  EN IEC 60601-2-76:2019 
+Medical electrical equipment - Part 2 -76: Particular 
+requirements for the basic safety and essential 
+performance of low energy ionized gas haemostasis 
+equipment 
+27 May 2024 
+175.  EN IEC 60601-2-83:2020 
+Medical electrical equipment - Part 2 -83: Particular 
+requirements for the basic safety and essential 
+performance of home light therapy equipment 
+27 May 2024 
+176.  EN 61010-1:2010+A1:2019+AC:2019 
+Safety requirements for electrical equipment for 
+measurement, control, and laboratory use - Part 1: 
+27 May 2024 
+ 
+EN 21  EN 
+General requirements 
+177.  EN 61326-1:2013 
+Electrical equipment for measurement, control and 
+laboratory use - EMC requi rements - Part 1: General 
+requirements 
+27 May 2024 
+178.  EN 62083:2009 
+Medical electrical equipment - Requirements for the 
+safety of radiotherapy treatment planning systems 
+27 May 2024 
+179.  EN 62304:2006+A1:2015 
+Medical device software - Software life -cycle 
+processes 
+27 May 2024 
+180.  EN 62366-1:2015+AC:2015+AC:2016+A1:2020 
+Medical devices - Application of usability engineering 
+to medical devices 
+27 May 2024 
+181.  EN 80001-1:2011 
+Safety, effectiveness and security in the 
+implementation and use of connected medical devices 
+or connected health software - Part 1: Application of 
+risk management 
+27 May 2024 
+182.  EN ISO 80369-1:2018 
+Small-bore connectors for liquids and gases in 
+healthcare applications - Part 1: General requirements 
+27 May 2024 
+183.  EN ISO 80369-3:2016 
+Small-bore connectors for liquids and gases in 
+healthcare applications - Part 3: Connectors for enteral 
+applications 
+27 May 2024 
+184.  EN ISO 80369-5:2016+AC:2017-02 
+Small-bore connectors for liquids and gases in 
+healthcare applications - Part 5: Connectors for limb 
+cuff inflation applications 
+27 May 2024 
+185.  EN ISO 80369-6:2016 
+Small bore connectors for liquids and gases in 
+healthcare applications - Part 6: Connectors for 
+neuraxial applications 
+27 May 2014 
+ 
+EN 22  EN 
+186.  EN ISO 80369-7:2017 
+Small-bore connectors for liquids and gas es in 
+healthcare applications - Part 7: Connectors for 
+intravascular or hypodermic applications 
+27 May 2024 
+187.  EN ISO 80369-20:2015 
+Small-bore connectors for liquids and gases in 
+healthcare applications - Part 20: Common test 
+methods 
+27 May 2024 
+188.  EN ISO 80601-2-12:2020 
+Medical electrical equipment - Part 2 -12: Particular 
+requirements for basic safety and essential 
+performance of critical care ventilators 
+27 May 2024 
+189.  EN ISO 80601-2-13:2011+A1:2019+A2:2019 
+Medical electrical equipment - Part 2 -13: Particu lar 
+requirements for basic safety and essential 
+performance of an anaesthetic workstation 
+27 May 2024 
+190.  EN IEC 80601-2-26:2020 
+Medical electrical equipment - Part 2 -26: Particular 
+requirements for the basic safety and essential 
+performance of electroencephalographs 
+27 May 2024 
+191.  EN IEC 80601-2-30:2019 
+Medical electrical equipment - Part 2 -30: Particular 
+requirements for the basic safety and essential 
+performance of automated non -invasive 
+sphygmomanometers 
+27 May 2024 
+192.  EN IEC 80601-2-35:2019 
+Medical electrical equipment - Part 2 -35: Particular 
+requirements for the basic safety and essential 
+performance of heating devices using blankets, pads 
+and mattresses and intended for heating in medical use 
+27 May 2024 
+193.  EN IEC 80601-2-49:2019 
+Medical electrical equipment - Part 2 -49: Particular 
+requirements for the basic safety and essential 
+performance of multifunction patient monitoring 
+equipment 
+27 May 2024 
+ 
+EN 23  EN 
+194.  EN ISO 80601-2-56:2017+A1:2020 
+Medical electrical equipment - Part 2 -56: Particular 
+requirements for basic safety and essential 
+performance of clinical thermometers for body 
+temperature measurement 
+27 May 2024 
+195.  EN 80601-2-58:2015+A1:2019 
+Medical electrical equipment - Part 2 -58: Particular 
+requirements for the basic safety and essential 
+performance of lens removal devices and vitrectomy 
+devices for ophthalmic surgery 
+27 May 2024 
+196.  EN IEC 80601-2-59:2019 
+Medical electrical equipment - Part 2 -59: Particular 
+requirements for the basic safety and essential 
+performance of screening thermographs for human 
+febrile temperature screening 
+27 May 2024 
+197.  EN IEC 80601-2-60:2020 
+Medical electrical equipment - Part 2 -60: Particular 
+requirements for the basic safety and essential 
+performance of dental equipment 
+27 May 2024 
+198.  EN ISO 80601-2-69:2020 
+Medical electrical equipment - Part 2 -69: Particular 
+requirements for basic safety and essential 
+performance of oxygen concentrator equipment 
+27 May 2024 
+199.  EN IEC 80601-2-71:2018 
+Medical electrical equipment - Part 2 -71: Particular 
+requirements for the  basic safety and essential 
+performance of functional near -infrared spectroscopy 
+(NIRS) equipment 
+27 May 2024 
+200.  EN IEC 80601-2-78:2020 
+Medical electrical equipment - Part 2 -78: Particular 
+requirements for basic safety and essential 
+performance of medical r obots for rehabilitation, 
+assessment, compensation or alleviation 
+27 May 2024 
+201.  EN 82304-1:2017 
+Health Software - Part 1: General requirements for 
+product safety 
+27 May 2024 
+ 
+EN 24  EN 
+ 
+Table 2: List of new harmonised standards to be drafted and deadlines for their 
+adoption 
+Reference information Deadline for the adoption 
+1.  Medical gloves for single use - Part 5: Extractable 
+chemical residues (prEN 455-5) 
+27 May 2024 
+2.  Radiation protection - Sealed radioactive sources - 
+Leakage test methods (ISO 9978) 
+27 May 2024 
+3.  Biological evaluation of medical devices - Part 23: 
+Tests for irritation (ISO 10993-23) 
+27 May 2024 
+4.  Active implantable medical devices - Electromagnetic 
+compatibility - EMC test protocols for implantable 
+cardiac pacemakers, implantable cardioverter 
+defibrillators and cardiac resynchronization devices 
+(ISO 14117) 
+27 May 2024 
+5.  Stainless steel steam boilers (prEN 14222) 27 May 2024 
+6.  Implants for surgery - Active implantable medical 
+devices - Part 1: General requirements for safety, 
+marking and for information to be provided by the 
+manufacturer (ISO 14708-1) 
+27 May 2024 
+7.  Implants for surgery - Active implantable medical 
+devices - Part 2: Cardiac pacemakers (ISO 14708-2) 
+27 May 2024 
+8.  Implants for surgery - Active implantable medical 
+devices - Part 3: Implantable neurostimulators (ISO 
+14708-3) 
+27 May 2024 
+9.  Implants for surgery - Active implantable medical 
+devices - Part 4: Implantable infusion pumps (ISO 
+14708-4) 
+27 May 2024 
+10.  Implants for surgery - Active implantable medical 
+devices - Part 5: Circu latory support devices (ISO 
+14708-5) 
+27 May 2024 
+11.  Implants for surgery - Active implantable medical 
+devices - Part 6: Particular requirements for active 
+implantable medical devices intended to treat 
+tachyarrhythmia (including implantable defibrillators) 
+(ISO 14708-6) 
+27 May 2024 
+12.  Implants for surgery - Active implantable medical 
+devices - Part 7: Particular requirements for cochlear 
+27 May 2024 
+ 
+EN 25  EN 
+and auditory brainstem implant systems (ISO 14708-7) 
+13.  Washer-disinfectors - Part 5: Performance 
+requirements and test method criteria for 
+demonstrating cleaning efficacy (ISO 15883-5) 
+27 May 2024 
+14.  Sterilizers for medical purposes - Low temperature 
+vapourized hydrogen peroxide sterilizers - 
+Requirements and testing (prEN 17180) 
+27 May 2024 
+15.  Sterilization of medical devices - Information to be 
+provided by the manufacturer for the processing of 
+resterilizable medical devices (ISO 17664-1) 
+27 May 2024 
+16.  Processing of health care products - Information to be 
+provided by the medical device manufacturer for the 
+processing of medical devices - Part 2: Medical 
+devices not intended for direct patient contact (ISO 
+17664-2) 
+27 May 2024 
+17.  Assistive products for personal hygiene that support 
+users - Requirements and test methods (ISO 17966) 
+27 May 2024 
+18.  Medical devices - Connectors for reservoir delivery 
+systems for healthcare applications (ISO 18250) 
+27 May 2024 
+19.  Medical devices - Information to be provided by the 
+manufacturer (ISO 20417) 
+27 May 2024 
+20.  Assistive products - General requirements and test 
+methods (ISO 21856) 
+27 May 2024 
+21.  Lasers and laser -related equipment - Test methods for 
+laser-induced damage threshold - Classification of 
+medical beam delivery systems (ISO 22248) 
+27 May 2024 
+22.  Cardiac rhythm management devices - Symbols to be 
+used with cardiac rhythm management device labels, 
+and information to be supplied - General requirements 
+(ISO 27185) 
+27 May 2024 
+23.  Active implantable medical devices - Four-pole 
+connector system for implantable cardiac rhythm 
+management devices - Dimensional and test 
+requirements (ISO 27186) 
+27 May 2024 
+24.  Medical electrical equipment - Part 4-5: Guidance and 
+interpretation - Safety related technical security 
+specifications for medical devices (IEC TR 60601-4-5) 
+27 May 2024 
+25.  Medical electrical equipment - Part 2 -86: Particular 
+requirements for the basic safety and essential 
+27 May 2024 
+ 
+EN 26  EN 
+performance of electrocardiographs, including 
+diagnostic equipment, monitoring equipment, 
+ambulatory equipment, electrodes, cables and 
+leadwires (IEC 80601-2-86) 
+26.  Medical electrical equipment - Part 2 -89: Particular 
+requirements for the basic safety and essential 
+performance of medical beds for children (IEC 80601 -
+2-89) 
+27 May 2024 
+27.  Health software and health IT systems safety, 
+effectiveness and security - Part 5 -1: Security - 
+Activities in the product life cycle (IEC 81001-5-1) 
+27 May 2024 
+ 
+EN 27  EN 
+ANNEX II 
+List of existing standards to be revised and list of new standards to be drafted as 
+referred to in Article 1(2) 
+ 
+Table 1: List of existing harmonised standards to be revised and deadlines for the 
+adoption of the revised harmonised standards 
+Reference information Deadline for the adoption 
+1.  EN 556-1:2001+AC:2006 
+Sterilization of medical devices - Requirements for 
+medical devices to be designated "STERILE" - Part 1: 
+Requirements for terminally sterilized medical devices 
+27 May 2024 
+2.  EN 556-2:2015 
+Sterilization of medical devices - Requirements for 
+medical devices to be designated ''STERILE" - Part 2: 
+Requirements for aseptically processed medical 
+devices 
+27 May 2024 
+3.  EN ISO 7010:2012 
+Graphical symbols - Safety colours and safety signs - 
+Registered safety signs 
+27 May 2024 
+4.  EN ISO 11135:2014+A1:2019 
+Sterilization of health-care products - Ethylene oxide - 
+Requirements for the dev elopment, validation and 
+routine control of a sterilization process for medical 
+devices 
+27 May 2024 
+5.  EN ISO 11137-1:2015+A2:2019 
+Sterilization of health care products - Radiation - Part 
+1: Requirements for development, validation and 
+routine control of a sterilization process for medical 
+devices 
+27 May 2024 
+6.  EN ISO 11137-2:2015 
+Sterilization of health care products - Radiation - Part 
+2: Establishing the sterilization dose 
+27 May 2024 
+7.  EN ISO 11607-1:2020 
+Packaging for terminally sterilized medical device s - 
+Part 1: Requirements for materials, sterile barrier 
+27 May 2024 
+ 
+EN 28  EN 
+systems and packaging systems 
+8.  EN ISO 11607-2:2020 
+Packaging for terminally sterilized medical devices - 
+Part 2: Validation requirements for forming, sealing 
+and assembly processes 
+27 May 2024 
+9.  EN ISO 11737-1:2018 
+Sterilization of medical devices - Microbiological 
+methods - Part 1: Determination of a population of 
+microorganisms on products 
+27 May 2024 
+10.  EN ISO 11737-2:2020 
+Sterilization of medical devices - Microbiological 
+methods - Part 2: Tests of sterility performed in the 
+definition, validation and maintenance of a sterilization 
+process 
+27 May 2024 
+11.  EN ISO 13408-1:2015 
+Aseptic processing of health care products - Part 1: 
+General requirements 
+27 May 2024 
+12.  EN ISO 13408-2:2018 
+Aseptic processing of health care products - Part 2: 
+Filtration 
+27 May 2024 
+13.  EN ISO 13408-3:2011 
+Aseptic processing of health care products - Part 3: 
+Lyophilization 
+27 May 2024 
+14.  EN ISO 13408-4:2011 
+Aseptic processing of health care products - Part 4: 
+Clean-in-place technologies 
+27 May 2024 
+15.  EN ISO 13408-5:2011 
+Aseptic processing of health care products - Part 5: 
+Sterilization in place 
+27 May 2024 
+16.  EN ISO 13408-6:2011+A1:2013 
+Aseptic processing of health care products - Part 6: 
+Isolator systems 
+27 May 2024 
+17.  EN ISO 13408-7:2015 27 May 2024 
+ 
+EN 29  EN 
+Aseptic processing of health care products - Part 7: 
+Alternative processes for medical devices and 
+combination products 
+18.  EN ISO 13485:2016+AC:2018 
+Medical devices - Quality management systems - 
+Requirements for regulatory purposes 
+27 May 2024 
+19.  EN 13532:2002 
+General requirements for in vitro  diagnostic medical 
+devices for self-testing 
+27 May 2024 
+20.  EN 13612:2002+AC:2002 
+Performance evaluation of in vitro diagnostic medical 
+devices 
+27 May 2024 
+21.  EN 13641:2002 
+Elimination or reduction of risk of infection related to 
+in vitro diagnostic reagents 
+27 May 2024 
+22.  EN 13975:2003 
+Sampling procedures used for acceptance testing of in 
+vitro diagnostic medical devices - Statistical aspects 
+27 May 2024 
+23.  EN 14136:2004 
+Use of external quality assessment schemes in the 
+assessment of the performance of in vitro  diagnostic 
+examination procedures 
+27 May 2024 
+24.  EN ISO 14937:2009 
+Sterilization of health care products - General 
+requirements for characterization of a sterilizing  agent 
+and the development, validation and routine control of 
+a sterilization process for medical devices 
+27 May 2024 
+25.  EN ISO 14971:2019 
+Medical devices - Application of risk management to 
+medical devices 
+27 May 2024 
+26.  EN ISO 15193:2009 
+In vitro diagnostic medical devices - Measurement of 
+quantities in samples of biological origin - 
+Requirements for content and presentation of reference 
+27 May 2024 
+ 
+EN 30  EN 
+measurement procedures 
+27.  EN ISO 15194:2009 
+In vitro diagnostic medical devices - Measurement of 
+quantities in samples of biological origin - 
+Requirements for certified reference materials and the 
+content of supporting documentation 
+27 May 2024 
+28.  EN ISO 15197:2015 
+In vitro  diagnostic test systems - Requirements for 
+blood-glucose monitoring systems for self -testing in 
+managing diabetes mellitus 
+27 May 2024 
+29.  EN ISO 15223-1:2016 
+Medical devices - Symbols to be used with medical 
+device labels, labelling and information to be supplied 
+- Part 1: General requirements 
+27 May 2024 
+30.  EN ISO 17511:2003 
+In vitro diagnostic medical devices - requirements for 
+establishing metrological traceability of values 
+assigned to calibrators, trueness control materials and 
+human samples 
+27 May 2024 
+31.  EN ISO 17664:2017 
+Processing of health care products - Information to be 
+provided by the medical device manufacturer for the 
+processing of medical devices 
+27 May 2024 
+32.  EN ISO 17665-1:2006 
+Sterilization of health care products - Moist heat - Part 
+1: Requirements for the development, vali dation and 
+routine control of a sterilization process for medical 
+devices 
+27 May 2024 
+33.  EN ISO 18113-1:2011 
+In vitro  diagnostic medical devices - Information 
+supplied by the manufacturer (labelling) - Part 1: 
+Terms, definitions and general requirements 
+27 May 2024 
+34.  EN ISO 18113-2:2011 
+In vitro  diagnostic medical devices - Information 
+supplied by the manufacturer (labelling) - Part 2: In 
+27 May 2024 
+ 
+EN 31  EN 
+vitro diagnostic reagents for professional use 
+35.  EN ISO 18113-3:2011 
+In vitro  diagnostic medical devices - Information 
+supplied by the manufacturer (labelling) - Part 3: In 
+vitro diagnostic instruments for professional use 
+27 May 2024 
+36.  EN ISO 18113-4:2011 
+In vitro  diagnostic medical devices - Information 
+supplied by the manufactur er (labelling) - Part 4: In 
+vitro diagnostic reagents for self-testing 
+27 May 2024 
+37.  EN ISO 18113-5:2011 
+In vitro  diagnostic medical devices - Information 
+supplied by the manufacturer (labelling) - Part 5: In 
+vitro diagnostic instruments for self-testing 
+27 May 2024 
+38.  EN ISO 20857:2013 
+Sterilization of health care products - Dry heat - 
+Requirements for the development, validation and 
+routine control of a sterilization process for medical 
+devices 
+27 May 2024 
+39.  EN ISO 23640:2015 
+In vitro  diagnostic medical devices - Evaluation of 
+stability of in vitro diagnostic reagents 
+27 May 2024 
+40.  EN ISO 25424:2019 
+Sterilization of health care products - Low temperature 
+steam and formaldehyde - Requirements for 
+development, validation and routine cont rol of a 
+sterilization process for medical devices 
+27 May 2024 
+41.  EN 61326-1:2013 
+Electrical equipment for measurement, control and 
+laboratory use - EMC requirements - Part 1: General 
+requirements 
+27 May 2024 
+42.  EN 61326-2-6:2013 
+Electrical equipment for measurement, control and 
+laboratory use - EMC requirements - Part 2 -6: 
+Particular requirements - In vitro  diagnostic (IVD) 
+medical equipment 
+27 May 2024 
+ 
+EN 32  EN 
+43.  EN 61010-1:2010+A1:2019+AC:2019 
+Safety requirements for electrical equipment  for 
+measurement, control, and laboratory use - Part 1: 
+General requirements 
+27 May 2024 
+44.  EN 61010-2-101:2017 
+Safety requirements for electrical equipment for 
+measurement, control and laboratory use - Part 2-101: 
+Particular requirements for in vitro  diagnostic (IVD) 
+medical equipment 
+27 May 2024 
+45.  EN 62304:2006+A1:2015 
+Medical device software - Software life -cycle 
+processes 
+27 May 2024 
+46.  EN 62366-1:2015+AC:2015+AC:2016+A1:2020 
+Medical devices - Application of usability engineering 
+to medical devices 
+27 May 2024 
+ 
+Table 2: List of new harmonised standards to be drafted and deadlines for their 
+adoption 
+Reference information Deadline for the adoption 
+1.  Sterilization of medical devices - Information to be 
+provided by the manufacturer for the processing of  
+resterilizable medical devices (ISO 17664-1) 
+27 May 2024 
+2.  Processing of health care products - Information to be 
+provided by the medical device manufacturer for the 
+processing of medical devices - Part 2: Medical 
+devices not intended for direct patient contact (ISO 
+17664-2) 
+27 May 2024 
+3.  In vitro  diagnostic medical devices - Clinical 
+performance studies using specimens from human 
+subjects - Good study practice (ISO 20916) 
+27 May 2024 
+ 
+EN 33  EN 
+ANNEX III 
+Requirements for the standards referred to in Article 1 
+Part A. General requirements 
+1. Legal requirements to be supported by the harmonised standards 
+The harmonised standards shall support application of relevant safety and 
+performance requirements for medical devices and in vitro  diagnostic me dical 
+devices for human use and system and process requirements for economic operators 
+and sponsors of clinical investigations and performance studies set out in Regulations 
+(EU) 2017/745 and (EU) 2017/746. 
+The harmonised standards shall provide detailed t echnical, scientific, processual or 
+methodological specifications of safety and performance requirements with the 
+purpose of allowing compliance with relevant requirements of Regulations (EU) 
+2017/745 and (EU) 2017/746. Where appropriate, the harmonised st andards shall 
+include methods to verify compliance with such specifications. 
+The structure of a harmonised standard shall be such that a clear distinction can be 
+made between its clauses and sub -clauses, which are necessary for compliance with 
+the safety and performance requirements of Regulation (EU) 2017/745 or Regulation 
+(EU) 2017/746 that the standard aims to cover and those which are not. The 
+relationship between the clauses and sub -clauses of a harmonised standard and the 
+requirements of Regulation (E U) 2017/745 or Regulation (EU) 2017/746 shall be 
+indicated in the Annexes Z to each standard. The relevant requirements of 
+Regulations (EU) 2017/745 and (EU) 2017/746 shall be taken into account from the 
+beginning and throughout the process of developing of the standards. 
+The normative body of a harmonised standard shall not: 
+(a) make any references to Regulation (EU) 2017/745 or Regulation (EU) 
+2017/746 or reproduce their requirements; 
+(b) contradict any definitions set out in Regulations (EU) 2017/745 and  (EU) 
+2017/746 or define any legally relevant terms not defined in those Regulations. 
+Where a definition in a harmonised standard differs from a definition of the same 
+term set out in Regulation (EU) 2017/745 or Regulation (EU) 2017/746, the 
+differences shall be indicated in the foreword of that standard and in its Annex Z. 
+That Annex shall also state that, for the purpose of using the standard in support of 
+the requirements set out in Regulations (EU) 2017/745 and (EU) 2017/746, the 
+definitions set out in those Regulations prevail. 
+Each harmonised standard developed on the basis of the standardisation request 
+referred to in Article 1 shall refer to this Decision. 
+Each revised harmonised standard shall contain information on significant changes 
+introduced in that standard. 
+2. Legal requirements to be covered by an individual harmonised standard 
+When one of the harmonised standards listed in Annex I or in Annex II does not 
+cover all relevant requirements applicable to devices or system or process 
+requirements falling under its scope, or when it covers such requirements only 
+partially, that standard shall include in its Annex Z information on the relevant 
+applicable requirements or parts thereof that are not covered by it. 
+ 
+EN 34  EN 
+Where appropriate, the harmonised stand ard shall include information as to whether 
+a particular requirement is addressed with regard to the design, manufacturing, or 
+packaging of the device. 
+3. Reduction of risk 
+The specifications of harmonised standards concerning the reduction of risk which 
+may be associated with the device shall take into account the general requirements 
+laid down in point 2 of Chapter I of Annex I to Regulation (EU) 2017/745 and in 
+point 2 of Chapter I of Annex I to Regulation (EU) 2017/746 to reduce risks as far as 
+possible without adversely affecting the benefit-risk ratio. 
+4. Normative references 
+Normative references included in a harmonised standard shall be clear and specific 
+and ensure identification of all specifications covered by the standard. Where a 
+standard refers to another standard or a clause in that standard, and that standard or 
+clause contains a further normative reference or references (‘a normative reference 
+chain’), the whole normative reference chain shall be clear and specific. Normative 
+reference chains shall be avoided. 
+Clauses of a standard, which do not provide for technical, scientific or 
+methodological specifications, but are limited to a normative reference to another 
+standard or a clause in that standard shall not claim coverage of the legal 
+requirements that are addressed in the standard normatively referred to. 
+Standards which do not ensure compliance with legal requirements on their own, but 
+require application of another standard, shall contain a clear statement to that effect. 
+They shall not claim coverage of the legal requirements covered by that other 
+standard. 
+Standards containing normative references to undated standards shall indicate the 
+dated version of any such referenced standard. 
+5. Publicly available description of the meaning of symbols 
+Where a harmonised standard provides a description of the meaning of symbols to be 
+used in the information supplied by the manufacturer that description shall be made 
+publicly available.  Public availability of such descriptions shall not affect any 
+copyright to a harmonised standard or its parts. 
+Part B. Specific requirements 
+1. Requirements for all harmonised standards listed in Annexes I and II 
+The harmonised standards shall ensure safety and effectiveness of devices and a high 
+level of protection of health and safety of patients, users or others persons. They shall 
+reflect the generally acknowledged state of the art. 
+2. Requirements for certain specific standards listed in Annexes I and II 
+2.1 Biological evaluation of medical devices - Part 7: Ethy lene oxide sterilization 
+residuals (EN ISO 10993 -7:2008+AC:2009) and Part 17: Establishment of allowable 
+limits for leachable substances (EN ISO 10993-17:2009) 
+In the standard EN ISO 10993 -7:2008+AC:2009, the method of calculation of residue 
+limits for eth ylene oxide sterilant laid down in point 4.3.1 of that standard shall be 
+modified in such a way as to take into account also patients with a weight lower/higher 
+ 
+EN 35  EN 
+than 70 kg, in particular neonates and other patients with a weight substantially below 
+the adults’ standard weight of 70 kg. 
+In the standard EN ISO 10993 -17:2009, the method of calculation of concomitant 
+exposure to ethylene oxide sterilant laid down in points 6.2.2 and 6.3.2 of that 
+standard shall be modified in such a way as to take into account certain clinical 
+situations involving use of several medical devices in neonates with a bodyweight 
+lower than 3,5 kg. 
+2.2 Medical devices - Symbols to be used with medical device labels, labelling and 
+information to be supplied - Part 1: General requirements (EN ISO 15223-1:2016) 
+The existing standard EN ISO 15223 -1:2016 shall be modified by the addition of a 
+symbol which indicates that a device is a medical device or an in vitro diagnostic 
+medical device to facilitate application of section 23.2(q) of Chap ter III of Annex I to 
+Regulation (EU) 2017/745 or section 20.2(e) of Chapter III of Annex I to Regulation 
+(EU) 2017/746, as appropriate. 
+2.3 Sharps injury protection - Requirements and test methods - Sharps protection features 
+for single -use hypodermic nee dles, introducers for catheters and needles used for 
+blood sampling (EN ISO 23908:2013) 
+The existing standard EN ISO 23908:2013 shall be modified by describing technical 
+solutions for safety -engineered mechanisms to be applied in design and manufacture 
+of devices to ensure compliance with points 11.1 and 22.2 of Chapter II of Annex I to 
+Regulation (EU) 2017/745. The standard shall apply to devices which are intended to 
+be used for administration and/or extraction of body/blood fluids and/or medicinal 
+substances. 
+2.4 Health software - Part 1: General requirements for product safety (EN 82304-1:2017) 
+The existing standard EN 82304 -1:2017 shall be modified by ensuring a clear 
+separation between products (software) which fall within the scope of Regulation (EU) 
+2017/745 and those that do not, ensuring that there is no ambiguity on its legal effect 
+and on which products could claim presumption of conformity on its basis.
