@@ -1,8 +1,9 @@
 """
 요약 엔진
 - 기본값: API 키 없이 동작하는 규칙기반(추출식) 요약
-- 추후 API 키를 연동하고 싶으면 환경변수(OPENAI_API_KEY 또는 ANTHROPIC_API_KEY)를
-  GitHub Secrets에 등록하기만 하면 자동으로 LLM 요약으로 전환된다 (아래 summarize() 참고).
+- 추후 API 키를 연동하고 싶으면 환경변수(GEMINI_API_KEY, OPENAI_API_KEY, ANTHROPIC_API_KEY 중 하나)를
+  등록하기만 하면 자동으로 LLM 요약으로 전환된다 (아래 summarize() 참고). 여러 개가 설정되어 있으면
+  GEMINI_API_KEY를 가장 먼저 사용한다(무료 등급 제공).
 """
 import os
 import re
@@ -57,8 +58,8 @@ def _rule_based_summary(title: str, body_text: str, max_sentences=4) -> str:
 
 def _llm_summary(title: str, body_text: str) -> str | None:
     """
-    OPENAI_API_KEY 또는 ANTHROPIC_API_KEY 가 설정되어 있으면 이 함수가 실제 LLM 요약을 시도한다.
-    두 키 모두 없으면 None을 반환하여 규칙기반 요약으로 자동 대체된다.
+    GEMINI_API_KEY, OPENAI_API_KEY, ANTHROPIC_API_KEY 순서로 확인해서 설정된 것이 있으면
+    그걸로 실제 LLM 요약을 시도한다. 아무 키도 없으면 None을 반환해 규칙기반 요약으로 대체된다.
     """
     prompt = (
         "당신은 의료기기 인증기관(BSI, SGS 등) 심사원입니다. 아래는 의료기기 규제/규격 문서 원문입니다. "
@@ -66,8 +67,23 @@ def _llm_summary(title: str, body_text: str) -> str | None:
         f"[제목]\n{title}\n\n[원문]\n{body_text[:12000]}"
     )
 
+    gemini_key = os.environ.get("GEMINI_API_KEY")
     openai_key = os.environ.get("OPENAI_API_KEY")
     anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
+
+    if gemini_key:
+        try:
+            from google import genai
+            client = genai.Client(api_key=gemini_key)
+            resp = client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=prompt,
+            )
+            text = (resp.text or "").strip()
+            if text:
+                return text
+        except Exception as e:
+            print(f"[summarizer] Gemini 요약 실패, 다음 후보로 넘어감: {e}")
 
     if openai_key:
         try:
