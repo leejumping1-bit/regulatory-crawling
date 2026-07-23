@@ -1,0 +1,699 @@
+[31 December 2020]
+Last updated:
+
+[20 February 2026]
+—
+See all updates
+Get emails about this page
+Contents
+Overview
+Legislation that applies in Great Britain
+The role of the MHRA
+Requirements for those manufacturing and supplying devices in Great Britain
+Registrations in Great Britain
+UK responsible person
+UKCA mark and conformity assessment bodies
+CE marking and notified bodies
+Labelling requirements
+Post-market surveillance and vigilance
+Regulation of medical devices in Northern Ireland
+Contact
+Print this page
+Overview
+The Medicines and Healthcare products Regulatory Agency (
+MHRA
+) is responsible for regulating the UK medical devices market.
+This guidance provides information on the UK system, including for:
+getting your device certified
+conformity marking your device
+registering your device with the
+MHRA
+This guidance is divided into sections on the different rules that apply in Great Britain, Northern Ireland and the EU. Great Britain is England, Wales and Scotland.
+Under the
+Northern Ireland Regulations 2021
+, different rules apply in Northern Ireland to those in Great Britain. For more information on the regulatory system for medical devices in Northern Ireland, see
+Regulation of medical devices in Northern Ireland below
+.
+In this guidance, ‘medical device’ includes in vitro diagnostic medical devices and active implantable medical devices.
+This guidance only applies to medical devices and does not cover other CE or
+UKCA
+marked products, which are subject to separate guidance.
+This information is meant for guidance only. You should consider whether you need separate professional advice before making specific preparations. Speak to your solicitor or trade association if you are unsure which regulatory framework applies to your goods.
+As expanded on in the
+implementation update
+on work towards a strengthened future medical devices regime, the government has put in place legislation to extend acceptance of CE marked devices in Great Britain beyond 30 June 2023.
+Summary of key requirements for placing a device on the Great Britain market
+Since 1 January 2021, there have been a number of changes, introduced through
+secondary legislation
+, to how medical devices are placed on the market in Great Britain (England, Wales and Scotland). These are:
+a new route to market and product marking (the
+UKCA
+marking) is available for manufacturers wishing to place medical devices on the Great Britain market
+all medical devices, including in vitro diagnostic medical devices (
+IVDs
+), custom-made devices and systems or procedure packs, need to be registered with the
+MHRA
+before they are placed on the Great Britain market
+if you are a medical device manufacturer based outside the UK and wish to place a device on the Great Britain market, you need to appoint a single UK responsible person for all of your devices, who will act on your behalf to carry out specified tasks, such as registration (further detail on the
+UK responsible person
+is set out below)
+a valid CE mark is a CE marking that enables the medical device to be placed on the EU market; the government has introduced measures which provide that CE-marked medical devices may be placed on the Great Britain market to the following timelines:
+general medical devices compliant with the EU medical devices directive (EU MDD) or EU active implantable medical devices directive (AIMDD) with a valid declaration and CE marking can be placed on the Great Britain market up until the sooner of expiry of certificate or 30 June 2028
+in vitro diagnostic medical devices (
+IVDs
+) compliant with the EU in vitro diagnostic medical devices directive (IVDD) can be placed on the Great Britain market up until the sooner of expiry of certificate or 30 June 2030
+general medical devices including custom-made devices, compliant with the EU medical devices regulation (EU
+MDR
+) and
+IVDs
+compliant with the EU in vitro diagnostic medical devices regulation (EU
+IVDR
+) can be placed on the Great Britain market up until 30 June 2030. For more detail of these transitional arrangements see the
+implementation update
+on work towards a strengthened future medical devices regime
+the EU no longer recognises UK notified bodies
+UK notified bodies are not able to issue CE certificates - and have become
+UK approved bodies
+Legislation that applies in Great Britain
+Devices are regulated under the
+Medical Devices Regulations 2002
+(SI 2002 No 618, as amended) (UK
+MDR
+2002) which, prior to the end of the transition period (following the UK’s departure from the EU), gave effect in UK law to the directives listed below:
+Directive 90/385/EEC
+on active implantable medical devices (EU AIMDD)
+Directive 93/42/EEC
+on medical devices (EU MDD)
+Directive 98/79/EC
+on in vitro diagnostic medical devices (EU IVDD)
+This means that the current Great Britain route to market and
+UKCA
+marking requirements are based on the requirements derived from the above EU legislation.
+The EU Medical Devices Regulation and EU in vitro Diagnostic Medical Devices Regulation
+Since 26 May 2021, the EU Medical Devices Regulation (Regulation 2017/745) (EU
+MDR
+) has applied in EU Member States and Northern Ireland. The in vitro Diagnostic Medical Devices Regulation (Regulation 2017/746) (EU
+IVDR
+) has applied in EU Member States and Northern Ireland since 26 May 2022. As these EU regulations did not take effect during the transition period, they were not EU law automatically retained by the EU (Withdrawal) Act 2018 and therefore do not apply in Great Britain.
+There is further information below on how devices that have already been registered with the
+MHRA
+under the EU
+MDR
+or the EU
+IVDR
+are regulated.
+The role of the
+MHRA
+The
+MHRA
+performs market surveillance of medical devices on the UK market and is able to take decisions over the marketing and supply of devices in the UK.
+The
+MHRA
+is responsible for the designation and monitoring of UK conformity assessment bodies.
+Further guidance is available on
+how the
+MHRA
+enforces the legislation on medical devices
+.
+Requirements for those manufacturing and supplying devices in Great Britain
+Manufacturers wishing to place a device on the Great Britain market need to register with the
+MHRA
+. More information on registrations (including fees) is available in the
+MHRA
+registrations guidance
+.
+Where a manufacturer is not established in the UK, they must appoint a UK responsible person to register and act on their behalf. See guidance on UK responsible persons below for more information.
+Manufacturers must comply with relevant product marking and conformity assessment requirements for medical devices. See below for guidance on the
+UKCA
+marking and UK approved bodies, and guidance on CE marking and notified bodies for more information.
+Registrations in Great Britain
+The government has put in place legislation to extend acceptance of CE marked devices in Great Britain beyond 30 June 2023 as outlined in the summary above. For more detail of these transitional arrangements see the
+implementation update
+on work towards a strengthened future medical devices regime.
+All medical devices, including
+IVDs
+, custom-made devices and systems or procedure packs must be registered with the
+MHRA
+before being placed on the Great Britain market. In Great Britain (England, Wales and Scotland), devices will be required to conform to the UK
+MDR
+2002, with transitional arrangements for acceptance of CE marked medical devices as set out above, in order to be registered with the
+MHRA
+.
+The
+MHRA
+will only accept registration of devices from manufacturers where the manufacturer is based in the UK. If the manufacturer is based outside the UK, they must appoint a UK responsible person. This UK responsible person will then assume certain responsibilities on behalf of the manufacturer as described below in the guidance for UK responsible persons, including registering the device with the
+MHRA
+.
+Where any new registrations or changes to existing registrations are made, a fee may be payable. Please see the
+fees section in our device registration guidance
+.
+Failure to register your devices will mean that you are unable to lawfully place your device on the Great Britain market.
+If you are a Northern Ireland-based manufacturer and have already registered your device with the
+MHRA
+for the purposes of the Northern Ireland market, it can then be placed on the Great Britain market and will not need to undergo any further registration in Great Britain.
+Further information on registration requirements for Northern Ireland is available below
+.
+More information on registrations (including fees) is available in the
+MHRA
+registrations guidance
+.
+UK responsible person
+As noted above, to place a device on the Great Britain market (England, Wales and Scotland), manufacturers based outside the UK must appoint a UK responsible person.
+The UK responsible person must provide written evidence that they have the manufacturer’s authority to act as their UK responsible person.
+Importers and distributors do not need to appoint a UK responsible person.
+Note that the accounts of any former Great Britain-based authorised representatives that have not updated their role to UK responsible person on the
+MHRA
+registration system, as well as the accounts of any represented manufacturers, have been suspended as of 1 January 2022 until the relevant UK responsible person has updated their role. If the role is not updated by 30 March 2026 the account will be closed and a new account must be created. For further information on registration requirements, see
+guidance on registering medical devices
+.
+The UK responsible person acts on behalf of the non-UK manufacturer to carry out specified tasks in relation to the manufacturer’s obligations. As noted above, this includes registering the manufacturer’s devices with the
+MHRA
+before the devices can be placed on the Great Britain market.
+The responsibilities of the UK responsible person are set out in the UK
+MDR
+2002. In summary, in addition to the above registration requirements, the UK responsible person must:
+ensure that the declaration of conformity and technical documentation have been drawn up and, where applicable, that an appropriate conformity assessment procedure has been carried out by the manufacturer
+keep available a copy of the technical documentation, a copy of the declaration of conformity and, if applicable, a copy of the relevant certificate, including any amendments and supplements for inspection by the
+MHRA
+in response to a request from the
+MHRA
+, provide the
+MHRA
+with all the information and documentation necessary to demonstrate the conformity of a device
+where they have samples of the devices or access to the device, comply with any request from the
+MHRA
+to provide such samples or access to the device
+where they have neither samples of the device nor access to the device, communicate to the manufacturer any request from the
+MHRA
+to provide such samples or access, and communicate to the
+MHRA
+whether the manufacturer intends to comply with that request
+cooperate with the
+MHRA
+on any preventive or corrective action taken to eliminate or, if that is not possible, mitigate the risks posed by devices
+immediately inform the manufacturer about complaints and reports from healthcare professionals, patients and users about suspected incidents related to a device for which they have been appointed
+if the manufacturer acts contrary to its obligations under these regulations:
+terminate the legal relationship with the manufacturer; and
+inform the
+MHRA
+and, if applicable, the relevant approved body of that termination
+There is nothing to prevent an importer or distributor from also acting as a UK responsible person.
+The name and address of the UK responsible person, where applicable, must be included on the product labelling or the outer packaging, or the instructions for use in cases where the
+UKCA
+marking has been affixed. UK responsible person details do not need to be included on labelling for CE marked devices, unless the device bears both the CE and
+UKCA
+markings.
+Importers and distributors
+In cases where the Great Britain importer is not the UK responsible person, the importer must inform the relevant manufacturer or UK responsible person of their intention to import a device. In such cases, the manufacturer or the manufacturer’s UK responsible person must provide the
+MHRA
+with details of device importers. See
+further guidance on device registrations
+.
+Obligations around storage, transportation and checking device labels for the CE marking or
+UKCA
+marking also apply. The importer or distributor’s name and address do not need to be present on the label unless the importer or distributor are acting as the UK responsible person for the purposes of the
+UKCA
+marking.
+UKCA
+mark and conformity assessment bodies
+UKCA
+marking
+The
+UKCA
+(UK Conformity Assessed) marking is a UK product marking used for certain goods, including medical devices, being placed on the Great Britain market (England, Wales and Scotland). The
+UKCA
+marking is not recognised in the EU,
+EEA
+or Northern Ireland markets, so relevant products require a CE marking for sale in these markets.
+Manufacturers of medical devices can use the
+UKCA
+marking to attest that their products meet the requirements of the UK
+MDR
+. Additionally, as set out above, CE marked devices may be placed on the Great Britain market until either 30 June 2028 or 30 June 2030 depending on the type of device and EU legislation it complies with. The government has announced that it will consult on indefinite recognition of CE marked medical devices. See
+Recognition of CE certificates for the Great Britain market
+.
+Where third party conformity assessment is required for
+UKCA
+marking, a UK approved body is needed. However, manufacturers of non-sterile and non-measuring Class I devices and general
+IVDs
+can self-certify against the
+UKCA
+marking.
+See the guidance
+Using the
+UKCA
+mark
+for further information.
+UKCA
+marking requirements are currently based on the requirements of the relevant annexes to the directives listed below, which have been modified by Schedule 2A to the UK
+MDR
+2002:
+Directive 90/385/EEC
+on active implantable medical devices (EU AIMDD)
+Directive 93/42/EEC
+on medical devices (EU MDD)
+Directive 98/79/EC
+on in vitro diagnostic medical devices (EU IVDD)
+UK approved bodies
+The
+MHRA
+can designate
+UK approved bodies
+to conduct conformity assessments against the relevant requirements for the purpose of the
+UKCA
+marking.
+UK notified bodies that previously had designations under the EU MDD, EU IVDD or EU AIMDD have had their designations rolled over automatically, without having to undergo a new designation process.
+For the purposes of the Great Britain market, UK approved bodies can conduct conformity assessments in relation to the
+UKCA
+marking, for medical devices, active implantable medical devices and in vitro diagnostic medical devices under Parts II, III, and IV of the UK
+MDR
+2002. UK approved bodies are not able to conduct conformity assessments in relation to the CE marking.
+The
+UK Market Conformity Assessment Bodies (UKMCAB)
+database serves as the UK’s database of conformity assessment bodies. It is the definitive source and a register of UK government-appointed conformity assessment bodies who can certify goods for the Great Britain market.
+See the guidance on
+conformity assessment bodies
+for further information.
+The
+MHRA
+can designate UK notified bodies for the purposes of conducting conformity assessment for the combined CE and UKNI marking, which is valid on the Northern Ireland market. See the Northern Ireland guidance below for further information.
+Class I medical device and general
+IVD
+manufacturers
+Manufacturers of Class I medical devices and general
+IVDs
+can self-declare the conformity of their devices against the UK
+MDR
+2002, before affixing a
+UKCA
+marking and placing the device on the Great Britain market.
+Manufacturers of Class I medical devices that are sterile or have a measuring function must use a UK approved body to undertake third party conformity assessment in order to affix the
+UKCA
+marking and place their devices on the Great Britain market.
+CE marking and notified bodies
+CE marking
+We will accept CE marked devices on the Great Britain market until, at the latest, 30 June 2030 depending on device type and classification. This applies to devices that have been CE marked under and fully conform with the following applicable EU legislation:
+Directive 90/385/EEC
+on active implantable medical devices (EU AIMDD) (for devices with a valid certificate and/or declaration of conformity that was issued prior to 26 May 2021)
+Directive 93/42/EEC
+on medical devices (EU MDD) (for devices with a valid certificate and declaration of conformity that was issued to 26 May 2021)
+Directive 98/79/EC
+on in vitro diagnostic medical devices (EU IVDD) (for devices with a valid certificate and/or declaration of conformity that was issued prior to 26 May 2022)
+Regulation 2017/745
+on medical devices (EU
+MDR
+)
+Regulation 2017/746
+on in vitro diagnostic medical devices (EU
+IVDR
+)
+Note that currently:
+you can place a general medical device self-declared to comply with EU MDD requirements on the Great Britain market if the declaration of conformity was made before 26 May 2021 and the declaration for that device remains valid for placing it on the EU (and NI) market under EU
+MDR
+transitional arrangements
+you can place an
+IVD
+self-declared to comply with EU IVDD requirements on the Great Britain market if the declaration of conformity was made before 26 May 2022 and the declaration for that device remains valid for placing it on the EU (and NI) market under EU
+IVDR
+transitional arrangements
+since 26 May 2021, you need to meet EU
+MDR
+requirements (rather than EU MDD requirements) if self-declaring compliance with CE marking requirements for medical devices before placing them on the Great Britain market
+since 26 May 2022, you need to meet EU
+IVDR
+requirements (rather than EU IVDD requirements) if self-declaring compliance with CE marking requirements for
+IVDs
+before placing them on the Great Britain market
+For clarity, by ‘self-declarations’ in this section we are referring to cases where, in order to place a medical device on the Great Britain market, manufacturers can rely on self-declarations of compliance with relevant regulatory requirements without certification from a notified body. Such self-declarations include declarations made in relation to system or procedure packs.
+The government has introduced measures that provide that CE-marked medical devices may be placed on the Great Britain market to the following timelines:
+general medical devices compliant with the EU MDD or EU AIMDD can be placed on the Great Britain market up until the sooner of expiry of certificate or 30 June 2028
+IVDs
+compliant with the EU IVDD can be placed on the Great Britain market up until the sooner of expiry of certificate or 30 June 2030
+general medical devices, including custom-made devices, compliant with the EU
+MDR
+and
+IVDs
+compliant with the EU
+IVDR
+can be placed on the Great Britain market up until 30 June 2030
+The above timelines will not apply to Class I medical devices and general
+IVDs
+under the EU directives, where the conformity assessment under the relevant directive and under the EU
+MDR
+or EU
+IVDR
+does not involve a notified body. Similarly, they will not include custom-made devices that are compliant with the EU MDD or EU AIMDD.
+You can place self-declared CE-marked Class I medical devices on the GB market beyond 30 June 2023 if they are:
+self-declared against EU
+MDR
+requirements (until 30 June 2030), or
+self-declared against MDD requirements before 26 May 2021 where notified body involvement in their assessment is not required under MDD but is under EU
+MDR
+(until 30 June 2028) - this includes upclassified devices and reusable surgical instruments
+You can place a Class I medical device which has a sterile or measuring function with a valid MDD certificate on the GB market until 30 June 2028.
+More detail of these transitional arrangements is in the
+implementation update
+on work towards a strengthened future medical devices regime.
+You can also download an
+infographic of the timelines for placement of CE marked medical devices on the Great Britain market under the Medical Devices (Amendment) (Great Britain) Regulations 2023
+.
+Where medical devices are subject to the requirements of any of the medical devices legislation cited above and, in order to be CE marked, must also meet the relevant requirements of another piece of EU legislation (such as the directive restricting the use of certain hazardous substances), we intend that they will be able to be placed on the Great Britain market carrying a CE mark to the above timelines - irrespective of whether the UK legislation governing the subject matter of that other piece of EU legislation would require a product to have a
+UKCA
+marking before that deadline.
+In order to maintain the use of the CE marking for a medical device in Great Britain, the manufacturer will need to meet all relevant EU legislation that governs their device.
+For further information, see guidance on
+using the
+UKCA
+marking for other types of product
+.
+EU notified bodies
+Any mandatory third-party conformity assessment for the CE marking must be carried out by an EU notified body. This includes both EU-based notified bodies and notified bodies in countries which are listed on the EU’s
+NANDO
+information system.
+Certificates issued by EU-recognised notified bodies that are valid for the EU market will continue to be recognised as valid for the Great Britain market.
+Recognition of CE certificates for the Great Britain market
+Currently, under the UK
+MDR
+2002, the government views a CE-marked device with a valid certificate as meeting the
+UKCA
+marking requirements while the CE marking continues to be recognised in Great Britain - depending on the type of device and legislation it complies with this is until 30 June 2030 at the latest. This includes devices placed on the market that:
+were CE marked in accordance with the EU MDD or EU AIMDD (before 26 May 2021), or in accordance with the EU IVDD (prior to 26 May 2022)
+are CE marked in accordance with the EU
+MDR
+or EU
+IVDR
+As set out above in more detail, the government has introduced measures to extend acceptance of CE-marked medical devices in Great Britain beyond 30 June 2023.
+Therefore, any enforcement or market surveillance powers available in respect of the
+UKCA
+marking also apply to CE-marked devices placed on the Great Britain market.
+Where certificates have been issued by a UK notified body and those certificates have not been transferred to an EU notified body, the UK notified body has been redesignated as a UK approved body and will continue to oversee these devices and their manufacturers to ensure continued compliance with the applicable standards of safety and performance under the
+UKCA
+marking.
+Registering medical devices that have an expired CE certificate that is valid under EU
+MDR
+Article 120
+In March 2023, the EU revised the EU
+MDR
+transitional arrangements to extend the validity of EU MDD and EU AIMDD CE certificates in limited circumstances for certain medical devices. Such certificates can be relied on for placing a medical device on the Northern Ireland and Great Britain markets until the dates set out in the guidance linked below.
+For more information about this, and the steps you would need to take to rely on an expired CE certificate that has been deemed valid under the EU
+MDR
+, see our
+medical device registrations guidance
+.
+Registering medical devices which the EU
+MDR
+upclassifies from Class I and that are EU MDD Class I reusable surgical instruments
+See our
+medical device registrations guidance
+for information to be aware of if you are registering the following types of medical device with the
+MHRA
+that you have self-declared as meeting requirements in EU MDD:
+EU MDD Class I reusable surgical instruments that would require notified body involvement in their assessment under EU
+MDR
+EU MDD Class I medical devices that are upclassified under and require notified body involvement pursuant to the EU
+MDR
+Registering
+IVD
+devices that have an expired/expiring CE certificate that is valid under EU
+IVDR
+In June 2024, the EU revised the EU
+IVDR
+transitional arrangements to extend the validity of EU IVDD CE certificates in limited circumstances for certain
+IVD
+devices. Such certificates can be relied on for placing an
+IVD
+device on the Northern Ireland and Great Britain markets until the dates set out in the guidance linked below.
+For more information about this, and the steps you would need to take to rely on an expired CE certificate that has been deemed valid under the EU
+IVDR
+Article 110  please see our
+IVD
+device registration guidance
+.
+Registering
+IVD
+devices which the EU
+IVDR
+up-classifies from General
+IVD
+device
+See our
+IVD
+device registration guidance
+for information to be aware of if you are registering the following types of
+IVD
+device with the
+MHRA
+that you have self-declared as meeting requirements in EU IVDD:
+EU IVDD General
+IVD
+devices that are upclassified to either a Class B, C, or D
+IVD
+device and would require Notified Body involvement in their assessment under EU
+IVDR
+Labelling requirements
+Medical devices placed on the Great Britain market must have a
+UKCA
+marking or a CE marking, depending on which legislation the device has been certified under.
+Where relevant, the number of the approved body or notified body must also appear on the label.
+Devices can have both the CE and
+UKCA
+markings present on the labelling. However, the name and address of the UK responsible person, where applicable, needs to be included on product labelling or the outer packaging, or the instructions for use in cases where the
+UKCA
+marking has been affixed (including when devices have been dual marked).
+Post-market surveillance and vigilance
+Once a medical device has been placed on the UK market, the manufacturer must submit vigilance reports to the
+MHRA
+when certain incidents occur in the UK that involve their device. They must also take appropriate safety action when required. The manufacturer must ensure their device meets appropriate standards of safety and performance for as long as it is in use.
+In 2024, the government put in place legislation to clarify and strengthen the post-market surveillance requirements for medical devices in use in Great Britain. These measures came into force on 16 June 2025 and facilitate greater traceability of incidents and trends and allow the
+MHRA
+to act swiftly when needed, supporting better risk management and containment of safety issues reducing harm.
+Further information about
+reporting adverse incidents and corrective actions to the
+MHRA
+is available for manufacturers of medical devices.
+Regulation of medical devices in Northern Ireland
+The rules for placing medical devices on the Northern Ireland market differ from those applicable to Great Britain (England, Wales and Scotland).
+Summary of key requirements for placing a device on the Northern Ireland market
+The following requirements apply to manufacturers wishing to place medical devices on the Northern Ireland market:
+The requirements in the EU
+MDR
+have applied in Northern Ireland since 26 May 2021 and the EU
+IVDR
+has applied in Northern Ireland since 26 May 2022
+Under the
+Northern Ireland Regulations 2021
+, all manufacturers, regardless of geographical location, must register all custom-made devices with the
+MHRA
+within 28 days of being made  available on the Northern Ireland market. See the
+MHRA
+guidance on registrations
+for more information
+CE marking is required for the Northern Ireland market (in addition, the UKNI indication is required if a UK notified body undertakes mandatory third-party conformity assessments)
+certain  medical devices, including in vitro diagnostic medical devices (
+IVDs
+), placed on the Northern Ireland market need to be registered with the
+MHRA
+until 27 May 2026. See the
+MHRA
+guidance on registrations
+for more information
+when placing devices on the Northern Ireland market, Great Britain-based manufacturers must appoint an EU or Northern Ireland-based authorised representative
+See
+guidance on the application of the EU
+MDR
+and EU
+IVDR
+in Northern Ireland
+.
+Post-market surveillance and vigilance
+The
+MHRA
+is the competent authority for post-market surveillance activity for devices placed on the Northern Ireland market. Where incidents occur in Northern Ireland, these must be reported to the
+MHRA
+by the manufacturer through MORE or by healthcare professionals and patients/users through the
+YellowCard scheme
+.
+See
+guidance on the application of the EU
+MDR
+and EU
+IVDR
+in Northern Ireland
+.
+Placing a medical device on the EU market
+CE marking for the EU market
+The
+UKCA
+marking is not recognised on the EU market. To place a device on the EU market you must adhere to the relevant EU legislation and affix a CE mark to demonstrate compliance.
+If you use a UK-based Notified Body to conduct any mandatory third-party conformity assessment for your device, the following will apply:
+if your device was placed on the EU market before 1 January 2021, in accordance with the terms of the Withdrawal Agreement, it may remain on the EU market
+from 1 January 2021, it has not been possible to place a device requiring third party conformity assessment on the EU market unless it has been assessed by an EU-recognised notified body
+Conformity assessment
+The results of mandatory conformity assessment carried out by UK based conformity assessment bodies are not recognised by the EU. This is the case even if the assessment was carried out before 1 January 2021, unless your product had already been placed on the EU market before 1 January 2021.
+Where allowed for under the relevant legislation, you can CE mark your medical device on the basis of self-certification for the purposes of the EU market.
+Authorised representatives
+Great Britain-based authorised representatives are no longer recognised in the EU. This means that they are not able to carry out tasks on the manufacturer’s behalf for the purposes of placing devices on the EU market.
+If you are a manufacturer based in Great Britain or another country outside the EU, you must appoint an authorised representative based in the EU or Northern Ireland if you wish to supply devices to the EU market.
+Labelling requirements
+You must ensure that your device meets EU labelling requirements in order to place it on the EU market. Both the CE marking and
+UKCA
+marking can be placed on a product so long as neither impedes the visibility of the other and both marking requirements are met. Devices placed on the Northern Ireland market must meet EU labelling requirements.
+Contact
+For further information, contact our Customer Services Centre at
+info@mhra.gov.uk
+or call 020 3080 6000.
+Alternatively, contact your Trade Association by emailing:
+Association of British HealthTech Industries (ABHI):
+enquiries@abhi.org.uk
+British In Vitro Diagnostics Association (BIVDA):
+enquiries@bivda.org.uk
+Proprietary Association of Great Britain (PAGB):
+regulatory@pagb.co.uk
+The British Healthcare Trades Association (BHTA):
+info@bhta.com
+UK Responsible Persons Association (UKRPA):
+enquiries@ukrp-association.org
+British Dental Industry Association (BDIA):
+info@bdia.org.uk
+Updates to this page
+Published 31 December 2020
+Last updated 20 February 2026
+—
+Show all updates
+
+[20 February 2026]
+Updates to Regulation of medical devices in Northern Ireland.
+
+Removal of text duplicated on other guidance pages.
+
+[17 February 2025]
+The web page now includes guidance for the EU IVDR transition extension under Article 110 for the registration of IVD devices with the MHRA. Additionally, we've made some minor updates to our current guidance for medical device registration, specifically for devices captured under the EU MDR transition extension under Article 120.
+
+[31 January 2025]
+Updated to add British Dental Industry Association (BDIA) contact details to 'Contact Us' section
+
+[15 January 2025]
+Updated to reflect the laying of The Medical Devices (Post-market Surveillance requirements) (Amendment) Regulations 2024.
+
+[8 February 2024]
+The standard fee per application has changed to £240
+
+[20 July 2023]
+Registrations guidance links updated.
+
+[1 July 2023]
+This guidance has been updated now that the Government has made regulations that enable CE marked medical devices to continue to be accepted in Great Britain for defined periods beyond 30 June 2023
+
+[16 June 2023]
+Published overview of timelines for placing CE marked IVDs on the Great Britain market
+
+[27 April 2023]
+This guidance was updated primarily to reflect an intended extension to acceptance of CE marked medical devices on the Great Britain market beyond 30 June 2023. This guidance has been updated with changes to ‘Summary of key requirements for placing a device on the Great Britain market’, ‘Registrations in Great Britain’, ‘UKCA marking’, ‘CE marking and Notified Bodies’, ‘Labelling requirements’ and ‘Regulation of medical devices in Northern Ireland’ Reference Guides.
+
+[1 January 2022]
+This guidance was updated to reflect changes to medical device regulatory requirements that will take effect on 1 January 2022.
+
+[31 December 2020]
+First published.
+Sign up for emails or print this page
+Get emails about this page
+Print this page
+Contents
+Related content
+Collection
+Services and information
+Moving goods into, out of, or through Northern Ireland
+Explore the topic
+Healthcare, life sciences and social care
+Is this page useful?
+Maybe
+Yes
+this page is useful
+No
+this page is not useful
+Thank you for your feedback
+Report a problem with this page
+Help us improve GOV.UK
+Do not include personal or financial information like your National Insurance number or credit card details.
+This field is for robots only. Please leave blank
+What were you doing?
+What went wrong?
+Send
+Cancel
+Help us improve GOV.UK
+To help us improve GOV.UK, we’d like to know more about your visit today.
+Please fill in this survey (opens in a new tab
+and requires
+
+[첨부파일 원문]
+31-Dec-2027 31-Dec-2028 31-Dec-2029 30–June-2030
+IVDR Self-declaration
+Timelines for placing CE marked IVDs on the Great Britain market1
+IVDD Self-declaration3
+26-May-2022
+List A
+List B
+Self-test
+General
+General
+IVDD Class IVDR Class
+D
+C
+B
+D
+C
+B
+A (sterile)
+A
+IVDR CE certificate
+IVDD Self-declaration3 IVDR CE certificate
+IVDD Self-declaration3 IVDR CE certificate
+IVDD Self-declaration3 IVDR CE certificate
+IVDR CE certificate
+IVDD refers to the EU in vitro diagnostic medical devices directive (98/79/EC).
+IVDR refers to the EU in vitro diagnostic medical devices regulation (2017/746).
+1As provided for under The Medical Devices (Amendment) (Great Britain) Regulations 2023.
+2IVDD EC certificates still valid on 26 May 2022 and that have not been withdrawn thereafter can be relied on after the end of the period indicated on the certificate until 31 
+December 2027, except for certificates issued in accordance with IVDD Annex VI which shall become void at the latest on 27 May 2025. In case of devices for which the 
+relevant certificate has expired before 9 July 2024, also the conditions laid in the second subparagraph of Article 110(2), points (a) or (b), IVDR.
+3Declaration of conformity to IVDD requirements made prior to 26 May 2022 can be relied on until the indicated dates only if the conditions laid down in Article 110(3c) 
+IVDR (as amended by Regulation (EU) 2024/1860 of 13 June 2024) are fulfilled.
+IVDD EC certificate2
+Timelines for placing CE marked medical devices on the Great Britain market1
+MDR class
+Class IIb 
+implantable3
+Class IIb 
+(other)
+Class IIa
+Class Is / Im4
+Class I
+31- Dec-2027 30- Jun-2028 30-Jun-203026-May-2021
+MDD or EU MDR Certificate2
+MDD class
+Class I8
+Class I5
+1As provided for under The Medical Devices (Amendment) (Great Britain) Regulations 2023.
+2A valid AIMDD certificate can also be relied on for placing medical devices on the GB market in this period.
+3This excludes sutures, staples, dental fillings, dental braces, tooth crowns, screws, wedges, plates, wires, pins, clips and connectors – those fall within Class IIb other.
+4Class Im means class I devices with a measuring function. Class Is means class I devices that are placed on the market in sterile condition.
+5Class I devices that did not require notified body involvement in their conformity assessment under the MDD anddo require notified body involvement in their conformity 
+assessment under the EU MDR.
+6Class Ir means class I devices that are reusable surgical instruments. 
+7Declaration of conformity to MDD requirements must have been made before26 May 2021.
+8Class I devices that do not require notified body involvement in their conformity assessment under the MDD nor under the EU MDR.
+MDD refers to EU medical devices directive (93/42/EEC); AIMDD refers to EU active implantable medical devices directive (90/385/EEC); EU MDR refers to EU medical devices 
+regulation (2017/745).
+EU MDR Certificate
+Class III
+Class IIb
+Class IIa
+Class Ir6
+Class III
+MDD or EU MDR Certificate
+EU MDR Certificate
+EU MDR Certificate
+MDD or EU MDR Certificate
+EU MDR Self-declaration
+EU MDR Certificate
+MDD Self-declaration7 or EU MDR certificate

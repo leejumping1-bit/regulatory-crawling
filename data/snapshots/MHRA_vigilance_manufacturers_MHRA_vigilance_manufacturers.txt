@@ -1,0 +1,178 @@
+[26 January 2015]
+Last updated:
+
+[5 September 2025]
+—
+See all updates
+Get emails about this page
+Contents
+Guidance on the post-market surveillance requirements for manufacturers
+Supplementary guidance on a manufacturer’s vigilance system
+Guidance on the Manufacturers online reporting environment (MORE)
+Periodic safety update reports
+Post-market surveillance reports
+Device-specific vigilance guidance
+Additional information
+In 2024, the government put in place legislation to clarify and strengthen the post-market surveillance requirements for medical devices in use in Great Britain. These measures came into force on 16 June 2025 and will facilitate greater traceability of incidents and trends and allow the MHRA to act swiftly when needed, supporting better risk management and containment of safety issues and reducing harm.
+The new set of regulations
+The Medical Devices (Post-market Surveillance Requirements) (Amendment) (Great Britain) Regulations 2024
+amends the UK Medical Devices Regulations (MDR) 2002 by inserting a new Part 4A on post- market surveillance (PMS) requirements for medical devices, including in vitro diagnostic (IVD) devices and active implantable medical devices which apply in Great Britain (GB). It includes notification requirements for incidents, and preventive and corrective actions taking place after the device is first approved for the GB market.
+The regulations apply to Great Britain (England, Wales and Scotland). Medical devices placed on the market or put into service in Northern Ireland (NI) must follow the post-market surveillance rules set out in EU medical devices regulations as explained by guidance on the
+Regulation of devices in Northern Ireland
+.
+This information is designed to help you understand the main changes that implementing the post-market surveillance regulations will introduce for medical devices and what you need to do to prepare.
+The MHRA has updated its processes and procedures to ensure that trends, patterns or signals that may reveal new risks or safety concerns are identified more efficiently. This will allow both the MHRA and the whole healthcare system to better protect patients. Updated MORE guidance has been published detailing any changes to the submission of reports.  Further guidance will be made available alongside access to new schemas for GB reporting before these regulations come into force. The MHRA are working closely with industry to support adoption and smooth implementation of the new requirements. Please continue to check this page and the
+MORE portal
+for updates on timelines for new forms and access to key submission resources.
+Guidance on the post-market surveillance requirements for manufacturers
+The Medical Devices (Post-market Surveillance Requirements) (Amendment) (Great Britain) Regulations 2024: guidance on implementation
+Video explainer
+Post-market surveillance and vigilance of medical devices webinar
+Summary tables
+Table of key changes
+Table of requirements applying to different devices
+Supplementary guidance on a manufacturer’s vigilance system
+Effective field safety notices – guidance for manufacturers of medical devices
+Examples of incidents which should be reported under the vigilance system
+Guidance on the Manufacturers online reporting environment (MORE)
+Manufacturer’s Online Reporting Environment (MORE) guidance
+GB MIR and FSCA schema implementation guide
+Implementation of data requirements under the new Post-Marketing Surveillance regulations
+Documentation for implementation of data requirements under the new Post-Marketing Surveillance regulations
+Periodic safety update reports
+Medical Devices: Standardised format for periodic safety update report (PSUR)
+The Medical Devices (Post-market Surveillance Requirements) (Amendment) (Great Britain) Regulations 2024: guidance on periodic safety update reports (PSUR) (regulation 44ZM) for approved bodies
+Post-market surveillance reports
+Medical Devices: Standardised format for post market surveillance report (PMSR)
+Device-specific vigilance guidance
+Device specific vigilance guidance: Coronary Stents and associated delivery systems
+Device specific vigilance guidance: Inferior vena cava (IVC) filters
+Device specific vigilance guidance: Artificial Heart Valves
+Device specific vigilance guidance: Cardiac Implantable Electronic Devices (CIEDs)
+Adverse incidents: in vitro diagnostic (IVD) blood glucose meters
+Reporting adverse incidents: intraocular lenses
+Reporting adverse incidents: joint replacement implants
+Reporting adverse incidents: neurostimulators
+Breast implants: reporting adverse incidents
+Reporting adverse incidents: insulin pumps and meter systems
+Reporting adverse incidents: devices for cardiac ablation
+Reporting adverse incidents: software as a medical device
+Additional information
+Field safety notices: guidance for manufacturers
+
+[16 June 2025]
+Guidance
+Reporting adverse incidents: intraocular lenses
+
+[15 January 2025]
+Guidance
+Reporting adverse incidents: joint replacement implants
+
+[15 January 2025]
+Guidance
+Reporting adverse incidents: neurostimulators
+
+[15 January 2025]
+Guidance
+Adverse incidents: in vitro diagnostic (IVD) blood glucose meters
+
+[15 January 2025]
+Guidance
+Updates to this page
+Published 26 January 2015
+Last updated 5 September 2025
+—
+Show all updates
+
+[5 September 2025]
+Added link to guidance for 'Medical Devices: Standardised format for post market surveillance report (PMSR)'
+
+[16 June 2025]
+Updated to reflect the coming into force of The Medical Devices (Post-market Surveillance requirements) (Amendment) Regulations 2024.
+
+[9 June 2025]
+Link added for 'Documentation for implementation of data requirements under the new Post-Marketing Surveillance regulations'
+
+[16 May 2025]
+Updated to provide the latest information regarding the MORE portal.
+
+[15 January 2025]
+Updated to reflect the laying of The Medical Devices (Post-market Surveillance requirements) (Amendment) Regulations 2024.
+
+[3 August 2023]
+Guidance updated to reflect the latest information regarding the MORE portal.
+
+[3 August 2023]
+Guidance updated.
+
+[15 May 2023]
+Added link to 'Guidance: Reporting adverse incidents involving Software as a Medical Device under the vigilance system'
+
+[24 April 2023]
+Information and links to the MORE Submissions guidance and MORE production API guidance have been added.
+
+[5 December 2022]
+Updated changes to the Incident reporting system
+
+[28 October 2022]
+Recording added for webinar 'Changes to Submitting Adverse Incidents to Medical Devices to the MHRA'
+
+[6 October 2022]
+Detailing changes to  the Incident reporting system in the section 'Changes to the Incident reporting system'
+
+[31 December 2020]
+This page has been updated due to the end of the Brexit transition period.
+
+[6 August 2020]
+New document for European Commission's guidance on reporting incidents with cardiac implantable electronic devices
+
+[20 May 2020]
+Added a new document - Effective field safety notices (FSNs): guidance for manufacturers of medical devices
+
+[25 June 2019]
+New information about upcoming MDR and IVDR regulations added to the page.
+
+[26 February 2019]
+Added a link to new guidance on medical devices regulation in a no deal scenario.
+
+[20 November 2018]
+Further guidance on producing and distributing effective field safety notices has been added.
+
+[17 August 2016]
+Link to European Commissions detailed guidance updated
+
+[26 January 2015]
+First published.
+Contents
+Related content
+Collection
+Services and information
+Explore the topic
+Healthcare, life sciences and social care
+Is this page useful?
+Maybe
+Yes
+this page is useful
+No
+this page is not useful
+Thank you for your feedback
+Report a problem with this page
+Help us improve GOV.UK
+Do not include personal or financial information like your National Insurance number or credit card details.
+This field is for robots only. Please leave blank
+What were you doing?
+What went wrong?
+Send
+Cancel
+Help us improve GOV.UK
+To help us improve GOV.UK, we’d like to know more about your visit today.
+Please fill in this survey (opens in a new tab
+and requires JavaScript
+)
+.
+Cancel
+Services and information
+Benefits
+Births, death, marriages and care
+Business and self-employed
+Childcare and pare
