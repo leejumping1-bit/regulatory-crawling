@@ -2,7 +2,7 @@
 import sys
 import os
 import re
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch  # noqa: E402
@@ -14,6 +14,7 @@ except ImportError:
     BeautifulSoup = None
 
 PMDA_URL = "https://www.pmda.go.jp/english/review-services/regulatory-info/0004.html"
+ALLOWED_HOSTS = {"pmda.go.jp", "www.pmda.go.jp"}
 YEAR_RE = re.compile(r"\b(20\d{2})\b")
 
 
@@ -25,6 +26,16 @@ def _extract_year(title):
 def _is_in_scope(title, since_year):
     year = _extract_year(title)
     return year is not None and year >= since_year
+
+
+def _safe_pdf_url(href):
+    url = urljoin(PMDA_URL, href or "")
+    parsed = urlparse(url)
+    if parsed.scheme != "https" or parsed.hostname not in ALLOWED_HOSTS:
+        return None
+    if not parsed.path.lower().endswith(".pdf"):
+        return None
+    return url
 
 
 def run(since_year=2026, since_month=1, max_items=10):
@@ -46,7 +57,9 @@ def run(since_year=2026, since_month=1, max_items=10):
             continue
         if not _is_in_scope(title, since_year):
             continue
-        url = urljoin(PMDA_URL, href)
+        url = _safe_pdf_url(href)
+        if not url:
+            continue
         results.append(build_item(
             agency_label="PMDA (Japan)",
             title=title, url=url, pub_date=None, doc_no=title[:40],

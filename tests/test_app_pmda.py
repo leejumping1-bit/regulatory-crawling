@@ -24,3 +24,9 @@ def test_pmda_skips_documents_older_than_collection_start():
 
 def test_pmda_skips_documents_without_a_date():
     assert pmda._is_in_scope("Standards for Re-manufactured Single-use Medical Devices", 2026) is False
+
+
+def test_pmda_accepts_only_official_https_pdf_urls():
+    assert pmda._safe_pdf_url("/files/000248602.pdf") == "https://www.pmda.go.jp/files/000248602.pdf"
+    assert pmda._safe_pdf_url("https://example.com/evil.pdf") is None
+    assert pmda._safe_pdf_url("http://www.pmda.go.jp/files/old.pdf") is None
