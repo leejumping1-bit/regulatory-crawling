@@ -32,8 +32,13 @@ except ImportError:
 
 REGULATION_URL = "https://laws-lois.justice.gc.ca/eng/regulations/sor-98-282/"
 AMENDED_RE = re.compile(r"last amended on (\d{4}-\d{2}-\d{2})", re.IGNORECASE)
-CURRENT_TO_RE = re.compile(r"current to (\d{4}-\d{2}-\d{2})", re.IGNORECASE)
 DOC_NO = "SOR/98-282"
+
+
+def _extract_dates(text):
+    """페이지에서 마지막 개정일만 추출한다. ``current to``는 사용하지 않는다."""
+    amended = AMENDED_RE.search(text or "")
+    return amended.group(1) if amended else None
 
 
 def run(since_year=2026, since_month=1, today_only=False):
@@ -48,10 +53,7 @@ def run(since_year=2026, since_month=1, today_only=False):
     soup = BeautifulSoup(res.text, "html.parser")
     page_text = soup.get_text(" ", strip=True)
 
-    amended_m = AMENDED_RE.search(page_text)
-    current_to_m = CURRENT_TO_RE.search(page_text)
-    last_amended = amended_m.group(1) if amended_m else None
-    current_to = current_to_m.group(1) if current_to_m else None
+    last_amended = _extract_dates(page_text)
 
     if not last_amended:
         print("[health_canada] 'last amended on' 문구를 찾지 못했습니다 (페이지 구조 변경 가능성).")
@@ -75,15 +77,14 @@ def run(since_year=2026, since_month=1, today_only=False):
 
     summary_source = full_text
     summary = summarize(f"Medical Devices Regulations ({DOC_NO}) — {last_amended} 개정", summary_source)
-    if current_to:
-        summary += f"\n\n(페이지 기준 현행화 시점: {current_to})"
     if not prev:
         summary += "\n\n(※ 이번이 이 시스템의 최초 수집이라 개정 전/후 비교는 다음 개정부터 가능합니다.)"
 
     item = {
         "search_month": last_amended[:7],
         "publish_date": last_amended,
-        "effective_date": last_amended,
+        # current to는 사용자 요청에 따라 사용하지 않는다.
+        "effective_date": None,
         "publisher": "Health Canada",
         "doc_no": DOC_NO,
         "title": f"Medical Devices Regulations (SOR/98-282) — {last_amended} 개정 반영본",
