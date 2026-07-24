@@ -47,6 +47,31 @@ def _rule_based_summary(title: str, body_text: str, max_sentences=5) -> str:
             "[확인 필요] 원문 링크에서 시행일, 적용 대상, 첨부파일을 직접 확인해야 합니다."
         )
 
+    normalized_body = re.sub(r"\s+", "", body_text)
+    has_page_major_content = "주요내용" in normalized_body or "주요사항" in normalized_body
+    if not has_page_major_content and re.search(r"제\s*(?:\d+\s*)?(?:장|조)|부칙", body_text):
+        lines = [re.sub(r"\s+", " ", line).strip() for line in body_text.splitlines()]
+        lines = [line for line in lines if len(line) >= 4]
+        structure = []
+        for line in lines:
+            if re.search(r"^제\s*(?:\d+\s*)?(?:장|조)|^부칙", line):
+                if line not in structure:
+                    structure.append(line[:180])
+        excerpt = "\n".join(f"  - {line[:360]}" for line in lines[:8])
+        sections = " / ".join(structure[:8]) or "본문 조문 및 부칙"
+        return (
+            f"[문서 제목] {title}\n"
+            "[문서 성격] 이 문서는 의료기기 관련 규정·고시의 전문으로, 조문 단위의 의무와 절차를 정하는 원문입니다.\n"
+            "[핵심 내용] 원문에서 확인되는 목적·지정·평가·품질관리 관련 조항을 기준으로 회사의 적용 여부를 검토해야 합니다.\n"
+            f"[구성] {sections}\n"
+            f"[원문 주요 발췌]\n{excerpt}\n"
+            "[적용 범위] 의료기기 제조·품질관리 또는 관련 기관의 지정·평가·심사 업무에 직접 적용될 수 있습니다. 제품군, 기관 역할, 심사 범위는 조문별로 대조해야 합니다.\n"
+            "[시행·변경 확인] 고시일과 부칙의 시행일, 경과조치, 기존 지정·심사 건에 대한 적용례를 반드시 확인해야 합니다.\n"
+            "[실무 검토] 품질관리 절차서, 심사 대응자료, 기술문서, 교육·자격관리, 협력기관 관리 기준을 개정할 필요가 있는지 담당자가 판단해야 합니다.\n"
+            "[확인 필요] 전문 PDF의 전체 조문과 별표·서식이 요약에 모두 포함되지는 않으므로, 실제 적용 전에는 공식 PDF 원문을 최종 확인해야 합니다.\n"
+            "[요약 한계] 규칙기반 요약은 법률적 해석이나 회사별 적용판정을 대신하지 않습니다."
+        )
+
     sentences = re.split(r'(?<=[.다음함됨음됨함임\)])\s+|\n+', body_text)
     sentences = [s.strip() for s in sentences if len(s.strip()) > 8]
 

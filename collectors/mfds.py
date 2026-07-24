@@ -93,6 +93,34 @@ def _safe_url(base_url, href):
     return candidate
 
 
+def _is_attachment_href(href):
+    path = urlparse(href or "").path.lower()
+    return path.endswith(ATTACHMENT_EXTS) or path.endswith("/down.do") or "/down.do/" in path
+
+
+def _attachment_filenames(content):
+    """MFDS download.do 응답의 실제 포맷을 바이트 시그니처로 추정한다."""
+    if content.startswith(b"%PDF"):
+        return ["attachment.pdf"]
+    if content.startswith(b"PK\x03\x04"):
+        return ["attachment.hwpx", "attachment.docx"]
+    return ["attachment.hwp"]
+
+
+def _visible_detail_text(html):
+    """MFDS 상세 페이지에서 게시글 본문만 추출한다."""
+    soup = BeautifulSoup(html or "", "html.parser")
+    for tag in soup(["script", "style", "noscript", "svg", "nav", "header", "footer"]):
+        tag.decompose()
+    content = soup.select_one(".bv_cont") or soup.select_one("main") or soup.body or soup
+    return content.get_text("\n", strip=True)
+
+
+def _has_major_content(text):
+    normalized = re.sub(r"\s+", "", text or "")
+    return "주요내용" in normalized or "주요사항" in normalized
+
+
 def _extract_rows_from_html(html, board_name, board_url, keyword, since_year, since_month):
     soup = BeautifulSoup(html, "html.parser")
     all_links = soup.select('a[href*="view.do"], a.title[href]')
@@ -124,8 +152,7 @@ def _extract_rows_from_html(html, board_name, board_url, keyword, since_year, si
         attachments = []
         for att_a in block.find_all("a", href=True):
             att_href = att_a.get("href")
-            path = urlparse(att_href).path.lower()
-            if not path.endswith(ATTACHMENT_EXTS):
+            if not _is_attachment_href(att_href):
                 continue
             att_url = _safe_url(board_url, att_href)
             if att_url:
@@ -182,10 +209,10 @@ def _fetch_attachment_text(urls):
         content = fetch_binary(u, respect_robots=False, politeness_delay=POLITENESS_DELAY, timeout=FILE_TIMEOUT)
         if not content:
             continue
-        filename = u.rsplit("/", 1)[-1]
-        text, status = extract_text(content, filename)
-        if text:
-            return text, "OK (목록 첨부)"
+        for filename in _attachment_filenames(content):
+            text, status = extract_text(content, filename)
+            if text:
+                return text, f"OK (목록 첨부: {filename})"
     return "", "첨부 추출 실패 또는 없음"
 
 
@@ -202,12 +229,17 @@ def _fetch_detail_and_attachment(view_url):
         return "", None, (res.error if not res.ok else "beautifulsoup4 미설치")
 
     dsoup = BeautifulSoup(res.text, "html.parser")
-    page_text = dsoup.get_text(" ", strip=True)
+    page_text = _visible_detail_text(res.text)
     m_no = DOC_NO_RE.search(page_text)
+
+    # 제개정고시등(m_207)은 본문에 식약처가 정리한 <주요내용>이 있으므로
+    # 전문 PDF보다 사람이 읽기 쉬운 공식 요약 본문을 우선 사용한다.
+    if _has_major_content(page_text) and "/m_207/" in view_url:
+        return page_text, (m_no.group(1) if m_no else None), "OK (본문 주요내용)"
 
     for att in dsoup.find_all("a", href=True):
         href = att.get("href")
-        if not urlparse(href).path.lower().endswith(ATTACHMENT_EXTS):
+        if not _is_attachment_href(href):
             continue
         file_url = _safe_url(view_url, href)
         if not file_url:
@@ -220,13 +252,12 @@ def _fetch_detail_and_attachment(view_url):
             allowed_hosts=ALLOWED_HOSTS,
         )
         if content:
-            text, status = extract_text(content, file_url.rsplit("/", 1)[-1])
-            if text:
-                return text, (m_no.group(1) if m_no else None), "OK (상세페이지 첨부)"
+            for filename in _attachment_filenames(content):
+                text, status = extract_text(content, filename)
+                if text:
+                    return text, (m_no.group(1) if m_no else None), f"OK (상세페이지 첨부: {filename})"
 
-    main = dsoup.select_one("main") or dsoup.body
-    fallback_text = main.get_text("\n", strip=True) if main else ""
-    return fallback_text, (m_no.group(1) if m_no else None), "OK (첨부 없음 — 본문 텍스트)"
+    return page_text, (m_no.group(1) if m_no else None), "OK (첨부 없음 — 본문 텍스트)"
 
 
 def run(since_year=2026, since_month=1, today_only=False):
