@@ -4,10 +4,14 @@ from collectors import health_canada, http_utils, mfds
 def test_health_canada_dates_map_to_requested_fields():
     text = "Medical Devices Regulations last amended on 2026-01-01. Regulations are current to 2026-05-26."
 
-    amended, current_to = health_canada._extract_dates(text)
+    amended = health_canada._extract_dates(text)
 
     assert amended == "2026-01-01"
-    assert current_to == "2026-05-26"
+
+
+def test_health_canada_ignores_current_to():
+    text = "Medical Devices Regulations last amended on 2026-01-01. Regulations are current to 2026-05-26."
+    assert health_canada._extract_dates(text) == "2026-01-01"
 
 
 def test_mfds_is_limited_to_the_three_requested_boards():
