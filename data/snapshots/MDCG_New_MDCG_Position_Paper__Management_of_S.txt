@@ -1,0 +1,544 @@
+- 1 -  
+Q&A on practical aspects related to the implementation of the Article 10a obligation in 
+case of interruption or discontinuation of supply of certain devices as introduced by 
+Regulation (EU) 2024/1860 amending Regulations (EU) 2017/745 and (EU) 2017/746 as 
+regards a gradual roll-out of Eudamed, the obligation to inform in case of interruption 
+or discontinuation of supply, and transitional provisions for certain in vitro diagnostic 
+medical devices1. 
+Disclaimer: This Q&A document is intended to facilitate the application of Regulation (EU) 2024/1860 of the 
+European Parliament and of the Council of 13 June 2024 amending Regulations (EU) 2017/745 (MDR) and 
+(EU) 2017/746 (IVDR) as regards a gradual roll-out of Eudamed, the obligation to inform in case of interruption 
+or discontinuation of supply, and transitional provisions for certain in vitro diagnostic medical devices. This 
+document has not been formally endorsed by the European Commission and is without prejudice to any 
+interpretation of the relevant provisions by the Court of Justice of the European Union or national courts. The 
+information in this Q&A document is of a general nature and not intended to address specific circumstances of 
+any particular case; the document does not intend to provide professional or legal advice. The information is 
+not necessarily comprehensive nor complete. If needed, this document will be updated in order to address 
+additional questions that may arise. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1 Regulation (EU) 2024/1860 of the European Parliament and of the Council of 13 June 2024 amending Regulations (EU) 2017/745 an d 
+(EU) 2017/746 as regards a gradual roll -out of Eudamed, the obligation to inform in case of interruption or discontinuation of supply, and 
+transitional provisions for certain in vitro diagnostic medical devices (OJ L, 9.7.2024,  p. 1). Regulation (EU) 2024/1860 has entered into 
+force on 9 July 2024. 
+- 2 -  
+TABLE OF CONTENTS 
+Introduction – Objectives of the MDR/IVDR amendment ................................ ................................ .... 3 
+The information obligations in case of the interruption or discontinuation of supply ............................. 4 
+PART A – GENERAL ................................ ................................ ................................ ....................... 4 
+1. From when does the new Article 10a of the MDR/IVDR apply? ................................ .................. 4 
+2. To whom does the obligation to inform of an anticipated interruption or discontinuation of 
+supply of certain devices under Article 10a(1) of the MDR/IVDR apply? ................................ ..... 4 
+3. To which “certain devices” does Article 10a(1) of the MDR/IVDR apply? ................................ .... 4 
+PART B – MANUFACTURERS’ OBLIGATIONS ................................ ................................ .............. 5 
+4. Who should the manufacturer inform under Article 10a (1) of the MDR/IVDR? ........................... 5 
+5. When should a manufacturer inform under Article 10a (1) of the MDR/IVDR? ............................ 5 
+6. What is meant by “exceptional circumstances” in Article 10a (1) second subparagraph of the 
+MDR/IVDR?................................ ................................ ................................ ...............................  6 
+7. What is meant by the “anticipation of an ‘interruption or discontinuation’ of the supply of a 
+device” as outlined in Article 10a (1) of the MDR or IVDR? ................................ ....................... 6 
+8. What are the categories of reasons for the interruption or discontinuation which the 
+manufacturer would be expected to specify in its notification to the competent authority under 
+Article 10a (1) of the MDR/IVDR? ................................ ................................ ..............................  7 
+9. What is considered as an ‘interruption or discontinuation that may result in serious harm or a 
+risk of serious harm to patients or public health’ in one or more Member States under Article 
+10a (1) of the MDR/IVDR? ................................ ................................ ................................ ........ 8 
+9.1 How can the manufacturer approach the assessment to determine whether the interruption or 
+discontinuation in the supply of the device may result in serious harm to patients or public health? 
+. ................................ ................................ ................................ ................................ ..................... 8 
+9.2 Which indicators can the manufacturer take into account when performing its assessment? ..... 8 
+10. Is the information provided to the competent authority subject to Article 109 MDR/102 IVDR?... 9 
+11. How should the information to the competent authority under Article 10a be provided? .............. 9 
+12. Which information should be included in the ‘Manufacturer Information Form’2 for notification to 
+the competent authority under Article 10a? ................................ ................................ .............. 10 
+PART C –OTHER ECONOMIC OPERATORS' OBLIGATIONS ................................ ...................... 10 
+13. What is the responsibility of other economic operators in the supply chain under Article 10a(3) 
+of the MDR and IVDR after receiving the information from the manufacturer? .......................... 10 
+14. Does Article 10a of the MDR/IVDR apply to system or procedure packs? ................................ . 10 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2 Please see MDCG 2024-16 ‘Manufacturer Information Form on Interruption or Discontinuation of Supply of certain medical devices and 
+certain in vitro diagnostic medical devices’. 
+- 3 -  
+Introduction – Objectives of the MDR/IVDR amendment 
+The amendment of the MDR and of the IVDR through Regulation (EU) 2024/1860 addresses three topics: 
+1. Regulation (EU) 2024/1860 aims to ensure a high level of patient safety and public health protection, 
+including the mitigation of risks related to discontinuation or interruption of supply of in vitro diagnostic medical 
+devices (IVDs) needed for the smooth functioning of healthcare services, without  lowering current quality or 
+safety requirements. For that purpose, manufacturers and notified bodies are given extra time to carry out, 
+in accordance with the IVDR, the conformity assessment of IVDs covered by a certificate or a declaration of 
+conformity issued in accordance with Directive 98/79/EC. Questions and answers regarding the extension of 
+the IVDR transitional periods are set out in a separate document. 
+2. Regulation (EU) 2024/1860 also imposes a requirement on manufacturers to inform the relevant competent 
+authority and health institutions before the supply of certain medical devices or IVDs is interrupted or 
+discontinued. If manufacturers do not supply directly to health institutions or healthcare professionals, they 
+must inform the relevant economic operators in the supply chain, which then must inform the health 
+institutions. This mechanism will enable the competent authority and health institutions to consider mitigating 
+measures to ensure patient health and safety. Questions and answers regarding this topic are set out in this 
+document. 
+3. Regulation (EU) 2024/1860 also enables a gradual roll -out of the electronic systems integrated into the 
+European database on medical devices (‘Eudamed’) that are finalised, instead of deferring the mandatory 
+use of Eudamed until the last of the six modules is completed. The use of Eudamed – and especially its 
+systems for the registration of economic operators, devices and certificates – will improve transparency and 
+provide information on devices on the EU market, helping to monitor the availability of devices. Questions 
+and answers regarding this topic will be set out in a separate document. 
+ 
+ 
+ 
+ 
+ 
+       Q&A revision history 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Date Action 
+October 2024 Initial issue 
+December 2024 1st update (Rev. 1) 
+- Table of Contents: update of footnote 2 
+- Q&A no 8: update of footnote 8 
+- Q&A no 11: update of footnote 11 
+- Q&A no 12: addition of footnote 12 
+April 2026 2nd Update (Rev. 2) 
+- In Question 9.2, the following note has been revised from 
+‘This question may be further complemented by a decision 
+tree diagram’ to: ‘Note: This question is complemented by a 
+decision tree diagram.’ 
+Footnote 10 has been updated and includes a link to the 
+location of the decision tree diagram. 
+- 4 -  
+The information obligations in case of the interruption or discontinuation of supply 
+The answers to the questions set out below have been developed taking into account the objectives pursued 
+by the amendment with a view to providing clarity on the information sharing obligations introduced in Article 
+10a. 
+ 
+PART A – GENERAL 
+ 
+1. From when does the new Article 10a of the MDR/IVDR apply? 
+The provisions of Article 10a of the MDR/IVDR apply from 10 January 2025, as defined in Article 3 of the 
+Regulation 2024/1860. Interruptions or discontinuations of the supply of a device anticipated by the 
+manufacturer prior to this date, do not need to be reported, even if the interruption of discontinuation itself occurs 
+after 10 January 2025. 
+ 
+Nonetheless, manufacturers are encouraged to inform the users of their devices of supply interruptions or 
+discontinuations on a voluntary basis before 10 January 2025, in line with existing best practices.  
+ 
+ 
+2. To whom does the obligation to inform of an anticipated interruption or discontinuation of supply 
+of certain devices under Article 10a(1) of the MDR/IVDR apply? 
+The obligation to inform about an anticipated interruption or discontinuation of supply of certain devices rests 
+with the manufacturers only, whether established inside or outside the European Union. The manufacturer 
+cannot delegate its legal responsibility for this task, however it can engage the assistance of its authorised 
+representative, other economic operators or a third party, in the practical implementation of the required 
+operational tasks. 
+ 
+Once the notification is complete, it is the responsibility of the notified economic operators to cascade the 
+information as provided by the manufacturer (without changing, adding to or paraphrasing this communication 
+so as to preserve its integrity) to the downstream supply chain, including until it reaches health institutions or 
+healthcare professionals as relevant. 
+ 
+ 
+3. To which “certain devices”’ does Article 10a (1) of the MDR/IVDR apply? 
+With the exception of custom-made devices, Article 10a of the MDR/IVDR as of its application date 10 January 
+2025, applies to all models or types of devices 3, placed on the Union market and for which it is reasonably 
+foreseeable that a supply interruption or discontinuation could result in serious harm or a risk of serious harm 
+to patients or public health in one or more Member States. 
+The manufacturer must determine whether it is reasonably foreseeable that an interruption or discontinuation 
+of their device could result in serious harm or a risk of serious harm to patients or public health.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3 Note that Article 10a also applies to legacy devices, see Article 120(13) of the MDR and Article 110(11) of the IVDR. 
+- 5 -  
+PART B – MANUFACTURERS’ OBLIGATIONS 
+ 
+4. Who should the manufacturer inform under Article 10a (1) of the MDR/IVDR? 
+The manufacturer should inform: 
+ 
+• the economic operators (EO)4, health institutions (HI)5 and healthcare professionals (HCP) to whom 
+the manufacturer directly supplies the device, 
+• the competent authority of the Member State where it or its authorised representative is established. 
+It is essential that manufacturers inform all EOs, HIs and HCPs whom they directly supply, who are impacted 
+by the supply interruption or discontinuation. Cases where EOs, HIs or HCPs are not impacted would include 
+e.g. where the manufacturer had already ceased supply before such time that it anticipated an interruption or 
+discontinuation. 
+It is also important for HIs and competent authorities to be adequately informed so that they can, where 
+necessary, consider mitigating measures to ensure the continued health and safety of patients.  
+ 
+Manufacturers are not obliged, however, to inform those actors whom they do not directly supply. The 
+responsibility for onward information sharing in the downstream supply chain lies with the EOs following the 
+receipt of the information from the manufacturer or another EO. 
+Example of the onward information sharing in the context of a supply interruption where the 
+manufacturer does not directly supply to the health institution: 
+On 1 May 2025, a manufacturer of a CE -marked pacemaker confirms that a supply interruption is expected to 
+begin in approximately seven months i.e. 1 December 2025. The manufacturer, located outside of the Union, 
+does not supply the pacemakers directly to HIs. Instead, the devices are supplied to importers, who then supply 
+them to a network of distributors that ultimately deliver them to HIs across several Member States. In this case, 
+the information flow should proceed as follows: 
+ 
+1. Initial manufacturer information obligation:  by 1 June 2025, i.e. at least six months before the confirmed 
+anticipated start of the supply interruption on 1 December 2025, the manufacturer must inform the 
+competent authority in the Member State where its authorised representative is established, as well as the 
+importers to whom it supplied the device in question. 
+2. Downstream information flow: 
+• Importers: Upon receiving this information from the manufacturer, the importers of the device in 
+question must, without undue delay, transmit the information, as provided by the manufacturer, to 
+all distributors to whom they directly supply. 
+• Distributors: When receiving the information from the importers, distributors must without undue 
+delay, relay it, as provided by the manufacturer to any other distributors to whom they supply the 
+device in question as well as the HI they supply. 
+ 
+5. When should a manufacturer inform under Article 10a (1) of the MDR/IVDR? 
+The information should, other than in exceptional circumstances, be provided to the relevant actors referred to 
+in Article 10a (1) of the MDR/IVDR at least six months before the manufacturer’s anticipated interruption or 
+discontinuation is expected to occur. 
+“At least six months” means the manufacturer should inform at a minimum 6 months in advance but can and is 
+encouraged to inform of interruptions or discontinuations earlier in time where possible, following its assessment 
+ 
+4 The term “economic operator’’ as defined in Article 2(35) of the MDR and Article 2(28) of the IVDR includes the manufacturer, authorised 
+representative, importer, distributor and for MDR only, the person referred to in Article 22(1) and 22(3) (also referred to a s: system and 
+procedure pack producer). 
+5 Article 2(36) of the MDR, Article 2(29) of the IVDR 
+- 6 -  
+and confirmation. This is especially encouraged in the case of a planned discontinuation. 
+ 
+It is acknowledged that exceptional circumstances may prevent a manufacturer from meeting this requirement. 
+Under such exceptional circumstances the manufacturer should inform the relevant actors without undue delay 
+(see question 6). 
+It is encouraged that the manufacturer has adequate processes and monitoring systems in place in order to 
+fulfil its notification obligation in a timely manner. 
+ 
+6. What is meant by “exceptional circumstances” in Article 10a (1) second subparagraph of the 
+MDR/IVDR? 
+Exceptional circumstances exist when a manufacturer is unable to anticipate or confirm a supply interruption or 
+discontinuation at least six months in advance of its onset. This may include cases where the interruption or 
+discontinuation occurs due to sudden and unexpected external or internal circumstances. For instance, a natural 
+disaster, an interruption due to a sudden inability to obtain raw materials or components, or a discontinuation 
+due to unexpected circumstances including of an economic or financial nature.  
+ 
+ 
+7. What is meant by the “anticipation of an ‘interruption or discontinuation’ of the supply of a device” 
+as outlined in Article 10a (1) of the MDR or IVDR? 
+ 
+An “interruption of supply” should be understood as the consequence of a manufacturer confirming that they 
+cannot or are unwilling to operate as previously intended or planned in relation to the supply of a device, which 
+can lead to a temporary disruption of supply. With the view to making the application of the Article 10a 
+information obligation workable in practice and to avoid unnecessary reporting, an interruption of supply should 
+be understood as having a temporary inability to place individual devices of a given model or type on the Union 
+market, with an expected duration of more than 60 days, as a general indication. However, this should not 
+prevent the manufacturer from notifying of a supply interruption lasting less than 60 days if they assess that this 
+may result in serious harm or a risk of serious harm to patients or public health.  
+ 
+A “discontinuation of supply” should be understood to include when a manufacturer can confirm that it will 
+cease the supply of a device and therefore no longer places the individual devices of this model or type on the 
+Union market. 
+In this context, “anticipation” should be understood to mean that the manufacturer confirms that an interruption 
+or discontinuation of a device supply will occur. This ‘confirmation’ includes the analysis of the problem or 
+business decision at hand, the evaluation of mitigation measures in operations and in the supply chain as well 
+as the development of appropriate communication strategies for stakeholders to be addressed.  
+ 
+The “anticipation” of the interruption or discontinuation of supply is limited to the manufacturer's: 
+• confirmation of its own supply, based on its manufacturing activities or, information received from third 
+parties e.g. critical suppliers or 
+• confirmation of its own capabilities to produce the device or 
+• its own decision to stop placing the device on the Union market. 
+It does not include the subsequent making available of the device by other economic operators. Furthermore, 
+the anticipated interruption or discontinuation should be related to the notifying manufacturer’s own device 
+exclusively, considering also its own market share. When assessing whether an interruption or discontinuation 
+in supply is anticipated, the manufacturer is not required to consider information related to the following 
+examples: 
+ 
+• the appropriateness of devices of other manufacturers which serve a similar intended purpose, and 
+which may be alternatively used according to the advice of healthcare professionals,  
+• the available stock of alternative devices at the various economic operators in the supply chain, 
+• the capability of other manufacturers to produce in sufficient quality or quantities. 
+- 7 -  
+Manufacturers are, in principle, not required to inform under Article 10a of the MDR/IVDR if: 
+• the manufacturer replaces the device subject to the supply interruption or discontinuation with a 
+successor device that covers a similar intended purpose and is intended to be used alternatively.  
+• the manufacturer has a stockpile to serve the demand during an interruption or to bridge the time until 
+the availability of the impacted device and/or successor device. 
+• the manufacturer has received information from health institutions or healthcare professionals that no 
+serious harm or a risk of serious harm to patients or public health would occur from a device 
+discontinuation or supply interruption, for example due to the availability of a suitable alternative device 
+which has been confirmed to respond to the expected demand. 
+ 
+8. What are the categories of reasons for the interruption or discontinuation which the manufacturer 
+would be expected to specify in its notification to the competent authority under Article 10a (1) of 
+the MDR/IVDR? 
+The anticipation of the interruption or discontinuation of the supply of a device can be for many reasons6 and is 
+not limited to regulatory considerations. This may for example, include external factors with a direct impact on 
+the manufacturing process or supply of the device. Potential reasons for the anticipated interruption or 
+discontinuation may include the below examples under the following headings (non -exhaustive): 
+• Regulatory 
+o A loss of compliance with a condition in Article 120 of the MDR / Article 110 of the IVDR to 
+place a legacy device7 on the market 
+o Delay in certification of the type of device (including a corresponding substitute) against the 
+requirements of the MDR or IVDR 
+o Suspended or withdrawn certificate 
+o Decision by the manufacturer of the type of device to not pursue certification in compliance 
+with the MDR/IVDR and to stop marketing of the device (discontinuation) 
+• Manufacturing 
+o Device performance reasons 
+• Supply Chain 
+o Shortage of or inability to obtain raw materials or components 
+• Other 
+o Marketing or business reasons 
+o Unpredicted major event outside manufacturer's control 
+ 
+Note: the manufacturer should specify the reasons for the interruption or discontinuation of supply in the 
+‘Manufacturer Information Form’ 8. In this form, the manufacturer can provide further information or details 
+to the competent authority. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+6 'See Recital 15 of Regulation 2024/1860 'where manufacturers anticipate, for any reason, the interruption or discontinuation of supply of 
+medical devices or in vitro diagnostic medical devices’. 
+7 MDCG 2020-3 Rev.1 Guidance on significant changes regarding the transitional provision under Article 120 of the MDR with regard to 
+devices covered by certificates according to MDD or AIMDD, Section 1, May 2023, applied mutatis mutandis to IVDs. 
+8 Please see MDCG 2024-16 ‘Manufacturer Information Form on Interruption or Discontinuation of Supply of certain medical devices and 
+certain in vitro diagnostic medical devices’. 
+- 8 -  
+9. What is considered as an “interruption or discontinuation that may result in serious harm or a risk 
+of serious harm to patients or public health” in one or more Member States under Article 10a (1) of 
+the MDR/IVDR? 
+The potential consequence of the interruption or discontinuation of a supply of a manufacturer’s device, is that 
+a particular diagnosis method or patient therapy may not be available in one or more Member States. This non-
+availability of the particular diagnosis method or patient therapy, may result in “serious harm or risk of serious 
+harm to patients or public health”. 
+“Serious harm or risk of serious harm to patients or public health” should be understood as any serious injury 
+to patients or threat to public health that occurs, or where there is a significant probability of this occurring. 
+Cases where ‘non-availability’ may result in ‘serious harm or a risk thereof’ include where patients face:  
+ 
+• an imminent risk of death, 
+• a serious deterioration of patient health9, or 
+• a life-threatening condition 
+and for which, no suitable alternative diagnosis method or therapy (including, but not limited to, pharmaceutical 
+therapy) is available. 
+It should be noted that serious harm can also be due to the inability of a healthcare professional to deliver a 
+specific medical treatment due to an interruption or discontinuation in the supply of a device.  
+ 
+ 
+9.1 How can the manufacturer approach the assessment to determine whether the interruption or 
+discontinuation in the supply of the device may result in serious harm to patients or public health? 
+ 
+It is the responsibility of the manufacturer to assess whether the interruption or discontinuation in the supply of 
+the device may result in serious harm to patients or public health. For the assessment the following should be 
+considered: 
+ 
+• the potential for serious harm to patients should not be assessed based on an individual patient case; 
+rather, the harm should be considered for the patients of the population for which the device is intended. 
+• it is not expected that the manufacturer conducts a comprehensive market analysis but that it bases its 
+assessment on available information at its disposal, limited to the manufacturer’s awareness of its own 
+device supply. 
+• the manufacturer may consult with physicians, medical societies, or healthcare facilities to gather any 
+further information which it determines to be necessary for assessing the impact that interrupted supply 
+or discontinuation of the device may have on patient safety and health. 
+ 
+9.2 Which indicators can the manufacturer take into account when performing its assessment? 
+ 
+When determining whether an anticipated supply interruption or discontinuation may result in serious harm to 
+patients or public health, the following possible indicators may assist the manufacturer in its assessment. These 
+indicators are non -exhaustive and not all indicators are to be considered for each assessment by the 
+manufacturer. 
+The relevance of the device for ensuring essential healthcare services: 
+- the intended purpose of the device e.g. is it a life-sustaining or life-saving device or accessory. 
+- is the device intended for a specific patient population e.g., vulnerable populations such as paediatric 
+or geriatric patients. 
+ 
+ 
+9 Definition provided in MDCG 2023-3 ‘Questions and Answers on vigilance terms and concepts as outlined in the Regulation (EU) 2017/745 
+on medical devices’. 
+- 9 -  
+- if the disruption or interruption will limit the patients from access to treatment e.g. are there any 
+secondary possibilities of getting the treatment without the device? 
+- is there a dependency of patient health and safety on the continuous availability of the device in 
+question. 
+Alternative solutions: 
+- if the manufacturer is able to provide a suitable successor or alternative solution. For interruptions, this 
+should be also taken into account the expected length of the interruption.  
+- is there any required infrastructure, or any training required to use the alternate successor device or 
+any other alternative solutions. 
+- is, to the current knowledge of the manufacturer, a suitable alternative device available from another 
+manufacturer which can meet expected demand. 
+Other factors 
+- whether there is an objective reason to anticipate an interruption or discontinuation of supply of a certain 
+device or range of devices or an entire product line? 
+- the quantities of devices already made available on the market in one or more Member States. 
+- available stocks or timelines for procuring alternatives for such devices. 
+- market share of the device in question. 
+- have mitigations measures to prevent the interruption or discontinuation of supply been considered? 
+- will the devices continue to be available from stockpile during the interruption? 
+ 
+Note: This question is complemented by a decision tree diagram 10. 
+ 
+ 
+10. Is the information provided to the competent authority subject to Article 109 MDR/102 IVDR? 
+The information provided to the competent authority pursuant to Article 10a of the Regulations is subject to 
+Article 109 of the MDR and Article 102 of the IVDR. 
+ 
+However, the competent authority that receives the information will need to share some of the information 
+provided with competent authorities of the other Member States and the Commission to inform them of the 
+anticipated interruption or discontinuation per Article 10a (2). Also, the competent authorities receiving the 
+information regarding the anticipated interruption or discontinuation may need to act upon the information 
+received and share part of the information received with health institutions, healthcare professionals, importers 
+or distributors within their jurisdiction. 
+ 
+11. How should the information to the competent authority under Article 10a be provided? 
+To inform the relevant competent authority, the manufacturer, its mandated authorised representative, or any 
+other actor acting on behalf of the manufacturer should provide the information specified as required in the 
+‘Manufacturer Information Form’ 11. The information should then be submitted to the competent authority of the 
+Member State where the manufacturer or its authorised representative is established.  
+ 
+It should be noted that Member States may provide additional information on how to submit the information in 
+the form, on the websites of the relevant competent authority. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+10 A decision tree diagram that may assist manufacturers when assessing an interruption or discontinuation of supply has been 
+developed by competent authorities within a task force under the Competent Authorities for Medical Devices (CAMD). The decision 
+tree is available here: Guidance - MDCG endorsed documents and other guidance - Public Health. 
+11 Please see MDCG 2024-16 ‘Manufacturer Information Form on Interruption or Discontinuation of Supply of certain medical devices  
+      and certain in vitro diagnostic medical devices’. 
+- 10  
+12. Which information should be included in the ‘Manufacturer Information Form’ for notification to the 
+competent authority under Article 10a? 
+ 
+Manufacturers are requested to include all information specified as required (i.e., not marked as voluntary) in 
+the ‘Manufacturer Information Form’ 12, when submitting the notification to the competent authority of the 
+Member State where it or its authorised representative is established. Additionally, manufacturers may 
+voluntarily inform the competent authority of any relevant changes to the submitted form by sending an 
+updated form, indicating either 'additional information' or 'follow -up information', reflected as voluntary in 
+section 1, sub-section 'type of information' of the MIF. When using either option, the submitter should specify 
+which sections of the form have been modified, e.g., Section 2, sub -section 'X'. In sections marked as 
+"voluntary", manufacturers can include additional information  relating to the interruption or discontinuation that 
+will be useful to the competent authority in the appraisal of the situation. 
+ 
+PART C – OTHER ECONOMIC OPERATORS' OBLIGATIONS 
+ 
+13. What is the responsibility of other economic operators in the supply chain under Article 10a (3) of 
+the MDR and IVDR after receiving the information from the manufacturer?  
+ 
+The information obligation regarding an anticipated interruption or discontinuation of device supply in Article 
+10a of the MDR/IVDR is intended to have a cascading effect. The information originating from the manufacturer, 
+should be passed to other economic operators in the downstream supply, until it reaches the relevant health 
+institutions, or healthcare professionals. 
+ 
+Relevant economic operators therefore who have received information from the manufacturer under Article 
+10a(1) of the MDR/IVDR or another economic operator in the supply chain (e.g. from importers or distributors), 
+are expected to further share this information ‘without undue delay’ with other  economic operators, health 
+institutions and healthcare professionals to whom they directly supply the device. It is expected that economic 
+operators do not change, add to or paraphrase the communication received from the manufacturer so as to 
+preserve its integrity. 
+ 
+For the purposes of this document, “without undue delay” should be understood as acting, as soon as possible, 
+and without any delay that is intentionally or negligently caused by the economic operator. This will allow for the 
+rapid further distribution of information following receipt from upstream suppliers, to ensure downstream actors 
+are informed in a timely manner and can prepare any mitigating measures.  
+It is recalled that Article 25 of the MDR/IVDR requires economic operators to achieve an appropriate level of 
+traceability of devices and be able to identify their upstream and downstream suppliers. Article 25(2) of the 
+MDR/IVDR requires economic operators to be able to identify any economic operator or any health institution 
+or healthcare professional to whom they have directly supplied a device.  
+ 
+ 
+14. Does Article 10a of the MDR/IVDR apply to system or procedure packs? 
+Article 10a (1) of the MDR/IVDR applies to manufacturers of individual CE -marked devices within a system or 
+procedure pack. These manufacturers are responsible for informing the relevant parties, as outlined in Article 
+10a (1) of the MDR/IVDR, including the competent authority and the system or procedure pack producer, about 
+any interruption or discontinuation of their devices. Upon receiving this information, the system or procedure 
+pack producer must, in accordance with Article 10a (3) of the MDR/IVDR and without undue delay, transmit this 
+information to other economic operators, health institutions, and healthcare professionals to whom they directly 
+supply the device. 
+Example of the information sharing flow in a scenario where the manufacturer does not directly supply 
+to the health institution/healthcare professional: 
+A manufacturer of a CE-marked device, which is only used in surgical procedure packs intended for professional 
+use, is informed of a supply interruption that fulfils the information condition of Article 10a (1) of the MDR/IVDR. 
+ 
+ 
+ 
+12 Please see MDCG 2024-16 ‘Manufacturer Information Form on Interruption or Discontinuation of Supply of certain medical devices and 
+certain in vitro diagnostic medical devices’. 
+- 11  
+The manufacturer, which is located in a Member State, does not incorporate the CE -marked device into the 
+surgical procedure pack nor directly supply (their device) or this product to health institutions. Instead, the 
+manufacturer supplies the device to the persons referred to in Article 22(1) of the MDR, who then incorporate 
+the device into surgical procedure packs. These procedure packs are then distributed to health institutions 
+through regional and local distributors. In this case, the information flow should be as follows:  
+ 
+• The manufacturer should inform the relevant competent authority in the Member State where it is 
+established and the person(s) referred to in Article 22(1) of the MDR at least six months before the 
+anticipated interruption. 
+ 
+• The person(s) referred to in Article 22(1) of the MDR must, promptly and without undue delay, inform 
+the distributors to whom they directly supply the device, which is incorporated in the system and 
+procedure pack, of the anticipated interruption. 
+• The distributors who have received this information must, promptly and without undue delay, inform 
+other distributors, health institutions and healthcare professionals to whom they directly supply the 
+device.

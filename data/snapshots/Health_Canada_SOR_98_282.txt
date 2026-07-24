@@ -7,12 +7,12 @@ Full Document: Medical Devices Regulations
 (Accessibility Buttons available) |
 XML
 Full Document: Medical Devices Regulations
-[446 KB]
+[482 KB]
 |
 PDF
 Full Document: Medical Devices Regulations
-[849 KB]
-Regulations are current to 2026-05-26  and
+[1035 KB]
+Regulations are current to 2026-06-14  and
 last amended
 on 2026-01-01.
 Previous Versions
@@ -280,4 +280,4 @@ SOR/2020-262
 [more details]
 Page Details
 Date modified:
-﻿2026-06-05
+﻿2026-07-23

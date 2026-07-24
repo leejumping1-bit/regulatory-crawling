@@ -1,1 +1,108 @@
-{"service":"preview","position":"before"} { "@context": "https:\/\/schema.org", "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "item": { "@id": "https:\/\/health.ec.europa.eu\/index_en", "name": "Home" } }, { "@type": "ListItem", "position": 2, "item": { "@id": "https:\/\/health.ec.europa.eu\/events_en", "name": "Events" } }, { "@type": "ListItem", "position": 3, "item": { "@id": "https:\/\/health.ec.europa.eu\/events\/medical-devices-innovation-and-patient-safety-2026-03-16_en", "name": "Medical Devices: Innovation and Patient Safety " } } ] } { "@context": [ "https:\/\/schema.org", "https:\/\/schema.org\/isPartOf" ], "@type": "schema:NewsArticle", "isPartOf": [ { "@type": "DefinedTerm", "name": "Minutes of proceeding", "termCode": "PROCEED_MINUTES", "inDefinedTermSet": { "@type": "DefinedTermSet", "name": "Resource type", "url": "http:\/\/publications.europa.eu\/resource\/authority\/resource-type" }, "@id": "http:\/\/publications.europa.eu\/resource\/authority\/resource-type\/PROCEED_MINUTES" } ], "@id": "https:\/\/health.ec.europa.eu\/events\/medical-devices-innovation-and-patient-safety-2026-03-16" } { "@context": "https:\/\/schema.org", "@type": "Event", "name": "Medical Devices: Innovation and Patient Safety ", "description": "High-level Conference on Medical Devices: Innovation and Patient Safety - 16 March 2026 - Brussels, Belgium", "url": "https:\/\/health.ec.europa.eu\/events\/medical-devices-innovation-and-patient-safety-2026-03-16", "about": [ { "@type": "DefinedTerm", "name": "medical device", "inDefinedTermSet": { "@type": "DefinedTermSet", "name": "Digital Europa Thesaurus", "alternateName": "DET", "url": "http:\/\/publications.europa.eu\/resource\/dataset\/det", "description": "Multilingual thesaurus for digital Europe covering EU policy areas.", "publisher": { "@type": "GovernmentOrganization", "name": "Publications Office of the European Union", "url": "http:\/\/publications.europa.eu\/resource\/authority\/corporate-body\/PUBL" } }, "@id": "http:\/\/data.europa.eu\/uxp\/3844" } ], "publisher": [ { "@type": [ "GovernmentOrganization", "DefinedTerm" ], "identifier": { "@type": "PropertyValue", "propertyID": "http:\/\/publications.europa.eu\/resource\/authority\/corporate-body", "value": "SANTE", "url": "http:\/\/publications.europa.eu\/resource\/authority\/corporate-body\/SANTE" }, "name": "Directorate-General for Health and Food Safety", "alternateName": "DG Health and Food Safety", "inDefinedTermSet": { "@type": "DefinedTermSet", "name": "Corporate body", "url": "http:\/\/publications.europa.eu\/resource\/authority\/corporate-body", "description": "Authority table for EU corporate bodies and organizations", "publisher": { "@type": "GovernmentOrganization", "name": "Publications Office of the European Union", "url": "http:\/\/publications.europa.eu\/resource\/authority\/corporate-body\/PUBL" } }, "@id": "http:\/\/publications.europa.eu\/resource\/authority\/corporate-body\/SANTE" } ], "startDate": "2026-03-16T09:00:00", "endDate": "2026-03-16T17:00:00", "location": { "@type": "Place", "name": "Charlemagne building", "address": { "@type": "PostalAddress", "addressLocality": "Brussels", "addressCountry": "Belgium", "postalCode": "1049", "streetAddress": "170 Rue De La Loi" } } } Medical Devices: Innovation and Patient Safety - Public Health Skip to main content {"utility":"globan","theme":"light","logo":true,"link":true,"mode":false} en Select your language Close bg български es español cs čeština da dansk de Deutsch et eesti el ελληνικά en English fr français ga Gaeilge hr hrvatski it italiano lv latviešu lt lietuvių hu magyar mt Malti nl Nederlands pl polski pt português ro română sk slovenčina sl slovenščina fi suomi sv svenska {"service":"search","version":"2.0","form":".ecl-search-form","filters":{"scope":{"sites":[{"selected":true,"name":"Public Health","id":["comm-ewcms-health"]}]}}} Search Search &nbsp; &nbsp; Public Health Home Events Medical Devices: Innovation and Patient Safety Medical Devices: Innovation and Patient Safety Conferences and summits Close This event has ended. On 16 March, the European Commission hosted a high-level conference in Brussels entitled “Medical Devices: Innovation and patient safety”, under the auspices of the Cypriot Presidency of the Council. The conference featured a keynote address from Oliver Várhelyi , EU Commissioner for Health and Animal Welfare. Participants included representatives from EU regulatory authorities, the Council, the European Parliament, and other experts from EU stakeholders’ associations. The conference took stock of the latest developments in the sector and offered a glimpse into the future following the adoption of the Commission’s proposal for the revision of the medical devices and in-vitro diagnostic medical devices on 16 December 2025. The conference also featured three breakout sessions focusing on: Enhanced predictability for conformity assessments: combining certainty with flexibili
+PROGRAMME
+09 : 00 – 10:00 REGISTRATION AND WELCOME COFFEE 
+Tamsin ROSE, Master of Ceremonies
+10:00 – 10:15 KEYNOTE ADDRESS 
+Olivér VÁRHELYI, European Commissioner for Health and Animal Welfare  
+10:15 – 10:45 SCENE SETTER 
+Rainer BECKER, DG SANTE D Director, Medical products and innovation
+10:45 – 11:00 TRANSFER TO THE BREAKOUT SESSIONS ROOMS
+11:00 – 12:30 BREAKOUT SESSIONS FROM LAB TO PATIENTS
+BREAKOUT SESSION 1
+Enhanced predictability for 
+conformity assessments: 
+combining certainty with flexibility
+Mansholt room
+CO-CHAIRS:
+Sabina HOEKSTRA
+NBCG-Med
+Rainer EDELHÄUSER
+German Central Authority for Health
+Protection (ZLG)
+PANELLISTS:
+Lammert MEINDERS
+Dutch Healthcare Inspectorate 
+Claudia LOUATI
+European Patients’ Forum
+Anja RICHTER
+Spectaris
+Glenda MARSH
+Johnson & Johnson, Medtech Europe
+Marc GEWILLIG
+UZ Leuven hospital, BioMed Alliance
+Alessia FRABETTI
+Kiwa Cermet Notified Body
+BREAKOUT SESSION 2
+Balancing Safety, Innovation and 
+Trust: Evidence based medical  
+devices and IVDs
+Jenkins room
+CO-CHAIRS:
+Alan FRASER
+BioMed Alliance, European Society of
+Cardiology, CORE-MD
+Sabine DUPONT
+International Diabetes Federation (IDF) 
+Europe
+PANELLISTS:
+Elizabeth MACINTYRE
+BioMed Alliance, European Haematology 
+Association, Université Paris Cité
+Richard HOLBOROW
+BSI Notified Body
+Nicola OSYPKA
+Osypka
+Per KJAERSGAARD-ANDERSEN
+BioMed Alliance, European Federation of 
+National Associations of Orthopaedics and 
+Traumatology (EFORT) 
+Carmen RUIZ-VILLAR FERNANDEZ-
+BRAVO
+Spanish Agency of Medicines and Medical
+Devices (AEMPS), CAMD
+Silvy DA ROCHA DIAS
+European Medicines Agency
+BREAKOUT SESSION 3
+Breakthrough technologies 
+for better care: 
+turning guidance into reality
+De Gasperi room
+CO-CHAIRS:
+Alessia GRAMUGLIA
+GE Healthcare, COCIR
+PANELLISTS:
+Rui SANTOS IVO
+Infarmed 
+Alberto GANAN JIMENEZ
+European Medicines Agency
+Annete BRÜLS
+Edwards, MedTech Europe
+Marije KOCK
+DEKRA Notified Body
+Russell WHEELER
+HEU-EFS, European Patients’ Forum 
+Tom MELVIN
+BioMed Alliance
+Charlemagne building, Alcide de Gasperi room, 2nd floor
+UNDER THE AUSPICES OF 
+THE CYPRIOT PRESIDENCY 
+OF THE COUNCIL
+High-level Conference  
+on Medical Devices: 
+Innovation and Patient Safety
+16 March 2026
+12:30 – 14:00 NETWORKING LUNCH
+Explore the EUDAMED Hub
+14:00 – 14:45 COLLECTIVE REFLECTION: 
+Reporting back from the breakout sessions and dialogue
+14:45 – 15:30 VOICES FROM THE FIELD: 
+How innovation can improve patient safety
+15:30 – 16:00 COFFEE BREAK
+16:00 – 16:25
+FIRESIDE CHAT  – LOOKING AHEAD: MDR/IVDR REFORM
+Neophytos CHARALAMBIDES, Cypriot Council Presidency Minister of Health 
+Tomislav SOKOL, Member of the European Parliament
+16:25 – 16:45 HAVE YOUR SAY!
+Interaction with the audience
+16:45 – 17:00 CLOSING ADDRESS
+Sandra GALLINA, DG SANTE Director-General
+17:00 – 18:30 NETWORKING COCKTAIL
