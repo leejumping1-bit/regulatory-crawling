@@ -7,7 +7,7 @@
 """
 import time
 import requests
-from urllib.parse import urlparse
+from urllib.parse import urljoin, urlparse
 from urllib import robotparser
 
 DEFAULT_HEADERS = {
@@ -64,8 +64,15 @@ def _robots_allowed(url: str, user_agent: str = "*") -> bool:
     return rp.can_fetch(user_agent, url)
 
 
+def _allowed_redirect(url, allowed_hosts):
+    if allowed_hosts is None:
+        return True
+    parsed = urlparse(url)
+    return parsed.scheme == "https" and parsed.hostname in allowed_hosts
+
+
 def fetch(url, timeout=15, retries=2, backoff=2.0, session=None,
-          respect_robots=True, politeness_delay=0.0) -> FetchResult:
+          respect_robots=True, politeness_delay=0.0, allowed_hosts=None) -> FetchResult:
     if politeness_delay:
         time.sleep(politeness_delay)
 
@@ -77,7 +84,31 @@ def fetch(url, timeout=15, retries=2, backoff=2.0, session=None,
     last_err = None
     for attempt in range(retries + 1):
         try:
-            resp = sess.get(url, headers=DEFAULT_HEADERS, timeout=timeout)
+            if allowed_hosts is None:
+                resp = sess.get(url, headers=DEFAULT_HEADERS, timeout=timeout)
+            else:
+                current_url = url
+                for _ in range(5):
+                    resp = sess.get(
+                        current_url,
+                        headers=DEFAULT_HEADERS,
+                        timeout=timeout,
+                        allow_redirects=False,
+                    )
+                    if resp.status_code not in (301, 302, 303, 307, 308):
+                        break
+                    location = resp.headers.get("Location")
+                    if not location:
+                        return FetchResult(False, resp.status_code, error="redirect Location 없음")
+                    current_url = urljoin(current_url, location)
+                    if not _allowed_redirect(current_url, allowed_hosts):
+                        return FetchResult(
+                            False,
+                            resp.status_code,
+                            error=f"허용되지 않은 redirect 차단: {current_url}",
+                        )
+                else:
+                    return FetchResult(False, resp.status_code, error="redirect 횟수 초과")
             if resp.status_code in (403, 999):
                 return FetchResult(False, resp.status_code, blocked=True,
                                     error=f"HTTP {resp.status_code} (차단 추정)")
@@ -96,14 +127,35 @@ def fetch(url, timeout=15, retries=2, backoff=2.0, session=None,
     return FetchResult(False, None, blocked=False, error=str(last_err))
 
 
-def fetch_binary(url, timeout=25, respect_robots=True, politeness_delay=0.0):
+def fetch_binary(url, timeout=25, respect_robots=True, politeness_delay=0.0,
+                 allowed_hosts=None):
     """첨부파일(PDF/DOCX/HWPX) 다운로드용. 성공 시 bytes, 실패 시 None."""
     if politeness_delay:
         time.sleep(politeness_delay)
     if respect_robots and not _robots_allowed(url):
         return None
     try:
-        resp = requests.get(url, headers=DEFAULT_HEADERS, timeout=timeout)
+        if allowed_hosts is None:
+            resp = requests.get(url, headers=DEFAULT_HEADERS, timeout=timeout)
+        else:
+            current_url = url
+            for _ in range(5):
+                resp = requests.get(
+                    current_url,
+                    headers=DEFAULT_HEADERS,
+                    timeout=timeout,
+                    allow_redirects=False,
+                )
+                if resp.status_code not in (301, 302, 303, 307, 308):
+                    break
+                location = resp.headers.get("Location")
+                if not location:
+                    return None
+                current_url = urljoin(current_url, location)
+                if not _allowed_redirect(current_url, allowed_hosts):
+                    return None
+            else:
+                return None
         resp.raise_for_status()
         return resp.content
     except requests.exceptions.RequestException:

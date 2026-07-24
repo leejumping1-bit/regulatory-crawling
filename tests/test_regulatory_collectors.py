@@ -1,4 +1,4 @@
-from collectors import health_canada, mfds
+from collectors import health_canada, http_utils, mfds
 
 
 def test_health_canada_dates_map_to_requested_fields():
@@ -45,3 +45,10 @@ def test_mfds_rejects_untrusted_external_links():
         "https://www.mfds.go.kr/brd/m_203/list.do",
         "https://example.com/secret",
     ) is None
+
+
+def test_redirect_allowlist_rejects_untrusted_host():
+    assert http_utils._allowed_redirect(
+        "https://example.com/secret",
+        {"mfds.go.kr", "www.mfds.go.kr", "law.go.kr", "www.law.go.kr"},
+    ) is False

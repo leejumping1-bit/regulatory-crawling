@@ -150,7 +150,13 @@ def _search_board(board_name, board_url, keyword, since_year, since_month):
     query = {"srchTp": "0", "srchWord": keyword}
     query.update(BOARD_QUERY_PARAMS.get(board_name, {}))
     url = f"{board_url}?{urlencode(query)}"
-    res = fetch(url, respect_robots=False, politeness_delay=POLITENESS_DELAY, timeout=LIST_TIMEOUT)
+    res = fetch(
+        url,
+        respect_robots=False,
+        politeness_delay=POLITENESS_DELAY,
+        timeout=LIST_TIMEOUT,
+        allowed_hosts=ALLOWED_HOSTS,
+    )
     if not res.ok:
         print(f"[mfds][DEBUG] '{board_name}'({keyword}) 요청 실패: {res.error}")
         return [], res
@@ -185,7 +191,13 @@ def _fetch_attachment_text(urls):
 
 def _fetch_detail_and_attachment(view_url):
     """목록에 첨부가 없을 때만 상세페이지를 방문한다."""
-    res = fetch(view_url, respect_robots=False, politeness_delay=POLITENESS_DELAY, timeout=DETAIL_TIMEOUT)
+    res = fetch(
+        view_url,
+        respect_robots=False,
+        politeness_delay=POLITENESS_DELAY,
+        timeout=DETAIL_TIMEOUT,
+        allowed_hosts=ALLOWED_HOSTS,
+    )
     if not res.ok or BeautifulSoup is None:
         return "", None, (res.error if not res.ok else "beautifulsoup4 미설치")
 
@@ -200,7 +212,13 @@ def _fetch_detail_and_attachment(view_url):
         file_url = _safe_url(view_url, href)
         if not file_url:
             continue
-        content = fetch_binary(file_url, respect_robots=False, politeness_delay=POLITENESS_DELAY, timeout=FILE_TIMEOUT)
+        content = fetch_binary(
+            file_url,
+            respect_robots=False,
+            politeness_delay=POLITENESS_DELAY,
+            timeout=FILE_TIMEOUT,
+            allowed_hosts=ALLOWED_HOSTS,
+        )
         if content:
             text, status = extract_text(content, file_url.rsplit("/", 1)[-1])
             if text:
