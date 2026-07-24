@@ -57,7 +57,16 @@ def _rule_based_summary(title: str, body_text: str, max_sentences=5) -> str:
             if re.search(r"^제\s*(?:\d+\s*)?(?:장|조)|^부칙", line):
                 if line not in structure:
                     structure.append(line[:180])
-        excerpt = "\n".join(f"  - {line[:360]}" for line in lines[:8])
+        excerpt_candidates = [
+            line for line in lines
+            if len(line) >= 15
+            and not re.search(r"^제\s*(?:\d+\s*)?(?:장|조)|^부칙", line)
+            and any(
+                kw in line for kw in ("지정", "신청", "심사", "평가", "품질", "교육", "자격", "부적합", "시정", "이의", "불만", "분쟁", "기록", "문서")
+            )
+        ]
+        excerpt_lines = excerpt_candidates[:8] or lines[:8]
+        excerpt = "\n".join(f"  - {line[:360]}" for line in excerpt_lines)
         sections = " / ".join(structure[:8]) or "본문 조문 및 부칙"
         return (
             f"[문서 제목] {title}\n"
