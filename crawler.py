@@ -27,7 +27,7 @@ from datetime import date
 sys.path.append(os.path.dirname(__file__))
 from collectors.store import upsert_regulations, load_regulations  # noqa: E402
 
-# MFDS(가장 느림 — 게시판 7개 × 상세페이지 × 첨부다운로드)를 마지막 순서로 배치.
+# MFDS(가장 느림 — 3개 게시판 × 상세페이지 × 첨부다운로드)를 마지막 순서로 배치.
 # 앞선 기관들이 먼저 저장을 마치면, MFDS 단계에서 시간이 오래 걸리거나
 # 플랫폼 타임아웃으로 중단되더라도 이미 저장된 데이터는 보존된다.
 AUTO_AGENCIES = ["mdcg", "fda", "mhra", "mdsap", "tga", "health_canada", "pmda", "mfds"]

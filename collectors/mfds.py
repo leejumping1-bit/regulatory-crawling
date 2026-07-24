@@ -22,6 +22,7 @@ import re
 import sys
 import os
 import time
+from urllib.parse import urlencode, urljoin, urlparse
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch, fetch_binary  # noqa: E402
@@ -37,12 +38,20 @@ except ImportError:
 
 BOARDS = {
     "법/시행령/시행규칙": "https://www.mfds.go.kr/brd/m_203/list.do",
-    "고시훈령예규(전문)": "https://www.mfds.go.kr/brd/m_211/list.do",
-    "게시판_212": "https://www.mfds.go.kr/brd/m_212/list.do",
-    "고시훈령예규": "https://www.mfds.go.kr/brd/m_215/list.do",
+    "고시훈령예규(고시전문)": "https://www.mfds.go.kr/brd/m_211/list.do",
     "제개정고시등": "https://www.mfds.go.kr/brd/m_207/list.do",
-    "입법/행정예고": "https://www.mfds.go.kr/brd/m_209/list.do",
-    "법률 제개정 현황": "https://www.mfds.go.kr/brd/m_1087/list.do",
+}
+
+BOARD_KEYWORDS = {
+    "법/시행령/시행규칙": ["의료기기", "약전"],
+    "고시훈령예규(고시전문)": ["의료기기", "약전"],
+    "제개정고시등": ["의료기기", "약전"],
+}
+
+BOARD_QUERY_PARAMS = {
+    "법/시행령/시행규칙": {"data_stts_gubun": "C1004"},
+    "고시훈령예규(고시전문)": {},
+    "제개정고시등": {},
 }
 
 # 제목에 이 키워드가 포함된 경우만 수집 대상으로 삼는다 (서버 검색 + 클라이언트 재확인 이중 체크)
@@ -54,6 +63,7 @@ FULL_LAW_PATTERNS = ["의료기기법 시행규칙", "의료기기법 시행령"
 DATE_RE = re.compile(r"(20\d{2})[.\-](\d{1,2})[.\-](\d{1,2})")
 DOC_NO_RE = re.compile(r"(제\s*20\d{2}-\d+\s*호|총리령\s*제\d+호|대통령령\s*제\d+호|법률\s*제\d+호)")
 ATTACHMENT_EXTS = (".pdf", ".hwpx", ".hwp")
+ALLOWED_HOSTS = {"mfds.go.kr", "www.mfds.go.kr", "law.go.kr", "www.law.go.kr"}
 
 POLITENESS_DELAY = 1.0
 LIST_TIMEOUT = 10
@@ -74,36 +84,34 @@ def _is_full_law(title):
     return any(p.replace("「", "").replace("」", "") in title for p in FULL_LAW_PATTERNS)
 
 
-def _search_board(board_name, board_url, keyword, since_year, since_month):
-    """MFDS 게시판의 제목검색 기능을 이용한다. 다른 파라미터(board_id 등)는 게시판마다
-    다를 수 있어 최소 파라미터(srchTp, srchWord)만 사용한다 — 서버가 기본값을 채워주는
-    것으로 가정한다(사용자가 확인해준 실제 URL 기준)."""
-    url = f"{board_url}?srchTp=0&srchWord={keyword}"
-    res = fetch(url, respect_robots=False, politeness_delay=POLITENESS_DELAY, timeout=LIST_TIMEOUT)
-    if not res.ok:
-        print(f"[mfds][DEBUG] '{board_name}'({keyword}) 요청 실패: {res.error}")
-        return [], res
-    if BeautifulSoup is None:
-        raise RuntimeError("beautifulsoup4 미설치")
+def _safe_url(base_url, href):
+    """MFDS가 공식적으로 연결하는 HTTPS 상세/첨부 호스트만 허용한다."""
+    candidate = urljoin(base_url, href or "")
+    parsed = urlparse(candidate)
+    if parsed.scheme != "https" or parsed.hostname not in ALLOWED_HOSTS:
+        return None
+    return candidate
 
-    soup = BeautifulSoup(res.text, "html.parser")
-    all_view_links = soup.select('a[href*="view.do"]')
-    print(f"[mfds][DEBUG] '{board_name}'({keyword}) 응답 {len(res.text)}자, "
-          f"view.do 링크 {len(all_view_links)}개 발견")
-    if all_view_links:
-        sample_titles = [a.get_text(strip=True)[:30] for a in all_view_links[:3]]
-        print(f"[mfds][DEBUG]   샘플 제목: {sample_titles}")
 
+def _extract_rows_from_html(html, board_name, board_url, keyword, since_year, since_month):
+    soup = BeautifulSoup(html, "html.parser")
+    all_links = soup.select('a[href*="view.do"], a.title[href]')
     rows = []
-    for a in all_view_links:
-        title = a.get_text(strip=True)
-        if not title or len(title) < 4:
-            continue
-        if not any(kw in title for kw in TITLE_KEYWORDS):
-            continue  # 클라이언트 재확인
-
+    seen_urls = set()
+    for a in all_links:
+        title = a.get_text(" ", strip=True)
         href = a.get("href")
-        view_url = href if href.startswith("http") else board_url.rsplit("/", 1)[0] + "/" + href.lstrip("./")
+        if not title or len(title) < 4 or not href:
+            continue
+        if not any(kw in title for kw in BOARD_KEYWORDS.get(board_name, [keyword])):
+            continue
+
+        view_url = _safe_url(board_url, href)
+        if not view_url:
+            continue
+        if view_url in seen_urls:
+            continue
+        seen_urls.add(view_url)
 
         block = a.find_parent("li") or a.find_parent("tr") or a.find_parent("div") or a
         block_text = block.get_text(" ", strip=True)
@@ -113,17 +121,17 @@ def _search_board(board_name, board_url, keyword, since_year, since_month):
             if (y, mo) < (since_year, since_month):
                 continue
 
-        # 목록 화면에 이미 노출된 첨부파일 링크가 있는지 확인 (있으면 상세페이지 스킵 가능)
         attachments = []
-        for att_a in block.select('a[href$=".pdf"], a[href$=".hwpx"], a[href$=".hwp"]'):
+        for att_a in block.find_all("a", href=True):
             att_href = att_a.get("href")
-            if not att_href:
+            path = urlparse(att_href).path.lower()
+            if not path.endswith(ATTACHMENT_EXTS):
                 continue
-            att_url = att_href if att_href.startswith("http") else board_url.rsplit("/", 1)[0] + "/" + att_href.lstrip("./")
-            attachments.append(att_url)
+            att_url = _safe_url(board_url, att_href)
+            if att_url:
+                attachments.append(att_url)
 
         m_no = DOC_NO_RE.search(block_text)
-
         rows.append({
             "board": board_name,
             "title": title,
@@ -132,6 +140,34 @@ def _search_board(board_name, board_url, keyword, since_year, since_month):
             "attachments": attachments,
             "doc_no": m_no.group(1) if m_no else None,
         })
+    return rows
+
+
+def _search_board(board_name, board_url, keyword, since_year, since_month):
+    """MFDS 게시판의 제목검색 기능을 이용한다. 다른 파라미터(board_id 등)는 게시판마다
+    다를 수 있어 최소 파라미터(srchTp, srchWord)만 사용한다 — 서버가 기본값을 채워주는
+    것으로 가정한다(사용자가 확인해준 실제 URL 기준)."""
+    query = {"srchTp": "0", "srchWord": keyword}
+    query.update(BOARD_QUERY_PARAMS.get(board_name, {}))
+    url = f"{board_url}?{urlencode(query)}"
+    res = fetch(url, respect_robots=False, politeness_delay=POLITENESS_DELAY, timeout=LIST_TIMEOUT)
+    if not res.ok:
+        print(f"[mfds][DEBUG] '{board_name}'({keyword}) 요청 실패: {res.error}")
+        return [], res
+    if BeautifulSoup is None:
+        raise RuntimeError("beautifulsoup4 미설치")
+
+    soup = BeautifulSoup(res.text, "html.parser")
+    all_view_links = soup.select('a[href*="view.do"], a.title[href]')
+    print(f"[mfds][DEBUG] '{board_name}'({keyword}) 응답 {len(res.text)}자, "
+          f"view.do 링크 {len(all_view_links)}개 발견")
+    if all_view_links:
+        sample_titles = [a.get_text(strip=True)[:30] for a in all_view_links[:3]]
+        print(f"[mfds][DEBUG]   샘플 제목: {sample_titles}")
+
+    rows = _extract_rows_from_html(
+        res.text, board_name, board_url, keyword, since_year, since_month
+    )
     return rows, None
 
 
@@ -157,15 +193,16 @@ def _fetch_detail_and_attachment(view_url):
     page_text = dsoup.get_text(" ", strip=True)
     m_no = DOC_NO_RE.search(page_text)
 
-    for ext in ATTACHMENT_EXTS:
-        att = dsoup.select_one(f'a[href$="{ext}"]')
-        if not att:
-            continue
+    for att in dsoup.find_all("a", href=True):
         href = att.get("href")
-        file_url = href if href.startswith("http") else view_url.rsplit("/", 1)[0] + "/" + href.lstrip("./")
+        if not urlparse(href).path.lower().endswith(ATTACHMENT_EXTS):
+            continue
+        file_url = _safe_url(view_url, href)
+        if not file_url:
+            continue
         content = fetch_binary(file_url, respect_robots=False, politeness_delay=POLITENESS_DELAY, timeout=FILE_TIMEOUT)
         if content:
-            text, status = extract_text(content, f"file{ext}")
+            text, status = extract_text(content, file_url.rsplit("/", 1)[-1])
             if text:
                 return text, (m_no.group(1) if m_no else None), "OK (상세페이지 첨부)"
 
@@ -185,7 +222,7 @@ def run(since_year=2026, since_month=1, today_only=False):
         if time.time() - start > TIME_BUDGET_SECONDS:
             print("[mfds] 시간 예산 초과 — 목록 검색 단계에서 중단")
             break
-        for kw in TITLE_KEYWORDS:
+        for kw in BOARD_KEYWORDS.get(board_name, TITLE_KEYWORDS):
             rows, err = _search_board(board_name, board_url, kw, since_year, since_month)
             if err:
                 print(f"[mfds] '{board_name}'({kw}) 검색 실패: {err.error}")

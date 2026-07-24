@@ -36,6 +36,16 @@ CURRENT_TO_RE = re.compile(r"current to (\d{4}-\d{2}-\d{2})", re.IGNORECASE)
 DOC_NO = "SOR/98-282"
 
 
+def _extract_dates(text):
+    """페이지에서 마지막 개정일과 현행화 기준일을 분리해 추출한다."""
+    amended = AMENDED_RE.search(text or "")
+    current_to = CURRENT_TO_RE.search(text or "")
+    return (
+        amended.group(1) if amended else None,
+        current_to.group(1) if current_to else None,
+    )
+
+
 def run(since_year=2026, since_month=1, today_only=False):
     res = fetch(REGULATION_URL)
     if res.robots_disallowed:
@@ -48,10 +58,7 @@ def run(since_year=2026, since_month=1, today_only=False):
     soup = BeautifulSoup(res.text, "html.parser")
     page_text = soup.get_text(" ", strip=True)
 
-    amended_m = AMENDED_RE.search(page_text)
-    current_to_m = CURRENT_TO_RE.search(page_text)
-    last_amended = amended_m.group(1) if amended_m else None
-    current_to = current_to_m.group(1) if current_to_m else None
+    last_amended, current_to = _extract_dates(page_text)
 
     if not last_amended:
         print("[health_canada] 'last amended on' 문구를 찾지 못했습니다 (페이지 구조 변경 가능성).")
@@ -83,7 +90,9 @@ def run(since_year=2026, since_month=1, today_only=False):
     item = {
         "search_month": last_amended[:7],
         "publish_date": last_amended,
-        "effective_date": last_amended,
+        # 사용자 요청에 따라 페이지의 "current to"를 화면상 시행일로 표시한다.
+        # 법률상 실제 효력 발생일은 별도 조항/공고를 확인해야 한다.
+        "effective_date": current_to,
         "publisher": "Health Canada",
         "doc_no": DOC_NO,
         "title": f"Medical Devices Regulations (SOR/98-282) — {last_amended} 개정 반영본",
