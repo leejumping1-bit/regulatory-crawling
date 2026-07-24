@@ -1,6 +1,8 @@
 """PMDA(일본) 수집기"""
 import sys
 import os
+import re
+from urllib.parse import urljoin
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch  # noqa: E402
@@ -12,6 +14,17 @@ except ImportError:
     BeautifulSoup = None
 
 PMDA_URL = "https://www.pmda.go.jp/english/review-services/regulatory-info/0004.html"
+YEAR_RE = re.compile(r"\b(20\d{2})\b")
+
+
+def _extract_year(title):
+    years = [int(value) for value in YEAR_RE.findall(title or "")]
+    return max(years) if years else None
+
+
+def _is_in_scope(title, since_year):
+    year = _extract_year(title)
+    return year is not None and year >= since_year
 
 
 def run(since_year=2026, since_month=1, max_items=10):
@@ -31,7 +44,9 @@ def run(since_year=2026, since_month=1, max_items=10):
         href = a.get("href")
         if not title or len(title) < 6 or not href:
             continue
-        url = href if href.startswith("http") else "https://www.pmda.go.jp" + href
+        if not _is_in_scope(title, since_year):
+            continue
+        url = urljoin(PMDA_URL, href)
         results.append(build_item(
             agency_label="PMDA (Japan)",
             title=title, url=url, pub_date=None, doc_no=title[:40],

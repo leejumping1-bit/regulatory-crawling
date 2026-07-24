@@ -5,6 +5,7 @@ import textwrap
 from datetime import date
 
 from collectors.store import load_regulations
+from app_logic import effective_month, filter_by_month
 
 st.set_page_config(
     page_title="국내외 규격 및 가이던스 업데이트 검토대장",
@@ -113,11 +114,6 @@ def _load():
 data = _load()
 
 
-def effective_month(item):
-    """날짜 파싱에 실패한 항목도 조용히 사라지지 않도록 'UNKNOWN' 버킷으로 분류."""
-    return item.get("search_month") or "UNKNOWN"
-
-
 # ==================== 상단 배너 ====================
 render_html(f"""
 <div class="rw-topbar">
@@ -135,17 +131,17 @@ render_html(f"""
 # ==================== 상단 컨트롤바 ====================
 ctrl1, ctrl2, ctrl3 = st.columns([2, 1.4, 1.4])
 
-all_months = sorted({effective_month(item) for item in data}, reverse=True)
-if not all_months:
-    all_months = [date.today().strftime("%Y-%m")]
+month_options = ["전체"] + sorted({effective_month(item) for item in data}, reverse=True)
+if len(month_options) == 1:
+    month_options.append(date.today().strftime("%Y-%m"))
 
 with ctrl1:
-    st.markdown('<div class="rw-controlbar-label">📅 조회 월 선택</div>', unsafe_allow_html=True)
-    selected_month = st.selectbox("조회 월", all_months, index=0, label_visibility="collapsed")
+    st.markdown('<div class="rw-controlbar-label">📅 조회 월 선택 (기본: 전체)</div>', unsafe_allow_html=True)
+    selected_month = st.selectbox("조회 월", month_options, index=0, label_visibility="collapsed")
     if selected_month == "UNKNOWN":
         st.caption("⚠ 날짜를 파싱하지 못한 항목들입니다 (수집기 점검 필요).")
 
-filtered_data = [d for d in data if effective_month(d) == selected_month]
+filtered_data = filter_by_month(data, selected_month)
 
 with ctrl2:
     st.markdown('<div class="rw-controlbar-label">📥 검토대장 다운로드</div>', unsafe_allow_html=True)
