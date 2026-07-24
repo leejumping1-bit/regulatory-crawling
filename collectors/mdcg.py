@@ -32,6 +32,11 @@ from collectors.summarizer import summarize, guess_scope, guess_sop_flag  # noqa
 from collectors.diff_engine import generate_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
 
+try:
+    from bs4 import BeautifulSoup
+except ImportError:
+    BeautifulSoup = None
+
 BASE = "https://health.ec.europa.eu"
 SCOPED_URL_TMPL = BASE + "/medical-devices-new-regulations/latest-updates_en?page={page}"
 GENERAL_URL_TMPL = BASE + "/latest-updates_en?page={page}"
@@ -235,9 +240,22 @@ def _fetch_detail(url):
                 return text, "OK (첨부 원문)"
             return "", f"첨부파일 추출 실패: {extract_status}"
 
-    text_only = re.sub(r"<[^>]+>", " ", res.text)
-    text_only = re.sub(r"\s+", " ", text_only).strip()
+    text_only = _visible_detail_text(res.text)
     return text_only[:5000], "OK (첨부 없음 — 본문 HTML 발췌)"
+
+
+def _visible_detail_text(html):
+    """상세 HTML에서 사용자에게 보이는 본문만 추출한다."""
+    if BeautifulSoup is not None:
+        soup = BeautifulSoup(html or "", "html.parser")
+        for tag in soup(["script", "style", "noscript", "svg", "nav", "header", "footer"]):
+            tag.decompose()
+        main = soup.find("main") or soup.find("article") or soup.body or soup
+        return re.sub(r"\s+", " ", main.get_text(" ", strip=True)).strip()
+
+    text_only = re.sub(r"<(script|style|noscript|svg|nav|header|footer)[^>]*>.*?</\1>", " ", html or "", flags=re.I | re.S)
+    text_only = re.sub(r"<[^>]+>", " ", text_only)
+    return re.sub(r"\s+", " ", text_only).strip()
 
 
 if __name__ == "__main__":

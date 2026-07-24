@@ -33,13 +33,19 @@ def guess_sop_flag(text: str) -> bool:
     return any(kw.lower() in text.lower() for kw in SOP_KEYWORDS)
 
 
-def _rule_based_summary(title: str, body_text: str, max_sentences=4) -> str:
+def _rule_based_summary(title: str, body_text: str, max_sentences=5) -> str:
     """
     첨부 원문에서 핵심으로 보이는 문장을 추출하는 매우 단순한 규칙기반 요약.
     (정확한 의미요약이 아니라 '핵심 문장 발췌'에 가깝다는 점을 명확히 함)
     """
     if not body_text:
-        return f"「{title}」 — 첨부 원문을 확보하지 못해 자동요약을 생성하지 못했습니다. 원문 링크에서 직접 확인이 필요합니다."
+        return (
+            f"[문서 제목] {title}\n"
+            "[핵심 내용] 원문을 확보하지 못해 세부 변경사항을 자동으로 확인하지 못했습니다.\n"
+            "[적용 범위] 제목상 관련 규격·가이드·규제기관 공지에 해당합니다.\n"
+            "[실무 검토] 적용 대상 제품, 인증·심사 절차, 내부 품질문서에 영향이 있는지 확인해야 합니다.\n"
+            "[확인 필요] 원문 링크에서 시행일, 적용 대상, 첨부파일을 직접 확인해야 합니다."
+        )
 
     sentences = re.split(r'(?<=[.다음함됨음됨함임\)])\s+|\n+', body_text)
     sentences = [s.strip() for s in sentences if len(s.strip()) > 8]
@@ -52,8 +58,17 @@ def _rule_based_summary(title: str, body_text: str, max_sentences=4) -> str:
     scored.sort(key=lambda x: -x[0])
     picked = [s for _, s in scored[:max_sentences]] or sentences[:max_sentences]
 
-    disclaimer = "\n\n(※ 규칙기반 발췌 요약입니다 — 원문의 정확한 뉘앙스는 링크된 원문을 반드시 확인하세요.)"
-    return " ".join(picked) + disclaimer
+    excerpts = [s[:420] for s in picked]
+    excerpt_text = "\n".join(f"  - {s}" for s in excerpts)
+    return (
+        f"[문서 제목] {title}\n"
+        "[핵심 내용] 아래 내용은 원문에서 규제·적용·개정과 관련된 문장을 우선 추출한 결과입니다.\n"
+        f"[원문 핵심 발췌]\n{excerpt_text}\n"
+        "[변경·영향 검토] 개정·신설·폐지·적용 시점과 대상 제품 또는 제조·품질관리 절차에 변화가 있는지 확인해야 합니다.\n"
+        "[실무 검토] 관련 인증, 심사자료, 기술문서, 위험관리 및 내부 SOP에 반영할 필요가 있는지 담당 부서가 검토해야 합니다.\n"
+        "[확인 필요] 본 요약은 자동 발췌이므로 법적 효력, 시행일, 예외 조건은 반드시 링크된 공식 원문과 첨부파일에서 최종 확인해야 합니다.\n"
+        "[요약 한계] 규칙기반 fallback은 원문을 완전하게 번역하거나 법률적 의미를 확정하지 않습니다."
+    )
 
 
 def _llm_summary(title: str, body_text: str) -> str | None:
@@ -63,7 +78,8 @@ def _llm_summary(title: str, body_text: str) -> str | None:
     """
     prompt = (
         "당신은 의료기기 인증기관(BSI, SGS 등) 심사원입니다. 아래는 의료기기 규제/규격 문서 원문입니다. "
-        "회사가 반드시 검토해야 할 핵심 변경사항을 한국어로 5문장 이내로 요약하세요.\n\n"
+        "회사가 반드시 검토해야 할 내용을 한국어로 6~10문장 분량의 상세 요약으로 작성하세요. "
+        "반드시 다음 항목을 포함하세요: 핵심 내용, 변경사항, 적용 범위, 시행일/일정, 회사 실무 영향, 필요한 조치, 확인이 필요한 불확실한 사항.\n\n"
         f"[제목]\n{title}\n\n[원문]\n{body_text[:12000]}"
     )
 
@@ -117,6 +133,6 @@ def _llm_summary(title: str, body_text: str) -> str | None:
 
 def summarize(title: str, body_text: str) -> str:
     llm_result = _llm_summary(title, body_text)
-    if llm_result:
+    if llm_result and len(llm_result) >= 240 and ("핵심" in llm_result or "적용" in llm_result):
         return llm_result
     return _rule_based_summary(title, body_text)
