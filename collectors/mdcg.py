@@ -210,7 +210,7 @@ def run(since_year=2026, since_month=1, today_only=False):
             "title": c["title"],
             "summary": summarize(c["title"], summary_source) + (
                 "" if body_text else f"\n\n(첨부 원문 확보 실패: {status})"),
-            "scope": guess_scope(c["title"] + " " + summary_source),
+            "scope": guess_scope(c["title"] + " " + summary_source, title=c["title"], publisher="MDCG (EU)"),
             "manufacturer_obligation": "★" if guess_manufacturer_obligation(c["title"], summary_source) else "",
             "url": c["url"],
             "gap_analysis": gap,

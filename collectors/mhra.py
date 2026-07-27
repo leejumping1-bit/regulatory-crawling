@@ -139,7 +139,7 @@ def _process_source(doc_no, url, today_only):
         "doc_no": doc_no,
         "title": f"{title_prefix} — 변경이력 업데이트 ({last_updated_text or '날짜 미확인'})",
         "summary": summary,
-        "scope": guess_scope(title_prefix + " " + changelog_text),
+        "scope": guess_scope(title_prefix + " " + changelog_text, title=title_prefix, publisher="MHRA (UK)"),
         "manufacturer_obligation": "★" if guess_manufacturer_obligation(title_prefix, changelog_text) else "",
         "url": url + "#full-publication-update-history",
         "gap_analysis": gap,

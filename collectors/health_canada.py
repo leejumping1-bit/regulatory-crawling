@@ -76,7 +76,8 @@ def run(since_year=2026, since_month=1, today_only=False):
     save_snapshot("Health Canada", DOC_NO, full_text)
 
     summary_source = full_text
-    summary = summarize(f"Medical Devices Regulations ({DOC_NO}) — {last_amended} 개정", summary_source)
+    title = f"Medical Devices Regulations (SOR/98-282) — {last_amended} 개정 반영본"
+    summary = summarize(title, summary_source)
     if not prev:
         summary += "\n\n(※ 이번이 이 시스템의 최초 수집이라 개정 전/후 비교는 다음 개정부터 가능합니다.)"
 
@@ -87,9 +88,9 @@ def run(since_year=2026, since_month=1, today_only=False):
         "effective_date": None,
         "publisher": "Health Canada",
         "doc_no": DOC_NO,
-        "title": f"Medical Devices Regulations (SOR/98-282) — {last_amended} 개정 반영본",
+        "title": title,
         "summary": summary,
-        "scope": guess_scope(full_text),
+        "scope": guess_scope(full_text, title=title, publisher="Health Canada"),
         "manufacturer_obligation": "★" if guess_manufacturer_obligation(title, full_text) else "",
         "url": REGULATION_URL,
         "gap_analysis": gap,

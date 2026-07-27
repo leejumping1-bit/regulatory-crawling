@@ -23,6 +23,16 @@ def test_mfds_scope_uses_title_only_and_defaults_to_comprehensive():
     assert guess_scope(body, title="디지털 전환 관련 의료기기 안내", publisher="MFDS (Korea)") == "디지털 의료기기"
 
 
+def test_foreign_scope_uses_title_tokens_and_mixed_tokens_are_comprehensive():
+    body = "The PDF mentions IVDR, MDR, vitro, and digital devices."
+    assert guess_scope(body, title="Monitoring of Notified Bodies: new MDR and IVDR reports", publisher="MDCG (EU)") == "종합"
+    assert guess_scope(body, title="Guidance for in vitro diagnostic devices", publisher="MDCG (EU)") == "체외진단 의료기기"
+    assert guess_scope(body, title="Medical Devices Regulations", publisher="Health Canada") == "체내 이식형 의료기기"
+    assert guess_scope(body, title="Digital transformation guidance", publisher="MDCG (EU)") == "디지털 의료기기"
+    assert guess_scope(body, title="Digital medical device guidance", publisher="MDCG (EU)") == "종합"
+    assert guess_scope(body, title="Updated list of notified bodies", publisher="MDCG (EU)") == "종합"
+
+
 def test_manufacturer_obligation_requires_an_explicit_duty_or_modal():
     body = "This position paper explains UDI assignment between manufacturers and distributors."
     assert guess_manufacturer_obligation(UDI_TITLE, body) is False
