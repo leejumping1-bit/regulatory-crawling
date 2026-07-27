@@ -46,6 +46,25 @@ def test_mfds_uses_page_summary_when_major_content_exists():
     assert mfds._has_major_content("고시 전문을 첨부파일로 게시합니다.") is False
 
 
+def test_mfds_extracts_only_major_content_items():
+    text = """
+    < 주요내용 >
+    가. 기술문서심사기관 지정 유효기간 및 갱신의 세부 절차
+    지정 유효기간 및 갱신에 관한 절차가 마련됨에 따라 관련 서식을 정비함
+    나. 정기 지도·점검 범위 합리화
+    정기 지도·점검 범위를 합리적으로 조정함
+    다. 기술문서 심사의 품질 향상
+    심사원 교육과 2단계 검토 인력에 관한 사항을 명확히 함
+    < 참고사항 > 이후 내용은 제외
+    """
+    result = mfds._extract_major_content(text)
+    assert result.startswith("[주요내용]")
+    assert "가. 기술문서심사기관 지정 유효기간" in result
+    assert "나. 정기 지도·점검 범위 합리화" in result
+    assert "다. 기술문서 심사의 품질 향상" in result
+    assert "참고사항" not in result
+
+
 def test_legal_document_summary_uses_structure_and_is_detailed():
     result = summarize(
         "「의료기기 제조 및 품질관리 관련 기관 지정 등에 관한 규정」(제2026-47호)",

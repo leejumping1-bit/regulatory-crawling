@@ -121,6 +121,31 @@ def _has_major_content(text):
     return "주요내용" in normalized or "주요사항" in normalized
 
 
+def _extract_major_content(text):
+    """상세 페이지의 공식 <주요내용>에서 가·나·다 항목만 추출한다."""
+    source = text or ""
+    marker = re.search(r"<\s*주요내용\s*>|<\s*주요사항\s*>|주요내용|주요사항", source, re.IGNORECASE)
+    if not marker:
+        return ""
+
+    section = source[marker.end():]
+    # 다음 꺾쇠 제목이나 별도 안내 섹션부터는 주요내용으로 보지 않는다.
+    section = re.split(r"<\s*(?:참고사항|첨부|붙임|문의|향후계획|담당부서)\s*>", section, maxsplit=1, flags=re.IGNORECASE)[0]
+    section = re.sub(r"\s+", " ", section).strip()
+    item_re = re.compile(
+        r"([가-힣])\s*\.\s*(.+?)(?=\s+[가-힣]\s*\.\s+|\Z)",
+        re.IGNORECASE,
+    )
+    items = []
+    for match in item_re.finditer(section):
+        content = re.sub(r"\s+", " ", match.group(2)).strip(" -")
+        if content:
+            items.append(f"{match.group(1)}. {content}")
+    if not items:
+        return ""
+    return "[주요내용]\n" + "\n".join(f"- {item}" for item in items)
+
+
 def _extract_rows_from_html(html, board_name, board_url, keyword, since_year, since_month):
     soup = BeautifulSoup(html, "html.parser")
     all_links = soup.select('a[href*="view.do"], a.title[href]')
@@ -235,7 +260,9 @@ def _fetch_detail_and_attachment(view_url):
     # 제개정고시등(m_207)은 본문에 식약처가 정리한 <주요내용>이 있으므로
     # 전문 PDF보다 사람이 읽기 쉬운 공식 요약 본문을 우선 사용한다.
     if _has_major_content(page_text) and "/m_207/" in view_url:
-        return page_text, (m_no.group(1) if m_no else None), "OK (본문 주요내용)"
+        major_content = _extract_major_content(page_text)
+        if major_content:
+            return major_content, (m_no.group(1) if m_no else None), "OK (본문 주요내용 항목)"
 
     for att in dsoup.find_all("a", href=True):
         href = att.get("href")
@@ -290,7 +317,11 @@ def run(since_year=2026, since_month=1, today_only=False):
             print(f"[mfds] 시간 예산 초과 — 남은 {len(all_rows) - len(results)}건 건너뜀")
             break
         try:
-            if c["attachments"]:
+            # m_207은 PDF보다 상세 페이지의 공식 <주요내용>(가·나·다)을 우선한다.
+            if c["board"] == "제개정고시등":
+                body_text, doc_no_from_detail, status = _fetch_detail_and_attachment(c["view_url"])
+                doc_no = c["doc_no"] or doc_no_from_detail
+            elif c["attachments"]:
                 body_text, status = _fetch_attachment_text(c["attachments"])
                 doc_no = c["doc_no"]
             else:
