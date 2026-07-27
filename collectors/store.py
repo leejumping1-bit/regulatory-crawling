@@ -8,6 +8,7 @@ data/regulations.json 읽기/쓰기 + 문서별 원문 스냅샷 저장(diff 비
 """
 import json
 import os
+import re
 from datetime import datetime, timezone, timedelta
 
 KST = timezone(timedelta(hours=9))
@@ -41,7 +42,29 @@ def upsert_regulations(new_items):
     for it in new_items:
         key = f"{it.get('publisher')}::{it.get('doc_no')}"
         by_key[key] = it
-    return save_regulations(list(by_key.values()))
+    items = list(by_key.values())
+    # MDCG는 같은 게시물이 전용 피드와 일반 피드에서 동시에 발견될 수 있다.
+    # 같은 제목·URL이면 MDCG 번호가 있는 항목을 남기고 번호 없는 중복은 제거한다.
+    deduped = {}
+    for item in items:
+        if item.get("publisher") != "MDCG (EU)":
+            deduped[id(item)] = item
+            continue
+        title_key = re.sub(r"\s+", " ", item.get("title", "").strip()).casefold()
+        link_key = item.get("url", "").strip()
+        if not title_key or not link_key:
+            deduped[id(item)] = item
+            continue
+        key = (title_key, link_key)
+        existing_item = deduped.get(key)
+        has_mdcg_no = bool(re.search(r"\bMDCG\s*\d{4}-\d+", item.get("doc_no", ""), re.IGNORECASE))
+        if existing_item is None:
+            deduped[key] = item
+        else:
+            existing_has_no = bool(re.search(r"\bMDCG\s*\d{4}-\d+", existing_item.get("doc_no", ""), re.IGNORECASE))
+            if has_mdcg_no and not existing_has_no:
+                deduped[key] = item
+    return save_regulations(list(deduped.values()))
 
 
 def _snapshot_path(agency: str, doc_no: str) -> str:
