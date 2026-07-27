@@ -47,7 +47,7 @@ def guess_scope(text: str, *, title: str | None = None, publisher: str | None = 
             mdcg_scopes.add("MDR")
         if re.search(r"\bIVDR\b|\bin\s+vitro\b|\bvitro\b", mdcg_value, re.IGNORECASE):
             mdcg_scopes.add("체외진단 의료기기")
-        if re.search(r"digital(?:\W+\w+){0,6}\W+medical\s+devices?", mdcg_value, re.IGNORECASE):
+        if re.search(r"digital(?:\W+\w+){0,2}\W+medical\s+devices?", mdcg_value, re.IGNORECASE):
             mdcg_scopes.add("디지털 의료기기")
         if re.search(r"\bmedical\s+devices?\b", mdcg_value, re.IGNORECASE):
             mdcg_scopes.add("일반 의료기기 범주")
