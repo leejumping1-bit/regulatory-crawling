@@ -318,7 +318,7 @@ def run(since_year=2026, since_month=1, today_only=False):
                     "\n\n⚠ 법 원문 전체가 교체되는 문서입니다 — 아래 Gap 분석을 반드시 확인하세요."
                     if full_law else ""
                 ),
-                "scope": guess_scope(c["title"] + " " + summary_source),
+                "scope": guess_scope(c["title"] + " " + summary_source, title=c["title"], publisher="MFDS (Korea)"),
                 "manufacturer_obligation": "★" if guess_manufacturer_obligation(c["title"], summary_source) else "",
                 "url": c["view_url"],
                 "gap_analysis": gap,

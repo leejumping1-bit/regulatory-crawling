@@ -29,9 +29,17 @@ def _contains_any_pattern(text: str, patterns) -> bool:
     return any(re.search(pattern, text, flags=re.IGNORECASE | re.DOTALL) for pattern in patterns)
 
 
-def guess_scope(text: str) -> str:
-    """Return a product scope only for an explicit product-specific document."""
+def guess_scope(text: str, *, title: str | None = None, publisher: str | None = None) -> str:
+    """Infer scope, using title-only rules for MFDS to avoid PDF incidental mentions."""
     value = text or ""
+    title_value = title if title is not None else value
+    if publisher and re.search(r"\bMFDS\b|식품의약품안전처", publisher, re.IGNORECASE):
+        if re.search(r"디지털\s*의료기기|digital\s+medical\s+device", title_value, re.IGNORECASE):
+            return "디지털 의료기기"
+        if re.search(r"체외진단\s*(?:기기|의료기기)", title_value, re.IGNORECASE):
+            return "체외진단 의료기기"
+        return "종합"
+
     has_mdr = bool(re.search(r"\bMDR\b|Regulation\s*\(EU\)\s*2017/745", value, re.IGNORECASE))
     has_ivdr = bool(re.search(r"\bIVDR\b|Regulation\s*\(EU\)\s*2017/746", value, re.IGNORECASE))
     if has_mdr and has_ivdr:
