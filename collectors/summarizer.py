@@ -41,15 +41,27 @@ def guess_scope(text: str, *, title: str | None = None, publisher: str | None = 
         return "종합"
 
     if title is not None:
-        foreign_scope_hits = []
+        title_scopes = set()
+        body_scopes = set()
         if re.search(r"\bIVDR\b|\bin\s+vitro\b|\bvitro\b", title_value, re.IGNORECASE):
-            foreign_scope_hits.append("체외진단 의료기기")
-        if re.search(r"\bMDR\b|\bMD\b|\bmedical\s+devices?\b", title_value, re.IGNORECASE):
-            foreign_scope_hits.append("체내 이식형 의료기기")
+            title_scopes.add("체외진단 의료기기")
         if re.search(r"digital", title_value, re.IGNORECASE):
-            foreign_scope_hits.append("디지털 의료기기")
-        unique_scopes = set(foreign_scope_hits)
-        return next(iter(unique_scopes)) if len(unique_scopes) == 1 else "종합"
+            title_scopes.add("디지털 의료기기")
+        if re.search(r"\b(?:implant|implantable|implantation)\b|이식형", title_value, re.IGNORECASE):
+            title_scopes.add("이식형 의료기기")
+
+        if re.search(r"\bIVDR\b|\bin\s+vitro\b|\bvitro\b", value, re.IGNORECASE):
+            body_scopes.add("체외진단 의료기기")
+        if re.search(r"digital", value, re.IGNORECASE):
+            body_scopes.add("디지털 의료기기")
+        if re.search(r"\b(?:implant|implantable|implantation)\b|이식형", value, re.IGNORECASE):
+            body_scopes.add("이식형 의료기기")
+
+        # MD/MDR/medical device(s)는 일반적인 규제·제품군 표현이므로
+        # 이식형 판정 신호로 사용하지 않는다.
+        if len(title_scopes) == 1 and not (body_scopes - title_scopes):
+            return next(iter(title_scopes))
+        return "종합"
 
     has_mdr = bool(re.search(r"\bMDR\b|Regulation\s*\(EU\)\s*2017/745", value, re.IGNORECASE))
     has_ivdr = bool(re.search(r"\bIVDR\b|Regulation\s*\(EU\)\s*2017/746", value, re.IGNORECASE))
