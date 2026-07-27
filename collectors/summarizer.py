@@ -48,7 +48,8 @@ def guess_scope(text: str, *, title: str | None = None, publisher: str | None = 
             foreign_scope_hits.append("체내 이식형 의료기기")
         if re.search(r"digital", title_value, re.IGNORECASE):
             foreign_scope_hits.append("디지털 의료기기")
-        return foreign_scope_hits[0] if len(foreign_scope_hits) == 1 else "종합"
+        unique_scopes = set(foreign_scope_hits)
+        return next(iter(unique_scopes)) if len(unique_scopes) == 1 else "종합"
 
     has_mdr = bool(re.search(r"\bMDR\b|Regulation\s*\(EU\)\s*2017/745", value, re.IGNORECASE))
     has_ivdr = bool(re.search(r"\bIVDR\b|Regulation\s*\(EU\)\s*2017/746", value, re.IGNORECASE))

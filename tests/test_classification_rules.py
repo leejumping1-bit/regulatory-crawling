@@ -28,6 +28,7 @@ def test_foreign_scope_uses_title_tokens_and_mixed_tokens_are_comprehensive():
     assert guess_scope(body, title="Monitoring of Notified Bodies: new MDR and IVDR reports", publisher="MDCG (EU)") == "종합"
     assert guess_scope(body, title="Guidance for in vitro diagnostic devices", publisher="MDCG (EU)") == "체외진단 의료기기"
     assert guess_scope(body, title="Medical Devices Regulations", publisher="Health Canada") == "체내 이식형 의료기기"
+    assert guess_scope(body, title="MDR medical devices guidance", publisher="MDCG (EU)") == "체내 이식형 의료기기"
     assert guess_scope(body, title="Digital transformation guidance", publisher="MDCG (EU)") == "디지털 의료기기"
     assert guess_scope(body, title="Digital medical device guidance", publisher="MDCG (EU)") == "종합"
     assert guess_scope(body, title="Updated list of notified bodies", publisher="MDCG (EU)") == "종합"
