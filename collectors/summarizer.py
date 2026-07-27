@@ -34,9 +34,9 @@ def guess_scope(text: str, *, title: str | None = None, publisher: str | None = 
     value = text or ""
     title_value = title if title is not None else value
     if publisher and re.search(r"\bMFDS\b|식품의약품안전처", publisher, re.IGNORECASE):
-        if re.search(r"디지털\s*의료기기|digital\s+medical\s+device", title_value, re.IGNORECASE):
+        if re.search(r"디지털", title_value, re.IGNORECASE):
             return "디지털 의료기기"
-        if re.search(r"체외진단\s*(?:기기|의료기기)", title_value, re.IGNORECASE):
+        if "체외" in title_value:
             return "체외진단 의료기기"
         return "종합"
 

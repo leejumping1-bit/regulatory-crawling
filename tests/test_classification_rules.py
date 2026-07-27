@@ -18,7 +18,9 @@ def test_mfds_scope_uses_title_only_and_defaults_to_comprehensive():
     body = "이 PDF에는 체외진단의료기기와 소프트웨어가 함께 언급된다."
     assert guess_scope(body, title="의료기기 제조 및 품질관리 기준", publisher="MFDS (Korea)") == "종합"
     assert guess_scope(body, title="체외진단의료기기 품목 및 품목별 등급에 관한 규정", publisher="MFDS (Korea)") == "체외진단 의료기기"
+    assert guess_scope(body, title="체외 관련 일반 의료기기 안내", publisher="MFDS (Korea)") == "체외진단 의료기기"
     assert guess_scope(body, title="디지털 의료기기 허가 가이드라인", publisher="MFDS (Korea)") == "디지털 의료기기"
+    assert guess_scope(body, title="디지털 전환 관련 의료기기 안내", publisher="MFDS (Korea)") == "디지털 의료기기"
 
 
 def test_manufacturer_obligation_requires_an_explicit_duty_or_modal():
