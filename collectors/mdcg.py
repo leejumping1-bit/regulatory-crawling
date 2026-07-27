@@ -23,12 +23,12 @@ import re
 import sys
 import os
 from datetime import date
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, urljoin
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch, fetch_binary  # noqa: E402
 from collectors.file_extract import extract_text  # noqa: E402
-from collectors.summarizer import summarize, guess_scope, guess_sop_flag  # noqa: E402
+from collectors.summarizer import summarize, guess_scope, guess_manufacturer_obligation  # noqa: E402
 from collectors.diff_engine import generate_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
 
@@ -192,7 +192,7 @@ def run(since_year=2026, since_month=1, today_only=False):
 
     results = []
     for c in all_candidates:
-        body_text, status = _fetch_detail(c["url"])
+        body_text, status = _fetch_detail(c["url"], c["title"])
         doc_no = _extract_mdcg_no(c["title"]) or c["title"][:40]
 
         prev = load_previous_snapshot("MDCG", doc_no)
@@ -211,7 +211,7 @@ def run(since_year=2026, since_month=1, today_only=False):
             "summary": summarize(c["title"], summary_source) + (
                 "" if body_text else f"\n\n(첨부 원문 확보 실패: {status})"),
             "scope": guess_scope(c["title"] + " " + summary_source),
-            "sop_required": "★" if guess_sop_flag(c["title"] + " " + summary_source) else "",
+            "manufacturer_obligation": "★" if guess_manufacturer_obligation(c["title"], summary_source) else "",
             "url": c["url"],
             "gap_analysis": gap,
         })
@@ -223,10 +223,25 @@ def _extract_mdcg_no(title):
     return m.group(0) if m else None
 
 
-def _fetch_detail(url):
+def _fetch_detail(url, title=None):
     res = fetch(url, respect_robots=False)
     if not res.ok:
         return "", res.error or "상세 페이지 접속 실패"
+
+    # 목록/모음 페이지에는 여러 문서의 PDF 링크가 함께 있다. 제목과 같은
+    # 행의 첨부만 선택하고, 일치하지 않으면 다른 문서를 fallback으로 쓰지 않는다.
+    if not _is_specific_detail_url(url):
+        file_url = _find_matching_attachment(res.text, title or "", url)
+        if not file_url:
+            return "", "문서 제목과 일치하는 첨부파일을 찾지 못함"
+        content = fetch_binary(file_url)
+        if content:
+            filename = parse_qs(urlparse(file_url).query).get("filename", ["file.pdf"])[0]
+            text, extract_status = extract_text(content, filename)
+            if text:
+                return text, "OK (제목 일치 행의 첨부 원문)"
+            return "", f"일치 첨부파일 추출 실패: {extract_status}"
+        return "", "일치 첨부파일 다운로드 실패"
 
     dl = DOWNLOAD_RE.search(res.text)
     if dl:
@@ -242,6 +257,54 @@ def _fetch_detail(url):
 
     text_only = _visible_detail_text(res.text)
     return text_only[:5000], "OK (첨부 없음 — 본문 HTML 발췌)"
+
+
+def _is_specific_detail_url(url):
+    """문서 하나를 가리키는 URL인지 확인한다.
+
+    MDCG 목록에는 외부 법령·뉴스·이벤트 URL도 섞여 있으므로 도메인/경로를
+    과도하게 제한하지 않는다. 대신 여러 문서의 첨부가 함께 있는 known
+    collection page만 차단해 제목과 무관한 첫 PDF를 집지 않도록 한다.
+    """
+    parsed = urlparse(url or "")
+    path = parsed.path.lower()
+    if parsed.scheme != "https" or not parsed.netloc:
+        return False
+    return not (
+        parsed.netloc == "health.ec.europa.eu"
+        and path.endswith("/medical-devices-sector/new-regulations/guidance-mdcg-endorsed-documents-and-other-guidance_en")
+    )
+
+
+def _normalize_title(text):
+    value = re.sub(r"^new\s+mdcg\s+position\s+paper\s*:\s*", "", text or "", flags=re.I)
+    return re.sub(r"[^a-z0-9가-힣]+", " ", value.lower()).strip()
+
+
+def _find_matching_attachment(html, title, page_url):
+    """모음 페이지에서 전달된 제목과 같은 표 행의 첨부 URL만 반환한다."""
+    if BeautifulSoup is None:
+        return None
+    soup = BeautifulSoup(html or "", "html.parser")
+    target = _normalize_title(title)
+    fragment = urlparse(page_url or "").fragment
+    root = soup.find(id=fragment) if fragment else None
+    rows = []
+    if root:
+        table = root.find_next("table")
+        if table:
+            rows.extend(table.find_all("tr"))
+    if not rows:
+        rows = soup.find_all("tr")
+
+    for row in rows:
+        row_text = _normalize_title(row.get_text(" ", strip=True))
+        if not target or target not in row_text:
+            continue
+        link = row.find("a", href=re.compile(r"/document/download/"))
+        if link and link.get("href"):
+            return urljoin(page_url, link["href"])
+    return None
 
 
 def _visible_detail_text(html):

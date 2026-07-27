@@ -155,7 +155,7 @@ with ctrl2:
             "제목 Title": item.get("title") or "",
             "내용요약 Summary": item.get("summary") or "",
             "적용 범위 Scope": item.get("scope") or "",
-            "SOP": item.get("sop_required") or "",
+            "Manufacturer obligation": item.get("manufacturer_obligation", item.get("sop_required")) or "",
             "원문 링크": item.get("url") or "",
         } for item in filtered_data])
         output = io.BytesIO()
@@ -216,7 +216,7 @@ with st.container(border=True):
     rows_html = ""
     for item in filtered_data:
         doc_no_clean = (item.get("doc_no") or "").replace("\n", " ")
-        sop = item.get("sop_required") or ""
+        manufacturer_obligation = item.get("manufacturer_obligation", item.get("sop_required")) or ""
         rows_html += (
             f'<tr>'
             f'<td>{item["no"]}</td>'
@@ -226,7 +226,7 @@ with st.container(border=True):
             f'<td>{doc_no_clean}</td>'
             f'<td class="title-cell"><a href="{item.get("url") or "#"}" target="_blank">{item["title"]}</a></td>'
             f'<td><span class="reg-scope-tag">{item.get("scope") or "-"}</span></td>'
-            f'<td style="color:var(--amber);font-weight:bold;">{sop}</td>'
+            f'<td style="color:var(--amber);font-weight:bold;">{manufacturer_obligation}</td>'
             f'</tr>'
         )
 
@@ -235,7 +235,7 @@ with st.container(border=True):
         '<th style="width:5%;">No.</th><th style="width:9%;">고시일</th>'
         '<th style="width:9%;">시행일</th><th style="width:12%;">발행처</th>'
         '<th style="width:14%;">규격/가이던스 번호</th><th style="width:34%;">제목 (클릭 시 이동)</th>'
-        '<th style="width:11%;">적용범위</th><th style="width:6%;">SOP</th>'
+        '<th style="width:11%;">적용범위</th><th style="width:12%;">Manufacturer obligation</th>'
         f'</tr></thead><tbody>{rows_html}</tbody></table></div>'
     )
     render_html(table_html)
@@ -246,7 +246,7 @@ st.markdown("<div style='height:18px'></div>", unsafe_allow_html=True)
 # ==================== 2. 요약 ====================
 with st.container(border=True):
     render_html('<div class="rw-panel-head"><span class="rw-step">02</span>'
-                '<h2>업데이트 내용 요약 <span class="rw-subtle">— 선택 항목 자동 요약(심사원 관점)</span></h2></div>')
+                '<h2>업데이트 내용 요약 <span class="rw-subtle">— 선택 항목 자동 요약</span></h2></div>')
 
     selected_no = st.selectbox(
         "GAP 분석 및 세부 요약을 확인할 규격 [No.]를 선택하세요:",
@@ -261,7 +261,7 @@ with st.container(border=True):
         f'<p><b>• 규격 번호:</b> {(selected_item.get("doc_no") or "").replace(chr(10), " ")} '
         f'| <b>발행처:</b> {selected_item.get("publisher") or "-"}</p>'
         f'<p><b>• 적용 범위:</b> {selected_item.get("scope") or "-"} '
-        f'| <b>SOP 반영 필요:</b> <span style="color:var(--amber);font-weight:bold;">{selected_item.get("sop_required") or "-"}</span></p>'
+        f'| <b>Manufacturer obligation:</b> <span style="color:var(--amber);font-weight:bold;">{selected_item.get("manufacturer_obligation", selected_item.get("sop_required")) or "-"}</span></p>'
         '<hr><p><b>[요약 내용]</b></p>'
         f'<p>{(selected_item.get("summary") or "").replace(chr(10), "<br>")}</p>'
         '</div>'

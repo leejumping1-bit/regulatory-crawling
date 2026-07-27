@@ -9,7 +9,7 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch, fetch_binary  # noqa: E402
 from collectors.file_extract import extract_text  # noqa: E402
-from collectors.summarizer import summarize, guess_scope, guess_sop_flag  # noqa: E402
+from collectors.summarizer import summarize, guess_scope, guess_manufacturer_obligation  # noqa: E402
 from collectors.diff_engine import generate_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
 
@@ -75,7 +75,7 @@ def build_item(agency_label, title, url, pub_date, doc_no, effective_date=None,
         "title": title,
         "summary": summary,
         "scope": guess_scope(title + " " + summary_source),
-        "sop_required": "★" if guess_sop_flag(title + " " + summary_source) else "",
+        "manufacturer_obligation": "★" if guess_manufacturer_obligation(title, summary_source) else "",
         "url": url,
         "gap_analysis": gap,
     }

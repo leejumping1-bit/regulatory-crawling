@@ -29,7 +29,7 @@ from datetime import date
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch, fetch_binary  # noqa: E402
 from collectors.file_extract import extract_text  # noqa: E402
-from collectors.summarizer import summarize, guess_scope  # noqa: E402
+from collectors.summarizer import summarize, guess_scope, guess_manufacturer_obligation  # noqa: E402
 from collectors.diff_engine import generate_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
 
@@ -140,7 +140,7 @@ def _process_source(doc_no, url, today_only):
         "title": f"{title_prefix} — 변경이력 업데이트 ({last_updated_text or '날짜 미확인'})",
         "summary": summary,
         "scope": guess_scope(title_prefix + " " + changelog_text),
-        "sop_required": "★",  # 사용자가 명시적으로 지정한 핵심 모니터링 페이지 — 항상 SOP 대상
+        "manufacturer_obligation": "★" if guess_manufacturer_obligation(title_prefix, changelog_text) else "",
         "url": url + "#full-publication-update-history",
         "gap_analysis": gap,
     }

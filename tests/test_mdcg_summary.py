@@ -23,7 +23,7 @@ def test_rule_summary_is_korean_and_detailed():
         "Member States summaries of annual reports on monitoring and on-site assessment of notified bodies in 2025 are now available. The reports cover MDR and IVDR notified bodies.",
     )
     assert "핵심 내용" in result
-    assert "실무 검토" in result
+    assert "규제상 제조업체 의무 검토" in result
     assert len(result) >= 300
 
 

@@ -21,7 +21,7 @@ import os
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch  # noqa: E402
-from collectors.summarizer import summarize, guess_scope, guess_sop_flag  # noqa: E402
+from collectors.summarizer import summarize, guess_scope, guess_manufacturer_obligation  # noqa: E402
 from collectors.diff_engine import generate_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
 
@@ -90,7 +90,7 @@ def run(since_year=2026, since_month=1, today_only=False):
         "title": f"Medical Devices Regulations (SOR/98-282) — {last_amended} 개정 반영본",
         "summary": summary,
         "scope": guess_scope(full_text),
-        "sop_required": "★",  # 법 원문 전체 문서 — 항상 SOP 검토 대상
+        "manufacturer_obligation": "★" if guess_manufacturer_obligation(title, full_text) else "",
         "url": REGULATION_URL,
         "gap_analysis": gap,
     }

@@ -8,29 +8,49 @@
 import os
 import re
 
-SOP_KEYWORDS = [
-    "시행규칙", "시행령", "품질관리", "제조 및 품질관리", "기준", "GMP", "허가", "인증",
-    "심사", "규정", "고시", "의무", "표시", "라벨", "임상", "등급", "분류",
-    "MDR", "IVDR", "QMSR", "820", "notified body", "quality management",
+# 제조업체 의무 판정은 내부 SOP 개정 여부가 아니라, 원문에 제조업체의
+# 의무·책임·문서화 요구가 명시되어 있는지를 확인한다.
+MANUFACTURER_OBLIGATION_PATTERNS = [
+    r"\bmanufacturer(?:s)?\b.{0,120}\b(?:shall|must|should|required|responsib(?:le|ility)|obligation|duty)\b",
+    r"\b(?:shall|must|should|required|responsib(?:le|ility)|obligation|duty)\b.{0,120}\bmanufacturer(?:s)?\b",
+    r"\bmanufacturer(?:s)?\b.{0,120}\b(?:document|documentation|record|records|maintain|assign|ensure|provide|notify|comply)\b",
+    r"(?:제조업체|제조자|제조자는|제조자의).{0,100}(?:해야|하여야|책임|의무|문서화|기록|필수|준수)",
+    r"(?:해야|하여야|책임|의무|문서화|기록|필수|준수).{0,100}(?:제조업체|제조자)",
 ]
 
 SCOPE_KEYWORDS = {
-    "체외진단 의료기기": ["체외진단", "IVD", "in vitro diagnostic"],
-    "디지털 의료기기": ["디지털의료", "소프트웨어", "AI", "SaMD", "software as a medical device"],
-    "체내 이식형 의료기기": ["이식형", "임플란트", "implant"],
+    "체외진단 의료기기": [r"체외진단", r"\bIVD\b", r"in vitro diagnostic"],
+    "디지털 의료기기": [r"디지털\s*의료", r"소프트웨어", r"\bAI\b", r"\bSaMD\b", r"software as a medical device"],
+    "체내 이식형 의료기기": [r"이식형", r"임플란트", r"\bimplant\b"],
 }
 
 
+def _contains_any_pattern(text: str, patterns) -> bool:
+    return any(re.search(pattern, text, flags=re.IGNORECASE | re.DOTALL) for pattern in patterns)
+
+
 def guess_scope(text: str) -> str:
-    for scope, kws in SCOPE_KEYWORDS.items():
-        for kw in kws:
-            if kw.lower() in text.lower():
-                return scope
+    """Return a product scope only for an explicit product-specific document."""
+    value = text or ""
+    has_mdr = bool(re.search(r"\bMDR\b|Regulation\s*\(EU\)\s*2017/745", value, re.IGNORECASE))
+    has_ivdr = bool(re.search(r"\bIVDR\b|Regulation\s*\(EU\)\s*2017/746", value, re.IGNORECASE))
+    if has_mdr and has_ivdr:
+        return "종합"
+
+    for scope, patterns in SCOPE_KEYWORDS.items():
+        if _contains_any_pattern(value, patterns):
+            return scope
     return "종합"
 
 
-def guess_sop_flag(text: str) -> bool:
-    return any(kw.lower() in text.lower() for kw in SOP_KEYWORDS)
+def guess_manufacturer_obligation(title: str, body: str | None = None) -> bool:
+    """Detect explicit manufacturer obligations, responsibilities, or documentation duties."""
+    text = f"{title or ''}\n{body or ''}"
+    return _contains_any_pattern(text, MANUFACTURER_OBLIGATION_PATTERNS)
+
+
+# Backward-compatible alias for older callers/data refresh scripts.
+guess_sop_flag = guess_manufacturer_obligation
 
 
 def _rule_based_summary(title: str, body_text: str, max_sentences=5) -> str:
@@ -99,7 +119,7 @@ def _rule_based_summary(title: str, body_text: str, max_sentences=5) -> str:
         "[핵심 내용] 아래 내용은 원문에서 규제·적용·개정과 관련된 문장을 우선 추출한 결과입니다.\n"
         f"[원문 핵심 발췌]\n{excerpt_text}\n"
         "[변경·영향 검토] 개정·신설·폐지·적용 시점과 대상 제품 또는 제조·품질관리 절차에 변화가 있는지 확인해야 합니다.\n"
-        "[실무 검토] 관련 인증, 심사자료, 기술문서, 위험관리 및 내부 SOP에 반영할 필요가 있는지 담당 부서가 검토해야 합니다.\n"
+        "[규제상 제조업체 의무 검토] 제조업체의 의무·책임·문서화·기록 요구가 원문에 명시되어 있는지 확인해야 합니다.\n"
         "[확인 필요] 본 요약은 자동 발췌이므로 법적 효력, 시행일, 예외 조건은 반드시 링크된 공식 원문과 첨부파일에서 최종 확인해야 합니다.\n"
         "[요약 한계] 규칙기반 fallback은 원문을 완전하게 번역하거나 법률적 의미를 확정하지 않습니다."
     )
@@ -111,9 +131,9 @@ def _llm_summary(title: str, body_text: str) -> str | None:
     그걸로 실제 LLM 요약을 시도한다. 아무 키도 없으면 None을 반환해 규칙기반 요약으로 대체된다.
     """
     prompt = (
-        "당신은 의료기기 인증기관(BSI, SGS 등) 심사원입니다. 아래는 의료기기 규제/규격 문서 원문입니다. "
-        "회사가 반드시 검토해야 할 내용을 한국어로 6~10문장 분량의 상세 요약으로 작성하세요. "
-        "반드시 다음 항목을 포함하세요: 핵심 내용, 변경사항, 적용 범위, 시행일/일정, 회사 실무 영향, 필요한 조치, 확인이 필요한 불확실한 사항.\n\n"
+        "아래는 의료기기 규제/규격 문서 원문입니다. 내부 SOP 판단은 하지 말고, "
+        "문서의 핵심 내용과 제조업체 의무·책임·문서화 요구 여부를 한국어로 6~10문장 분량으로 요약하세요. "
+        "반드시 다음 항목을 포함하세요: 핵심 내용, 변경사항, 적용 범위, 시행일/일정, 제조업체 의무 여부, 확인이 필요한 불확실한 사항.\n\n"
         f"[제목]\n{title}\n\n[원문]\n{body_text[:12000]}"
     )
 

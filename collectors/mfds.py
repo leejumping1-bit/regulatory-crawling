@@ -27,7 +27,7 @@ from urllib.parse import urlencode, urljoin, urlparse
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch, fetch_binary  # noqa: E402
 from collectors.file_extract import extract_text  # noqa: E402
-from collectors.summarizer import summarize, guess_scope, guess_sop_flag  # noqa: E402
+from collectors.summarizer import summarize, guess_scope, guess_manufacturer_obligation  # noqa: E402
 from collectors.diff_engine import generate_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
 
@@ -304,7 +304,7 @@ def run(since_year=2026, since_month=1, today_only=False):
                 save_snapshot("MFDS", doc_no, body_text)
 
             summary_source = body_text or c["title"]
-            forced_sop = _is_full_law(c["title"])
+            full_law = _is_full_law(c["title"])
 
             results.append({
                 "search_month": (c["pub_date"] or "")[:7],
@@ -316,10 +316,10 @@ def run(since_year=2026, since_month=1, today_only=False):
                 "summary": summarize(c["title"], summary_source) + (
                     "" if body_text else f"\n\n(원문 확보 실패: {status})") + (
                     "\n\n⚠ 법 원문 전체가 교체되는 문서입니다 — 아래 Gap 분석을 반드시 확인하세요."
-                    if forced_sop else ""
+                    if full_law else ""
                 ),
                 "scope": guess_scope(c["title"] + " " + summary_source),
-                "sop_required": "★" if (forced_sop or guess_sop_flag(c["title"] + " " + summary_source)) else "",
+                "manufacturer_obligation": "★" if guess_manufacturer_obligation(c["title"], summary_source) else "",
                 "url": c["view_url"],
                 "gap_analysis": gap,
             })

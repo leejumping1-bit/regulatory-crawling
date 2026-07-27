@@ -21,7 +21,7 @@ from datetime import date
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch  # noqa: E402
-from collectors.summarizer import summarize  # noqa: E402
+from collectors.summarizer import summarize, guess_manufacturer_obligation  # noqa: E402
 from collectors.diff_engine import generate_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
 
@@ -106,16 +106,17 @@ def run(since_year=2026, since_month=1, today_only=False):
     if not prev_text:
         summary += "\n\n(※ 이번이 최초 수집이라 개정 전/후 비교는 다음 개정부터 가능합니다.)"
 
+    title = f"21 CFR Part 820 (Quality Management System Regulation) — {latest_date} 개정 반영"
     item = {
         "search_month": latest_date[:7],
         "publish_date": latest_date,
         "effective_date": latest_date,
         "publisher": "FDA (US)",
         "doc_no": DOC_NO,
-        "title": f"21 CFR Part 820 (Quality Management System Regulation) — {latest_date} 개정 반영",
+        "title": title,
         "summary": summary,
         "scope": "종합",
-        "sop_required": "★",  # 법 원문 전체 문서 — 항상 SOP 검토 대상
+        "manufacturer_obligation": "★" if guess_manufacturer_obligation(title, plain_text) else "",
         "url": HUMAN_URL_TMPL,
         "gap_analysis": gap,
     }
