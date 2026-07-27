@@ -174,19 +174,47 @@ def _rule_based_summary(title: str, body_text: str, max_sentences=5) -> str:
 
 def _llm_summary(title: str, body_text: str) -> str | None:
     """
-    GEMINI_API_KEY, OPENAI_API_KEY, ANTHROPIC_API_KEY 순서로 확인해서 설정된 것이 있으면
+    OPENAI_API_KEY, GEMINI_API_KEY, ANTHROPIC_API_KEY 순서로 확인해서 설정된 것이 있으면
     그걸로 실제 LLM 요약을 시도한다. 아무 키도 없으면 None을 반환해 규칙기반 요약으로 대체된다.
     """
     prompt = (
-        "아래는 의료기기 규제/규격 문서 원문입니다. 내부 SOP 판단은 하지 말고, "
-        "문서의 핵심 내용과 제조업체 의무·책임·문서화 요구 여부를 한국어로 6~10문장 분량으로 요약하세요. "
-        "반드시 다음 항목을 포함하세요: 핵심 내용, 변경사항, 적용 범위, 시행일/일정, 제조업체 의무 여부, 확인이 필요한 불확실한 사항.\n\n"
-        f"[제목]\n{title}\n\n[원문]\n{body_text[:12000]}"
+        "당신은 의료기기 규제 문서를 정확하게 요약하는 분석가입니다. 아래 공식 원문만 근거로 한국어 요약을 작성하세요. "
+        "원문에 없는 사실, 법적 해석, 회사 내부 절차 개정 여부는 추정하지 마세요. "
+        "단순히 키워드를 나열하지 말고 문서의 목적과 규제상 의미를 연결해서 설명하세요. "
+        "심사원 관점이나 내부 SOP 판단은 포함하지 마세요.\n\n"
+        "다음 형식을 반드시 지키세요. 각 항목은 원문 근거가 없으면 '원문에서 확인되지 않음'이라고 쓰세요.\n"
+        "[문서 목적] 이 문서가 왜 발행되었고 무엇을 다루는지 1~2문장\n"
+        "[핵심 내용] 독자가 반드시 알아야 할 내용을 2~4개 bullet로 설명\n"
+        "[주요 요구사항 또는 변경사항] 새로 정해지거나 달라진 사항과 대상\n"
+        "[적용 범위] 적용되는 규정, 제품군, 경제운영자 또는 기관\n"
+        "[Manufacturer obligation] 제조업체의 의무·책임·문서화·기록 요구가 명시되어 있는지와 해당 내용\n"
+        "[시행일 및 일정] 시행일, 유예기간, 전환기한 또는 일정\n"
+        "[확인 필요 사항] 원문만으로 확정할 수 없거나 공식 첨부파일에서 추가 확인할 사항\n\n"
+        f"[문서 제목]\n{title}\n\n[공식 원문]\n{body_text[:20000]}"
     )
 
     gemini_key = os.environ.get("GEMINI_API_KEY")
     openai_key = os.environ.get("OPENAI_API_KEY")
     anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
+
+    if openai_key:
+        try:
+            from openai import OpenAI
+            client = OpenAI(api_key=openai_key)
+            resp = client.chat.completions.create(
+                model="gpt-4o",
+                temperature=0.2,
+                max_tokens=1400,
+                messages=[
+                    {"role": "system", "content": "공식 규제 원문에 근거해 정확하고 간결하게 답하세요."},
+                    {"role": "user", "content": prompt},
+                ],
+            )
+            text = (resp.choices[0].message.content or "").strip()
+            if text:
+                return text
+        except Exception as e:
+            print(f"[summarizer] OpenAI 요약 실패, 다음 후보로 넘어감: {e}")
 
     if gemini_key:
         try:
@@ -200,20 +228,7 @@ def _llm_summary(title: str, body_text: str) -> str | None:
             if text:
                 return text
         except Exception as e:
-            print(f"[summarizer] Gemini 요약 실패, 다음 후보로 넘어감: {e}")
-
-    if openai_key:
-        try:
-            from openai import OpenAI
-            client = OpenAI(api_key=openai_key)
-            resp = client.chat.completions.create(
-                model="gpt-4o-mini",
-                messages=[{"role": "user", "content": prompt}],
-            )
-            return resp.choices[0].message.content.strip()
-        except Exception as e:
-            print(f"[summarizer] OpenAI 요약 실패, 규칙기반으로 대체: {e}")
-            return None
+            print(f"[summarizer] Gemini 요약 실패, 규칙기반으로 대체: {e}")
 
     if anthropic_key:
         try:
