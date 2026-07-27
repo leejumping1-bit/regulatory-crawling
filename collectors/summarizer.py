@@ -3,10 +3,13 @@
 - 기본값: API 키 없이 동작하는 규칙기반(추출식) 요약
 - 추후 API 키를 연동하고 싶으면 환경변수(GEMINI_API_KEY, OPENAI_API_KEY, ANTHROPIC_API_KEY 중 하나)를
   등록하기만 하면 자동으로 LLM 요약으로 전환된다 (아래 summarize() 참고). 여러 개가 설정되어 있으면
-  GEMINI_API_KEY를 가장 먼저 사용한다(무료 등급 제공).
+  GEMINI_API_KEY를 가장 먼저 사용한다(무료 등급 우선).
 """
+import hashlib
+import json
 import os
 import re
+from pathlib import Path
 
 # 제조업체 의무 판정은 내부 SOP 개정 여부가 아니라, 원문에 제조업체의
 # 의무·책임·문서화 요구가 명시되어 있는지를 확인한다.
@@ -21,8 +24,37 @@ MANUFACTURER_OBLIGATION_PATTERNS = [
 SCOPE_KEYWORDS = {
     "체외진단 의료기기": [r"체외진단", r"\bIVD\b", r"in vitro diagnostic"],
     "디지털 의료기기": [r"디지털\s*의료", r"소프트웨어", r"\bAI\b", r"\bSaMD\b", r"software as a medical device"],
-    "체내 이식형 의료기기": [r"이식형", r"임플란트", r"\bimplant\b"],
+    "이식형 의료기기": [r"이식형", r"임플란트", r"\bimplant\b"],
 }
+
+SUMMARY_CACHE_PATH = Path(__file__).resolve().parent.parent / "data" / "summary_cache.json"
+_SUMMARY_CACHE = None
+
+
+def _summary_cache():
+    global _SUMMARY_CACHE
+    if _SUMMARY_CACHE is None:
+        try:
+            _SUMMARY_CACHE = json.loads(SUMMARY_CACHE_PATH.read_text(encoding="utf-8"))
+        except (FileNotFoundError, json.JSONDecodeError):
+            _SUMMARY_CACHE = {}
+    return _SUMMARY_CACHE
+
+
+def _summary_cache_key(title, body_text):
+    raw = f"{title}\0{body_text}".encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()
+
+
+def _cached_summary(title, body_text):
+    return _summary_cache().get(_summary_cache_key(title, body_text))
+
+
+def _save_cached_summary(title, body_text, summary):
+    cache = _summary_cache()
+    cache[_summary_cache_key(title, body_text)] = summary
+    SUMMARY_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    SUMMARY_CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def _contains_any_pattern(text: str, patterns) -> bool:
@@ -174,7 +206,7 @@ def _rule_based_summary(title: str, body_text: str, max_sentences=5) -> str:
 
 def _llm_summary(title: str, body_text: str) -> str | None:
     """
-    OPENAI_API_KEY, GEMINI_API_KEY, ANTHROPIC_API_KEY 순서로 확인해서 설정된 것이 있으면
+    GEMINI_API_KEY, OPENAI_API_KEY, ANTHROPIC_API_KEY 순서로 확인해서 설정된 것이 있으면
     그걸로 실제 LLM 요약을 시도한다. 아무 키도 없으면 None을 반환해 규칙기반 요약으로 대체된다.
     """
     prompt = (
@@ -197,6 +229,21 @@ def _llm_summary(title: str, body_text: str) -> str | None:
     openai_key = os.environ.get("OPENAI_API_KEY")
     anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
 
+    if gemini_key:
+        try:
+            from google import genai
+            client = genai.Client(api_key=gemini_key)
+            resp = client.models.generate_content(
+                model="gemini-3.1-flash-lite",
+                contents=prompt,
+            )
+            text = (resp.text or "").strip()
+            if text:
+                _save_cached_summary(title, body_text, text)
+                return text
+        except Exception as e:
+            print(f"[summarizer] Gemini 요약 실패, 다음 후보로 넘어감: {e}")
+
     if openai_key:
         try:
             from openai import OpenAI
@@ -212,23 +259,10 @@ def _llm_summary(title: str, body_text: str) -> str | None:
             )
             text = (resp.choices[0].message.content or "").strip()
             if text:
+                _save_cached_summary(title, body_text, text)
                 return text
         except Exception as e:
             print(f"[summarizer] OpenAI 요약 실패, 다음 후보로 넘어감: {e}")
-
-    if gemini_key:
-        try:
-            from google import genai
-            client = genai.Client(api_key=gemini_key)
-            resp = client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=prompt,
-            )
-            text = (resp.text or "").strip()
-            if text:
-                return text
-        except Exception as e:
-            print(f"[summarizer] Gemini 요약 실패, 규칙기반으로 대체: {e}")
 
     if anthropic_key:
         try:
@@ -248,6 +282,9 @@ def _llm_summary(title: str, body_text: str) -> str | None:
 
 
 def summarize(title: str, body_text: str) -> str:
+    cached = _cached_summary(title, body_text)
+    if cached:
+        return cached
     llm_result = _llm_summary(title, body_text)
     if llm_result and len(llm_result) >= 240 and ("핵심" in llm_result or "적용" in llm_result):
         return llm_result

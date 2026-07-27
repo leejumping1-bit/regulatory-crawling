@@ -55,6 +55,8 @@ def test_mfds_extracts_only_major_content_items():
     정기 지도·점검 범위를 합리적으로 조정함
     다. 기술문서 심사의 품질 향상
     심사원 교육과 2단계 검토 인력에 관한 사항을 명확히 함
+    라. 변경사항 추가 확인
+    추가 항목도 주요내용에 포함되어야 함
     < 참고사항 > 이후 내용은 제외
     """
     result = mfds._extract_major_content(text)
@@ -62,6 +64,7 @@ def test_mfds_extracts_only_major_content_items():
     assert "가. 기술문서심사기관 지정 유효기간" in result
     assert "나. 정기 지도·점검 범위 합리화" in result
     assert "다. 기술문서 심사의 품질 향상" in result
+    assert "라. 변경사항 추가 확인" in result
     assert "참고사항" not in result
 
 
