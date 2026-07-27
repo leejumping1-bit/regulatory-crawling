@@ -41,12 +41,13 @@ def guess_scope(text: str, *, title: str | None = None, publisher: str | None = 
         return "종합"
 
     if publisher and re.search(r"\bMDCG\b", publisher, re.IGNORECASE):
+        mdcg_value = f"{title_value}\n{value}"
         mdcg_scopes = set()
-        if re.search(r"\bMDR\b", value, re.IGNORECASE):
+        if re.search(r"\bMDR\b", mdcg_value, re.IGNORECASE):
             mdcg_scopes.add("MDR")
-        if re.search(r"\bIVDR\b|\bin\s+vitro\b|\bvitro\b", value, re.IGNORECASE):
-            mdcg_scopes.add("IVDR")
-        if re.search(r"digital", value, re.IGNORECASE):
+        if re.search(r"\bIVDR\b|\bin\s+vitro\b|\bvitro\b", mdcg_value, re.IGNORECASE):
+            mdcg_scopes.add("체외진단 의료기기")
+        if re.search(r"digital", mdcg_value, re.IGNORECASE):
             mdcg_scopes.add("디지털 의료기기")
         return next(iter(mdcg_scopes)) if len(mdcg_scopes) == 1 else "종합"
 

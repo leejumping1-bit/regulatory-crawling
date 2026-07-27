@@ -27,9 +27,9 @@ def test_foreign_scope_uses_title_tokens_and_mixed_tokens_are_comprehensive():
     mixed_body = "The PDF mentions IVDR, MDR, vitro, and digital devices."
     body = "The PDF contains general regulatory content."
     assert guess_scope(mixed_body, title="Monitoring of Notified Bodies: new MDR and IVDR reports", publisher="MDCG (EU)") == "종합"
-    assert guess_scope("The document explains in vitro diagnostic requirements.", title="Guidance for in vitro diagnostic devices", publisher="MDCG (EU)") == "IVDR"
+    assert guess_scope("The document explains in vitro diagnostic requirements.", title="Guidance for in vitro diagnostic devices", publisher="MDCG (EU)") == "체외진단 의료기기"
     assert guess_scope("MDR requirements only", title="MDR guidance", publisher="MDCG (EU)") == "MDR"
-    assert guess_scope("IVDR requirements only", title="IVDR guidance", publisher="MDCG (EU)") == "IVDR"
+    assert guess_scope("IVDR requirements only", title="IVDR guidance", publisher="MDCG (EU)") == "체외진단 의료기기"
     assert guess_scope(body, title="Medical Devices Regulations", publisher="Health Canada") == "종합"
     assert guess_scope(body, title="MDR medical devices guidance", publisher="MDCG (EU)") == "종합"
     assert guess_scope(body, title="Digital transformation guidance", publisher="MDCG (EU)") == "디지털 의료기기"
@@ -40,7 +40,7 @@ def test_foreign_scope_uses_title_tokens_and_mixed_tokens_are_comprehensive():
 
 def test_generic_foreign_title_with_ivdr_in_body_is_ivdr():
     body = "The document covers MD requirements and IVDR obligations in separate sections."
-    assert guess_scope(body, title="Updated submission request template for medical devices", publisher="MDCG (EU)") == "IVDR"
+    assert guess_scope(body, title="Updated submission request template for medical devices", publisher="MDCG (EU)") == "체외진단 의료기기"
     assert guess_scope("General medical device requirements for syringes.", title="Medical device guidance", publisher="MDCG (EU)") == "종합"
 
 
