@@ -1,4 +1,4 @@
-from app_logic import filter_by_month
+from app_logic import filter_by_month, filter_by_publisher
 from collectors import pmda
 
 
@@ -11,6 +11,17 @@ def test_app_defaults_to_all_data():
 def test_app_can_filter_when_month_is_selected():
     data = [{"search_month": "2026-01"}, {"search_month": "2026-02"}]
     assert filter_by_month(data, "2026-02") == [{"search_month": "2026-02"}]
+
+
+def test_app_defaults_to_all_publishers():
+    data = [{"publisher": "MDCG (EU)"}, {"publisher": "MFDS (Korea)"}]
+    assert filter_by_publisher(data) == data
+    assert filter_by_publisher(data, "전체") == data
+
+
+def test_app_can_filter_when_publisher_is_selected():
+    data = [{"publisher": "MDCG (EU)"}, {"publisher": "MFDS (Korea)"}]
+    assert filter_by_publisher(data, "MFDS (Korea)") == [{"publisher": "MFDS (Korea)"}]
 
 
 def test_pmda_extracts_year_from_pdf_title():

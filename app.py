@@ -5,7 +5,7 @@ import textwrap
 from datetime import date
 
 from collectors.store import load_regulations
-from app_logic import effective_month, filter_by_month
+from app_logic import effective_month, filter_by_month, effective_publisher, filter_by_publisher
 
 st.set_page_config(
     page_title="국내외 규격 및 가이던스 업데이트 검토대장",
@@ -129,7 +129,7 @@ render_html(f"""
 """)
 
 # ==================== 상단 컨트롤바 ====================
-ctrl1, ctrl2, ctrl3 = st.columns([2, 1.4, 1.4])
+ctrl1, ctrl2, ctrl3, ctrl4 = st.columns([1.35, 1.35, 1.4, 1.4])
 
 month_options = ["전체"] + sorted({effective_month(item) for item in data}, reverse=True)
 if len(month_options) == 1:
@@ -141,9 +141,15 @@ with ctrl1:
     if selected_month == "UNKNOWN":
         st.caption("⚠ 날짜를 파싱하지 못한 항목들입니다 (수집기 점검 필요).")
 
-filtered_data = filter_by_month(data, selected_month)
+publisher_options = ["전체"] + sorted({effective_publisher(item) for item in data})
 
 with ctrl2:
+    st.markdown('<div class="rw-controlbar-label">🏢 발행처 선택 (기본: 전체)</div>', unsafe_allow_html=True)
+    selected_publisher = st.selectbox("발행처", publisher_options, index=0, label_visibility="collapsed")
+
+filtered_data = filter_by_publisher(filter_by_month(data, selected_month), selected_publisher)
+
+with ctrl3:
     st.markdown('<div class="rw-controlbar-label">📥 검토대장 다운로드</div>', unsafe_allow_html=True)
     if filtered_data:
         df_export = pd.DataFrame([{
@@ -164,14 +170,14 @@ with ctrl2:
         st.download_button(
             "엑셀 다운로드",
             data=output.getvalue(),
-            file_name=f"국내외_규격_및_가이던스_업데이트_검토_대장_{selected_month}.xlsx",
+            file_name=f"국내외_규격_및_가이던스_업데이트_검토_대장_{selected_month}_{selected_publisher}.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             use_container_width=True,
         )
     else:
         st.button("엑셀 다운로드", disabled=True, use_container_width=True)
 
-with ctrl3:
+with ctrl4:
     st.markdown('<div class="rw-controlbar-label">🔄 오늘자 데이터 수동 조회</div>', unsafe_allow_html=True)
     run_clicked = st.button("지금 실행 (오늘자, 8개 기관)", use_container_width=True)
     if run_clicked:
@@ -239,7 +245,7 @@ with st.container(border=True):
         f'</tr></thead><tbody>{rows_html}</tbody></table></div>'
     )
     render_html(table_html)
-    st.caption(f"조회 월: {selected_month} · 총 {len(filtered_data)}건")
+    st.caption(f"조회 월: {selected_month} · 발행처: {selected_publisher} · 총 {len(filtered_data)}건")
 
 st.markdown("<div style='height:18px'></div>", unsafe_allow_html=True)
 
