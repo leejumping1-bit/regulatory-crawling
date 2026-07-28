@@ -26,6 +26,19 @@ def test_amendment_without_previous_history_uses_date_and_change_sections():
     assert "과거 이력 확인 실패" in gap["diff_html"]
 
 
+def test_failed_history_links_to_the_official_amendment_notice():
+    gap = _build_mfds_gap(
+        None,
+        "",
+        "의료기기법 시행규칙 일부개정령 공포",
+        "2026-07-01",
+        "https://www.mfds.go.kr/brd/m_203/view.do?seq=123",
+    )
+
+    assert "https://www.mfds.go.kr/brd/m_203/view.do?seq=123" in gap["present_text"]
+    assert "공식 MFDS 개정 공고 열기" in gap["diff_html"]
+
+
 def test_amendment_without_body_does_not_use_title_as_current_text():
     gap = _build_mfds_gap(
         None,
