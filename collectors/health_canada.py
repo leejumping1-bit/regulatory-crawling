@@ -41,6 +41,35 @@ def _extract_dates(text):
     return amended.group(1) if amended else None
 
 
+def _historical_version_url(current_date):
+    """Justice Canada PITIndex에서 현재 버전 직전의 공식 전문 URL을 찾는다."""
+    res = fetch(REGULATION_URL + "PITIndex.html")
+    if not res.ok or BeautifulSoup is None:
+        return None
+    soup = BeautifulSoup(res.text, "html.parser")
+    versions = []
+    for a in soup.find_all("a", href=True):
+        m = re.search(r"From\s+(\d{4}-\d{2}-\d{2})", a.get_text(" ", strip=True))
+        if m:
+            href = a["href"]
+            if not href.startswith("http"):
+                href = REGULATION_URL + href.lstrip("/")
+            versions.append((m.group(1), href))
+    older = sorted((v for v in versions if v[0] < current_date), reverse=True)
+    return older[0][1] if older else None
+
+
+def _fetch_full_text(url):
+    if not url:
+        return ""
+    res = fetch(url)
+    if not res.ok or BeautifulSoup is None:
+        return ""
+    soup = BeautifulSoup(res.text, "html.parser")
+    main = soup.select_one("main") or soup.select_one("#regContent") or soup.body
+    return main.get_text("\n", strip=True) if main else ""
+
+
 def run(since_year=2026, since_month=1, today_only=False):
     res = fetch(REGULATION_URL)
     if res.robots_disallowed:
@@ -72,6 +101,10 @@ def run(since_year=2026, since_month=1, today_only=False):
     full_text = main.get_text("\n", strip=True) if main else page_text
 
     prev = load_previous_snapshot("Health Canada", DOC_NO)
+    if not prev:
+        prev_url = _historical_version_url(last_amended)
+        prev = _fetch_full_text(prev_url)
+        prev = prev or None
     gap = generate_gap(prev, full_text)
     save_snapshot("Health Canada", DOC_NO, full_text)
 

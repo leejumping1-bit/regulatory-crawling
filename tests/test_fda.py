@@ -25,3 +25,15 @@ def test_latest_issue_date_rejects_response_without_part_820():
     }
 
     assert fda._extract_latest_issue_date(payload) is None
+
+
+def test_issue_dates_are_sorted_for_previous_version_lookup():
+    payload = {
+        "content_versions": [
+            {"part": "820", "issue_date": "2026-02-04"},
+            {"part": "820", "issue_date": "2024-06-03"},
+            {"part": "21", "issue_date": "2027-01-01"},
+        ]
+    }
+
+    assert fda._extract_issue_dates(payload) == ["2024-06-03", "2026-02-04"]

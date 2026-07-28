@@ -43,6 +43,12 @@ def _extract_latest_issue_date(data):
     return max(dates) if dates else None
 
 
+def _extract_issue_dates(data):
+    candidates = data.get("content_versions") or data.get("versions") or []
+    return sorted({v.get("issue_date") or v.get("amendment_date") for v in candidates
+                   if str(v.get("part")) == "820" and (v.get("issue_date") or v.get("amendment_date"))})
+
+
 def _get_latest_issue_date():
     res = fetch(VERSIONS_API)
     if not res.ok:
@@ -71,7 +77,13 @@ def _get_latest_issue_date():
 
 
 def run(since_year=2026, since_month=1, today_only=False):
-    latest_date, err = _get_latest_issue_date()
+    versions_res = fetch(VERSIONS_API)
+    if not versions_res.ok:
+        return [], None
+    import json
+    dates = _extract_issue_dates(json.loads(versions_res.text))
+    latest_date = dates[-1] if dates else None
+    err = None if latest_date else "버전 날짜를 찾지 못했습니다"
     if latest_date is None:
         print(f"[fda] 버전 확인 실패: {err}")
         return [], None
@@ -98,6 +110,11 @@ def run(since_year=2026, since_month=1, today_only=False):
     plain_text = re.sub(r"\s+", " ", plain_text).strip()
 
     prev_text = load_previous_snapshot("FDA", DOC_NO)
+    if not prev_text and len(dates) >= 2:
+        prior_res = fetch(FULL_API_TMPL.format(date=dates[-2]))
+        if prior_res.ok:
+            prior_xml = prior_res.text
+            prev_text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", prior_xml)).strip()
     gap = generate_gap(prev_text, plain_text)
     save_snapshot("FDA", DOC_NO, plain_text)
     save_snapshot("FDA", LAST_SEEN_KEY, latest_date)

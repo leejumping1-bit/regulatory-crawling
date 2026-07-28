@@ -122,6 +122,9 @@ def _process_source(doc_no, url, today_only):
     )
 
     prev = load_previous_snapshot(doc_no, doc_no)
+    if not prev and len(entries) >= 2:
+        # GOV.UK가 공개한 직전 changelog를 공식 과거 상태로 사용한다.
+        prev = "\n\n".join(f"[{d}]\n{desc}" for d, desc in entries[1:])
     gap = generate_document_gap(prev, full_snapshot_text, title=doc_no, publisher="MHRA (UK)")
     save_snapshot(doc_no, doc_no, full_snapshot_text)
 
