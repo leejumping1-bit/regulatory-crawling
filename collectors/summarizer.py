@@ -9,6 +9,7 @@ import hashlib
 import json
 import os
 import re
+import time
 from pathlib import Path
 
 # 제조업체 의무 판정은 내부 SOP 개정 여부가 아니라, 원문에 제조업체의
@@ -29,6 +30,7 @@ SCOPE_KEYWORDS = {
 
 SUMMARY_CACHE_PATH = Path(__file__).resolve().parent.parent / "data" / "summary_cache.json"
 _SUMMARY_CACHE = None
+_LAST_GEMINI_REQUEST = 0.0
 
 
 def _summary_cache():
@@ -232,6 +234,12 @@ def _llm_summary(title: str, body_text: str) -> str | None:
     if gemini_key:
         try:
             from google import genai
+            global _LAST_GEMINI_REQUEST
+            interval = float(os.environ.get("GEMINI_MIN_INTERVAL_SECONDS", "4.2"))
+            elapsed = time.monotonic() - _LAST_GEMINI_REQUEST
+            if elapsed < interval:
+                time.sleep(interval - elapsed)
+            _LAST_GEMINI_REQUEST = time.monotonic()
             client = genai.Client(api_key=gemini_key)
             resp = client.models.generate_content(
                 model="gemini-3.1-flash-lite",
