@@ -41,7 +41,12 @@ def should_treat_as_new(title: str, body_text: str = "", publisher: str = "") ->
     취급한다. 다만 Revision/Rev/개정 근거가 있으면 예외적으로 Gap 비교한다.
     """
     title_text = title or ""
-    is_new_marker = "제정" in title_text or re.search(r"\bnews\b", title_text, re.IGNORECASE)
+    is_new_marker = (
+        "제정" in title_text
+        or "신규" in title_text
+        or "발표" in title_text
+        or re.search(r"\bnews\b|\bnew\b", title_text, re.IGNORECASE)
+    )
     return bool(is_new_marker and not is_revision_document(title_text, body_text, publisher))
 
 

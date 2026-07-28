@@ -40,6 +40,7 @@ def test_enactment_or_news_keeps_full_current_content_even_with_snapshot():
     assert gap["present_text"] == "비교 제외 (신규 제정·발표 문서)"
     assert "Gap 분석을 수행하지 않습니다" in gap["diff_html"]
     assert should_treat_as_new("News announcement", "현재 게시 내용")
+    assert should_treat_as_new("New MDCG Position Paper: UDI assignment", "현재 게시 내용")
 
 
 def test_revision_overrides_news_skip_rule():
