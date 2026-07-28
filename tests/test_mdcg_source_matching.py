@@ -2,9 +2,35 @@ from types import SimpleNamespace
 
 from collectors import mdcg
 from collectors.mdcg import _find_matching_attachment
+from collectors.mdcg import _extract_endorsed_items
 
 
-TARGET_TITLE = "New MDCG Position Paper: UDI assignment between manufacturers and distributors"
+TARGET_TITLE = "New MDCG 2026-5 Position Paper: UDI assignment between manufacturers and distributors"
+
+
+def test_endorsed_documents_index_provides_numbered_mdcg_candidates():
+    html = """
+    <table>
+      <tr><td><a href="/document/download/five?filename=mdcg_2026-5_en.pdf">MDCG 2026-5</a></td>
+          <td>Position Paper: UDI assignment between manufacturers and distributors</td>
+          <td>July 2026</td></tr>
+      <tr><td><a href="/document/download/rev?filename=mdcg_2025-8_en.pdf">MDCG 2025-8 - rev.1</a></td>
+          <td>Guidance on Master UDI-DI</td><td>March 2026</td></tr>
+    </table>
+    """
+    items = _extract_endorsed_items(html, 2026, 1)
+    assert items == [
+        {
+            "title": "New MDCG 2026-5 Position Paper: UDI assignment between manufacturers and distributors",
+            "url": "https://health.ec.europa.eu/medical-devices-sector/new-regulations/guidance-mdcg-endorsed-documents-and-other-guidance_en#mdcg-2026-5",
+            "pub_date": "2026-07-01",
+        },
+        {
+            "title": "MDCG 2025-8 - rev.1: Guidance on Master UDI-DI",
+            "url": "https://health.ec.europa.eu/medical-devices-sector/new-regulations/guidance-mdcg-endorsed-documents-and-other-guidance_en#mdcg-2025-8-rev-1",
+            "pub_date": "2026-03-01",
+        },
+    ]
 
 
 def test_collection_page_selects_attachment_from_matching_table_row():

@@ -40,6 +40,7 @@ except ImportError:
 BASE = "https://health.ec.europa.eu"
 SCOPED_URL_TMPL = BASE + "/medical-devices-new-regulations/latest-updates_en?page={page}"
 GENERAL_URL_TMPL = BASE + "/latest-updates_en?page={page}"
+ENDORSED_URL = BASE + "/medical-devices-sector/new-regulations/guidance-mdcg-endorsed-documents-and-other-guidance_en"
 
 SPLIT_MARKER = "News announcement"
 DATE_RE = re.compile(r"(\d{1,2}\s+[A-Za-z]+\s+20\d{2})")
@@ -113,6 +114,55 @@ def _extract_items(html):
     return items
 
 
+def _extract_endorsed_items(html, since_year, since_month):
+    """공식 MDCG endorsed-documents 표에서 번호 문서와 첨부 행을 추출한다."""
+    if BeautifulSoup is None:
+        return []
+    soup = BeautifulSoup(html or "", "html.parser")
+    items = []
+    for row in soup.find_all("tr"):
+        cells = row.find_all("td")
+        if len(cells) < 3:
+            continue
+        reference = cells[0].get_text(" ", strip=True)
+        if not re.match(r"^MDCG\s+\d{4}-\d+", reference, re.IGNORECASE):
+            continue
+        publication = cells[2].get_text(" ", strip=True)
+        match = re.search(r"(January|February|March|April|May|June|July|August|September|October|November|December)\s+(20\d{2})", publication, re.IGNORECASE)
+        if not match:
+            continue
+        month = MONTHS[match.group(1).capitalize()]
+        year = int(match.group(2))
+        if (year, month) < (since_year, since_month):
+            continue
+        link = cells[0].find("a", href=True)
+        if not link:
+            continue
+        anchor = re.sub(r"[^a-z0-9]+", "-", reference.lower()).strip("-")
+        body_title = cells[1].get_text(" ", strip=True)
+        is_revision = bool(re.search(r"\brev\.?\s*\d+\b|revision|revised", reference, re.IGNORECASE))
+        if not is_revision:
+            body_title = re.sub(r"^Position Paper:\s*", "", body_title, flags=re.IGNORECASE)
+        title = f"{reference}: {body_title}" if is_revision else f"New {reference} Position Paper: {body_title}"
+        items.append({
+            "title": title,
+            "url": f"{ENDORSED_URL}#{anchor}",
+            "pub_date": f"{year:04d}-{month:02d}-01",
+        })
+    return items
+
+
+def _crawl_endorsed_index(since_year, since_month):
+    """최신 소식 피드에 없는 MDCG 번호 문서도 공식 목록에서 보완한다."""
+    res = fetch(ENDORSED_URL, respect_robots=False)
+    if not res.ok:
+        print(f"[mdcg][DEBUG] endorsed 문서 목록 요청 실패: {res.error}")
+        return []
+    items = _extract_endorsed_items(res.text, since_year, since_month)
+    print(f"[mdcg][DEBUG] endorsed 문서 목록에서 {len(items)}건 보완")
+    return items
+
+
 def _crawl_feed(url_tmpl, since_year, since_month, today_only, require_keyword):
     today_str = date.today().isoformat()
     max_pages = MAX_PAGES_TODAY if today_only else MAX_PAGES_FULL
@@ -182,12 +232,20 @@ def run(since_year=2026, since_month=1, today_only=False):
         # 일반 피드가 막혀도 전용 피드 결과는 살린다
         general = []
 
+    endorsed = [] if today_only else _crawl_endorsed_index(since_year, since_month)
     seen_urls = set()
+    seen_doc_numbers = set()
     all_candidates = []
-    for c in scoped + general:
+    # 번호 문서가 공식 endorsed 표와 뉴스 피드에 모두 있으면 공식 표를 우선한다.
+    for c in endorsed + scoped + general:
+        doc_no = _extract_mdcg_no(c["title"])
+        if doc_no and doc_no in seen_doc_numbers:
+            continue
         if c["url"] in seen_urls:
             continue
         seen_urls.add(c["url"])
+        if doc_no:
+            seen_doc_numbers.add(doc_no)
         all_candidates.append(c)
 
     results = []
@@ -282,7 +340,7 @@ def _is_specific_detail_url(url):
 
 
 def _normalize_title(text):
-    value = re.sub(r"^new\s+mdcg\s+position\s+paper\s*:\s*", "", text or "", flags=re.I)
+    value = re.sub(r"^new\s+", "", text or "", flags=re.I)
     return re.sub(r"[^a-z0-9가-힣]+", " ", value.lower()).strip()
 
 
