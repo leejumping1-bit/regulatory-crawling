@@ -1,4 +1,4 @@
-from collectors.diff_engine import generate_gap
+from collectors.diff_engine import generate_document_gap, generate_gap, should_treat_as_new
 
 
 def test_new_published_document_has_no_past_content():
@@ -27,3 +27,24 @@ def test_identical_content_is_collapsed():
     assert gap["past_text"] == "변경된 내용 없음"
     assert gap["present_text"] == "변경된 내용 없음"
     assert "변경된 문단이 없습니다" in gap["diff_html"]
+
+
+def test_enactment_or_news_keeps_full_current_content_even_with_snapshot():
+    gap = generate_document_gap(
+        "과거 snapshot 전체 내용",
+        "제정된 현재 문서 전체 내용",
+        title="의료기기법 시행규칙 제정",
+        publisher="MFDS (Korea)",
+    )
+    assert gap["past_text"] == "비교 제외 (신규 제정·발표 문서)"
+    assert gap["present_text"] == "비교 제외 (신규 제정·발표 문서)"
+    assert "Gap 분석을 수행하지 않습니다" in gap["diff_html"]
+    assert should_treat_as_new("News announcement", "현재 게시 내용")
+
+
+def test_revision_overrides_news_skip_rule():
+    assert not should_treat_as_new(
+        "News announcement",
+        "MDCG 2024-1 Rev. 2 — Revision history and changes to the document",
+        "MDCG (EU)",
+    )

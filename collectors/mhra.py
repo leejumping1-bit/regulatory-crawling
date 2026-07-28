@@ -30,7 +30,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch, fetch_binary  # noqa: E402
 from collectors.file_extract import extract_text  # noqa: E402
 from collectors.summarizer import summarize, guess_scope, guess_manufacturer_obligation  # noqa: E402
-from collectors.diff_engine import generate_gap  # noqa: E402
+from collectors.diff_engine import generate_document_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
 
 try:
@@ -122,7 +122,7 @@ def _process_source(doc_no, url, today_only):
     )
 
     prev = load_previous_snapshot(doc_no, doc_no)
-    gap = generate_gap(prev, full_snapshot_text)
+    gap = generate_document_gap(prev, full_snapshot_text, title=doc_no, publisher="MHRA (UK)")
     save_snapshot(doc_no, doc_no, full_snapshot_text)
 
     title_prefix = soup.title.get_text(strip=True) if soup.title else doc_no

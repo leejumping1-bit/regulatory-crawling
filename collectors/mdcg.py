@@ -29,7 +29,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch, fetch_binary  # noqa: E402
 from collectors.file_extract import extract_text  # noqa: E402
 from collectors.summarizer import summarize, guess_scope, guess_manufacturer_obligation  # noqa: E402
-from collectors.diff_engine import generate_gap  # noqa: E402
+from collectors.diff_engine import generate_document_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
 
 try:
@@ -196,7 +196,12 @@ def run(since_year=2026, since_month=1, today_only=False):
         doc_no = _extract_mdcg_no(c["title"]) or c["title"][:40]
 
         prev = load_previous_snapshot("MDCG", doc_no)
-        gap = generate_gap(prev, body_text or c["title"])
+        gap = generate_document_gap(
+            prev,
+            body_text or c["title"],
+            title=c["title"],
+            publisher="MDCG (EU)",
+        )
         if body_text:
             save_snapshot("MDCG", doc_no, body_text)
 

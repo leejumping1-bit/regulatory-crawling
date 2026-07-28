@@ -6,8 +6,19 @@ import difflib
 import html
 import re
 
+REVISION_PATTERNS = (
+    r"\brev(?:ision)?\.?\s*\d*\b",
+    r"\brevised\b",
+    r"\brevision history\b",
+    r"\bchanges?\s+(?:in|to|from)\b",
+    r"개정",
+    r"일부개정",
+    r"변경사항",
+    r"변경 내용",
+)
 
-def _split_sentences(text: str):
+
+def _split_sentences(text: str | None):
     if not text:
         return []
     parts = re.split(r"(?<=[.;。！？])\s+|\n+", text.strip())
@@ -18,15 +29,31 @@ def _changed_text(chunks):
     return "\n".join(chunks).strip() or "변경된 내용 없음"
 
 
-def generate_gap(past_text: str, present_text: str, collapse_min=2):
+def is_revision_document(title: str, body_text: str = "", publisher: str = "") -> bool:
+    """문서가 기존 규격의 개정/Revision을 명시하는지 판정한다."""
+    haystack = f"{title or ''}\n{body_text or ''}"
+    return any(re.search(pattern, haystack, re.IGNORECASE) for pattern in REVISION_PATTERNS)
+
+
+def should_treat_as_new(title: str, body_text: str = "", publisher: str = "") -> bool:
+    """
+    '제정' 또는 제목의 'news' 게시물은 기존 snapshot이 있더라도 신규 게시로
+    취급한다. 다만 Revision/Rev/개정 근거가 있으면 예외적으로 Gap 비교한다.
+    """
+    title_text = title or ""
+    is_new_marker = "제정" in title_text or re.search(r"\bnews\b", title_text, re.IGNORECASE)
+    return bool(is_new_marker and not is_revision_document(title_text, body_text, publisher))
+
+
+def generate_gap(past_text: str | None, present_text: str | None, collapse_min=2, force_new=False):
     """
     반환: {"past_text": str, "present_text": str, "diff_html": str}
 
-    과거/현재 원문 전체를 화면에 반복하지 않고, SequenceMatcher가 변경으로
-    판정한 문장(삭제·추가·교체)만 각각 반환한다. past_text가 없으면 신규
-    제정으로 보고 현재 원문 전체를 신규 내용으로 표시한다.
+    기본 비교에서는 SequenceMatcher가 변경으로 판정한 문장(삭제·추가·교체)만
+    반환한다. force_new=True이면 기존 snapshot이 있어도 신규 published 문서로
+    보고 현재 원문 전체를 표시한다.
     """
-    if not past_text:
+    if force_new or not past_text:
         escaped = html.escape(present_text or "").replace("\n", "<br>")
         html_result = (
             f'<span class="diff-add">{escaped}</span><br><br>'
@@ -45,10 +72,8 @@ def generate_gap(past_text: str, present_text: str, collapse_min=2):
     old_changed = []
     new_changed = []
     chunks = []
-    equal_count = 0
     for tag, i1, i2, j1, j2 in sm.get_opcodes():
         if tag == "equal":
-            equal_count += i2 - i1
             continue
         old_part = " ".join(old_sents[i1:i2]).strip()
         new_part = " ".join(new_sents[j1:j2]).strip()
@@ -67,3 +92,15 @@ def generate_gap(past_text: str, present_text: str, collapse_min=2):
         "present_text": _changed_text(new_changed),
         "diff_html": "\n".join(chunks),
     }
+
+
+def generate_document_gap(past_text: str | None, present_text: str | None, title: str = "", publisher: str = ""):
+    """문서 유형별 예외 규칙을 적용한 Gap 생성 진입점."""
+    force_new = should_treat_as_new(title, present_text or "", publisher)
+    if force_new:
+        return {
+            "past_text": "비교 제외 (신규 제정·발표 문서)",
+            "present_text": "비교 제외 (신규 제정·발표 문서)",
+            "diff_html": '<div class="diff-omit">신규 제정·발표 문서이므로 Gap 분석을 수행하지 않습니다. 공식 원문에서 직접 확인하세요.</div>',
+        }
+    return generate_gap(past_text, present_text, force_new=force_new)

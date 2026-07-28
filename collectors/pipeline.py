@@ -10,7 +10,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch, fetch_binary  # noqa: E402
 from collectors.file_extract import extract_text  # noqa: E402
 from collectors.summarizer import summarize, guess_scope, guess_manufacturer_obligation  # noqa: E402
-from collectors.diff_engine import generate_gap  # noqa: E402
+from collectors.diff_engine import generate_document_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
 
 try:
@@ -58,7 +58,7 @@ def build_item(agency_label, title, url, pub_date, doc_no, effective_date=None,
 
     summary_source = body_text or title
     prev = load_previous_snapshot(agency_label, doc_no)
-    gap = generate_gap(prev, body_text or title)
+    gap = generate_document_gap(prev, body_text or title, title=title, publisher=agency_label)
     if body_text:
         save_snapshot(agency_label, doc_no, body_text)
 
@@ -74,7 +74,7 @@ def build_item(agency_label, title, url, pub_date, doc_no, effective_date=None,
         "doc_no": doc_no or title[:40],
         "title": title,
         "summary": summary,
-        "scope": guess_scope(title + " " + summary_source, title=title, publisher=publisher),
+        "scope": guess_scope(title + " " + summary_source, title=title, publisher=agency_label),
         "manufacturer_obligation": "★" if guess_manufacturer_obligation(title, summary_source) else "",
         "url": url,
         "gap_analysis": gap,
