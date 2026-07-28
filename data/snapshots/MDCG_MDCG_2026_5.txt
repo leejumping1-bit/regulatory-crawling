@@ -1,0 +1,112 @@
+MDCG 2026-5 
+MDCG Position Paper: 
+UDI assignment between 
+manufacturers and distributors 
+ 
+ 
+July 2026 
+ 
+ 
+ 
+This document has been endorsed by the Medical Device Coordination Group (MDCG) 
+established by Article 103 of Regulation (EU) 2017/745. The MDCG is composed of 
+representatives of all Member States and it is chaired by a representative of the 
+European Commission. 
+The document is not a European Commission document and it cannot be regarded as 
+reflecting the official position of the European Commission. Any views expressed in 
+this document are not legally binding and only the Court of Justice of the European 
+Union can give binding interpretations of Union law.  
+Medical Devices 
+Medical Device Coordination Group Document MDCG 2026-5 
+Page 2 of 3 
+ 
+Background 
+It was noted a common practice among distributors to assign their own UDI -DIs under their 
+own brand name and obtaining UDI-DI codes from issuing entities. While it is correct to have 
+two different UDI-DIs under two brand names, they should be linked only to the manufacturer 
+both in the UDI/Device registration module 1 of the European Database on Medical Devices 
+(Eudamed)2 and in the databases or internal documents of the EU UDI issuing entities3. 
+This MDCG Position Paper  aims at explaining the point to clarify the situation and avoid 
+confusion, misunderstandings or potential misuse arising from differing interpretations 
+between manufacturers and distributors, as well as the EU UDI issuing entities . This should 
+ensure clarity, transparency and consistency across EU Member States in their enforcement 
+of the provisions of the EU Medical Device Regulations on UDI and the operation of Eudamed. 
+Regulatory framework: relevant provisions 
+• Regulation (EU) 2017/745 on medical devices4 (‘the MDR’): 
+Article 10(7): Manufacturers shall comply with the obligations relating to the UDI system 
+referred to in Article 27 and with the registration obligations referred to in Articles 29 and 31. 
+Article 27(1)(a)(i): The Unique Device Identification system (‘UDI system’) described in Part C 
+of Annex VI shall allow the identification and facilitate the traceability of devices, other than 
+custom-made and investigational devices, and shall consist of the following: 
+… production of a UDI that comprises the following: 
+… a UDI device identifier (‘UDI -DI’) specific to a manufacturer and a device , providing 
+access to the information laid down in Part B of Annex VI. 
+Annex VI, Part C, 2.2: The manufacturer shall assign and maintain unique UDIs for its devices; 
+2.3: Only the manufacturer may place the UDI on the device or its packaging. 
+• Regulation (EU) 2017/746 on in vitro diagnostic medical devices5 (‘the IVDR’): 
+Articles 10(6): Manufacturers shall comply with the obligations relating to the UDI system 
+referred to in Article 24 and with the registration obligations referred to in Article 26 and 28. 
+Article 24(1)(a)(i): The Unique Device Identification system (‘UDI system’) described in Part C 
+of Annex VI shall allow the identification and facilitate  the traceability of devices, other than 
+devices for performance studies, and shall consist of the following: 
+… production of a UDI that comprises the following: 
+… a UDI device identifier (‘UDI -DI’) specific to a manufacturer and a device , providing 
+access to the information laid down in Part B of Annex VI. 
+ 
+1 https://health.ec.europa.eu/medical-devices-eudamed/udidevice-registration_en. 
+2 https://health.ec.europa.eu/medical-devices-eudamed_en. 
+3 https://health.ec.europa.eu/medical-devices-topics-interest/unique-device-identifier-udi_en#udi-issuing-entities. 
+4 Regulation (EU) 2017/745 of the European Parliament and of the Council of 5 April 2017 on medical devices, 
+amending Directive 2001/83/EC, Regulation (EC) No 178/2002 and Regulation (EC) No 1223/2009 and 
+repealing Council Directives 90/385/EEC and 93/42/EEC (OJ L 117, 5.5.2017, p. 1, ELI: 
+http://data.europa.eu/eli/reg/2017/745/oj). 
+5 Regulation (EU) 2017/746 of the European Parliament and of the Council of 5 April 2017 on in vitro diagnostic 
+medical devices and repealing Directive 98/79/EC and Commission Decision 2010/227/EU (OJ L 117, 5.5.2017, 
+p. 176, ELI: http://data.europa.eu/eli/reg/2017/746/oj). 
+Medical Devices 
+Medical Device Coordination Group Document MDCG 2026-5 
+Page 3 of 3 
+ 
+Annex VI, Part C, 2.2: The manufacturer shall assign and maintain unique UDIs for its devices; 
+2.3: Only the manufacturer may place the UDI on the device or its packaging. 
+Description of the issue 
+It has been reported that some companies consider it compliant with the MDR/IVDR that the 
+assignment of the UDI is performed by a distributor who, on the basis of a n agreement 
+signed with the manufacturer (possible under Article 16(1)(a) MDR/IVDR), makes available on 
+the EU market a device under its own name, while maintaining the manufacturer’s indication 
+on the label. 
+It means that the distributor receives an alphanumeric code from an EU UDI issuing entity, so 
+that the UDI -DI code is linked to the distrib utor and to the device manufactured by the 
+manufacturer. 
+It also means that within the Basic UDI -DI, the manufacturer lists two groups of UDI -DIs and 
+register all of them in Eudamed: (1) the UDI -DIs that the manufacturer itself has assigned to 
+the device marketed under its own brand; and (2) the UDI-DIs assigned by the distributor who 
+markets the same device but under its own brand, while keeping the manufacturer data on the 
+label. Therefore, in Eudamed, the same device would have different UDI -DIs (some that the 
+EU UDI issuing entity has given to the manufacturer and some to the distributor). 
+Discussion and conclusions 
+The issue described in the previous paragraph highlights the problem that distributors obtain 
+UDI-DI codes in their own name from EU UDI issuing entities. In the case described, although 
+it would be appropriate to assign two different UDI -DI codes to the same device that is made 
+available on the EU market under two different trade names, such assignment must be made 
+solely by the manufacturer. This means that EU UDI issuing entities should ensure that the 
+entity to which they  provide and  link the UDI -DI codes is the company acting as the 
+manufacturer. This situation should not preclude the possibility of a third party, other than the 
+manufacturer, interacting with the EU UDI issuing entities on behalf of the manufacturer.  
+In this context,  the EU UDI Helpdesk 6 indicates that “The MDR/IVDR only set out the actor 
+legally responsible for UDI obligations but does not provide instruction regarding any 
+arrangement whereby additional actors execute activities such as UDI application and 
+assignment to medical devices on behalf of the  actor who holds the legal responsibility. As 
+such, the manufacturer may in principle delegate the practical operation of UDI assignment 
+and application to a third party (e.g. under a contractual agreement), however the ultimate 
+legal liability for complying with UDI obligations remains with the manufacturer”. 
+The provisions of the MDR and IVDR, and the indications provided by the EU UDI Helpdesk, 
+should not be interpreted that any other economic actors ( authorised representatives, 
+distributors, importers) than the manufacturer may assign UDIs to devices. The manufacturer, 
+as indicated on the label of the device and the device documentation, is the only entity 
+which can assign UDIs to the device intended to be placed on the EU ma rket (and 
+receive codes from the EU UDI issuing entities, being the codes linked to the 
+manufacturer) and the only entity which can register the device in Eudamed. 
+ 
+6 EU UDI Helpdesk - UDI assignment - Obligations https://webgate.ec.europa.eu/udi-helpdesk/en/udi-
+assignment/obligations.html.
