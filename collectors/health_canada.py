@@ -62,11 +62,13 @@ def _historical_version_url(current_date):
 def _fetch_full_text(url):
     if not url:
         return ""
+    if url.rstrip("/") == REGULATION_URL.rstrip("/"):
+        url = REGULATION_URL + "FullText.html"
     res = fetch(url)
     if not res.ok or BeautifulSoup is None:
         return ""
     soup = BeautifulSoup(res.text, "html.parser")
-    main = soup.select_one("main") or soup.select_one("#regContent") or soup.body
+    main = soup.select_one("main") or soup.select_one("#wb-cont") or soup.select_one("#regContent") or soup.body
     return main.get_text("\n", strip=True) if main else ""
 
 
@@ -96,15 +98,18 @@ def run(since_year=2026, since_month=1, today_only=False):
     elif (y, mo) < (since_year, since_month):
         return [], None
 
-    # 조문 본문 전체 추출 (전문 대 전문 비교를 위해)
-    main = soup.select_one("main") or soup.select_one("#regContent") or soup.body
-    full_text = main.get_text("\n", strip=True) if main else page_text
+    # 목록 페이지는 목차만 포함할 수 있으므로 공식 FullText 전문을 사용한다.
+    full_text = _fetch_full_text(REGULATION_URL)
+    if not full_text:
+        main = soup.select_one("main") or soup.select_one("#wb-cont") or soup.select_one("#regContent") or soup.body
+        full_text = main.get_text("\n", strip=True) if main else page_text
 
-    prev = load_previous_snapshot("Health Canada", DOC_NO)
+    # 매번 공식 PITIndex의 직전 버전을 우선 사용한다. 기존 최신 snapshot을
+    # 과거본으로 재사용하면 현재본과 현재본을 비교하는 버그가 발생한다.
+    prev_url = _historical_version_url(last_amended)
+    prev = _fetch_full_text(prev_url)
     if not prev:
-        prev_url = _historical_version_url(last_amended)
-        prev = _fetch_full_text(prev_url)
-        prev = prev or None
+        prev = load_previous_snapshot("Health Canada", DOC_NO)
     gap = generate_gap(prev, full_text)
     save_snapshot("Health Canada", DOC_NO, full_text)
 
