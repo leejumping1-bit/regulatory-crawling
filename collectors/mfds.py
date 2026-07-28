@@ -18,6 +18,7 @@ Gap 분석이 특히 중요하므로 SOP(★)를 항상 강제로 켠다.
 확인하고 명시적으로 요청하여 respect_robots=False로 접근한다. 서버 부담 최소화를 위해
 요청 사이에 딜레이를 둔다.
 """
+import html
 import re
 import sys
 import os
@@ -59,6 +60,10 @@ TITLE_KEYWORDS = ["의료기기", "약전"]
 
 # 이 문서들은 "법 원문 자체"가 통째로 교체되는 문서라 Gap 분석 중요도가 특히 높다 → SOP 강제 ★
 FULL_LAW_PATTERNS = ["의료기기법 시행규칙", "의료기기법 시행령", "「의료기기법」"]
+AMENDMENT_PATTERNS = (
+    "일부개정", "전부개정", "개정령", "개정고시", "개정안", "개정 공포",
+    "개정내용", "개정 내용", "amended", "amendment", "revision",
+)
 
 DATE_RE = re.compile(r"(20\d{2})[.\-](\d{1,2})[.\-](\d{1,2})")
 DOC_NO_RE = re.compile(r"(제\s*20\d{2}-\d+\s*호|총리령\s*제\d+호|대통령령\s*제\d+호|법률\s*제\d+호)")
@@ -119,6 +124,66 @@ def _visible_detail_text(html):
 def _has_major_content(text):
     normalized = re.sub(r"\s+", "", text or "")
     return "주요내용" in normalized or "주요사항" in normalized
+
+
+def _is_amendment_notice(title, text=""):
+    haystack = f"{title or ''}\n{text or ''}".lower()
+    return any(pattern.lower() in haystack for pattern in AMENDMENT_PATTERNS)
+
+
+def _extract_amendment_sections(text):
+    """MFDS 개정 공고에서 Gap에 표시할 변경 설명만 추출한다.
+
+    과거 전문을 확보하지 못한 경우에도 현재 법령 전문 전체를 반복 표시하지
+    않도록, 공고의 개정 이유·주요 내용·신구조문대비표 등 변경 관련 절만 남긴다.
+    """
+    source = re.sub(r"\s+", " ", text or "").strip()
+    if not source:
+        return ""
+    labels = (
+        "개정이유", "개정 이유", "주요내용", "주요 내용", "주요사항",
+        "신구조문대비표", "신·구조문대비표", "신구조문 대비표", "개정문",
+    )
+    label_re = re.compile("|".join(re.escape(label) for label in labels), re.IGNORECASE)
+    matches = list(label_re.finditer(source))
+    sections = []
+    for index, match in enumerate(matches):
+        start = match.start()
+        end = matches[index + 1].start() if index + 1 < len(matches) else min(len(source), start + 3500)
+        section = source[start:end].strip(" :-")
+        if section and section not in sections:
+            sections.append(section)
+    return "\n\n".join(sections[:4])
+
+
+def _build_mfds_gap(prev_text, body_text, title, publish_date):
+    """MFDS 개정본의 과거 이력 부재를 안전하게 표현한다."""
+    current = body_text or ""
+    if prev_text and current:
+        return generate_gap(prev_text, current)
+    if not _is_amendment_notice(title, current):
+        if current:
+            return generate_gap(None, current)
+        return {
+            "past_text": "비교 제외 (원문 미확보)",
+            "present_text": "비교 제외 (원문 미확보)",
+            "diff_html": '<div class="diff-omit">원문을 확보하지 못해 Gap 분석을 수행하지 않았습니다.</div>',
+        }
+
+    changed = _extract_amendment_sections(current)
+    date_label = publish_date or "개정일자 미확인"
+    present = f"개정일자: {date_label}\n\n{changed}" if changed else (
+        f"개정일자: {date_label}\n\n공식 개정 공고의 변경 내용을 확인하세요."
+    )
+    escaped = html.escape(present).replace("\n", "<br>")
+    return {
+        "past_text": "과거 이력 확인 실패",
+        "present_text": present,
+        "diff_html": (
+            '<div class="diff-del">과거 이력 확인 실패</div>\n'
+            f'<div class="diff-add">{escaped}</div>'
+        ),
+    }
 
 
 def _extract_major_content(text):
@@ -330,7 +395,7 @@ def run(since_year=2026, since_month=1, today_only=False):
 
             doc_no = doc_no or c["board"]
             prev = load_previous_snapshot("MFDS", doc_no)
-            gap = generate_gap(prev, body_text or c["title"])
+            gap = _build_mfds_gap(prev, body_text, c["title"], c["pub_date"])
             if body_text:
                 save_snapshot("MFDS", doc_no, body_text)
 
