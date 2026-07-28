@@ -38,6 +38,6 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/regulations.json data/snapshots/*.txt
+          git add data/regulations.json data/summary_cache.json data/snapshots/*.txt
           git commit -m "chore: scheduled regulatory data update [skip ci]" || exit 0
           git push

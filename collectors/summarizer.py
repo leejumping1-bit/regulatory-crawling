@@ -294,6 +294,8 @@ def summarize(title: str, body_text: str) -> str:
     if cached:
         return cached
     llm_result = _llm_summary(title, body_text)
-    if llm_result and len(llm_result) >= 240 and ("핵심" in llm_result or "적용" in llm_result):
+    if llm_result and len(llm_result) >= 80 and any(
+        marker in llm_result for marker in ("[문서 목적]", "[핵심 내용]", "[적용 범위]")
+    ):
         return llm_result
     return _rule_based_summary(title, body_text)
