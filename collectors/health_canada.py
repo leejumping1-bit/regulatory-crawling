@@ -41,6 +41,22 @@ def _extract_dates(text):
     return amended.group(1) if amended else None
 
 
+def _clean_regulation_text(text):
+    """Remove Justice Laws navigation/boilerplate before paragraph diffing."""
+    kept = []
+    for line in text.splitlines():
+        value = " ".join(line.split()).strip()
+        low = value.lower()
+        if not value:
+            continue
+        if value in {"Previous Version", "Previous Versions", "Language selection", "Français"}:
+            continue
+        if low.startswith(("full document:", "accessibility buttons available", "regulations are current to", "this web page has been archived on the web")):
+            continue
+        kept.append(value)
+    return "\n".join(kept)
+
+
 def _historical_version_url(current_date):
     """Justice Canada PITIndex에서 현재 버전 직전의 공식 전문 URL을 찾는다."""
     res = fetch(REGULATION_URL + "PITIndex.html")
@@ -68,8 +84,10 @@ def _fetch_full_text(url):
     if not res.ok or BeautifulSoup is None:
         return ""
     soup = BeautifulSoup(res.text, "html.parser")
-    main = soup.select_one("main") or soup.select_one("#wb-cont") or soup.select_one("#regContent") or soup.body
-    return main.get_text("\n", strip=True) if main else ""
+    sections = soup.find_all("section")
+    main = max(sections, key=lambda node: len(node.get_text(" ", strip=True)), default=None)
+    main = main or soup.select_one("main") or soup.select_one("#wb-cont") or soup.select_one("#regContent") or soup.body
+    return _clean_regulation_text(main.get_text("\n", strip=True)) if main else ""
 
 
 def run(since_year=2026, since_month=1, today_only=False):
@@ -101,8 +119,10 @@ def run(since_year=2026, since_month=1, today_only=False):
     # 목록 페이지는 목차만 포함할 수 있으므로 공식 FullText 전문을 사용한다.
     full_text = _fetch_full_text(REGULATION_URL)
     if not full_text:
-        main = soup.select_one("main") or soup.select_one("#wb-cont") or soup.select_one("#regContent") or soup.body
-        full_text = main.get_text("\n", strip=True) if main else page_text
+        sections = soup.find_all("section")
+        main = max(sections, key=lambda node: len(node.get_text(" ", strip=True)), default=None)
+        main = main or soup.select_one("main") or soup.select_one("#wb-cont") or soup.select_one("#regContent") or soup.body
+        full_text = _clean_regulation_text(main.get_text("\n", strip=True)) if main else page_text
 
     # 매번 공식 PITIndex의 직전 버전을 우선 사용한다. 기존 최신 snapshot을
     # 과거본으로 재사용하면 현재본과 현재본을 비교하는 버그가 발생한다.
