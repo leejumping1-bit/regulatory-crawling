@@ -22,3 +22,10 @@ def test_full_text_uses_official_fulltext_page(monkeypatch):
 
     assert text == "Section 1\nCurrent text"
     assert seen == [health_canada.REGULATION_URL + "FullText.html"]
+
+
+def test_article_context_is_readable_and_repeated_markers_are_collapsed():
+    text = "[조항 36] 첫 문장; [조항 36] 둘째 문장\n\n[조항 37] 다음 조항"
+    assert health_canada._deduplicate_article_markers(text) == (
+        "[조항 36] 첫 문장; 둘째 문장\n\n[조항 37] 다음 조항"
+    )

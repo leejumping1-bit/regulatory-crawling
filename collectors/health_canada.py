@@ -54,7 +54,43 @@ def _clean_regulation_text(text):
         if low.startswith(("full document:", "accessibility buttons available", "regulations are current to", "this web page has been archived on the web")):
             continue
         kept.append(value)
-    return "\n".join(kept)
+    merged = []
+    index = 0
+    standalone_article = re.compile(r"^\d+[A-Z]?$", re.IGNORECASE)
+    while index < len(kept):
+        if standalone_article.match(kept[index]) and index + 1 < len(kept):
+            merged.append(f"{kept[index]} {kept[index + 1]}")
+            index += 2
+            continue
+        merged.append(kept[index])
+        index += 1
+
+    article = None
+    contextual = []
+    article_re = re.compile(r"^(\d+[A-Z]?)\s+(?=[A-Za-z(])")
+    schedule_re = re.compile(r"^(SCHEDULE\s+[0-9A-Z]+)\b", re.IGNORECASE)
+    for line in merged:
+        match = article_re.match(line) or schedule_re.match(line)
+        if match:
+            article = match.group(1)
+        if article:
+            contextual.append(f"[조항 {article}] {line}")
+        else:
+            contextual.append(line)
+    return "\n".join(contextual)
+
+
+def _deduplicate_article_markers(text):
+    """변경 문단 안에서 반복되는 동일 조항번호를 첫 위치만 남긴다."""
+    blocks = []
+    for block in (text or "").split("\n\n"):
+        marker = re.search(r"\[조항\s+[^\]]+\]", block)
+        if marker:
+            token = re.escape(marker.group(0))
+            tail = re.sub(rf"\s*{token}", " ", block[marker.end():])
+            block = block[:marker.end()] + tail
+        blocks.append(re.sub(r" {2,}", " ", block))
+    return "\n\n".join(blocks)
 
 
 def _historical_version_url(current_date):
@@ -131,6 +167,9 @@ def run(since_year=2026, since_month=1, today_only=False):
     if not prev:
         prev = load_previous_snapshot("Health Canada", DOC_NO)
     gap = generate_gap(prev, full_text)
+    gap["past_text"] = _deduplicate_article_markers(gap["past_text"])
+    gap["present_text"] = _deduplicate_article_markers(gap["present_text"])
+    gap["diff_html"] = _deduplicate_article_markers(gap["diff_html"])
     save_snapshot("Health Canada", DOC_NO, full_text)
 
     summary_source = full_text

@@ -26,7 +26,7 @@ def _split_sentences(text: str | None):
 
 
 def _changed_text(chunks):
-    return "\n".join(chunks).strip() or "변경된 내용 없음"
+    return "\n\n".join(chunks).strip() or "변경된 내용 없음"
 
 
 def is_revision_document(title: str, body_text: str = "", publisher: str = "") -> bool:
