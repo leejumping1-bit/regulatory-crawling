@@ -170,9 +170,10 @@ with ctrl3:
                 "발행처 Published by": item.get("publisher") or "",
                 "규격 및 가이던스 번호 Regulation & Guidance No.": (item.get("doc_no") or "").replace("\n", " "),
                 "제목 Title": item.get("title") or "",
+                "내용요약 Summary": item.get("summary") or "",
                 "적용 범위 Scope": item.get("scope") or "",
-                "Manufacturer obligation": (obligation + "\n핵심내용\n" + core_content).strip()
-                if core_content else obligation,
+                "Manufacturer obligation": (obligation + "\n[핵심 내용]\n" + core_content).strip()
+                    if core_content else obligation,
             })
         df_export = pd.DataFrame(export_rows)
         output = io.BytesIO()
@@ -206,11 +207,12 @@ with ctrl3:
             worksheet.set_column("D:D", 18, base)
             worksheet.set_column("E:E", 28, base)
             worksheet.set_column("F:F", 48, base)
-            worksheet.set_column("G:G", 20, base)
-            worksheet.set_column("H:H", 58, base)
+            worksheet.set_column("G:G", 38, base)
+            worksheet.set_column("H:H", 20, base)
+            worksheet.set_column("I:I", 58, base)
             worksheet.autofilter(0, 0, len(df_export), len(df_export.columns) - 1)
             worksheet.freeze_panes(1, 0)
-            widths = [6, 14, 14, 18, 28, 48, 20, 58]
+            widths = [6, 14, 14, 18, 28, 48, 38, 20, 58]
             for excel_row, row_values in enumerate(df_export.itertuples(index=False, name=None), start=1):
                 worksheet.set_row(
                     excel_row,
@@ -222,7 +224,7 @@ with ctrl3:
                 # Keep the readable layout even when a single long title tries
                 # to turn the sheet into a horizontal scroll simulator.
                 worksheet.set_column("F:F", 48, base)
-                worksheet.set_column("H:H", 58, base)
+                worksheet.set_column("I:I", 58, base)
         st.download_button(
             "엑셀 다운로드",
             data=output.getvalue(),

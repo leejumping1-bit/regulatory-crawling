@@ -1,5 +1,7 @@
 """Pure UI data-selection helpers used by the Streamlit app."""
 
+import re
+
 
 def effective_month(item):
     """Return the stored month bucket, or UNKNOWN when it is unavailable."""
@@ -24,13 +26,14 @@ def filter_by_publisher(data, selected_publisher="전체"):
         return list(data)
     return [item for item in data if effective_publisher(item) == selected_publisher]
 
-
 def extract_core_content(summary):
     """Return only the ``[핵심 내용]`` section from an auto-generated summary.
 
     Export files should not repeat the purpose/scope/caveat sections in the
     Manufacturer obligation cell.  If the summary has no structured marker,
-    retain it as a conservative fallback rather than exporting an empty cell.
+    return an empty string. Exporting the entire unstructured summary would
+    reintroduce purpose/scope/caveat sections that the export contract
+    explicitly excludes.
     """
     text = str(summary or "").strip()
     if not text:
@@ -39,12 +42,12 @@ def extract_core_content(summary):
     marker = "[핵심 내용]"
     start = text.find(marker)
     if start < 0:
-        return text
+        return ""
 
     content = text[start + len(marker):]
-    next_section = content.find("[")
-    if next_section >= 0:
-        content = content[:next_section]
+    next_section = re.search(r"(?m)^\s*\[[^\]\r\n]+\]", content)
+    if next_section:
+        content = content[:next_section.start()]
     return content.strip(" \t\r\n:-")
 
 

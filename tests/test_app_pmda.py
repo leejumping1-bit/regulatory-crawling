@@ -40,7 +40,12 @@ def test_export_summary_keeps_only_core_content_section():
 
 
 def test_export_summary_falls_back_when_no_structured_core_marker():
-    assert extract_core_content("핵심 변경사항만 있는 요약") == "핵심 변경사항만 있는 요약"
+    assert extract_core_content("[문서 목적] x\n[적용 범위] y") == ""
+
+
+def test_export_summary_keeps_brackets_inside_core_content():
+    summary = "[핵심 내용]\n제품 [A군]에 적용\n[적용 범위]\n전체"
+    assert extract_core_content(summary) == "제품 [A군]에 적용"
 
 
 def test_export_row_height_grows_for_multiline_core_content():
