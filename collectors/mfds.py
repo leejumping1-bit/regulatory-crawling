@@ -23,7 +23,7 @@ import re
 import sys
 import os
 import time
-from urllib.parse import urlencode, urljoin, urlparse
+from urllib.parse import urlencode, urljoin, urlparse, unquote
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch, fetch_binary  # noqa: E402
@@ -217,6 +217,69 @@ def _extract_major_content(text):
     return "[주요내용]\n" + "\n".join(f"- {item}" for item in items)
 
 
+def _is_law_go_kr_url(url):
+    return urlparse(url or "").hostname in {"law.go.kr", "www.law.go.kr"}
+
+
+def _extract_law_reason_section(html):
+    """법령정보센터 제정·개정이유에서 ◇ 개정이유 및 주요내용만 추출한다."""
+    if BeautifulSoup is None:
+        return ""
+    soup = BeautifulSoup(html or "", "html.parser")
+    body = soup.select_one("#rvsConBody") or soup.body or soup
+    text = body.get_text("\n", strip=True)
+    match = re.search(r"◇\s*개정이유\s*및\s*주요내용", text)
+    if not match:
+        return ""
+    section = text[match.end():]
+    section = re.split(r"(?:<법제처 제공>|◇|【)", section, maxsplit=1)[0]
+    section = re.sub(r"\s+", " ", section).strip(" :-")
+    return f"[개정이유 및 주요내용]\n{section}" if section else ""
+
+
+def _fetch_law_reason(view_url):
+    """law.go.kr의 동적 제정·개정이유 패널을 공식 endpoint로 조회한다."""
+    res = fetch(view_url, respect_robots=False, politeness_delay=POLITENESS_DELAY,
+                timeout=DETAIL_TIMEOUT, allowed_hosts=ALLOWED_HOSTS)
+    if not res.ok or BeautifulSoup is None:
+        return "", None, (res.error if not res.ok else "beautifulsoup4 미설치")
+
+    soup = BeautifulSoup(res.text, "html.parser")
+    iframe = soup.select_one("iframe#lawService[src]")
+    if not iframe:
+        return "", None, "법령정보센터 본문 프레임을 찾지 못함"
+    frame_url = _safe_url(view_url, iframe.get("src"))
+    if not frame_url:
+        return "", None, "법령정보센터 본문 URL을 확인하지 못함"
+
+    frame = fetch(frame_url, respect_robots=False, politeness_delay=POLITENESS_DELAY,
+                  timeout=DETAIL_TIMEOUT, allowed_hosts=ALLOWED_HOSTS)
+    if not frame.ok:
+        return "", None, frame.error
+    fsoup = BeautifulSoup(frame.text, "html.parser")
+    values = {node.get("id"): node.get("value", "") for node in fsoup.select("input[id]")}
+    path_match = re.search(r"\((\d{4,}),?(\d{8})\)", unquote(urlparse(view_url).path))
+    params = {
+        "lsiSeq": values.get("lsiSeq", ""),
+        "lsId": values.get("lsId", ""),
+        "efYd": values.get("efYd", ""),
+        "ancYd": path_match.group(2) if path_match else values.get("ancYd", ""),
+        "ancNo": path_match.group(1) if path_match else values.get("ancNo", ""),
+        "lsRvsGubun": "Rsn",
+    }
+    endpoint = urljoin(frame_url, "/LSW/lsRvsDocInfoR.do")
+    reason = fetch(f"{endpoint}?{urlencode(params)}", respect_robots=False,
+                   politeness_delay=POLITENESS_DELAY, timeout=DETAIL_TIMEOUT,
+                   allowed_hosts=ALLOWED_HOSTS)
+    if not reason.ok:
+        return "", None, reason.error
+    section = _extract_law_reason_section(reason.text)
+    if not section:
+        return "", None, "개정이유 및 주요내용 영역을 찾지 못함"
+    m_no = DOC_NO_RE.search(reason.text)
+    return section, (m_no.group(1) if m_no else None), "OK (법령정보센터 제정·개정이유)"
+
+
 def _extract_rows_from_html(html, board_name, board_url, keyword, since_year, since_month):
     soup = BeautifulSoup(html, "html.parser")
     all_links = soup.select('a[href*="view.do"], a.title[href]')
@@ -324,6 +387,9 @@ def _fetch_detail_and_attachment(view_url):
     if not res.ok or BeautifulSoup is None:
         return "", None, (res.error if not res.ok else "beautifulsoup4 미설치")
 
+    if _is_law_go_kr_url(view_url):
+        return _fetch_law_reason(view_url)
+
     dsoup = BeautifulSoup(res.text, "html.parser")
     page_text = _visible_detail_text(res.text)
     m_no = DOC_NO_RE.search(page_text)
@@ -405,8 +471,14 @@ def run(since_year=2026, since_month=1, today_only=False):
             if body_text:
                 save_snapshot("MFDS", doc_no, body_text)
 
-            summary_source = body_text or c["title"]
+            summary_source = body_text
             full_law = _is_full_law(c["title"])
+            if body_text:
+                summary = summarize(c["title"], summary_source)
+                summary_status = "source_extracted"
+            else:
+                summary = f"[요약 오류] 공식 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. ({status})"
+                summary_status = "source_unavailable"
 
             results.append({
                 "search_month": (c["pub_date"] or "")[:7],
@@ -415,11 +487,11 @@ def run(since_year=2026, since_month=1, today_only=False):
                 "publisher": "MFDS (Korea)",
                 "doc_no": doc_no,
                 "title": c["title"],
-                "summary": summarize(c["title"], summary_source) + (
-                    "" if body_text else f"\n\n(원문 확보 실패: {status})") + (
+                "summary": summary + (
                     "\n\n⚠ 법 원문 전체가 교체되는 문서입니다 — 아래 Gap 분석을 반드시 확인하세요."
                     if full_law else ""
                 ),
+                "summary_status": summary_status,
                 "scope": guess_scope(c["title"] + " " + summary_source, title=c["title"], publisher="MFDS (Korea)"),
                 "manufacturer_obligation": "★" if guess_manufacturer_obligation(c["title"], summary_source) else "",
                 "url": c["view_url"],

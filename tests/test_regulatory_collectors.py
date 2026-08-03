@@ -56,3 +56,20 @@ def test_redirect_allowlist_rejects_untrusted_host():
         "https://example.com/secret",
         {"mfds.go.kr", "www.mfds.go.kr", "law.go.kr", "www.law.go.kr"},
     ) is False
+
+
+def test_law_reason_extractor_keeps_only_requested_section():
+    html = """
+    <div id="rvsConBody">
+      【제정·개정이유】
+      <li>[일부개정]<br />◇ 개정이유 및 주요내용<br />가. 허가 기준을 정비한다.<br />
+      &lt;법제처 제공&gt;</li>
+      ◇ 개정문
+      제1조를 개정한다.
+    </div>
+    """
+    result = mfds._extract_law_reason_section(html)
+    assert result.startswith("[개정이유 및 주요내용]")
+    assert "허가 기준을 정비한다" in result
+    assert "개정문" not in result
+    assert "제1조를 개정한다" not in result
