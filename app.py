@@ -189,6 +189,15 @@ with ctrl3:
                 "border": 1,
                 "border_color": "#D9E1F2",
             })
+            centered = workbook.add_format({
+                "font_name": "맑은 고딕",
+                "font_size": 9,
+                "align": "center",
+                "valign": "vcenter",
+                "text_wrap": True,
+                "border": 1,
+                "border_color": "#D9E1F2",
+            })
             header = workbook.add_format({
                 "font_name": "맑은 고딕",
                 "font_size": 9,
@@ -202,14 +211,14 @@ with ctrl3:
                 "border_color": "#223154",
             })
             worksheet.set_row(0, 30, header)
-            worksheet.set_column("A:A", 6, base)
-            worksheet.set_column("B:C", 14, base)
-            worksheet.set_column("D:D", 18, base)
-            worksheet.set_column("E:E", 28, base)
-            worksheet.set_column("F:F", 48, base)
+            worksheet.set_column("A:A", 6, centered)
+            worksheet.set_column("B:C", 14, centered)
+            worksheet.set_column("D:D", 18, centered)
+            worksheet.set_column("E:E", 28, centered)
+            worksheet.set_column("F:F", 48, centered)
             worksheet.set_column("G:G", 38, base)
-            worksheet.set_column("H:H", 20, base)
-            worksheet.set_column("I:I", 58, base)
+            worksheet.set_column("H:H", 20, centered)
+            worksheet.set_column("I:I", 58, centered)
             worksheet.autofilter(0, 0, len(df_export), len(df_export.columns) - 1)
             worksheet.freeze_panes(1, 0)
             widths = [6, 14, 14, 18, 28, 48, 38, 20, 58]
@@ -217,14 +226,13 @@ with ctrl3:
                 worksheet.set_row(
                     excel_row,
                     estimate_export_row_height(row_values, widths),
-                    base,
                 )
             if hasattr(worksheet, "autofit"):
                 worksheet.autofit()
                 # Keep the readable layout even when a single long title tries
                 # to turn the sheet into a horizontal scroll simulator.
-                worksheet.set_column("F:F", 48, base)
-                worksheet.set_column("I:I", 58, base)
+                worksheet.set_column("F:F", 48, centered)
+                worksheet.set_column("I:I", 58, centered)
         st.download_button(
             "엑셀 다운로드",
             data=output.getvalue(),
