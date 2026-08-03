@@ -5,7 +5,14 @@ import textwrap
 from datetime import date
 
 from collectors.store import load_regulations
-from app_logic import effective_month, filter_by_month, effective_publisher, filter_by_publisher
+from app_logic import (
+    effective_month,
+    filter_by_month,
+    effective_publisher,
+    filter_by_publisher,
+    estimate_export_row_height,
+    extract_core_content,
+)
 
 st.set_page_config(
     page_title="국내외 규격 및 가이던스 업데이트 검토대장",
@@ -152,21 +159,70 @@ filtered_data = filter_by_publisher(filter_by_month(data, selected_month), selec
 with ctrl3:
     st.markdown('<div class="rw-controlbar-label">📥 검토대장 다운로드</div>', unsafe_allow_html=True)
     if filtered_data:
-        df_export = pd.DataFrame([{
-            "No.": item["no"],
-            "고시일 Published Date": item.get("publish_date") or "",
-            "시행일 Effectiveness Date": item.get("effective_date") or "",
-            "발행처 Published by": item.get("publisher") or "",
-            "규격 및 가이던스 번호 Regulation & Guidance No.": (item.get("doc_no") or "").replace("\n", " "),
-            "제목 Title": item.get("title") or "",
-            "내용요약 Summary": item.get("summary") or "",
-            "적용 범위 Scope": item.get("scope") or "",
-            "Manufacturer obligation": item.get("manufacturer_obligation", item.get("sop_required")) or "",
-            "원문 링크": item.get("url") or "",
-        } for item in filtered_data])
+        export_rows = []
+        for item in filtered_data:
+            core_content = extract_core_content(item.get("summary"))
+            obligation = item.get("manufacturer_obligation", item.get("sop_required")) or ""
+            export_rows.append({
+                "No.": item["no"],
+                "고시일 Published Date": item.get("publish_date") or "",
+                "시행일 Effectiveness Date": item.get("effective_date") or "",
+                "발행처 Published by": item.get("publisher") or "",
+                "규격 및 가이던스 번호 Regulation & Guidance No.": (item.get("doc_no") or "").replace("\n", " "),
+                "제목 Title": item.get("title") or "",
+                "적용 범위 Scope": item.get("scope") or "",
+                "Manufacturer obligation": (obligation + "\n핵심내용\n" + core_content).strip()
+                if core_content else obligation,
+            })
+        df_export = pd.DataFrame(export_rows)
         output = io.BytesIO()
         with pd.ExcelWriter(output, engine="xlsxwriter") as writer:
             df_export.to_excel(writer, index=False, sheet_name="Sheet1")
+            workbook = writer.book
+            worksheet = writer.sheets["Sheet1"]
+            base = workbook.add_format({
+                "font_name": "맑은 고딕",
+                "font_size": 9,
+                "valign": "vcenter",
+                "text_wrap": True,
+                "border": 1,
+                "border_color": "#D9E1F2",
+            })
+            header = workbook.add_format({
+                "font_name": "맑은 고딕",
+                "font_size": 9,
+                "bold": True,
+                "font_color": "#FFFFFF",
+                "bg_color": "#16223D",
+                "align": "center",
+                "valign": "vcenter",
+                "text_wrap": True,
+                "border": 1,
+                "border_color": "#223154",
+            })
+            worksheet.set_row(0, 30, header)
+            worksheet.set_column("A:A", 6, base)
+            worksheet.set_column("B:C", 14, base)
+            worksheet.set_column("D:D", 18, base)
+            worksheet.set_column("E:E", 28, base)
+            worksheet.set_column("F:F", 48, base)
+            worksheet.set_column("G:G", 20, base)
+            worksheet.set_column("H:H", 58, base)
+            worksheet.autofilter(0, 0, len(df_export), len(df_export.columns) - 1)
+            worksheet.freeze_panes(1, 0)
+            widths = [6, 14, 14, 18, 28, 48, 20, 58]
+            for excel_row, row_values in enumerate(df_export.itertuples(index=False, name=None), start=1):
+                worksheet.set_row(
+                    excel_row,
+                    estimate_export_row_height(row_values, widths),
+                    base,
+                )
+            if hasattr(worksheet, "autofit"):
+                worksheet.autofit()
+                # Keep the readable layout even when a single long title tries
+                # to turn the sheet into a horizontal scroll simulator.
+                worksheet.set_column("F:F", 48, base)
+                worksheet.set_column("H:H", 58, base)
         st.download_button(
             "엑셀 다운로드",
             data=output.getvalue(),
