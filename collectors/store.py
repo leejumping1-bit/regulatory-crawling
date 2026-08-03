@@ -9,6 +9,8 @@ data/regulations.json 읽기/쓰기 + 문서별 원문 스냅샷 저장(diff 비
 import json
 import os
 import re
+import shutil
+import tempfile
 from datetime import datetime, timezone, timedelta
 
 KST = timezone(timedelta(hours=9))
@@ -20,8 +22,21 @@ SNAPSHOT_DIR = os.path.join(BASE_DIR, "data", "snapshots")
 def load_regulations():
     if not os.path.exists(DATA_PATH):
         return []
-    with open(DATA_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(DATA_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except json.JSONDecodeError:
+        # A previous in-place write may have been interrupted while Streamlit
+        # was rerunning. Recover the last complete snapshot if available.
+        backup_path = DATA_PATH + ".bak"
+        try:
+            with open(backup_path, "r", encoding="utf-8") as f:
+                recovered = json.load(f)
+            print(f"[store] invalid JSON in {DATA_PATH}; loaded {backup_path}")
+            return recovered
+        except (FileNotFoundError, json.JSONDecodeError):
+            print(f"[store] invalid JSON in {DATA_PATH}; no valid backup available")
+            return []
 
 
 def save_regulations(items):
@@ -30,8 +45,27 @@ def save_regulations(items):
     items = sorted(items, key=lambda x: (x.get("publish_date") or ""), reverse=True)
     for idx, it in enumerate(items, start=1):
         it["no"] = idx
-    with open(DATA_PATH, "w", encoding="utf-8") as f:
-        json.dump(items, f, ensure_ascii=False, indent=2)
+    # Write beside the target and replace it atomically. A reader can then see
+    # either the old complete JSON or the new complete JSON, never half of one.
+    fd, temp_path = tempfile.mkstemp(
+        prefix="regulations.", suffix=".tmp", dir=os.path.dirname(DATA_PATH)
+    )
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(items, f, ensure_ascii=False, indent=2)
+            f.flush()
+            os.fsync(f.fileno())
+        if os.path.exists(DATA_PATH):
+            try:
+                with open(DATA_PATH, "r", encoding="utf-8") as f:
+                    json.load(f)
+                shutil.copyfile(DATA_PATH, DATA_PATH + ".bak")
+            except (OSError, json.JSONDecodeError):
+                pass
+        os.replace(temp_path, DATA_PATH)
+    finally:
+        if os.path.exists(temp_path):
+            os.unlink(temp_path)
     return items
 
 
