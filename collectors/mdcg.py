@@ -290,6 +290,7 @@ def run(since_year=2026, since_month=1, today_only=False):
         results.append({
             "search_month": c["pub_date"][:7],
             "publish_date": c["pub_date"],
+            "date_precision": "day" if len(c["pub_date"]) == 10 else "month",
             "effective_date": None,
             "publisher": "MDCG (EU)",
             "doc_no": doc_no,

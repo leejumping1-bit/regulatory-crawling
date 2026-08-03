@@ -105,3 +105,14 @@ def test_fetch_detail_downloads_only_the_matching_row_attachment(monkeypatch):
     assert "mdcg_2026-5_en.pdf" in requested[0]
     assert "article10a.pdf" not in requested[0]
     assert status == "OK (제목 일치 행의 첨부 원문)"
+
+
+def test_news_feed_preserves_exact_day_when_page_publishes_one():
+    html = """
+    <div>News announcement 1 July 2026
+      <a href="/latest-updates/example-2026-07-01_en">June 2026 updated information on the applications for designation as a notified body</a>
+    </div>
+    """
+    items = mdcg._extract_items(html)
+    assert len(items) == 1
+    assert items[0]["pub_date"] == "2026-07-01"
