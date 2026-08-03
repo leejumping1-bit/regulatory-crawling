@@ -1,7 +1,7 @@
 from types import SimpleNamespace
 
 from collectors import mdcg
-from collectors.mdcg import _find_matching_attachment
+from collectors.mdcg import _document_identity, _find_matching_attachment
 from collectors.mdcg import _extract_endorsed_items
 
 
@@ -23,12 +23,12 @@ def test_endorsed_documents_index_provides_numbered_mdcg_candidates():
         {
             "title": "New MDCG 2026-5 Position Paper: UDI assignment between manufacturers and distributors",
             "url": "https://health.ec.europa.eu/medical-devices-sector/new-regulations/guidance-mdcg-endorsed-documents-and-other-guidance_en#mdcg-2026-5",
-            "pub_date": "2026-07-01",
+            "pub_date": "2026-07",
         },
         {
             "title": "MDCG 2025-8 - rev.1: Guidance on Master UDI-DI",
             "url": "https://health.ec.europa.eu/medical-devices-sector/new-regulations/guidance-mdcg-endorsed-documents-and-other-guidance_en#mdcg-2025-8-rev-1",
-            "pub_date": "2026-03-01",
+            "pub_date": "2026-03",
         },
     ]
 
@@ -55,6 +55,24 @@ def test_collection_page_fails_closed_when_title_has_no_matching_row():
     </tbody></table>
     """
     assert _find_matching_attachment(html, TARGET_TITLE, "#sec18") is None
+
+
+def test_news_and_catalog_titles_have_same_document_identity():
+    assert _document_identity(
+        "New MDCG Position Paper: UDI assignment between manufacturers and distributors"
+    ) == _document_identity(TARGET_TITLE)
+
+
+def test_collection_page_without_pdf_fails_closed(monkeypatch):
+    html = "<h2 id='sec18'>UDI</h2><p>News announcement</p>"
+    monkeypatch.setattr(mdcg, "fetch", lambda *args, **kwargs: SimpleNamespace(ok=True, text=html, error=None))
+    body, status = mdcg._fetch_detail(
+        "https://health.ec.europa.eu/medical-devices-sector/new-regulations/"
+        "guidance-mdcg-endorsed-documents-and-other-guidance_en#sec18",
+        TARGET_TITLE,
+    )
+    assert body == ""
+    assert status == "PDF 첨부파일을 찾지 못함"
 
 
 def test_fetch_detail_downloads_only_the_matching_row_attachment(monkeypatch):

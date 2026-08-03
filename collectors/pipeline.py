@@ -56,15 +56,18 @@ def build_item(agency_label, title, url, pub_date, doc_no, effective_date=None,
     else:
         body_text, status = "", "상세 미조회"
 
-    summary_source = body_text or title
+    summary_source = body_text
     prev = load_previous_snapshot(agency_label, doc_no)
     gap = generate_document_gap(prev, body_text or title, title=title, publisher=agency_label)
     if body_text:
         save_snapshot(agency_label, doc_no, body_text)
 
-    summary = summarize(title, summary_source)
-    if not body_text:
-        summary += f"\n\n(원문 상세 확보 실패: {status})"
+    if body_text:
+        summary = summarize(title, body_text)
+        summary_status = "source_extracted"
+    else:
+        summary = f"[요약 오류] 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. ({status})"
+        summary_status = "source_unavailable"
 
     return {
         "search_month": (pub_date or "")[:7],
@@ -74,8 +77,9 @@ def build_item(agency_label, title, url, pub_date, doc_no, effective_date=None,
         "doc_no": doc_no or title[:40],
         "title": title,
         "summary": summary,
+        "summary_status": summary_status,
         "scope": guess_scope(title + " " + summary_source, title=title, publisher=agency_label),
-        "manufacturer_obligation": "★" if guess_manufacturer_obligation(title, summary_source) else "",
+        "manufacturer_obligation": "★" if body_text and guess_manufacturer_obligation(title, body_text) else "",
         "url": url,
         "gap_analysis": gap,
     }

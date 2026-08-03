@@ -147,7 +147,9 @@ def _extract_endorsed_items(html, since_year, since_month):
         items.append({
             "title": title,
             "url": f"{ENDORSED_URL}#{anchor}",
-            "pub_date": f"{year:04d}-{month:02d}-01",
+            # The endorsed table exposes only "July 2026", not a day.
+            # Never invent the first day of the month.
+            "pub_date": f"{year:04d}-{month:02d}",
         })
     return items
 
@@ -235,18 +237,33 @@ def run(since_year=2026, since_month=1, today_only=False):
     endorsed = [] if today_only else _crawl_endorsed_index(since_year, since_month)
     seen_urls = set()
     seen_doc_numbers = set()
+    seen_identities = {}
     all_candidates = []
-    # 번호 문서가 공식 endorsed 표와 뉴스 피드에 모두 있으면 공식 표를 우선한다.
+    # 같은 문서가 뉴스 피드와 endorsed 표에 모두 있을 수 있다. 문서번호가
+    # 뉴스 제목에 빠지는 경우가 있으므로 번호만으로 중복 제거하지 않는다.
     for c in endorsed + scoped + general:
         doc_no = _extract_mdcg_no(c["title"])
-        if doc_no and doc_no in seen_doc_numbers:
-            continue
         if c["url"] in seen_urls:
             continue
         seen_urls.add(c["url"])
         if doc_no:
+            if doc_no in seen_doc_numbers:
+                continue
             seen_doc_numbers.add(doc_no)
-        all_candidates.append(c)
+        identity = _document_identity(c["title"])
+        existing = seen_identities.get(identity)
+        if existing is None:
+            seen_identities[identity] = c
+            all_candidates.append(c)
+            continue
+
+        # Prefer the candidate carrying the official document number/title,
+        # but retain an exact news-feed day when the catalogue only has YYYY-MM.
+        if doc_no and not _extract_mdcg_no(existing["title"]):
+            existing["title"] = c["title"]
+            existing["url"] = c["url"]
+        if len(c.get("pub_date", "")) > len(existing.get("pub_date", "")):
+            existing["pub_date"] = c["pub_date"]
 
     results = []
     for c in all_candidates:
@@ -263,7 +280,13 @@ def run(since_year=2026, since_month=1, today_only=False):
         if body_text:
             save_snapshot("MDCG", doc_no, body_text)
 
-        summary_source = body_text or c["title"]
+        summary_source = body_text
+        if body_text:
+            summary = summarize(c["title"], body_text)
+            summary_status = "pdf_extracted"
+        else:
+            summary = f"[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. ({status})"
+            summary_status = "pdf_unavailable"
         results.append({
             "search_month": c["pub_date"][:7],
             "publish_date": c["pub_date"],
@@ -271,10 +294,10 @@ def run(since_year=2026, since_month=1, today_only=False):
             "publisher": "MDCG (EU)",
             "doc_no": doc_no,
             "title": c["title"],
-            "summary": summarize(c["title"], summary_source) + (
-                "" if body_text else f"\n\n(첨부 원문 확보 실패: {status})"),
+            "summary": summary,
+            "summary_status": summary_status,
             "scope": guess_scope(c["title"] + " " + summary_source, title=c["title"], publisher="MDCG (EU)"),
-            "manufacturer_obligation": "★" if guess_manufacturer_obligation(c["title"], summary_source) else "",
+            "manufacturer_obligation": "★" if body_text and guess_manufacturer_obligation(c["title"], body_text) else "",
             "url": c["url"],
             "gap_analysis": gap,
         })
@@ -296,7 +319,7 @@ def _fetch_detail(url, title=None):
     if not _is_specific_detail_url(url):
         file_url = _find_matching_attachment(res.text, title or "", url)
         if not file_url:
-            return "", "문서 제목과 일치하는 첨부파일을 찾지 못함"
+            return "", "PDF 첨부파일을 찾지 못함"
         content = fetch_binary(file_url)
         if content:
             filename = parse_qs(urlparse(file_url).query).get("filename", ["file.pdf"])[0]
@@ -318,8 +341,7 @@ def _fetch_detail(url, title=None):
                 return text, "OK (첨부 원문)"
             return "", f"첨부파일 추출 실패: {extract_status}"
 
-    text_only = _visible_detail_text(res.text)
-    return text_only[:5000], "OK (첨부 없음 — 본문 HTML 발췌)"
+    return "", "PDF 첨부파일을 찾지 못함"
 
 
 def _is_specific_detail_url(url):
@@ -341,7 +363,13 @@ def _is_specific_detail_url(url):
 
 def _normalize_title(text):
     value = re.sub(r"^new\s+", "", text or "", flags=re.I)
+    value = re.sub(r"\bMDCG\s*\d{4}-\d+(?:\s*rev.?\s*\d+)?\b", "", value, flags=re.I)
+    value = re.sub(r"\bMDCG\b", "", value, flags=re.I)
     return re.sub(r"[^a-z0-9가-힣]+", " ", value.lower()).strip()
+
+def _document_identity(title):
+    """Stable identity for the same MDCG document across feed/catalog titles."""
+    return _normalize_title(title)
 
 
 def _find_matching_attachment(html, title, page_url):
