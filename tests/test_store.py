@@ -1,5 +1,7 @@
 import json
 
+import pytest
+
 from collectors import store
 from collectors.store import upsert_regulations
 
@@ -41,3 +43,28 @@ def test_load_regulations_recovers_from_corrupt_primary(tmp_path, monkeypatch):
     monkeypatch.setattr(store, "DATA_PATH", str(data_path))
 
     assert store.load_regulations() == [{"title": "recovered"}]
+
+
+def test_load_remote_regulations_accepts_persistent_list(monkeypatch):
+    class Response:
+        def raise_for_status(self):
+            return None
+
+        def json(self):
+            return [{"title": "from github"}]
+
+    monkeypatch.setattr(store.requests, "get", lambda *args, **kwargs: Response())
+    assert store.load_remote_regulations("https://example.test/data.json") == [{"title": "from github"}]
+
+
+def test_load_remote_regulations_rejects_non_list(monkeypatch):
+    class Response:
+        def raise_for_status(self):
+            return None
+
+        def json(self):
+            return {"items": []}
+
+    monkeypatch.setattr(store.requests, "get", lambda *args, **kwargs: Response())
+    with pytest.raises(ValueError, match="not a list"):
+        store.load_remote_regulations("https://example.test/data.json")

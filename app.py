@@ -2,9 +2,9 @@ import streamlit as st
 import pandas as pd
 import io
 import textwrap
-from datetime import date
+from datetime import date, datetime, timezone
 
-from collectors.store import load_regulations
+from collectors.store import load_regulations, load_remote_regulations
 from app_logic import (
     effective_month,
     filter_by_month,
@@ -111,14 +111,26 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 """), unsafe_allow_html=True)
 
 DEFAULT_SINCE = "2026-01"
+REMOTE_DATA_URL = (
+    "https://raw.githubusercontent.com/leejumping1-bit/regulatory-crawling/"
+    "main/data/regulations.json"
+)
 
 
-@st.cache_data(ttl=5)
+@st.cache_data(ttl=60)
 def _load():
-    return load_regulations()
+    """Use the GitHub Actions artifact as the app's source of truth."""
+    try:
+        return load_remote_regulations(REMOTE_DATA_URL), "github-main"
+    except Exception as exc:
+        print(f"[app] remote dataset unavailable; using local fallback: {exc}")
+        return load_regulations(), "local-fallback"
 
 
-data = _load()
+data, data_source = _load()
+if st.session_state.get("manual_data") is not None:
+    data = st.session_state["manual_data"]
+    data_source = "manual-session"
 
 
 # ==================== 상단 배너 ====================
@@ -258,6 +270,7 @@ with ctrl4:
 
         with st.spinner("오늘 게시된 항목을 확인 중입니다... (전체 기간 재수집이 아니라 빠르게 끝납니다)"):
             saved, summary = run_crawler(progress_cb=_progress, today_only=True)
+            st.session_state["manual_data"] = saved
             st.cache_data.clear()
         st.success(f"완료! 오늘자 기준 총 {len(saved)}건 (전체 누적 기준)")
         st.rerun()
@@ -265,8 +278,18 @@ with ctrl4:
 st.caption(
     "⚠ 이 버튼은 '오늘 게시된 항목'만 빠르게 확인합니다 (전체 기간 재수집이 아닙니다). "
     "2026-01-01부터의 전체 이력 수집은 매일 아침 9시(KST) GitHub Actions가 백그라운드에서 자동으로 담당하며, "
-    "그 결과만 GitHub 저장소(data/regulations.json)에 영구 반영됩니다. "
-    "이 버튼으로 확인한 오늘자 데이터는 이 앱 서버의 임시 저장소에만 남아 재시작 시 사라질 수 있습니다."
+    "그 결과는 GitHub 저장소(data/regulations.json)에 영구 반영됩니다. "
+    "수동 조회 결과는 현재 앱 세션에서만 우선 표시되고, 앱 재시작 후에는 GitHub 영구 데이터로 돌아갑니다."
+)
+
+source_label = {
+    "github-main": "GitHub main 영구 데이터 (백그라운드 수집 결과)",
+    "local-fallback": "앱 로컬 fallback 데이터 (GitHub 접근 실패)",
+    "manual-session": "수동 조회 임시 데이터 (현재 세션만 유지)",
+}.get(data_source, data_source)
+st.caption(
+    f"데이터 출처: {source_label} · 확인시각: "
+    f"{datetime.now(timezone.utc).astimezone().strftime('%Y-%m-%d %H:%M:%S %Z')}"
 )
 
 st.caption(
