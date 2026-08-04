@@ -2,9 +2,10 @@ import streamlit as st
 import pandas as pd
 import io
 import textwrap
+import requests
 from datetime import date, datetime, timezone
 
-from collectors.store import load_regulations, load_remote_regulations
+from collectors.store import load_regulations
 from app_logic import (
     effective_month,
     filter_by_month,
@@ -121,7 +122,16 @@ REMOTE_DATA_URL = (
 def _load():
     """Use the GitHub Actions artifact as the app's source of truth."""
     try:
-        return load_remote_regulations(REMOTE_DATA_URL), "github-main"
+        response = requests.get(
+            REMOTE_DATA_URL,
+            timeout=15,
+            headers={"Accept": "application/json"},
+        )
+        response.raise_for_status()
+        remote_data = response.json()
+        if not isinstance(remote_data, list):
+            raise ValueError("remote regulations payload is not a list")
+        return remote_data, "github-main"
     except Exception as exc:
         print(f"[app] remote dataset unavailable; using local fallback: {exc}")
         return load_regulations(), "local-fallback"
