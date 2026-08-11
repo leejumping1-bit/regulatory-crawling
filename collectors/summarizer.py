@@ -9,7 +9,9 @@ import hashlib
 import json
 import os
 import re
+import tempfile
 import time
+from datetime import date
 from pathlib import Path
 
 # 제조업체 의무 판정은 내부 SOP 개정 여부가 아니라, 원문에 제조업체의
@@ -29,6 +31,7 @@ SCOPE_KEYWORDS = {
 }
 
 SUMMARY_CACHE_PATH = Path(__file__).resolve().parent.parent / "data" / "summary_cache.json"
+SUMMARY_USAGE_PATH = Path(__file__).resolve().parent.parent / "data" / "summary_usage.json"
 _SUMMARY_CACHE = None
 _LAST_GEMINI_REQUEST = 0.0
 
@@ -56,7 +59,58 @@ def _save_cached_summary(title, body_text, summary):
     cache = _summary_cache()
     cache[_summary_cache_key(title, body_text)] = summary
     SUMMARY_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
-    SUMMARY_CACHE_PATH.write_text(json.dumps(cache, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    fd, temp_path = tempfile.mkstemp(
+        prefix="summary_cache.", suffix=".tmp", dir=SUMMARY_CACHE_PATH.parent
+    )
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(cache, f, ensure_ascii=False, indent=2)
+            f.write("\n")
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(temp_path, SUMMARY_CACHE_PATH)
+    finally:
+        if os.path.exists(temp_path):
+            os.unlink(temp_path)
+
+
+def _daily_ai_requests():
+    try:
+        payload = json.loads(SUMMARY_USAGE_PATH.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return 0
+    return int(payload.get(date.today().isoformat(), 0))
+
+
+def _record_ai_request():
+    SUMMARY_USAGE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        payload = json.loads(SUMMARY_USAGE_PATH.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        payload = {}
+    today = date.today().isoformat()
+    payload[today] = int(payload.get(today, 0)) + 1
+    fd, temp_path = tempfile.mkstemp(
+        prefix="summary_usage.", suffix=".tmp", dir=SUMMARY_USAGE_PATH.parent
+    )
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(payload, f, ensure_ascii=False, indent=2)
+            f.write("\n")
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(temp_path, SUMMARY_USAGE_PATH)
+    finally:
+        if os.path.exists(temp_path):
+            os.unlink(temp_path)
+
+
+def _ai_budget_available():
+    configured = os.environ.get("SUMMARY_DAILY_REQUEST_LIMIT")
+    if configured is None:
+        return True
+    limit = int(configured)
+    return limit > 0 and _daily_ai_requests() < limit
 
 
 def _contains_any_pattern(text: str, patterns) -> bool:
@@ -211,6 +265,10 @@ def _llm_summary(title: str, body_text: str) -> str | None:
     GEMINI_API_KEY, OPENAI_API_KEY, ANTHROPIC_API_KEY 순서로 확인해서 설정된 것이 있으면
     그걸로 실제 LLM 요약을 시도한다. 아무 키도 없으면 None을 반환해 규칙기반 요약으로 대체된다.
     """
+    if not _ai_budget_available():
+        print("[summarizer] daily AI request limit reached; using rule-based summary")
+        return None
+
     prompt = (
         "당신은 의료기기 규제 문서를 정확하게 요약하는 분석가입니다. 아래 공식 원문만 근거로 한국어 요약을 작성하세요. "
         "원문에 없는 사실, 법적 해석, 회사 내부 절차 개정 여부는 추정하지 마세요. "
@@ -234,6 +292,7 @@ def _llm_summary(title: str, body_text: str) -> str | None:
     if gemini_key:
         try:
             from google import genai
+            _record_ai_request()
             global _LAST_GEMINI_REQUEST
             interval = float(os.environ.get("GEMINI_MIN_INTERVAL_SECONDS", "4.2"))
             elapsed = time.monotonic() - _LAST_GEMINI_REQUEST
@@ -255,6 +314,7 @@ def _llm_summary(title: str, body_text: str) -> str | None:
     if openai_key:
         try:
             from openai import OpenAI
+            _record_ai_request()
             client = OpenAI(api_key=openai_key)
             resp = client.chat.completions.create(
                 model="gpt-4o",
@@ -275,6 +335,7 @@ def _llm_summary(title: str, body_text: str) -> str | None:
     if anthropic_key:
         try:
             import anthropic
+            _record_ai_request()
             client = anthropic.Anthropic(api_key=anthropic_key)
             resp = client.messages.create(
                 model="claude-sonnet-4-6",

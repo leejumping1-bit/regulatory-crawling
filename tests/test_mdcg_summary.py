@@ -32,3 +32,29 @@ def test_short_llm_result_is_not_used_as_final_summary(monkeypatch):
     result = summarize("제목", "원문 내용이 충분히 긴 문장입니다. 적용 범위와 검토사항을 확인해야 합니다.")
     assert result != "짧은 요약"
     assert "핵심 내용" in result
+
+
+def test_summary_cache_write_is_atomic(tmp_path, monkeypatch):
+    from collectors import summarizer
+
+    cache_path = tmp_path / "summary_cache.json"
+    monkeypatch.setattr(summarizer, "SUMMARY_CACHE_PATH", cache_path)
+    monkeypatch.setattr(summarizer, "_SUMMARY_CACHE", {})
+
+    summarizer._save_cached_summary("제목", "원문", "요약")
+
+    assert cache_path.read_text(encoding="utf-8").strip().startswith("{")
+    assert summarizer._cached_summary("제목", "원문") == "요약"
+    assert not list(tmp_path.glob("*.tmp"))
+
+
+def test_daily_ai_limit_falls_back_without_calling_provider(monkeypatch):
+    from collectors import summarizer
+
+    monkeypatch.setenv("SUMMARY_DAILY_REQUEST_LIMIT", "0")
+    monkeypatch.setattr(summarizer, "_SUMMARY_CACHE", {})
+    monkeypatch.setattr(summarizer, "_daily_ai_requests", lambda: 0)
+    monkeypatch.setattr(summarizer, "_record_ai_request", lambda: None)
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+
+    assert summarizer._llm_summary("제목", "원문") is None
