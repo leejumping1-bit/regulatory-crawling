@@ -967,7 +967,7 @@
     "publisher": "MDCG (EU)",
     "doc_no": "Registration - High-level Conference on ",
     "title": "Registration - High-level Conference on Medical Devices: Innovation and Patient Safety - 16 March 2026, 9.00 - 17.00 CET",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (429 Client Error: Too Many Requests for url: https://health.ec.europa.eu/events/high-level-conference-medical-devices-innovation-and-patient-safety-16-march-2026-brussels-belgium-2026-03-16_en)",
+    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (PDF 첨부파일을 찾지 못함)",
     "summary_status": "pdf_unavailable",
     "scope": "종합",
     "manufacturer_obligation": "",
@@ -987,15 +987,15 @@
     "publisher": "MDCG (EU)",
     "doc_no": "New publications of harmonised standards",
     "title": "New publications of harmonised standards under the medical devices Regulations – January 2026",
-    "summary": "[문서 목적] 이 문서는 유럽 의료기기 규정(MDR 2017/745) 및 체외진단 의료기기 규정(IVDR 2017/746)을 지원하기 위해 유럽 표준화 기구(CEN, Cenelec)에 기존 조화 표준의 개정 및 신규 조화 표준 작성을 공식 요청하는 시행 결정문입니다.\n\n[핵심 내용]\n*   **표준의 조화(Harmonization):** MDR 및 IVDR의 요구사항을 충족하기 위해 관련 표준을 개정하거나 새로 작성하여, 이를 준수하는 경제운영자가 해당 규정을 준수하는 것으로 간주(Presumption of conformity)받을 수 있도록 함.\n*   **기술적 범위:** 설계, 제조, 위험 관리, 품질경영시스템, 임상 조사·평가 및 성능 연구, 제품 정보 및 사용 설명 기호 등 MDR/IVDR 전반의 요구사항을 포괄.\n*   **표준화 기구의 의무:** CEN과 Cenelec은 요청받은 표준화 작업에 대한 공동 작업 계획을 수립하고, 진행 상황을 정기적으로 보고해야 함.\n*   **기존 지침 폐기:** 기존 의료기기 지침(90/385/EEC, 93/42/EEC, 98/79/EC)에 기반한 표준화 위임사항의 유효기간을 종료하고 관련 결정(C(2020) 2532)을 폐기함.\n\n[주요 요구사항 또는 변경사항]\n*   새로 작성되거나 개정되는 표준에는 해당 표준이 MDR 또는 IVDR의 어떤 법적 요구사항을 어느 정도 수준까지 다루는지 명확히 기술해야 함.\n*   사용자 및 환자가 기기 정보를 이해할 수 있도록 국제적으로 인정된 기호를 표준에 포함해야 하며, 그 의미에 대한 정보를 공개적으로 제공해야 함.\n\n[적용 범위]\n*   **관련 규정:** Regulation (EU) 2017/745 (MDR), Regulation (EU) 2017/746 (IVDR)\n*   **제품군:** 의료기기 및 체외진단 의료기기 전반\n*   **대상 기관:** 유럽 표준화 위원회(CEN), 유럽 전기 표준화 위원회(Cenelec)\n\n[Manufacturer obligation]\n*   원문에서 직접적인 제조업체 의무사항(예: 특정 문서 작성 양식)은 명시되어 있지 않으나, 조화 표준을 준수함으로써 MDR/IVDR의 규정 준수 여부를 입증(Presumption of conformity)할 수 있는 근거로 활용할 수 있음을 규정함.\n\n[시행일 및 일정]\n*   **시행일:** 2021년 4월 14일\n*   **보고 일정:** CEN과 Cenelec은 2021년 5월 28일까지 공동 작업 계획 제출, 2024년 6월 30일까지 최종 보고서 제출 등 정기 보고 의무.\n*   **기존 위임사항 만료:** M/252, M/321, M/384 위임사항은 2022년 5월 26일에 만료됨.\n*   **결정의 유효기한:** 2024년 12월 31일\n\n[확인 필요 사항]\n*   원문에 포함된 Annex I 및 II의 구체적인 표준 목록 외에, 해당 표준이 개별 규정 조항과 어떻게 매핑되는지에 대한 세부 기술 사양(공식 첨부파일 참조 필요).\n*   본 문서 이후 업데이트된 조화 표준 목록(Official Journal of the European Union에 게재된 최신 리스트)과 본 문서의 표준 리스트 간의 대조.",
-    "summary_status": "pdf_extracted",
-    "scope": "체외진단 의료기기",
-    "manufacturer_obligation": "★",
+    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (PDF 첨부파일을 찾지 못함)",
+    "summary_status": "pdf_unavailable",
+    "scope": "종합",
+    "manufacturer_obligation": "",
     "url": "https://health.ec.europa.eu/medical-devices-topics-interest/harmonised-standards_en",
     "gap_analysis": {
-      "past_text": "변경된 내용 없음",
-      "present_text": "변경된 내용 없음",
-      "diff_html": "<div class=\"diff-omit\">변경된 문단이 없습니다. 동일한 원문은 생략했습니다.</div>"
+      "past_text": "비교 제외 (신규 제정·발표 문서)",
+      "present_text": "비교 제외 (신규 제정·발표 문서)",
+      "diff_html": "<div class=\"diff-omit\">신규 제정·발표 문서이므로 Gap 분석을 수행하지 않습니다. 공식 원문에서 직접 확인하세요.</div>"
     },
     "no": 52
   },
