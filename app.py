@@ -13,6 +13,7 @@ from app_logic import (
     filter_by_publisher,
     estimate_export_row_height,
     extract_core_content,
+    permanent_update_workflow_url,
 )
 
 st.set_page_config(
@@ -266,8 +267,8 @@ with ctrl3:
         st.button("엑셀 다운로드", disabled=True, use_container_width=True)
 
 with ctrl4:
-    st.markdown('<div class="rw-controlbar-label">🔄 오늘자 데이터 수동 조회</div>', unsafe_allow_html=True)
-    run_clicked = st.button("지금 실행 (오늘자, 8개 기관)", use_container_width=True)
+    st.markdown('<div class="rw-controlbar-label">🔄 데이터 업데이트</div>', unsafe_allow_html=True)
+    run_clicked = st.button("오늘자 임시 미리보기", use_container_width=True)
     if run_clicked:
         from crawler import run_crawler
 
@@ -285,11 +286,17 @@ with ctrl4:
         st.success(f"완료! 오늘자 기준 총 {len(saved)}건 (전체 누적 기준)")
         st.rerun()
 
+    st.link_button(
+        "영구 업데이트 실행",
+        permanent_update_workflow_url(),
+        use_container_width=True,
+        help="GitHub Actions에서 Run workflow를 누르면 영구 데이터에 반영됩니다.",
+    )
+
 st.caption(
-    "⚠ 이 버튼은 '오늘 게시된 항목'만 빠르게 확인합니다 (전체 기간 재수집이 아닙니다). "
-    "2026-01-01부터의 전체 이력 수집은 매일 아침 9시(KST) GitHub Actions가 백그라운드에서 자동으로 담당하며, "
-    "그 결과는 GitHub 저장소(data/regulations.json)에 영구 반영됩니다. "
-    "수동 조회 결과는 현재 앱 세션에서만 우선 표시되고, 앱 재시작 후에는 GitHub 영구 데이터로 돌아갑니다."
+    "'오늘자 임시 미리보기'는 현재 세션에서만 유지됩니다. "
+    "재접속 후에도 남겨야 할 때는 '영구 업데이트 실행'을 열어 GitHub의 Run workflow를 누르세요. "
+    "예약 실행과 수동 영구 실행은 같은 수집기를 사용하며 data/regulations.json에 영구 반영됩니다."
 )
 
 source_label = {

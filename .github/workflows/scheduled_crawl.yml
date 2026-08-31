@@ -9,6 +9,15 @@ on:
     - cron: "0 0 * * *"
   workflow_dispatch: {}
 
+# The scheduled run and a manually dispatched durable update both write the
+# same Git-backed dataset. Queue them instead of allowing last-writer-wins.
+concurrency:
+  group: regulatory-data-update
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
 jobs:
   crawl:
     runs-on: ubuntu-latest
@@ -39,5 +48,11 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data/regulations.json data/summary_cache.json data/snapshots/*.txt
-          git commit -m "chore: scheduled regulatory data update [skip ci]" || exit 0
-          git push
+          git commit -m "chore: regulatory data update (${{ github.event_name }}) [skip ci]" || exit 0
+          for attempt in 1 2 3; do
+            git push && exit 0
+            echo "Push attempt ${attempt} failed; rebasing on the latest main before retrying."
+            git pull --rebase origin main
+          done
+          echo "Unable to persist the collected data after 3 push attempts."
+          exit 1
