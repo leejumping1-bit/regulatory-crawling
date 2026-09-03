@@ -13,7 +13,11 @@ from app_logic import (
     filter_by_publisher,
     estimate_export_row_height,
     extract_core_content,
-    permanent_update_workflow_url,
+)
+
+PERMANENT_UPDATE_WORKFLOW_URL = (
+    "https://github.com/leejumping1-bit/regulatory-crawling/"
+    "actions/workflows/scheduled_crawl.yml"
 )
 
 st.set_page_config(
@@ -288,7 +292,7 @@ with ctrl4:
 
     st.link_button(
         "영구 업데이트 실행",
-        permanent_update_workflow_url(),
+        PERMANENT_UPDATE_WORKFLOW_URL,
         use_container_width=True,
         help="GitHub Actions에서 Run workflow를 누르면 영구 데이터에 반영됩니다.",
     )

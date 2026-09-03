@@ -18,6 +18,8 @@ def test_app_separates_preview_from_permanent_update():
     assert "임시 미리보기" in app_source
     assert "영구 업데이트 실행" in app_source
     assert "st.link_button" in app_source
+    assert "PERMANENT_UPDATE_WORKFLOW_URL" in app_source
+    assert "permanent_update_workflow_url," not in app_source
 
 
 def test_scheduled_and_manual_updates_are_serialized():
