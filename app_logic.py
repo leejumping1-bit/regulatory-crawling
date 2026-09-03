@@ -3,6 +3,19 @@
 import re
 
 
+def permanent_update_workflow_url():
+    """Return the authenticated GitHub UI for a durable manual update.
+
+    The public Streamlit app must not carry a repository write token. GitHub's
+    own workflow page performs authentication and exposes the existing
+    ``workflow_dispatch`` action to authorized repository users.
+    """
+    return (
+        "https://github.com/leejumping1-bit/regulatory-crawling/"
+        "actions/workflows/scheduled_crawl.yml"
+    )
+
+
 def effective_month(item):
     """Return the stored month bucket, or UNKNOWN when it is unavailable."""
     return item.get("search_month") or "UNKNOWN"
