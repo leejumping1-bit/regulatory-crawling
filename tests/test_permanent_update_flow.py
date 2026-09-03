@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from workflow_dispatch import dispatch_today_update
+from workflow_dispatch import UpdateAlreadyRunning, dispatch_today_update
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -11,18 +11,27 @@ ROOT = Path(__file__).resolve().parents[1]
 class FakeResponse:
     status_code = 204
 
+    def __init__(self, payload=None):
+        self.payload = payload
+
     def raise_for_status(self):
         return None
+
+    def json(self):
+        return self.payload
 
 
 def test_dispatch_today_update_uses_server_side_token_and_today_mode():
     captured = {}
 
+    def fake_get(url, *, headers, params, timeout):
+        return FakeResponse({"workflow_runs": []})
+
     def fake_post(url, *, headers, json, timeout):
         captured.update(url=url, headers=headers, json=json, timeout=timeout)
         return FakeResponse()
 
-    dispatch_today_update("secret-token", post=fake_post)
+    dispatch_today_update("secret-token", get=fake_get, post=fake_post)
 
     assert captured["url"].endswith(
         "/repos/leejumping1-bit/regulatory-crawling/"
@@ -36,6 +45,22 @@ def test_dispatch_today_update_uses_server_side_token_and_today_mode():
 def test_dispatch_today_update_rejects_missing_token():
     with pytest.raises(ValueError, match="GITHUB_WORKFLOW_TOKEN"):
         dispatch_today_update("")
+
+
+def test_dispatch_today_update_does_not_queue_behind_an_active_run():
+    posted = False
+
+    def fake_get(url, *, headers, params, timeout):
+        return FakeResponse({"workflow_runs": [{"status": "in_progress"}]})
+
+    def fake_post(*args, **kwargs):
+        nonlocal posted
+        posted = True
+
+    with pytest.raises(UpdateAlreadyRunning):
+        dispatch_today_update("secret-token", get=fake_get, post=fake_post)
+
+    assert posted is False
 
 
 def test_app_has_only_the_durable_update_path():

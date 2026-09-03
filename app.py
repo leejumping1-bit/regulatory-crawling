@@ -14,7 +14,7 @@ from app_logic import (
     estimate_export_row_height,
     extract_core_content,
 )
-from workflow_dispatch import dispatch_today_update
+from workflow_dispatch import UpdateAlreadyRunning, dispatch_today_update
 
 st.set_page_config(
     page_title="국내외 규격 및 가이던스 업데이트 검토대장",
@@ -278,6 +278,8 @@ with ctrl4:
             try:
                 with st.spinner("오늘자 영구 업데이트를 요청하는 중입니다..."):
                     dispatch_today_update(workflow_token)
+            except UpdateAlreadyRunning as exc:
+                st.info(str(exc))
             except (ValueError, RuntimeError) as exc:
                 st.error(str(exc))
             else:
