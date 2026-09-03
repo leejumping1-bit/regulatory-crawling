@@ -7,7 +7,16 @@ on:
     #  publisher+doc_no 기준으로 upsert되므로 기존 항목은 갱신되고 새 항목만 추가됩니다.
     #  최초 실행 시에만 시간이 오래 걸리고, 이후에는 신규/변경분만 반영되는 셈입니다.)
     - cron: "0 0 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Collection range
+        required: true
+        default: today
+        type: choice
+        options:
+          - today
+          - full
 
 # The scheduled run and a manually dispatched durable update both write the
 # same Git-backed dataset. Queue them instead of allowing last-writer-wins.
@@ -35,7 +44,12 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run collectors (MFDS/MDCG/FDA/MHRA/MDSAP/TGA/Health Canada/PMDA)
-        run: python crawler.py --since 2026-01
+        run: |
+          if [[ '${{ github.event_name }}' == 'workflow_dispatch' && '${{ inputs.mode }}' == 'today' ]]; then
+            python crawler.py --today-only
+          else
+            python crawler.py --since 2026-01
+          fi
         # GEMINI_API_KEY / OPENAI_API_KEY / ANTHROPIC_API_KEY 를 GitHub Secrets에 등록하면
         # summarizer.py가 자동으로 LLM 요약으로 전환됩니다 (미등록 시 규칙기반 요약, GEMINI 우선).
         env:

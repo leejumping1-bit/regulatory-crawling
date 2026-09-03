@@ -13,8 +13,8 @@ from app_logic import (
     filter_by_publisher,
     estimate_export_row_height,
     extract_core_content,
-    permanent_update_workflow_url,
 )
+from workflow_dispatch import dispatch_today_update
 
 st.set_page_config(
     page_title="국내외 규격 및 가이던스 업데이트 검토대장",
@@ -139,9 +139,6 @@ def _load():
 
 
 data, data_source = _load()
-if st.session_state.get("manual_data") is not None:
-    data = st.session_state["manual_data"]
-    data_source = "manual-session"
 
 
 # ==================== 상단 배너 ====================
@@ -268,41 +265,35 @@ with ctrl3:
 
 with ctrl4:
     st.markdown('<div class="rw-controlbar-label">🔄 데이터 업데이트</div>', unsafe_allow_html=True)
-    run_clicked = st.button("오늘자 임시 미리보기", use_container_width=True)
+    run_clicked = st.button("지금 실행 (오늘자 영구 업데이트)", use_container_width=True)
     if run_clicked:
-        from crawler import run_crawler
-
-        progress_box = st.empty()
-        log_lines = []
-
-        def _progress(agency_key, status):
-            log_lines.append(f"· {agency_key}: {status}")
-            progress_box.markdown("\n\n".join(log_lines))
-
-        with st.spinner("오늘 게시된 항목을 확인 중입니다... (전체 기간 재수집이 아니라 빠르게 끝납니다)"):
-            saved, summary = run_crawler(progress_cb=_progress, today_only=True)
-            st.session_state["manual_data"] = saved
-            st.cache_data.clear()
-        st.success(f"완료! 오늘자 기준 총 {len(saved)}건 (전체 누적 기준)")
-        st.rerun()
-
-    st.link_button(
-        "영구 업데이트 실행",
-        permanent_update_workflow_url(),
-        use_container_width=True,
-        help="GitHub Actions에서 Run workflow를 누르면 영구 데이터에 반영됩니다.",
-    )
+        try:
+            workflow_token = st.secrets["GITHUB_WORKFLOW_TOKEN"]
+        except Exception:
+            st.error(
+                "영구 업데이트 실행 권한이 설정되지 않았습니다. "
+                "Streamlit Secrets에 GITHUB_WORKFLOW_TOKEN을 등록해 주세요."
+            )
+        else:
+            try:
+                with st.spinner("오늘자 영구 업데이트를 요청하는 중입니다..."):
+                    dispatch_today_update(workflow_token)
+            except (ValueError, RuntimeError) as exc:
+                st.error(str(exc))
+            else:
+                st.success(
+                    "영구 업데이트를 요청했습니다. GitHub Actions가 수집·검증·저장을 완료하면 "
+                    "재접속 후에도 유지됩니다. 보통 수 분이 걸립니다."
+                )
 
 st.caption(
-    "'오늘자 임시 미리보기'는 현재 세션에서만 유지됩니다. "
-    "재접속 후에도 남겨야 할 때는 '영구 업데이트 실행'을 열어 GitHub의 Run workflow를 누르세요. "
-    "예약 실행과 수동 영구 실행은 같은 수집기를 사용하며 data/regulations.json에 영구 반영됩니다."
+    "이 버튼은 오늘 게시된 항목을 GitHub Actions에서 수집하고 data/regulations.json에 영구 반영합니다. "
+    "요청 직후가 아니라 수집 작업이 끝난 뒤 화면에 나타나며, 예약 실행과 동일한 저장 경로를 사용합니다."
 )
 
 source_label = {
     "github-main": "GitHub main 영구 데이터 (백그라운드 수집 결과)",
     "local-fallback": "앱 로컬 fallback 데이터 (GitHub 접근 실패)",
-    "manual-session": "수동 조회 임시 데이터 (현재 세션만 유지)",
 }.get(data_source, data_source)
 st.caption(
     f"데이터 출처: {source_label} · 확인시각: "
