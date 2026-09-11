@@ -2,8 +2,67 @@
 Last updated:
 
 [5 September 2025]
-—
-See all updates
+Show all updates
+
+[5 September 2025]
+Added link to guidance for 'Medical Devices: Standardised format for post market surveillance report (PMSR)'
+
+[16 June 2025]
+Updated to reflect the coming into force of The Medical Devices (Post-market Surveillance requirements) (Amendment) Regulations 2024.
+
+[9 June 2025]
+Link added for 'Documentation for implementation of data requirements under the new Post-Marketing Surveillance regulations'
+
+[16 May 2025]
+Updated to provide the latest information regarding the MORE portal.
+
+[15 January 2025]
+Updated to reflect the laying of The Medical Devices (Post-market Surveillance requirements) (Amendment) Regulations 2024.
+
+[3 August 2023]
+Guidance updated to reflect the latest information regarding the MORE portal.
+
+[3 August 2023]
+Guidance updated.
+
+[15 May 2023]
+Added link to 'Guidance: Reporting adverse incidents involving Software as a Medical Device under the vigilance system'
+
+[24 April 2023]
+Information and links to the MORE Submissions guidance and MORE production API guidance have been added.
+
+[5 December 2022]
+Updated changes to the Incident reporting system
+
+[28 October 2022]
+Recording added for webinar 'Changes to Submitting Adverse Incidents to Medical Devices to the MHRA'
+
+[6 October 2022]
+Detailing changes to  the Incident reporting system in the section 'Changes to the Incident reporting system'
+
+[31 December 2020]
+This page has been updated due to the end of the Brexit transition period.
+
+[6 August 2020]
+New document for European Commission's guidance on reporting incidents with cardiac implantable electronic devices
+
+[20 May 2020]
+Added a new document - Effective field safety notices (FSNs): guidance for manufacturers of medical devices
+
+[25 June 2019]
+New information about upcoming MDR and IVDR regulations added to the page.
+
+[26 February 2019]
+Added a link to new guidance on medical devices regulation in a no deal scenario.
+
+[20 November 2018]
+Further guidance on producing and distributing effective field safety notices has been added.
+
+[17 August 2016]
+Link to European Commissions detailed guidance updated
+
+[26 January 2015]
+First published.
 Get emails about this page
 Contents
 Guidance on the post-market surveillance requirements for manufacturers
@@ -78,71 +137,6 @@ Adverse incidents: in vitro diagnostic (IVD) blood glucose meters
 
 [15 January 2025]
 Guidance
-Updates to this page
-Published 26 January 2015
-Last updated 5 September 2025
-—
-Show all updates
-
-[5 September 2025]
-Added link to guidance for 'Medical Devices: Standardised format for post market surveillance report (PMSR)'
-
-[16 June 2025]
-Updated to reflect the coming into force of The Medical Devices (Post-market Surveillance requirements) (Amendment) Regulations 2024.
-
-[9 June 2025]
-Link added for 'Documentation for implementation of data requirements under the new Post-Marketing Surveillance regulations'
-
-[16 May 2025]
-Updated to provide the latest information regarding the MORE portal.
-
-[15 January 2025]
-Updated to reflect the laying of The Medical Devices (Post-market Surveillance requirements) (Amendment) Regulations 2024.
-
-[3 August 2023]
-Guidance updated to reflect the latest information regarding the MORE portal.
-
-[3 August 2023]
-Guidance updated.
-
-[15 May 2023]
-Added link to 'Guidance: Reporting adverse incidents involving Software as a Medical Device under the vigilance system'
-
-[24 April 2023]
-Information and links to the MORE Submissions guidance and MORE production API guidance have been added.
-
-[5 December 2022]
-Updated changes to the Incident reporting system
-
-[28 October 2022]
-Recording added for webinar 'Changes to Submitting Adverse Incidents to Medical Devices to the MHRA'
-
-[6 October 2022]
-Detailing changes to  the Incident reporting system in the section 'Changes to the Incident reporting system'
-
-[31 December 2020]
-This page has been updated due to the end of the Brexit transition period.
-
-[6 August 2020]
-New document for European Commission's guidance on reporting incidents with cardiac implantable electronic devices
-
-[20 May 2020]
-Added a new document - Effective field safety notices (FSNs): guidance for manufacturers of medical devices
-
-[25 June 2019]
-New information about upcoming MDR and IVDR regulations added to the page.
-
-[26 February 2019]
-Added a link to new guidance on medical devices regulation in a no deal scenario.
-
-[20 November 2018]
-Further guidance on producing and distributing effective field safety notices has been added.
-
-[17 August 2016]
-Link to European Commissions detailed guidance updated
-
-[26 January 2015]
-First published.
 Contents
 Related content
 Collection
@@ -175,4 +169,5 @@ Services and information
 Benefits
 Births, death, marriages and care
 Business and self-employed
-Childcare and pare
+Childcare and parenting
+Ci
