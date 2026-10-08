@@ -1,0 +1,191 @@
+EN   EN 
+ 
+ 
+ 
+EUROPEAN 
+COMMISSION  
+Brussels, 2.10.2026  
+C(2026) 7113 final 
+ 
+COMMISSION IMPLEMENTING DECISION 
+of 2.10.2026 
+on the selection of medical devices for joint clinical assessment at Union level 
+(Only the English text is authentic) 
+(Text with EEA relevance) 
+ 
+ 
+EN 1  EN 
+COMMISSION IMPLEMENTING DECISION 
+of 2.10.2026 
+on the selection of medical devices for joint clinical assessment at Union level 
+(Only the English text is authentic) 
+(Text with EEA relevance) 
+THE EUROPEAN COMMISSION, 
+Having regard to the Treaty on the Functioning of the European Union, 
+Having regard to Regulation (EU)  2021/2282 of the European Parliament and of the Council 
+of 15 December 2021 on health technology assessment and amend ing Directive 2011/24/EU1, 
+and in particular Article 7(4) thereof, 
+Whereas: 
+(1) Pursuant to Article  7(4) of Regulation (EU)  2021/2282, after seeking a 
+recommendation from the Member State Coordination Group on Health Technology 
+Assessment established under Article 3 of that Regulation (‘the Coordination Group’), 
+the Commission is to adopt a decision, by means of an implementing act, at least every 
+two years, selecting medical devices and  in vitro diagnostic medical devices  for joint 
+clinical assessment. Th e Commission is to select those devices from the medical 
+devices for which the relevant expert panels, designated pursuant to Article  106(1) of 
+Regulation (EU) 2017/745 of the European Parliament and of the Council2 (‘the expert 
+panels’) have provided a scientific opinion or their views. 
+(2) Pursuant to Article 3(2) of Commission Implementing Regulation (EU)  2024/26993, 
+the European Medicines Agency is to provide, no later than 15  days after the end of 
+the quarter concerned, the Commission acting as secretariat of the Coordination Group 
+(‘the HTA secretariat’) with information on all medical devices and in vitro diagnostic 
+medical devices for which the expert panels provided a scientific opinion or their 
+views in the  framework of the clinical evaluation consultation procedure (‘CECP’) 
+pursuant to Article 54 of Regulation (EU) 2017/745 or the performance evaluation 
+consultation procedure pursuant to Article 48(6) of Regulation (EU) 2017/746 of the 
+ 
+1 OJ L 458, 22.12.2021, p. 1, ELI: http://data.europa.eu/eli/reg/2021/2282/oj. 
+2 Regulation (EU) 2017/745 of the European Parliament and of the Council of 5  April 2017 on medical 
+devices, amending Directive  2001/83/EC, Regulation (EC)  No 178/2002 and Regulation (EC) 
+No 1223/2009 and repealing Council Directives  90/385/EEC and 93/42/EEC (OJ L 117, 5.5.2017, p.  1, 
+ELI: http://data.europa.eu/eli/reg/2017/745/oj). 
+3 Commission Imple menting Regulation (EU)  2024/2699 of 18  October 2024 laying down, pursuant to 
+Regulation (EU)  2021/2282 of the European Parliament and of the Council, detailed procedural rules 
+for the cooperation of the Member State Coordination Group on Health Technology  Assessment and the 
+Commission with the European Medicines Agency in the form of exchange of information as regards 
+the joint clinical assessment of medicinal products and medical devices and  in vitro diagnostic medical 
+devices and as regards the joint sci entific consultation on medicinal products and medical devices ( OJ 
+L, 2024/2699, 21.10.2024, ELI: http://data.europa.eu/eli/reg_impl/2024/2699/oj). 
+ 
+EN 2  EN 
+European Parliament and of the Council 4. For the first reporting period, the European 
+Medicines Agency was to provide that information covering the period from 
+1 January 2024. 
+(3) Pursuant to Article 4(2) of Implementing Regulation (EU) 2024/2699, t he HTA 
+secretariat is to make that information available to the Coordination Group’s subgroup 
+on joint clinical assessments (‘the JCA Subgroup’) for further analysis in the 
+preparation of the recommendation referred to in Article 7(4) of Regulation (EU) 
+2021/2282. 
+(4) On 15  April 2025, 15 July 2025, 15  October 2025, 15  January 2026 and 
+17 April 2026, the European Medicines Agency provided the HTA secretariat with 
+information on all medical devices and in vitro diagnostic medical devices for which 
+the expert panels provided a scientif ic opinion or their views during the period from 
+1 January 2024 to 31  March 2026. The HTA secretariat made that information 
+available to the JCA Subgroup for further analysis in the preparation of the 
+recommendation referred to in Article 7(4) of Regulation (EU) 2021/2282. 
+(5) Based on the analysis of the JCA Subgroup, on 22  June 2026, the Coordination Group 
+recommended that the Commission select for joint clinical assessment the medical 
+devices under the names SAPIEN M3 TRANSCATHETER MITRAL VALVE 
+REPLACEMENT SYSTEM  with CECP dossier No EMA/EX/0000242967 and 
+HIGHLIFE TRANS -SEPTAL MITRAL VALVE REPLACEMENT SYSTEM  with 
+CECP dossier No EMA/EX/0000309556. 
+(6) The medical devices and in vitro diagnostic medical devices are to be selected for joint 
+clinical assessment based on one or more of the criteria listed in points (a) to (f) of 
+Article 7(4) of Regulation (EU) 2021/2282, namely, unmet medical needs, first in 
+class, potential impact on patients, public health or healthcare systems, incorporation 
+of software usi ng artificial intelligence, machine learning technologies or algorithms, 
+significant cross-border dimension and major Union-wide added value. 
+(7) Both medical devices recommended by the Coordination Group comply with  the 
+criteria listed in Article 7(4), po ints (a), (b), (c), (e) and (f), of Regulation (EU) 
+2021/2282. 
+(8) In particular, the medical device under the name SAPIEN M3 TRANSCATHETER 
+MITRAL VALVE REPLACEMENT SYSTEM addresses an unmet medical need for 
+the treatment of symptomatic moderate -to-severe or severe mitral regurgitation in 
+patients who are deemed by a heart team unsuitable for surgery or transcatheter edge -
+to-edge therapy. The medical device is first in class, as currently there is no equivalent 
+medical device with the same mechanism of acti on or technological approach 
+available on the market for the same medical indication. That medical device is 
+designed to lead to improvements in patients’ survival, morbidity, and quality of life. 
+Therefore, it could have a potential impact on patients, pu blic health and healthcare 
+systems. Furthermore, the medical device is within the remit of the decision -making 
+bodies for health technology assessment of several Member States that confirmed that 
+a joint clinical assessment of that medical device carried o ut at Union level would add 
+value and achieve its objectives better than a clinical assessment carried out at 
+Member State level. 
+ 
+4 Regulation (EU)  2017/746 of the European Parliament and of the Council of 5  April 2017 on  in 
+vitro diagnostic medical devices and repealing Directive  98/79/EC and Commission 
+Decision 2010/227/EU (OJ L 117, 5.5.2017, p. 176, ELI: http://data.europa.eu/eli/reg/2017/746/oj). 
+ 
+EN 3  EN 
+(9) On the day that the Coordination Group adopted its recommendation, all certificates of 
+conformity had already been issued for the placing on the market of the medical 
+device under the name SAPIEN M3 TRANSCATHETER MITRAL VALVE 
+REPLACEMENT SYSTEM . There is therefore a risk of potential duplication of 
+clinical assessments taking place both at Union and Member State levels. Howev er, 
+the Coordination Group explained that that risk was mitigated in the case of that 
+medical device, as only one Member State had declared an ongoing assessment at 
+national level of that device, while several other Member States had confirmed that a 
+joint clinical assessment carried out at Union level would add value and achieve its 
+objectives better than the work carried out at the level of that Member State. 
+(10) The medical device under the name HIGHLIFE TRANS-SEPTAL MITRAL VALVE 
+REPLACEMENT SYSTEM addresses an unmet medical need for the treatment of 
+moderate-to-severe or severe mitral valve regurgitation due to primary (i.e. 
+degenerative), secondary (i.e. functional) or both primary and secondary mitral valve 
+regurgitation in patients with le ft ventricular ejection fraction ≥ 30  % and left 
+ventricular end-diastolic dimension ≤ 70 mm who do not have severe mitral annular 
+calcification and are deemed by a multi-disciplinary heart team unsuitable for surgical 
+repair/replacement or transcatheter edge-to-edge repair. The medical device is first in 
+class as currently there is no equivalent medical device with the same mechanism of 
+action or technological approach available on the market for the same medical 
+indication. That medical device is designed  to lead to improvements in patients’ 
+survival, morbidity, and quality of life. Therefore, it could have a potential impact on 
+patients, public health and healthcare systems. Furthermore, the medical device is 
+within the remit of the decision -making bodies  for health technology assessment of 
+several Member States that confirmed that a joint clinical assessment of the medical 
+device carried out at Union level would add value and achieve its objectives better 
+than a clinical assessment carried out at Member State level. 
+(11) On the day that the Coordination Group adopted its recommendation, all certificates of 
+conformity had already been issued for the placing on the market  of the medical 
+device under the name HIGHLIFE TRANS -SEPTAL MITRAL VALVE 
+REPLACEMENT SYS TEM. There is therefore a risk of potential duplication of 
+clinical assessments taking place both at Union and Member State levels. However, 
+the Coordination Group explained that that risk was mitigated in the case of that 
+medical device, as only one Membe r State had declared an ongoing assessment at 
+national level of the device, while several other Member States had confirmed that a 
+joint clinical assessment carried out at Union level would add value and achieve its 
+objectives better than the work carried out at the level of that Member State. 
+(12) The recommendation of the Coordination Group aligns with the Commission’s 
+response to cardiovascular health as the Union’s leading public health challenge 5. 
+Specifically, joint clinical assessments of cardiovasc ular medical devices, including 
+cardiac valves, are expected to help Member States make fast and informed decisions 
+on the pricing and reimbursement of those medical devices. 
+ 
+ 
+5 See Communication from the Commission of 16 December 2025  to the European Parliament, the 
+Council, the European Economic and Social Committee and the Committee of the Regions  on an EU 
+cardiovascular health plan: the Safe Hearts Plan (COM(2025) 1024 final), in particular pillar 3 ‘Living 
+with cardiovascular diseases – improving patient treatment and care’. 
+ 
+EN 4  EN 
+(13) It is therefore appropriate to follow the recommendation of the Coordination Group 
+and to select the medical devices under the names SAPIEN M3 TRANSCATHETER 
+MITRAL VALVE REPLACEMENT SYSTEM  and HIGHLIFE TRANS -SEPTAL 
+MITRAL VALVE REPLACEMENT SYSTEM for joint clinical assessment. 
+(14) The measures provided for in this Decision are in accordance with the opinion of 
+the Committee on Health Technology Assessment established by Article  33(1) of 
+Regulation (EU) 2021/2282, 
+HAS ADOPTED THIS DECISION:  
+Article 1 
+The following medical devices are selected for joint clinical assessment at Union level: 
+(a) name of medical device: SAPIEN M3 TRANSCATHETER MITRAL VALVE 
+REPLACEMENT SYSTEM; 
+name of manufacturer: EDWARDS LIFESCIENCES LLC; 
+CECP dossier No: EMA/EX/0000242967; 
+EU technical documentation assessment certificate No: G70  039555 0224 of 
+11 April 2025; 
+(b) name of medical device: HIGHLIFE TRANS -SEPTAL MITRAL VALVE 
+REPLACEMENT SYSTEM; 
+name of manufacturer: HIGHLIFE SAS; 
+CECP dossier No: EMA/EX/0000309556; 
+EU technical documentation assessment certificate No: 2292597TD01 of 
+23 January 2026. 
+Article 2 
+This Decision is addressed to the Member State Coordination Group on Health Technology 
+Assessment. 
+ 
+Done at Brussels, 2.10.2026 
+ For the Commission 
+ Sandra GALLINA 
+ Director-General 
+ Directorate-General for Health and Food Safety
