@@ -645,8 +645,7 @@ As mechanical
 barrier, compression 
 or absorbation 
 exudates
-bloodbags Only filtration, 
-centrifugation 
+bloodbags Only filtration, centrifugation 
 or exchange of 
 gas or heat
 Intended for 
@@ -665,9 +664,7 @@ IIa IIa
 I
 III
 unless
-OR OR OR OR
-OR
-OR
+OR OR OR OR OR OR
 ATTENTION: to special rules (14 to 22) 
 NON-INVASIVE DEVICES 
 OR

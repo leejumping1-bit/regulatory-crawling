@@ -1748,25 +1748,23 @@ asurements)을문서화해야한다.
 9. 의료기기 적합성인정등 심사표
 9.1 일반현황
 의료기기적합성인정등심사표
-업소명 업종류 □제조 □수입
-업허가번호
+업소명 업종류 □제조 □수입업허가번호
 대표자 품질책임자
 소재지
 (전화번호: ,팩스: E-mail: )
 심사구분
- □최초심사 □정기심사 □변경심사 □추가심사
- □1등급의료기기
- □임상시험용의료기기
- □수출용의료기기
- □융복합의료기기
- □의료기기공동심사프로그램활용
- □우수제조소
+□최초심사 □정기심사 □변경심사 □추가심사
+□1등급의료기기
+□임상시험용의료기기
+□수출용의료기기
+□융복합의료기기
+□의료기기공동심사프로그램활용
+□우수제조소
  ※해당하는경우에한하여작성
 심사방법 □현장조사 □서류검토 □결합심사
 심사종류및
 방법결정사유
-품목 품목군
-품목명/등급
+품목 품목군품목명/등급
 심사단
 소속 성명
 식품의약품안전처
@@ -1782,8 +1780,7 @@ asurements)을문서화해야한다.
  품질관리심사기관: (인)
  대 표 자: (인)
 9.2 심사업소 정보
-업소명 □법인
-□개인 허가번호
+업소명 □법인□개인 허가번호
 대표자 품질책임자
 심사대상제조소
 상호명/주소
@@ -1842,10 +1839,8 @@ asurements)을문서화해야한다.
 9.3.2. 세부 심사 내용(의료기기공동심사프로그램활용)
 구 분 심 사 내 용
 심사 중 특이사항
-심사정보 심사기관, 심사시작일, 심사종료일, 심사기간(심사일수) 심사보고서 번호, 심사 유
-형(최초/갱신) 등(의료기기 공동심사프로그램 심사결과 섹션 1, 섹션 3 참조)
-심사대상제조소정보 심사대상 제조소의 이름, 대상기관 정보, 제조소 상세주소, 심사대상 제품과의 상
-관관계 등(섹션 2~ 섹션 8 참조)
+심사정보 심사기관, 심사시작일, 심사종료일, 심사기간(심사일수) 심사보고서 번호, 심사 유형(최초/갱신) 등(의료기기 공동심사프로그램 심사결과 섹션 1, 섹션 3 참조)
+심사대상제조소정보 심사대상 제조소의 이름, 대상기관 정보, 제조소 상세주소, 심사대상 제품과의 상관관계 등(섹션 2~ 섹션 8 참조)
 적용제외항목및사유 섹션 9 참조
 품질경영시스템의
 상호관계 확인사항
@@ -1858,8 +1853,7 @@ asurements)을문서화해야한다.
 ※ 제7조제1항제3호가목에 따른 [별표2] 4항~8항까지의 검토결과를 아
 래 심사표에 작성
   심사결과 및 판정기준은 9.4 심사표와 동일한 기준으로 적용)
-구분 심사범위 심사결과
-A B C D
+구분 심사범위 심사결과A B C D
 섹션11
 11.1 프로세스 : 경영(management)
 11.2 프로세스 : 의료기기 허가 및 제조소 등록
@@ -1871,16 +1865,14 @@ A B C D
 11.8 기타 발견사항 
 섹션12 부적합(부적합 사항 및 관련 근거 확인)
 섹션14 과거의 부적합에 대한 후속조치 
-2. 제품표준서 국내 제조‧수입 제품 중 품목군별 대표품목 제품표준서 적정성 
-(제7조제1항제3호나목) 
+2. 제품표준서 국내 제조‧수입 제품 중 품목군별 대표품목 제품표준서 적정성 (제7조제1항제3호나목) 
 3. 의료기기법
 요구사항
 의료기기법에서 요구하는 규제요구사항 충족여부 
 (제7조제1호제3호다목) 
 4. 심사결과 심사단의 종합의견
 보완 요구사항
-번호 관련
-조항 보완 내용
+번호 관련조항 보완 내용
 1
 2
 심사
@@ -2872,8 +2864,7 @@ A B C D
  2) 심사에서평가표의평가결과1개이상의“C(부적절함)”가있는경우
 [별표 3]
 의료기기 GMP 품목군 (제4조, 제6조및제7조관련)
-번호 품목군
-(ProductGroup) 구분
+번호 품목군(ProductGroup) 구분
 1
 진료용일반장비
 (General
@@ -2929,12 +2920,8 @@ Replacing
 Functionof
 InternalOrgan(I))
 A09000내장기능대용기Artificialinternalorganapparatus
-7 내장기능
-대용기(II)
-A09000내장기능대용기(3,4등급)Artificialinternalorgan
-apparatus(3,4class)
-번호 품목군
-(ProductGroup) 구분
+7 내장기능대용기(II) A09000내장기능대용기(3,4등급)Artificialinternalorganapparatus(3,4class)
+번호 품목군(ProductGroup) 구분
 (Devicefor
 Replacing
 Functionof
@@ -3007,8 +2994,7 @@ class)
 기구(I)
 (Urology
 A18000비뇨기과용기계기구Urologydevices
-번호 품목군
-(ProductGroup) 구분
+번호 품목군(ProductGroup) 구분
 devices(I))
 16
 비뇨기과용기계
@@ -3081,8 +3067,7 @@ instruments
 A30000지각및신체진단용기구Perceptionandorgans
 diagnosticdevices
 A27000호흡기능검사용기기Respiratoryfunctiontesting
-번호 품목군
-(ProductGroup) 구분
+번호 품목군(ProductGroup) 구분
 apparatus
 25
 측정및유도용
@@ -3141,8 +3126,7 @@ A51000의료용레버Leverformedicaluse
 A52000의료용올가미Snareformedicaluse
 A55000의료용천자기,천착기및천공기Puncturing,abrasion,
 perforating instrumentformedicaluse
-번호 품목군
-(ProductGroup) 구분
+번호 품목군(ProductGroup) 구분
 A56000개창또는개공용기구Woundretractorsandspeculums
 A59000의료용확장기Dilatorandexpanderformedicaluse
 A60000의료용도포기Applicatorformedicaluse
@@ -3202,12 +3186,8 @@ A79000의약품주입기Infusioninstruments
 (Infusion
 instruments(II))
 A79000의약품주입기(3,4등급)Infusioninstruments(3,4class)
-38 치과처치용기계
-기구
-A69000치과용엔진Dentalengine
-A70000치과용브로치Broachesfordentaluse
-번호 품목군
-(ProductGroup) 구분
+38 치과처치용기계기구 A69000치과용엔진DentalengineA70000치과용브로치Broachesfordentaluse
+번호 품목군(ProductGroup) 구분
 (MachineorDevic
 eforDentalTreat
 ment)
@@ -3233,8 +3213,7 @@ A77000눈적용렌즈Ophthalmiclens
 (Ophthalmic
 lens(II))
 A77000눈적용렌즈(3,4등급)Ophthalmiclens(3,4class)
-42 보청기
-(HearingAid) A78000보청기HearingAid
+42 보청기(HearingAid) A78000보청기HearingAid
 43
 의료용물질
 생성기
@@ -3278,10 +3257,8 @@ C18000악안면성형용재료MaxillofacialPlasticMaterial
 C19000악골치아고정장치MaxillaryBoneFixationMaterial
 C21000치과임플란트시술기구implant,endosseous,hand
 instrument
-49 치과용임플란트
-시스템(I) C20000치과용임플란트시스템DentalImplantSystem
-번호 품목군
-(ProductGroup) 구분
+49 치과용임플란트시스템(I) C20000치과용임플란트시스템DentalImplantSystem
+번호 품목군(ProductGroup) 구분
 (DentalImplant
 System(I))
 50
@@ -3313,24 +3290,20 @@ Regeneration
 Material)
 C23000치주조직재생유도재GuidedBoneandTissue
 RegenerationMaterial
-54 부목
-(Splints) B05000부목Splints
+54 부목(Splints) B05000부목Splints
 55
 외과용품
 (Surgical
 supplies)
 B07000외과용품(창상피복재제외)Surgicalsupplies
-56 창상피복재
-(Dressing) B07070창상피복재Dressing
-57 콘돔
-(Condom) B08000콘돔Condom
+56 창상피복재(Dressing) B07070창상피복재Dressing
+57 콘돔(Condom) B08000콘돔Condom
 58
 피임용구
 (Contraceptive
 device)
 B09000피임용구Contraceptivedevice
-59 치과용합금
-((DentalAlloy)
+59 치과용합금((DentalAlloy)
 C01000치과가공용합금DentalProcessingAlloy
 C02000치과주조용합금DentalCastingalloy
 C03000메탈세라믹합금Metal-CeramicAlloy
@@ -3347,8 +3320,7 @@ C08000의치재료DentureMakingMaterial/DentureMaterial
 C09000의치상재료denturematerial
 1.1번부터62번의‘구분’은「의료기기법」제3조및같은법시행규칙
 제2조에따른의료기기중분류로구분한다.
-번호 품목군
-(ProductGroup) 구분
+번호 품목군(ProductGroup) 구분
 C11000치과접착용시멘트DentalAdhesiveCement
 C12000치과용접착제DentalBondingAgent
 C10000근관치료재료MaterialForRootCanalTherapy
@@ -3412,29 +3384,23 @@ UbiquitousHealthcare
  2)인쇄용지규격:130g백색,A4(210×297mm)
 나.기재항목
  1)인정번호
-①기관코드 - ②심사구분 - ③연번
+①기관코드- ②심사구분- ③연번
  ①기관코드
 품질관리심사기관명 기관코드 품질관리심사심사기관명 기관코드
 한국산업
-기술시험원 KTL 한국건설생활환경
-시험연구원 KCL
+기술시험원 KTL 한국건설생활환경시험연구원 KCL
 한국기계전기전자
-시험연구원 KTC 한국화학융합
-시험연구원 KTR
+시험연구원 KTC 한국화학융합시험연구원 KTR
 티유브이슈드
-코리아 TSK 티유브이라인란드
-코리아 TRK
+코리아 TSK 티유브이라인란드코리아 TRK
  ②심사구분: 심사구분은최대여섯 자리로기재한다.
 심사구분 A B C D E F G
 첫째자리 제조 수입
 둘째자리 최초심사 정기심사 추가심사 변경심사
 셋째자리 서류검토 현장조사 결합심사
-넷째자리 나머지 1등급 임상시험용수출용 삭제 의료기기공동
-심사프로그램우수제조소
-다섯째자리 해당
-없음 적합* 2)
+넷째자리 나머지 1등급 임상시험용수출용 삭제 의료기기공동심사프로그램우수제조소
+다섯째자리 해당없음 적합* 2)
 여섯째자리 재발급 교체발급
- 
 * 별표29.4제2호가목2)에해당하는경우
 ③연번: 심사접수순서대로연속번호
  2)업소명/허가번호:제조·수입업허가증에기재된업소명및업종
@@ -3474,11 +3440,8 @@ UbiquitousHealthcare
 의료기기 적합성인정등 심사 신청서
 접수번호
 업종류 □제조 □수입 업허가번호
-업소명 한글:
-영문:
-대표자 한글:
-영문: 품질책임자 성명:
-전화번호:
+업소명 한글:영문:
+대표자 한글:영문: 품질책임자 성명:전화번호:
 소재지
 한글:
 영문:
@@ -3493,20 +3456,19 @@ UbiquitousHealthcare
 (상호명)
 (소재지)
 심사구분
- □최초심사 □정기심사 □변경심사 □추가심사
- □1등급의료기기
- □임상시험용의료기기
- □수출용의료기기
- □융복합의료기기
- □의료기기공동심사프로그램활용
- □우수제조소
+□최초심사 □정기심사 □변경심사 □추가심사
+□1등급의료기기
+□임상시험용의료기기
+□수출용의료기기
+□융복합의료기기
+□의료기기공동심사프로그램활용
+□우수제조소
  ※해당하는경우에한하여작성
 품목
 품목군
 품목명/등급
 현장조사희망일 년 월 일
-특이사항 □위해우려제조소등제6조제3항해당
- □결합심사로신청
+특이사항 □위해우려제조소등제6조제3항해당□결합심사로신청
  「의료기기 제조 및 품질관리기준」 제7조에 따라 위와 같이 적합성인정등 심
 사를 신청합니다.
  년 월 일
@@ -3519,8 +3481,7 @@ UbiquitousHealthcare
 210㎜×297㎜[일반용지60g/㎡(재활용품)]
 (2/6)
 제출
-여부 구비서류명 비고
-(파일명등)
+여부 구비서류명 비고(파일명등)
 1.의료기기적합성인정등심사신청서
 2.의료기기제조(수입)업허가증사본또는조건부제조(수입)업허가증
 사본(최초심사또는임상시험용의료기기의경우제외)
@@ -3545,8 +3506,7 @@ UbiquitousHealthcare
 3.기타자료
 (3/6)
 제출
-여부 구비서류명(제7조제1항제3호관련) 비고
-(파일명등)
+여부 구비서류명(제7조제1항제3호관련) 비고(파일명등)
 1.의료기기적합성인정등 심사 신청서
 2.다음각 목에 해당되는 자료
 2-가.MDSAP적합인정서사본및심사결과자료(심사결과부
@@ -3570,8 +3530,7 @@ UbiquitousHealthcare
 ※의료기기공동심사프로그램을활용한적합성인정심사를신청하는경우에한하여작성할것
 (4/6)
 제출
-여부 구비서류명(제7조제1항제4호관련) 비고
-(파일명등)
+여부 구비서류명(제7조제1항제4호관련) 비고(파일명등)
 1.의료기기적합성인정등 심사 신청서
 2.의료기기제조(수입)업허가증사본또는조건부제조(수입)업
 허가증 사본
@@ -3601,8 +3560,7 @@ UbiquitousHealthcare
 여부
 GMP기준 GMP세부요구사항
 품질경영시스템상호관계
-4.품질경영시스템 4.1일반요구사항
-4.2문서화요구사항
+4.품질경영시스템 4.1일반요구사항4.2문서화요구사항
 5.경영책임
 5.1경영의지
 5.2고객중심
@@ -3668,20 +3626,20 @@ C
 품목i
 ※다수의제조소에대하여일괄신청할경우에한하여작성할것
 [별지 제2호서식] (앞쪽)
- 인정번호(No.) :
+ 인정번호(No.):
 의료기기 제조 및 품질관리기준 적합인정서
 (Certificate of GMP)
 ▪업소명/허가번호
- (Company name of Applicant / License No.)
-▪업소 소재지 (Company address of Applicant)
+ (Company nameof Applicant / License No.)
+▪업소 소재지 (Company addressof Applicant)
 ▪제조소명 (Name of Manufacturer)
-▪제조소 소재지 (Address of Manufacturer)
+▪제조소 소재지 (Address ofManufacturer)
 ▪품목군 (Product Group)
-의료기기 제조 및 품질관리기준에 적합함을 인정합니다.
-(We hereby certify that the above manufacturer complies with Korea Good M
-anufacturing Practices of Medical Devices for the Product group listed above)
-발행일자(Date of Issue) : . . .
-유효기한(Date of Expiration) : . . .
+의료기기 제조 및 품질관리기준에적합함을 인정합니다.
+(WeherebycertifythattheabovemanufacturercomplieswithKoreaGoodM
+anufacturingPracticesofMedicalDevicesfortheProductgrouplistedabove)
+발행일자(Date ofIssue): . . .
+유효기한(Date ofExpiration) : . . .
  지 방 식 품 의 약 품 안 전 청 장 인
  품 질 관 리 심 사 기 관 장 인
  210㎜×297㎜[일반용지 60g/㎡(재활용품)]
@@ -3689,46 +3647,46 @@ anufacturing Practices of Medical Devices for the Product group listed above)
 변경사항 등
 (Changes History Records of GMP Certificate)
 일 자(Date) 내 용(Description)
- (별첨) 융복합 의료기기가 포함되어 있는 경우
- 융복합의료기기 품목명, 융복합의료기기에 조합되거나 복합구성된 의약품 또는
-의약외품의 제조소명, 제조소 소재지
+ (별첨)융복합 의료기기가포함되어 있는 경우
+ 융복합의료기기품목명,융복합의료기기에조합되거나복합구성된의약품또는
+의약외품의 제조소명,제조소 소재지
 [별지 제2호의2서식] (앞쪽)
- 인정번호(No.) :
+ 인정번호(No.):
 의료기기 제조 및 품질관리기준 적합인정서
 (Certificate of GMP)
 ▪업소명/허가번호
- (Company name of Applicant / License No.)
-▪업소 소재지 (Company address of Applicant)
+ (Company nameof Applicant / License No.)
+▪업소 소재지 (Company addressof Applicant)
 ▪제조소명 (Name of Manufacturer)
-▪제조소 소재지 (Address of Manufacturer)
+▪제조소 소재지 (Address ofManufacturer)
 ▪품목군 (Product Group)
-의료기기 제조 및 품질관리기준에 적합함을 인정합니다.
-(We hereby certify that the above manufacturer complies with Korea Good M
-anufacturing Practices of Medical Devices for the Product group listed above)
-발행일자(Date of Issue) : . . .
-유효기한(Date of Expiration) : . . .
+의료기기 제조 및 품질관리기준에적합함을 인정합니다.
+(WeherebycertifythattheabovemanufacturercomplieswithKoreaGoodM
+anufacturingPracticesofMedicalDevicesfortheProductgrouplistedabove)
+발행일자(Date ofIssue): . . .
+유효기한(Date ofExpiration) : . . .
  품 질 관 리 심 사 기 관 장 인
  210㎜×297㎜[일반용지 60g/㎡(재활용품)]
 (뒤쪽)
 변경사항 등
 (Changes History Records of GMP Certificate)
 일 자(Date) 내 용(Description)
- (별첨) 융복합 의료기기가 포함되어 있는 경우
- 융복합의료기기 품목명, 융복합의료기기에 조합되거나 복합구성된 의약품 또는
-의약외품의 제조소명, 제조소 소재지
+ (별첨)융복합 의료기기가포함되어 있는 경우
+ 융복합의료기기품목명,융복합의료기기에조합되거나복합구성된의약품또는
+의약외품의 제조소명,제조소 소재지
 [별지제3호서식]
 의료기기적합성인정등심사결과보고서
 업종류 □제조 □수입 업허가번호
 업소명 대표자
 소재지 (☎ ) (FAX )
 심사구분
- □최초심사 □정기심사 □변경심사 □추가심사
- □1등급의료기기
- □임상시험용의료기기
- □수출용의료기기
- □융복합의료기기
- □의료기기공동심사프로그램활용
- □우수제조소
+□최초심사 □정기심사 □변경심사 □추가심사
+□1등급의료기기
+□임상시험용의료기기
+□수출용의료기기
+□융복합의료기기
+□의료기기공동심사프로그램활용
+□우수제조소
  ※해당하는경우에한하여작성
 심사방법 □현장조사 □서류검토 □결합심사
 품목
@@ -3747,5 +3705,5 @@ anufacturing Practices of Medical Devices for the Product group listed above)
 심사결과를보고합니다.
  년 월 일
  ○○○품질관리심사기관장 직인
- ※첨부서류:의료기기적합성인정등심사표1부
+※첨부서류:의료기기적합성인정등심사표1부
 210㎜×297㎜[일반용지60g/㎡(재활용품)]
