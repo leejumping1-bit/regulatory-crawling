@@ -1,0 +1,95 @@
+Medical Devices      
+Medical Device Coordination Group Document                         MDCG  2026-4 
+rev.1   
+Page 1 of 3 
+ 
+ 
+ 
+ 
+ 
+ 
+MDCG  2026-4 rev.1 
+MDCG Position Paper: 
+Management of SS(C)P in EUDAMED  
+after mandatory use 
+                 
+ 
+ 
+ October 2026 
+ 
+ 
+ 
+ 
+ 
+This document has been endorsed by the Medical Device Coordination Group (MDCG) 
+established by Article 103 of Regulation (EU) 2017/745. The MDCG is composed of 
+representatives of all Member States and it is chaired by a representative of the 
+European Commission. 
+The document is not a European Commission document and it cannot be regarded as 
+reflecting the official position of the European Commission. Any views expressed in 
+this document are not legally binding and only the Court of Justice of the European 
+Union can give binding interpretations of Union law. 
+ 
+Medical Devices      
+Medical Device Coordination Group Document                         MDCG  2026-4 
+rev.1   
+Page 2 of 3 
+ 
+1. Current situation in EUDAMED:  
+The summary of safety and clinical performance and the summary of safety and 
+performance (SSCP and SSP respectively), are to be uploaded by the notified body during 
+the process of registering certificates information according to Article 32(1) MDR and 
+Article 29(1) IVDR. This policy is however evolving, as described below. 
+2. Revision of the guidance MDCG 2019-9 – rev.1 on SSCP: 
+Guidance MDCG 2019-9 – rev.1 is being revised to assign to the manufacturer the task to 
+upload the SSCPs in EUDAMED, both the ‘master’ version along with the translations 1 in 
+accordance with Article 29(4) MDR. It is the responsibility of the manufacturer to ensure 
+that the uploaded SSCP is the one validated by the notified body during the certification 
+process. The changes outlined in the revised guidance will be reflected in EUDAMED and 
+will require the notified body to indicate which is the validated SSCP(s), or parts thereof, 
+in accordance with Article 32(1) MDR, by ticking the box(es) corresponding to the relevant 
+Basic UDI -DI(s). This functionality will be available when registering and/or linking the 
+relevant certificate. See the guidance for more details. 
+This procedure will apply as well to SSP (IVDs). 
+3. Timeline for implementation in EUDAMED: 
+Changes will be implemented in EUDAMED in the coming months and after the 
+mandatory use date. A transitional period will be foreseen to switch the task of SS(C)P 
+upload in EUDAMED from the notified body to the manufacturer. 
+In practice, from 28 th May 2026 (date of mandatory use of the first four modules of 
+EUDAMED) and until the new functionalities described in paragraph 2 are fully available 
+in the EUDAMED Production environment, notified bodies need to upload SS(C)Ps 
+alongside the registration of new certificates, including their updates, for concerned 
+devices. The upload concerns only the master SS(C)Ps, without the translations. 
+Management of translations will be done by the manufacturer  in line with MDCG 2021-1 
+rev.1 and MDCG 2022-12 respectively. 
+The new functionalities will first be available in the EUDAMED Playground environment 
+and a few months later in the Production environment 2. The interval between the 
+deployments in Playground and Production is intended to provide manufacturers and  
+notified bodies with a transition period to adapt their internal processes and test the 
+functionalities in Playground and therefore ensure compliance with the requirements. 
+ 
+ 
+1 The certificate registration does not require the SS(C)P translations upload in EUDAMED.  
+2 Deployment in Playground planned in July 2026 and in Production in December 2026 
+Medical Devices      
+Medical Device Coordination Group Document                         MDCG  2026-4 
+rev.1   
+Page 3 of 3 
+ 
+4. Devices placed on the market before the mandatory use of the UDI/Devices 
+module: 
+Since manufacturers will only be able to upload SS(C)Ps from December 2026 onwards, 
+the original transitional period of 6 months for devices registration 3 is de facto reduced 
+substantially for SS(C)P upload. 
+Moreover, a 12-month transition period for notified bodies to upload the corresponding 
+certificates in the Notified Bodies & Certificates module (ending on 27 May 2027) is 
+foreseen. Due to this transition period, there may be a significant number of device s 
+registered in EUDAMED which do not have yet a corresponding certificate and related 
+SS(C)P registered by the notified body when the functionality that allows manufacturers 
+to manage SS(C)Ps is available in Production. 
+Therefore, manufacturers should upload SS(C)Ps in EUDAMED as soon as possible, and 
+no later than 27 March 2027 for devices placed on the market before mandatory use  
+considering that manufacturers and notified bodies should align on timelines to fulfil their 
+registration obligations. 
+ 
+3 Article 123.3(e)(i) MDR and Article 113.3(fa)(i) IVDR
