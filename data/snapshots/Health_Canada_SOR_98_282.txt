@@ -346,22 +346,25 @@ Interpretation
 [조항 3] in vitro
 [조항 3] diagnostic device.
 [조항 3] (2)
-[조항 3] Subsection (1) does not apply to a
+[조항 3] Subsection (1) does not apply to
+[조항 3] (a)
+[조항 3] a drug listed in Schedule E or F to the Act;
+[조항 3] (b)
+[조항 3] a drug listed in any of the schedules to the
+[조항 3] Controlled Substances Regulations
+[조항 3] ; or
+[조항 3] (c)
+[조항 3] a
 [조항 3] drug
-[조항 3] , as defined in subsection 1(2) of the
-[조항 3] Cannabis Regulations
-[조항 3] , containing
+[조항 3] containing
 [조항 3] cannabis
-[조항 3] , as defined in subsection 2(1) of the
+[조항 3] , as those terms are defined in subsection 1(2) of the
+[조항 3] Cannabis Regulations
+[조항 3] and subsection 2(1) of the
 [조항 3] Cannabis Act
-[조항 3] , or a drug listed in Schedule E or F to the Act, in the schedule to Part G or J of the
-[조항 3] Food and Drug Regulations
-[조항 3] , in the schedules to the
-[조항 3] Controlled Drugs and Substances Act
-[조항 3] or in the schedule to the
-[조항 3] Narcotic Control Regulations
-[조항 3] .
+[조항 3] , respectively.
 [조항 3] SOR/2018-144, s. 371
+[조항 3] SOR/2025-246, s. 14
 [조항 4] 4 Only sections 26 to 31, 37, 70, 75, 80, 86 and 87 apply to a dispenser.
 [조항 5] 5 These Regulations do not apply to a medical gas piping system that is assembled on site at a health care facility and permanently built into the structure of the facility.
 [조항 5] SOR/2017-18, s. 22
