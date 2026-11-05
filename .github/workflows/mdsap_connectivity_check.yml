@@ -1,0 +1,16 @@
+name: MDSAP source connectivity check
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Check official source without storing data
+        run: |
+          for path in /robots.txt /documents/library/audit-approach; do
+            echo "Checking $path"
+            curl --http1.1 -sS -L --max-time 30 -o /dev/null -w 'status=%{http_code} bytes=%{size_download}\n' "https://www.mdsap.global$path" || echo 'request failed'
+          done
