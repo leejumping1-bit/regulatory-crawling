@@ -7,6 +7,7 @@ from datetime import date, datetime, timezone
 from urllib.parse import urlsplit
 
 from collectors.store import load_regulations
+from collectors.mfds_pdf_display import evidence_for_item, load_evidence_images
 from app_logic import (
     effective_month,
     filter_by_month,
@@ -33,6 +34,20 @@ def render_html(html: str):
     그대로 문자로 출력해버리는 버그가 있다. 각 줄의 선행 공백을 제거해서 방지한다."""
     flat = "\n".join(line.strip() for line in html.strip().splitlines())
     st.markdown(flat, unsafe_allow_html=True)
+
+
+def render_mfds_pdf_evidence(ui, item):
+    evidence = evidence_for_item(item)
+    if evidence is None:
+        return
+    ui.markdown('**식약처 공식 신구조문대비표 원본**')
+    ui.link_button('공식 첨부 PDF', evidence['source_url'])
+    try:
+        images = load_evidence_images(item, evidence)
+        for number, image in images:
+            ui.image(image, caption=f'공식 PDF {number}쪽', use_container_width=True)
+    except Exception:
+        ui.warning('공식 PDF 이미지 표시 실패: 원본 접근 또는 무결성 검증에 실패했습니다. 공식 첨부 PDF를 확인하세요.')
 
 
 def render_revision_evidence(ui, item):
@@ -457,6 +472,7 @@ with st.container(border=True):
     render_html('<div class="rw-panel-head"><span class="rw-step">03</span>'
                 '<h2>개정 이력 <span class="rw-subtle">— 공식 출처 기반</span></h2></div>')
     render_revision_evidence(st, selected_item)
+    render_mfds_pdf_evidence(st, selected_item)
 
 st.markdown(
     "<p style='text-align:center;font-size:11px;color:var(--slate-500);padding:14px 0;'>"
