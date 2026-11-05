@@ -21,6 +21,15 @@ jobs:
           python - <<'PY'
           import os
           from collectors.grounded_discovery import _generate
+          from google import genai
+          client = genai.Client(api_key=os.environ['GEMINI_API_KEY'])
+          try:
+              available = [m.name for m in client.models.list() if 'generateContent' in (m.supported_actions or [])]
+              print('Available generateContent models:', ', '.join(available[:50]))
+          except Exception as exc:
+              print('List failure class:', type(exc).__name__, 'HTTP status:', getattr(exc, 'code', None))
+          finally:
+              client.close()
           try:
               result = _generate('site:health.ec.europa.eu MDCG 2026-4 official guidance', os.environ['GEMINI_API_KEY'])
               candidate = (result.candidates or [None])[0]
