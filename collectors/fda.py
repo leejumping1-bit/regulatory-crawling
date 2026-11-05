@@ -5,6 +5,7 @@ import re
 import sys
 import xml.etree.ElementTree as ET
 from datetime import date, timedelta
+from urllib.parse import urlencode, urlparse
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch  # noqa: E402
@@ -18,6 +19,74 @@ HUMAN_URL_TMPL = "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-H/p
 DOC_NO = "21 CFR Part 820"
 # Retain the existing key for compatibility; its value is now an amendment date.
 LAST_SEEN_KEY = "FDA_last_issue_date"
+
+federal_register_fetch = fetch
+FR_API = "https://www.federalregister.gov/api/v1/documents.json"
+FR_FIELDS = ("document_number", "title", "type", "publication_date", "effective_on",
+             "html_url", "abstract", "agencies", "action")
+
+
+def discover_federal_register(since_year=2026, since_month=1, today_only=False):
+    start = date.today() if today_only else date(since_year, since_month, 1)
+    params = [("conditions[agencies][]", "food-and-drug-administration"),
+              ("conditions[term]", "medical device"),
+              ("conditions[publication_date][gte]", start.isoformat()),
+              ("per_page", "100"), ("order", "newest")]
+    if today_only:
+        params.append(("conditions[publication_date][lte]", start.isoformat()))
+    params.extend(("fields[]", field) for field in FR_FIELDS)
+    rows = []
+    for page in range(1, 21):
+        res = federal_register_fetch(FR_API + "?" + urlencode(params + [("page", str(page))]))
+        if not res.ok:
+            raise RuntimeError("Federal Register 조회 실패: " + str(getattr(res, "error", "unknown")))
+        try:
+            data = json.loads(res.text)
+            count = data["count"]
+            total_pages = data.get("total_pages", 0 if count == 0 else None)
+            results = data.get("results", [] if count == 0 else None)
+            if (type(total_pages) is not int or total_pages < 0 or type(count) is not int or count < 0
+                    or not isinstance(results, list)
+                    or (count > 0 and (total_pages == 0 or not results))
+                    or (count == 0 and (total_pages != 0 or results))):
+                raise ValueError("invalid pagination")
+            rows.extend(results)
+        except (ValueError, TypeError, KeyError) as exc:
+            raise RuntimeError("Federal Register 응답 파싱 실패") from exc
+        if page >= total_pages:
+            break
+    else:
+        raise RuntimeError("Federal Register 페이지 제한 초과; 기간을 나누어 재시도")
+    items = []
+    seen = set()
+    for row in rows:
+        title = row.get("title") or ""
+        url = urlparse(row.get("html_url") or "")
+        published = row.get("publication_date")
+        try:
+            valid_date = isinstance(published, str) and date.fromisoformat(published).isoformat() == published
+        except ValueError:
+            valid_date = False
+        if (not valid_date or url.scheme != "https" or url.hostname != "www.federalregister.gov" or
+            not url.path.startswith("/documents/") or
+            not title or not row.get("document_number") or
+            not any(a.get("slug") == "food-and-drug-administration" for a in row.get("agencies", [])) or
+            not re.search(r"\bdevices?\b", title + " " + (row.get("abstract") or ""), re.I) or
+            not (row.get("type") in ("Rule", "Proposed Rule") or
+                 row.get("type") == "Notice" and re.search(r"\bguidance\b", title, re.I))):
+            continue
+        if row["document_number"] in seen:
+            continue
+        seen.add(row["document_number"])
+        status_text = title + " " + (row.get("action") or "")
+        status = "draft" if re.search(r"\bdraft\b", status_text, re.I) or row.get("type") == "Proposed Rule" else (
+            "final" if re.search(r"\bfinal\b", status_text, re.I) or row.get("type") == "Rule" else "unknown")
+        items.append({"search_month": row["publication_date"][:7], "publish_date": row["publication_date"],
+                      "effective_date": row.get("effective_on") or "", "publisher": "FDA (US)",
+                      "doc_no": row["document_number"], "title": title, "summary": ("[Federal Register 공식 초록 (영문)]\n" + row["abstract"]) if row.get("abstract") else "[공식 초록 없음] 문서 원문을 확인하세요.",
+                      "scope": "종합", "manufacturer_obligation": "", "url": row["html_url"],
+                      "document_status": status, "gap_analysis": None})
+    return items
 
 
 def _extract_issue_dates(data):
@@ -63,7 +132,7 @@ def _part_text(xml_text):
     return re.sub(r"\s+", " ", " ".join(root.itertext())).strip() or None
 
 
-def run(since_year=2026, since_month=1, today_only=False):
+def _run_part_820(since_year=2026, since_month=1, today_only=False):
     latest_date, err = _get_latest_issue_date()
     if latest_date is None:
         raise RuntimeError(f"FDA 버전 확인 실패: {getattr(err, 'error', err)}")
@@ -110,6 +179,22 @@ def run(since_year=2026, since_month=1, today_only=False):
     save_snapshot("FDA", DOC_NO, plain_text)
     save_snapshot("FDA", LAST_SEEN_KEY, latest_date)
     return [item], None
+
+
+def run(since_year=2026, since_month=1, today_only=False):
+    from collectors.http_utils import FetchResult
+    discovered, part_items, errors = [], [], []
+    try:
+        discovered = discover_federal_register(since_year, since_month, today_only)
+    except Exception as exc:
+        errors.append(f'Federal Register 확인 실패: {exc}')
+    try:
+        part_items, block = _run_part_820(since_year, since_month, today_only)
+        if block is not None:
+            errors.append(f'Part 820 확인 실패: {getattr(block, "error", block)}')
+    except Exception as exc:
+        errors.append(f'Part 820 확인 실패: {exc}')
+    return part_items + discovered, FetchResult(False, error='; '.join(errors)) if errors else None
 
 
 if __name__ == "__main__":

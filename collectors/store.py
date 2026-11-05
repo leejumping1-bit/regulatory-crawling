@@ -53,8 +53,8 @@ def load_remote_regulations(url, timeout=15):
 
 def save_regulations(items):
     os.makedirs(os.path.dirname(DATA_PATH), exist_ok=True)
-    # No. 재부여 (고시일 최신순, 문자열 비교라 YYYY-MM-DD 형식 가정)
-    items = sorted(items, key=lambda x: (x.get("publish_date") or ""), reverse=True)
+    # 정렬은 변경 이벤트일·개정일을 우선하되 원래 고시일 필드는 덮어쓰지 않는다.
+    items = sorted(items, key=lambda x: (x.get("change_date") or x.get("revision_date") or x.get("publish_date") or ""), reverse=True)
     for idx, it in enumerate(items, start=1):
         it["no"] = idx
     # Write beside the target and replace it atomically. A reader can then see

@@ -100,6 +100,15 @@ def run_crawler(since_year=2026, since_month=1, only=None, progress_cb=None, tod
                 if progress_cb:
                     progress_cb(key, msg)
                 continue
+            if getattr(block_info, "ok", None) is False:
+                if items:
+                    upsert_regulations(items)
+                msg = f"수집 실패: {getattr(block_info, 'error', None) or '원인 미확인'}"
+                print(f"[ERROR] {key}: {msg}")
+                summary[key] = msg
+                if progress_cb:
+                    progress_cb(key, msg)
+                continue
 
         # 이 기관 결과를 즉시 저장 (부분 저장)
         if items:

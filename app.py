@@ -273,6 +273,7 @@ with ctrl3:
             export_rows.append({
                 "No.": item["no"],
                 "고시일 Published Date": item.get("publish_date") or "",
+                "개정·업데이트일 Revision or update date": item.get("change_date") or item.get("revision_date") or "",
                 "시행일 Effectiveness Date": item.get("effective_date") or "",
                 "발행처 Published by": item.get("publisher") or "",
                 "규격 및 가이던스 번호 Regulation & Guidance No.": (item.get("doc_no") or "").replace("\n", " "),
@@ -319,16 +320,16 @@ with ctrl3:
             })
             worksheet.set_row(0, 30, header)
             worksheet.set_column("A:A", 6, centered)
-            worksheet.set_column("B:C", 14, centered)
-            worksheet.set_column("D:D", 18, centered)
-            worksheet.set_column("E:E", 28, centered)
-            worksheet.set_column("F:F", 48, centered)
-            worksheet.set_column("G:G", 38, base)
-            worksheet.set_column("H:H", 20, centered)
-            worksheet.set_column("I:I", 58, centered)
+            worksheet.set_column("B:D", 14, centered)
+            worksheet.set_column("E:E", 18, centered)
+            worksheet.set_column("F:F", 28, centered)
+            worksheet.set_column("G:G", 48, centered)
+            worksheet.set_column("H:H", 38, base)
+            worksheet.set_column("I:I", 20, centered)
+            worksheet.set_column("J:J", 58, centered)
             worksheet.autofilter(0, 0, len(df_export), len(df_export.columns) - 1)
             worksheet.freeze_panes(1, 0)
-            widths = [6, 14, 14, 18, 28, 48, 38, 20, 58]
+            widths = [6, 14, 14, 14, 18, 28, 48, 38, 20, 58]
             for excel_row, row_values in enumerate(df_export.itertuples(index=False, name=None), start=1):
                 worksheet.set_row(
                     excel_row,
@@ -417,6 +418,7 @@ with st.container(border=True):
             f'<tr>'
             f'<td>{item["no"]}</td>'
             f'<td>{item.get("publish_date") or "-"}</td>'
+            f'<td>{item.get("change_date") or item.get("revision_date") or "-"}</td>'
             f'<td>{item.get("effective_date") or "-"}</td>'
             f'<td>{item.get("publisher") or "-"}</td>'
             f'<td>{doc_no_clean}</td>'
@@ -429,7 +431,7 @@ with st.container(border=True):
     table_html = (
         '<div class="reg-table-container"><table class="reg-table"><thead><tr>'
         '<th style="width:5%;">No.</th><th style="width:9%;">고시일</th>'
-        '<th style="width:9%;">시행일</th><th style="width:12%;">발행처</th>'
+        '<th style="width:10%;">개정·업데이트일</th><th style="width:9%;">시행일</th><th style="width:12%;">발행처</th>'
         '<th style="width:14%;">규격/가이던스 번호</th><th style="width:34%;">제목 (클릭 시 이동)</th>'
         '<th style="width:11%;">적용범위</th><th style="width:12%;">Manufacturer obligation</th>'
         f'</tr></thead><tbody>{rows_html}</tbody></table></div>'
@@ -442,7 +444,7 @@ st.markdown("<div style='height:18px'></div>", unsafe_allow_html=True)
 # ==================== 2. 요약 ====================
 with st.container(border=True):
     render_html('<div class="rw-panel-head"><span class="rw-step">02</span>'
-                '<h2>업데이트 내용 요약 <span class="rw-subtle">— 선택 항목 자동 요약</span></h2></div>')
+                '<h2>업데이트 내용 요약 <span class="rw-subtle">— 선택 항목 원문 또는 요약</span></h2></div>')
 
     selected_no = st.selectbox(
         "GAP 분석 및 세부 요약을 확인할 규격 [No.]를 선택하세요:",
@@ -463,6 +465,8 @@ with st.container(border=True):
         '</div>'
     )
     render_html(summary_html)
+    if selected_item.get("document_status") in ("draft", "final"):
+        st.caption("문서 상태: " + ("초안" if selected_item["document_status"] == "draft" else "최종 규칙·최종 안내"))
     if selected_item.get("summary_retained_stale"):
         st.warning("원문 재조회에 실패해 이전에 저장한 요약을 표시합니다. 최신 여부는 확인되지 않았습니다.")
 

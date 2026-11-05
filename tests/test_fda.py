@@ -16,6 +16,7 @@ def xml(text):
 
 
 def setup_collector(monkeypatch, versions, bodies, snapshots=None):
+    monkeypatch.setattr(fda, 'discover_federal_register', lambda *args: [])
     snapshots = dict(snapshots or {})
     calls = []
 
@@ -71,8 +72,8 @@ def test_unavailable_or_invalid_official_prior_fails_closed(monkeypatch, prior):
     _, snapshots = setup_collector(monkeypatch, [version('2026-02-04')],
         {'2026-02-04': xml('New rule.'), '2026-02-03': prior},
         {fda.DOC_NO: 'stale text'})
-    with pytest.raises(RuntimeError, match='공식 개정 전/후 원문'):
-        fda.run()
+    items, failure = fda.run()
+    assert items == [] and failure and '공식 개정 전/후 원문' in failure.error
     assert fda.LAST_SEEN_KEY not in snapshots
 
 
@@ -95,6 +96,6 @@ def test_missing_or_false_substantive_never_creates_entry(monkeypatch):
     calls, _ = setup_collector(monkeypatch, [
         {**version('2026-02-04', False), 'issue_date': '2026-10-30'},
         {'part': '820', 'amendment_date': '2026-10-31'}], {})
-    with pytest.raises(RuntimeError, match='FDA 버전 확인 실패'):
-        fda.run()
+    items, failure = fda.run()
+    assert items == [] and failure and 'FDA 버전 확인 실패' in failure.error
     assert calls == [fda.VERSIONS_API]

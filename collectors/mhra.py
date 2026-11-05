@@ -1,25 +1,7 @@
-"""
-MHRA(UK) 수집기 — v2 (변경이력 changelog 방식)
+"""MHRA collection via GOV.UK Search and Content APIs.
 
-사용자가 확인해준 대로, MHRA 가이던스 페이지는 하단에 "Last updated: DATE —
-See all updates" 를 펼치면 날짜별 변경 이력이 그대로 나온다. 이건 정부가 이미
-"무엇이 바뀌었는지" 문장으로 정리해둔 것이므로, 페이지 전체를 스크래핑해서
-의료기기 여부를 추측할 필요 없이 이 변경이력 블록만 그대로 가져오면 된다.
-
-대상 2개 페이지:
-  1) https://www.gov.uk/guidance/regulating-medical-devices-in-the-uk
-  2) https://www.gov.uk/government/collections/medical-devices-guidance-for-manufacturers-on-vigilance
-
-처리 방식:
-  - 페이지에서 "Last updated: DATE" 와 그 아래 날짜별 변경이력 항목들을 추출한다.
-  - 변경이력 전체 텍스트를 이전에 저장해둔 스냅샷과 비교(diff_engine)한다 —
-    새로 추가된 날짜/문구만 "추가"로 표시되고, 기존 항목은 자동으로 접힌다.
-  - 페이지에 첨부된 PDF/DOCX가 있으면 함께 추출해 스냅샷에 포함시켜, 변경이력에
-    명시되지 않은 첨부파일 자체의 변경도 다음 비교에서 잡히도록 한다.
-
-한계: gov.uk의 정확한 CSS 클래스는 이 환경에서 확인하지 못해, 텍스트 레이아웃
-(날짜가 단독 줄에 오고 그 아래 설명이 이어지는 패턴)에 의존한 정규식으로 파싱한다.
-실제 배포 후 결과가 이상하면 셀렉터를 조정해야 할 수 있다.
+The legacy fixed-page parser remains available for compatibility; run() uses
+organisation-filtered Search and issuer-authored Content API history instead.
 """
 import re
 import sys
@@ -152,20 +134,154 @@ def _process_source(doc_no, url, today_only):
     return item, None
 
 
-def run(since_year=2026, since_month=1, today_only=False):
-    results = []
-    for doc_no, url in SOURCES.items():
+def events_from_content(content, since):
+    """Emit issuer-described publication/update events, not inferred amendments."""
+    import hashlib
+    from datetime import datetime
+    path = content.get("base_path", "")
+    if not isinstance(path, str) or not path.startswith("/") or path.startswith("//"):
+        return []
+    title = content.get("title") or ""
+    url = "https://www.gov.uk" + path
+    published = (content.get("first_published_at") or "")[:10] or None
+    events = []
+    history = list((content.get("details") or {}).get("change_history") or [])
+    has_history = bool(history)
+    first_at = content.get("first_published_at")
+    if first_at and not any(isinstance(e, dict) and str(e.get("note", "")).strip().rstrip(".").lower() == "first published" for e in history):
+        history.append({"public_timestamp": first_at, "note": "First published."})
+    updated_at = content.get("public_updated_at")
+    if updated_at and updated_at != first_at and not has_history:
+        history.append({"public_timestamp": updated_at, "note": "Official update timestamp; change description unavailable.", "unverified": True})
+    for entry in history:
+        if not isinstance(entry, dict):
+            continue
+        timestamp, note = entry.get("public_timestamp"), entry.get("note")
+        if not isinstance(timestamp, str) or not isinstance(note, str) or not note.strip():
+            continue
         try:
-            item, err = _process_source(doc_no, url, today_only)
-        except Exception as e:
-            print(f"[mhra] {doc_no} 처리 실패: {e}")
+            datetime.fromisoformat(timestamp.replace("Z", "+00:00"))
+        except ValueError:
             continue
-        if err and getattr(err, "robots_disallowed", False):
-            print(f"[mhra] {doc_no} robots.txt 차단")
+        day = timestamp[:10]
+        if day < since:
             continue
-        if item:
-            results.append(item)
-    return results, None
+        first = note.strip().rstrip(".").lower() == "first published"
+        key = hashlib.sha256((path + "\0" + timestamp + "\0" + note).encode()).hexdigest()[:24]
+        evidence = ({"status": "discovery_incomplete", "current_url": url,
+                     "detail": ("Official update description unavailable" if entry.get("unverified") else "First publication; prior version not established")} if first or entry.get("unverified") else
+                    {"status": "revision_history", "current_url": url,
+                     "sections": [{"title": day, "quote": note}]})
+        events.append({"search_month": day[:7], "publish_date": published,
+                       "change_date": day, "source_updated_date": (content.get("public_updated_at") or "")[:10] or None,
+                       "collected_date": date.today().isoformat(), "effective_date": None,
+                       "publisher": "MHRA (UK)", "doc_no": "MHRA-" + key,
+                       "title": title, "summary": "[MHRA 공식 변경 설명 (영문)]\n" + note, "scope": "",
+                       "manufacturer_obligation": "", "url": url,
+                       "revision_evidence": evidence})
+    return events
+
+
+def _api_get(path, params=None):
+    import json
+    from urllib.parse import urlencode
+    url = "https://www.gov.uk" + path
+    if params:
+        url += "?" + urlencode(params)
+    response = fetch(url, timeout=8, retries=1, backoff=1.0, allowed_hosts={"www.gov.uk"})
+    if not response.ok:
+        raise RuntimeError(response.error or "GOV.UK API request failed")
+    try:
+        result = json.loads(response.text)
+    except (ValueError, TypeError) as exc:
+        raise RuntimeError("Invalid GOV.UK API JSON") from exc
+    if not isinstance(result, dict):
+        raise RuntimeError("Unexpected GOV.UK API response")
+    return result
+
+
+def _relevant(row):
+    # Explicit phrases only; generic 'classification', MDR and quality-system
+    # terms also describe medicines and must not classify them as devices.
+    text = str(row.get("title") or "")
+    return bool(re.search(r"\b(?:medical[ -]devices?|in[ -]vitro diagnostics?|ivds?)\b", text, re.I))
+
+
+def backfill(since, *, page_size=100, max_pages=None, today_only=False, max_documents=80, max_seconds=120):
+    """Return events and error status without writing snapshots or the ledger.
+
+    Search is organisation-filtered, descending by public timestamp. Coverage is
+    limited to indexed records and explicit device phrases in titles.
+    """
+    from datetime import date as _date
+    from collectors.http_utils import FetchResult
+    from urllib.parse import urlsplit
+    _date.fromisoformat(since)
+    if not 1 <= page_size <= 1000 or (max_pages is not None and max_pages < 1):
+        raise ValueError("invalid pagination limit")
+    import time
+    started = time.monotonic()
+    found, seen_paths, seen_events = [], set(), set()
+    start = 0
+    try:
+        while True:
+            if time.monotonic() - started >= max_seconds:
+                raise RuntimeError('MHRA 시간 제한 도달: 부분 수집')
+            if max_pages is not None and start // page_size >= max_pages:
+                raise RuntimeError("Search page limit reached; results incomplete")
+            data = _api_get('/api/search.json', {'filter_organisations': 'medicines-and-healthcare-products-regulatory-agency',
+                            'count': page_size, 'start': start, 'order': '-public_timestamp'})
+            rows, total = data.get('results'), data.get('total')
+            if not isinstance(rows, list) or not isinstance(total, int):
+                raise RuntimeError('Invalid search results')
+            if not rows:
+                if start < total:
+                    raise RuntimeError('Search pagination ended prematurely')
+                break
+            older = False
+            for row in rows:
+                if not isinstance(row, dict):
+                    raise RuntimeError('Invalid search result')
+                stamp = row.get('public_timestamp')
+                if isinstance(stamp, str) and stamp[:10] < since:
+                    older = True
+                    continue
+                if not _relevant(row):
+                    continue
+                path = row.get('link')
+                if not isinstance(path, str):
+                    continue
+                parsed = urlsplit(path)
+                if (parsed.scheme or parsed.netloc or parsed.query or parsed.fragment
+                        or not path.startswith('/') or path.startswith('//')
+                        or '%' in path or '\\' in path
+                        or any(part in ('.', '..') for part in path.split('/'))):
+                    continue
+                if path in seen_paths:
+                    continue
+                if len(seen_paths) >= max_documents or time.monotonic() - started >= max_seconds:
+                    raise RuntimeError('MHRA 요청·시간 제한 도달: 부분 수집')
+                seen_paths.add(path)
+                content = _api_get('/api/content' + path)
+                if content.get('base_path') != path:
+                    raise RuntimeError('Content API path mismatch: ' + path)
+                for item in events_from_content(content, since):
+                    if today_only and item['change_date'] != _date.today().isoformat():
+                        continue
+                    if item['doc_no'] not in seen_events:
+                        found.append(item)
+                        seen_events.add(item['doc_no'])
+            start += len(rows)
+            if older or start >= total:
+                break
+    except Exception as exc:
+        return found, FetchResult(False, error=str(exc))
+    return found, None
+
+
+def run(since_year=2026, since_month=1, today_only=False):
+    since = date.today().isoformat() if today_only else date(since_year, since_month, 1).isoformat()
+    return backfill(since, today_only=today_only)
 
 
 if __name__ == "__main__":

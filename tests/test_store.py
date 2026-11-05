@@ -69,6 +69,20 @@ def test_load_remote_regulations_rejects_non_list(monkeypatch):
     with pytest.raises(ValueError, match="not a list"):
         store.load_remote_regulations("https://example.test/data.json")
 
+def test_sort_by_event_or_revision_date_not_original_publish_date(monkeypatch):
+    items = [
+        {'title': 'old event', 'publish_date': '2026-01-01'},
+        {'title': 'new update', 'publish_date': '2020-01-01', 'change_date': '2026-10-16'},
+        {'title': 'new revision', 'publish_date': None, 'revision_date': '2026-08-03'},
+    ]
+    import tempfile
+    from pathlib import Path
+    with tempfile.TemporaryDirectory() as temp:
+        monkeypatch.setattr(store, 'DATA_PATH', str(Path(temp) / 'data.json'))
+        actual = store.save_regulations(items)
+    assert [i['title'] for i in actual] == ['new update', 'new revision', 'old event']
+
+
 def test_mdcg_pdf_unavailable_retains_prior_summary(monkeypatch):
     old = {'publisher':'MDCG (EU)', 'doc_no':'MDCG 2020-16 rev.5', 'title':'Guidance', 'url':'https://example.test/a', 'summary':'verified', 'summary_status':'pdf_extracted'}
     new = dict(old, summary='[요약 오류]', summary_status='pdf_unavailable')
