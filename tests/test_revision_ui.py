@@ -69,6 +69,19 @@ def test_incomplete_search_reports_coverage_not_absence():
     assert "https://agency.gov/new" in output
 
 
+def test_external_archived_comparison_shows_changes_and_does_not_claim_official_host():
+    evidence = {'status': 'archived_comparison', 'previous_available': False,
+        'issuer_previous_status': 'search_incomplete',
+        'previous_url': 'https://lne-gmed.com/archive.pdf', 'current_url': 'https://health.ec.europa.eu/current.pdf',
+        'changes': [{'before': 'October 2026', 'after': 'December 2026', 'before_page': 2, 'after_page': 2}]}
+    output = contents(render({'revision_evidence': evidence}))
+    assert '외부 보관본' in output
+    assert 'October 2026' in output and 'December 2026' in output
+    assert '이전 버전 확인 실패' in output
+    assert 'lne-gmed.com/archive.pdf' in output
+    assert '이전 버전: 찾을 수 없음' not in output
+
+
 def test_section_03_uses_renderer_and_section_02_keeps_summary():
     source = APP.read_text()
     section_02, section_03 = source.split("# ==================== 3.")

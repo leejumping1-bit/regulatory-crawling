@@ -74,6 +74,22 @@ def render_revision_evidence(ui, item):
         ui.text(explanation)
         ui.link_button("이전 버전 출처", previous)
         ui.link_button("현재 버전 출처", current)
+    elif (status == "archived_comparison" and valid_url(current) and valid_url(previous)
+          and isinstance(evidence.get("changes"), list) and evidence["changes"]):
+        ui.markdown("**개정 내용 — 외부 보관본과 공식 현행본 비교**")
+        ui.caption("이전 자료는 발행기관 사이트가 아닌 외부 보관본이며, 발행기관 사이트의 이전 버전 확인은 완료되지 않았습니다.")
+        if isinstance(explanation, str) and explanation.strip():
+            ui.markdown("**확인된 주요 변경**")
+            ui.text(explanation)
+        for change in evidence["changes"]:
+            if isinstance(change, dict):
+                ui.markdown(f"**이전 (외부 보관본, {change.get('before_page', '?')}쪽)**")
+                ui.text(str(change.get("before", "")))
+                ui.markdown(f"**현재 (공식 문서, {change.get('after_page', '?')}쪽)**")
+                ui.text(str(change.get("after", "")))
+        ui.link_button("외부 보관본 출처", previous)
+        ui.link_button("현재 공식 문서 출처", current)
+        ui.warning("이전 버전 확인 실패 — 발행기관 사이트 검색이 완료되지 않았습니다.")
     elif status == "discovery_incomplete":
         ui.warning("이전 버전 확인 실패 — 공식 사이트 검색이나 원문 검증을 완료하지 못했습니다.")
         ui.caption("과거 이력 확인 실패: 변경 여부를 단정할 수 없습니다.")
@@ -84,7 +100,7 @@ def render_revision_evidence(ui, item):
         if valid_url(current):
             ui.link_button("현재 버전 출처", current)
 
-    if evidence.get("previous_available") is False:
+    if evidence.get("previous_available") is False and status != "archived_comparison":
         ui.warning("이전 버전: 찾을 수 없음")
         ui.caption("이전 버전이 없어 직접 대조할 수 없습니다. 자료가 없다는 사실만으로 변경 여부를 단정할 수 없습니다.")
 

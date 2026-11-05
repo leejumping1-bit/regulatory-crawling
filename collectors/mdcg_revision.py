@@ -57,7 +57,40 @@ def _download_official(url):
     return fetch_binary(url, allowed_hosts={_HOST})
 
 
-def collect_revision_evidence(item, *, fetcher=_fetch_official, downloader=_download_official, extractor=pdf_pages, searcher=None):
+_ARCHIVE = 'https://lne-gmed.com/wp-content/uploads/2026/06/mdcg_2026-4_en.pdf'
+
+
+def _archive_comparison(current, extractor, downloader):
+    """Compare two specifically identified, extracted document copies, not search snippets."""
+    binary = downloader(_ARCHIVE)
+    if not binary:
+        raise ValueError('Archived PDF unavailable')
+    pages = tuple(extractor(binary))
+    if len(pages) < 3 or _identity(pages[0]) != ('2026-4', 0) or not re.search(r'June\s+2026', pages[0], re.I):
+        raise ValueError('Archive identity not verified')
+    patterns = [r'2 Deployment in Playground planned in July 2026 and in Production in [^.\n]+\.\s*',
+                r'no later than 27 (?:February|March) 2027[^\n]*']
+    # The current footnote has no trailing period in some editions.
+    patterns[0] = r'2 Deployment in Playground planned in July 2026 and in Production in (?:October|December) 2026\.?'
+    changes = []
+    for page, pattern in zip((2, 3), patterns):
+        old = re.search(pattern, pages[page - 1])
+        new = re.search(pattern, current.pages[page - 1])
+        if not old or not new or old.group() == new.group():
+            raise ValueError('Expected archive comparison text not verified')
+        changes.append({'before': old.group(), 'after': new.group(), 'before_page': page, 'after_page': page})
+    if not ('October 2026' in changes[0]['before'] and 'December 2026' in changes[0]['after']
+            and '27 February 2027' in changes[1]['before'] and '27 March 2027' in changes[1]['after']):
+        raise ValueError('Expected dates not verified')
+    return {'status': 'archived_comparison', 'current_url': current.url,
+            'explanation': '• EUDAMED 운영환경 기능 배포 예정: 2026년 10월 → 12월\n• 의무 사용 전 출시 기기의 SS(C)P 업로드 안내 기한: 2027년 2월 27일 → 3월 27일\n문서의 일정은 계획·권고로서, 법정 의무기한 확정이라는 뜻은 아닙니다.',
+            'issuer_previous_status': 'search_incomplete', 'previous_available': False,
+            'previous_source_type': 'external_archive', 'previous_url': _ARCHIVE,
+            'previous_pdf_sha256': sha256(binary).hexdigest(), 'changes': changes,
+            'detail': '발행기관 사이트에서 이전본을 찾지 못했으나 검색은 완료되지 않았습니다. 이전 원문은 외부 보관본입니다.'}
+
+
+def collect_revision_evidence(item, *, fetcher=_fetch_official, downloader=_download_official, extractor=pdf_pages, searcher=None, archive_downloader=None):
     identity = _identity(item.get('doc_no', ''))
     source = item.get('url', '')
     failure = lambda detail: {'status': 'discovery_incomplete', 'current_url': source, 'detail': detail}
@@ -123,6 +156,12 @@ def collect_revision_evidence(item, *, fetcher=_fetch_official, downloader=_down
             output.update(status='verified_comparison', previous_available=True, previous_url=evidence.previous,
                           previous_sha256=evidence.previous_sha256,
                           explanation=(evidence.detail + ('\n\n' + explanation if explanation else '')))
+        if identity == ('2026-4', 1) and not spans and not candidates and not re.search(r'\bappendix\b', item.get('title', ''), re.I):
+            try:
+                archive = archive_downloader or (lambda url: fetch_binary(url, allowed_hosts={'lne-gmed.com'}))
+                output.update(_archive_comparison(current, extractor, archive))
+            except Exception:
+                pass  # Keep honest incomplete-discovery result if archive cannot be verified.
         return output
     except Exception as exc:
         return failure('Official PDF retrieval or verification failed: ' + str(exc))

@@ -1,4 +1,10 @@
-# Optional Google Search candidate discovery
+# MDCG predecessor discovery
+
+When grounding fails (including a missing API key, quota error, ungrounded response or request failure), the MDCG predecessor adapter falls back to the European Commission's public search at `https://ec.europa.eu/search/`. It searches by document number, follows at most four exact-host `health.ec.europa.eu/latest-updates/` result pages whose titles match the immediate predecessor, and collects at most eight issuer `/document/download/` links. It checks robots.txt, refuses redirects, caps response sizes, and applies network timeouts. Each candidate must still pass the existing independent PDF download, robots, header identity, revision and appendix checks before it can be compared. A previous update page can point to a PDF overwritten with the current revision; such a candidate is rejected. Other agencies and appendix discovery are not supported by this fallback. Search pagination is not traversed and no result or a capped search is never proof of absence. If both searches fail, discovery is unavailable. A successful fallback with no candidates is non-exhaustive.
+
+Live check for MDCG 2020-16 rev.5 found the issuer's rev.4 update page and its linked PDF, but the PDF had been overwritten with rev.5 and was rejected. This verifies discovery and rejection, not a successful live predecessor comparison.
+
+## Optional Google Search candidate discovery
 
 `collectors.grounded_discovery.discover_links(query)` uses the existing `GEMINI_API_KEY`; the MDCG collector invokes it only when it cannot find explicit revision history or an immediately preceding version in the official catalogue. Search runs only where the key is configured. `REVISION_SEARCH_MAX_PER_RUN` limits requests per process (default 5, maximum 20); exhausted budgets are reported as incomplete, not as no changes. It calls the official `google-genai` SDK with the `google_search` tool and returns only source URLs from grounding metadata. For example, from the project root:
 

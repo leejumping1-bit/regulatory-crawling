@@ -1,7 +1,7 @@
-"""Grounded search candidates independently verified as MDCG predecessor PDFs.
+"""Search candidates independently verified as MDCG predecessor PDFs.
 
-This module is deliberately not wired into the collector. Search is bounded and
-never exhaustive. Notified-body documents are supplemental, never EU evidence.
+Search is bounded and never exhaustive. Notified-body documents are
+supplemental, never EU evidence.
 """
 from dataclasses import dataclass
 import re
@@ -11,6 +11,7 @@ from urllib.robotparser import RobotFileParser
 import requests
 
 from collectors.grounded_discovery import discover_links
+from collectors.mdcg_official_search import discover_official_links
 from collectors.revision_evidence import DocumentVersion, pdf_pages
 
 OFFICIAL = 'health.ec.europa.eu'
@@ -95,7 +96,12 @@ def discover_previous(doc_no, *, include_notified_bodies=False, search=None, dow
         if not isinstance(links, (list, tuple)):
             raise ValueError('invalid discovery response')
     except Exception:
-        return DiscoveryResult('unavailable', detail='Google grounded search unavailable or ungrounded')
+        if search is not None:
+            return DiscoveryResult('unavailable', detail='Injected search unavailable')
+        try:
+            links = discover_official_links(number, revision)
+        except Exception:
+            return DiscoveryResult('unavailable', detail='Grounded and official search unavailable')
     if not links:
         return DiscoveryResult('no_results', detail='No allowed candidates returned; search is not exhaustive')
     official, supplemental = [], []
