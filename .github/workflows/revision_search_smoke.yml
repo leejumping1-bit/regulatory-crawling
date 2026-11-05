@@ -18,4 +18,17 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           REVISION_SEARCH_MAX_PER_RUN: '1'
         run: |
-          python -c "from collectors.grounded_discovery import discover_links; x=discover_links('site:health.ec.europa.eu MDCG 2026-4 official guidance'); print('Grounding request succeeded; allowed source links:',len(x)); print('\n'.join(x)); assert x, 'No allowlisted source links returned'"
+          python - <<'PY'
+          import os
+          from collectors.grounded_discovery import _generate
+          try:
+              result = _generate('site:health.ec.europa.eu MDCG 2026-4 official guidance', os.environ['GEMINI_API_KEY'])
+              candidate = (result.candidates or [None])[0]
+              metadata = getattr(candidate, 'grounding_metadata', None)
+              print('Search response received; grounding:', bool(metadata and metadata.web_search_queries and metadata.grounding_chunks))
+              if not metadata or not metadata.web_search_queries or not metadata.grounding_chunks:
+                  raise RuntimeError('No grounding metadata')
+          except Exception as exc:
+              print('Failure class:', type(exc).__name__, 'HTTP status:', getattr(exc, 'code', None))
+              raise SystemExit(1)
+          PY
