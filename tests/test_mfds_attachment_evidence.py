@@ -16,7 +16,7 @@ def test_unreliable_table_provides_exact_official_attachment_link_and_page():
     assert PDF in section['quote']
     assert '2쪽' in section['quote']
     assert '고시' in section['title']
-    assert '자동 추출' in section['quote']
+    assert '원본 페이지' in section['quote']
     assert section['source_url'] == PDF
     assert section['page'] == 2
     import hashlib

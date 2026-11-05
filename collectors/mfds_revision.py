@@ -69,8 +69,10 @@ def _attachment_sections(url, html, title, downloader, pages):
         label = ('개정안' if '(안)' in title or '예고' in title else
                  '고시' if '고시' in title else '공고 상태 미확인')
         location = f'{page}쪽부터' if page else '쪽수 확인 실패'
+        message = ('표의 좌우 문구를 재구성하지 않고 하단에 원본 페이지로 표시합니다.' if page
+                   else '대비표 쪽수를 확인하지 못했습니다. 공식 PDF를 확인하세요.')
         sections.append({'title': f'신구조문대비표 확인 ({label})' if page else f'개정 첨부 PDF 확인 ({label})',
-                         'quote': f'{filename}\n{location}. 표의 행 정렬을 검증할 수 없어 자동 추출하지 않았습니다. 공식 PDF를 확인하세요.\n{target}',
+                         'quote': f'{filename}\n{location}. {message}\n{target}',
                          'source_url': target, 'page': page, 'sha256': digest if page else None})
         if len(sections) >= 4:
             break
