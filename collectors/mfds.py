@@ -31,7 +31,7 @@ from collectors.file_extract import extract_text  # noqa: E402
 from collectors.summarizer import summarize, guess_scope, guess_manufacturer_obligation  # noqa: E402
 from collectors.diff_engine import generate_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
-from collectors.regional_revision_evidence import collect_revision_evidence  # noqa: E402
+from collectors.mfds_revision import collect_revision_evidence  # noqa: E402
 
 try:
     from bs4 import BeautifulSoup
@@ -496,7 +496,7 @@ def run(since_year=2026, since_month=1, today_only=False):
                 "scope": guess_scope(c["title"] + " " + summary_source, title=c["title"], publisher="MFDS (Korea)"),
                 "manufacturer_obligation": "★" if guess_manufacturer_obligation(c["title"], summary_source) else "",
                 "url": c["view_url"],
-                "revision_evidence": collect_revision_evidence("mfds", c["view_url"]),
+                "revision_evidence": collect_revision_evidence({"url": c["view_url"], "title": c["title"]}),
                 "gap_analysis": gap,
             })
         except Exception as e:

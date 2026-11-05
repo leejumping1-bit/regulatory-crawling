@@ -68,3 +68,60 @@ def test_load_remote_regulations_rejects_non_list(monkeypatch):
     monkeypatch.setattr(store.requests, "get", lambda *args, **kwargs: Response())
     with pytest.raises(ValueError, match="not a list"):
         store.load_remote_regulations("https://example.test/data.json")
+
+def test_mdcg_pdf_unavailable_retains_prior_summary(monkeypatch):
+    old = {'publisher':'MDCG (EU)', 'doc_no':'MDCG 2020-16 rev.5', 'title':'Guidance', 'url':'https://example.test/a', 'summary':'verified', 'summary_status':'pdf_extracted'}
+    new = dict(old, summary='[요약 오류]', summary_status='pdf_unavailable')
+    result = store._retain_failed_collection(old, new)
+    assert result['summary'] == 'verified'
+    assert result['summary_retained_stale'] is True
+
+
+def test_failed_recrawl_preserves_evidence_as_unverified_and_summary(monkeypatch):
+    from tests.test_revision_ui import render, contents
+    old = {"publisher": "MDCG (EU)", "doc_no": "MDCG 2020-16 rev.5", "title": "Guidance", "url": "https://example.test/a", "summary": "old summary", "summary_status": "source_extracted", "revision_evidence": {"status": "revision_history", "current_url": "https://example.test/doc", "sections": [{"quote": "old evidence"}]}}
+    new = dict(old, summary="extraction failed", summary_status="source_unavailable", revision_evidence={"status": "discovery_incomplete", "detail": "network failure"})
+    monkeypatch.setattr(store, "load_regulations", lambda: [old])
+    monkeypatch.setattr(store, "save_regulations", lambda items: items)
+    result = upsert_regulations([new])[0]
+    assert result["summary"] == "old summary"
+    evidence = result["revision_evidence"]
+    assert evidence["status"] == "discovery_incomplete"
+    assert evidence["retained_evidence"]["sections"][0]["quote"] == "old evidence"
+    assert evidence["detail"] == "network failure"
+    assert "old evidence" not in contents(render(result))
+
+
+@pytest.mark.parametrize("field,value", [("title", "different"), ("url", "https://example.test/b"), ("doc_no", "other revision"), ("title", ""), ("publisher", "Other")])
+def test_failed_recrawl_never_transfers_across_identity(monkeypatch, field, value):
+    old = {"publisher": "MFDS (Korea)", "doc_no": "notice 1", "title": "title", "url": "https://example.test/a", "summary": "old", "summary_status": "source_extracted", "revision_evidence": {"status": "revision_history", "sections": [{"quote": "old"}]}}
+    new = dict(old, summary="failure", summary_status="source_unavailable", revision_evidence={"status": "discovery_incomplete", "detail": "failure"})
+    new[field] = value
+    monkeypatch.setattr(store, "load_regulations", lambda: [old])
+    monkeypatch.setattr(store, "save_regulations", lambda items: items)
+    result = next(item for item in upsert_regulations([new]) if item is new or item == new)
+    assert result["summary"] == "failure"
+    assert "retained_evidence" not in result["revision_evidence"]
+
+
+def test_repeated_failure_retains_once_and_success_replaces(monkeypatch):
+    old = {"publisher": "MFDS (Korea)", "doc_no": "notice 1", "title": "title", "url": "https://example.test/a", "summary": "old", "summary_status": "source_extracted", "revision_evidence": {"status": "revision_history", "sections": [{"quote": "old"}]}}
+    failure = dict(old, summary="failure", summary_status="source_unavailable", revision_evidence={"status": "discovery_incomplete", "detail": "failed"})
+    stored = [old]
+    monkeypatch.setattr(store, "load_regulations", lambda: stored[:])
+    monkeypatch.setattr(store, "save_regulations", lambda items: stored.__setitem__(slice(None), items) or items)
+    upsert_regulations([failure])
+    upsert_regulations([failure])
+    assert stored[0]["revision_evidence"]["retained_evidence"] == old["revision_evidence"]
+    assert stored[0]["summary"] == "old"
+    fresh = dict(old, summary="new", revision_evidence={"status": "revision_history", "sections": [{"quote": "new"}]})
+    upsert_regulations([fresh])
+    assert stored[0] == fresh
+
+
+def test_summary_not_preserved_without_explicit_failure(monkeypatch):
+    old = {"publisher": "MFDS (Korea)", "doc_no": "1", "title": "title", "url": "https://example.test/a", "summary": "old", "summary_status": "source_extracted"}
+    new = dict(old, summary="", summary_status="source_extracted")
+    monkeypatch.setattr(store, "load_regulations", lambda: [old])
+    monkeypatch.setattr(store, "save_regulations", lambda items: items)
+    assert upsert_regulations([new])[0]["summary"] == ""

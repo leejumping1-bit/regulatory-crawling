@@ -1,3 +1,6 @@
+import pytest
+pytestmark = pytest.mark.skip(reason='Google grounding has been permanently disabled; see test_mdcg_no_google.py')
+
 from types import SimpleNamespace as NS
 
 from collectors.grounded_discovery import discover_links

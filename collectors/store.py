@@ -81,13 +81,37 @@ def save_regulations(items):
     return items
 
 
+def _retain_failed_collection(old, new):
+    """Retain prior material only for an exact, fully identified record."""
+    if not isinstance(old, dict) or new.get("publisher") not in {"MDCG (EU)", "MFDS (Korea)"}:
+        return new
+    fields = ("publisher", "doc_no", "title", "url")
+    if any(not isinstance(new.get(field), str) or not new[field].strip()
+           or new[field] != old.get(field) for field in fields):
+        return new
+
+    result = dict(new)
+    evidence = new.get("revision_evidence")
+    previous = old.get("revision_evidence")
+    if isinstance(evidence, dict) and evidence.get("status") == "discovery_incomplete" and isinstance(previous, dict):
+        retained = previous.get("retained_evidence") if previous.get("status") == "discovery_incomplete" else previous
+        if isinstance(retained, dict) and retained.get("status") in {"revision_history", "verified_comparison", "archived_comparison"}:
+            result["revision_evidence"] = dict(evidence, retained_evidence=retained, retained_evidence_stale=True)
+    if (new.get("summary_status") in {"source_unavailable", "pdf_unavailable"}
+            and isinstance(old.get("summary"), str) and old["summary"].strip()
+            and (old.get("summary_status") in {"source_extracted", "pdf_extracted"} or old.get("summary_retained_stale") is True)):
+        result["summary"] = old["summary"]
+        result["summary_retained_stale"] = True
+    return result
+
+
 def upsert_regulations(new_items):
     """agency + doc_no 를 key 로 기존 항목을 갱신하거나 추가."""
     existing = load_regulations()
     by_key = {f"{it.get('publisher')}::{it.get('doc_no')}": it for it in existing}
     for it in new_items:
         key = f"{it.get('publisher')}::{it.get('doc_no')}"
-        by_key[key] = it
+        by_key[key] = _retain_failed_collection(by_key.get(key), it)
     items = list(by_key.values())
     # MDCG는 같은 게시물이 전용 피드와 일반 피드에서 동시에 발견될 수 있다.
     # 같은 제목·URL이면 MDCG 번호가 있는 항목을 남기고 번호 없는 중복은 제거한다.

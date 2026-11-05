@@ -92,16 +92,11 @@ def discover_previous(doc_no, *, include_notified_bodies=False, search=None, dow
     if include_notified_bodies:
         query = f'"MDCG {number}" previous version filetype:pdf (site:health.ec.europa.eu OR site:www.bsigroup.com OR site:www.tuvsud.com OR site:www.tuv.com)'
     try:
-        links = (search or discover_links)(query)
+        links = search(query) if search is not None else discover_official_links(number, revision)
         if not isinstance(links, (list, tuple)):
             raise ValueError('invalid discovery response')
     except Exception:
-        if search is not None:
-            return DiscoveryResult('unavailable', detail='Injected search unavailable')
-        try:
-            links = discover_official_links(number, revision)
-        except Exception:
-            return DiscoveryResult('unavailable', detail='Grounded and official search unavailable')
+        return DiscoveryResult('unavailable', detail='Official discovery unavailable')
     if not links:
         return DiscoveryResult('no_results', detail='No allowed candidates returned; search is not exhaustive')
     official, supplemental = [], []

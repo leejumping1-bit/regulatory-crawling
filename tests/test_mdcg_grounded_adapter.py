@@ -90,8 +90,8 @@ def test_default_download_refuses_redirects(monkeypatch):
     assert len(calls) == 2 and all(not opts['allow_redirects'] for _, opts in calls)
 
 
-def test_grounded_discovery_is_default_search(monkeypatch):
+def test_official_discovery_is_default_search(monkeypatch):
     seen = []
-    monkeypatch.setattr(adapter, 'discover_links', lambda q: seen.append(q) or [])
+    monkeypatch.setattr(adapter, 'discover_official_links', lambda number, revision: seen.append((number, revision)) or [])
     assert adapter.discover_previous(DOC).status == 'no_results'
-    assert seen
+    assert seen == [('2020-16', 4)]

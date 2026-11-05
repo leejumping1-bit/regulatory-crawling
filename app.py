@@ -447,6 +447,8 @@ with st.container(border=True):
         '</div>'
     )
     render_html(summary_html)
+    if selected_item.get("summary_retained_stale"):
+        st.warning("원문 재조회에 실패해 이전에 저장한 요약을 표시합니다. 최신 여부는 확인되지 않았습니다.")
 
 st.markdown("<div style='height:18px'></div>", unsafe_allow_html=True)
 

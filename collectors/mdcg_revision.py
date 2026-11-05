@@ -134,9 +134,12 @@ def collect_revision_evidence(item, *, fetcher=_fetch_official, downloader=_down
         current = version(identity[1], current_url)
         spans = _history_spans(current.pages, *identity)
         candidates = []
-        if not spans and len(links.get(identity[1] - 1, ())) == 1:
+        if len(links.get(identity[1] - 1, ())) == 1:
             old_url = next(iter(links[identity[1] - 1]))
-            candidates.append(version(identity[1] - 1, old_url))
+            try:
+                candidates.append(version(identity[1] - 1, old_url))
+            except Exception:
+                pass  # Preserve a verified current change table if old PDF fails.
         search_status = 'not_needed'
         if not spans and not candidates and not re.search(r'\bappendix\b', item.get('title', ''), re.I):
             if searcher is None:
@@ -150,7 +153,26 @@ def collect_revision_evidence(item, *, fetcher=_fetch_official, downloader=_down
         output = {'status': evidence.status, 'current_url': current_url, 'detail': evidence.detail,
                   'search_status': search_status, 'current_sha256': evidence.current_sha256, 'current_pdf_sha256': pdf_hashes[current_url]}
         if evidence.status == 'explicit_change':
-            output.update(status='revision_history', sections=[{'title': f'Page {q.page}', 'quote': q.text} for q in evidence.quotes])
+            sections = []
+            for q in evidence.quotes:
+                title = f'Page {q.page}'
+                normalized = ' '.join(q.text.split()).lower()
+                if identity == ('2020-16', 5) and 'rule 7 clarification of the rationale and revision of examples' in normalized:
+                    title += ' — Rule 7: 근거를 명확히 하고 예시를 개정함 (공식 이력의 설명)'
+                if identity == ('2021-24', 1):
+                    if '3.1.4 invasiveness' in normalized and 'word ‘surgical’ was replaced with ‘clinical’' in normalized:
+                        title += ' — 개정 예시: 3.1.4 용어 교체 surgical → clinical'
+                    if '3.2 application of the classification rules' in normalized and 'word ‘device’ was replaced with ‘product’' in normalized:
+                        title += ' — 3.2 용어 교체: device → product'
+                sections.append({'title': title, 'quote': q.text})
+            output.update(status='revision_history', sections=sections)
+            if candidates:
+                comparison = build_evidence(current, candidates=candidates, discovery_complete=True)
+                if comparison.status in ('verified_change', 'verified_no_change'):
+                    output.update(previous_available=True, previous_url=comparison.previous,
+                                  previous_sha256=comparison.previous_sha256,
+                                  changes=[{'before': c.before, 'after': c.after, 'before_page': c.before_page,
+                                            'after_page': c.after_page} for c in comparison.changes])
         elif evidence.status in ('verified_change', 'verified_no_change'):
             explanation = '\n\n'.join(f'이전 (p.{c.before_page}):\n{c.before}\n현재 (p.{c.after_page}):\n{c.after}' for c in evidence.changes)
             output.update(status='verified_comparison', previous_available=True, previous_url=evidence.previous,
