@@ -32,6 +32,7 @@ from collectors.file_extract import extract_text  # noqa: E402
 from collectors.summarizer import summarize, guess_scope, guess_manufacturer_obligation  # noqa: E402
 from collectors.diff_engine import generate_document_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
+from collectors.regional_revision_evidence import collect_revision_evidence  # noqa: E402
 
 try:
     from bs4 import BeautifulSoup
@@ -145,6 +146,7 @@ def _process_source(doc_no, url, today_only):
         "scope": guess_scope(title_prefix + " " + changelog_text, title=title_prefix, publisher="MHRA (UK)"),
         "manufacturer_obligation": "★" if guess_manufacturer_obligation(title_prefix, changelog_text) else "",
         "url": url + "#full-publication-update-history",
+        "revision_evidence": collect_revision_evidence("mhra", url),
         "gap_analysis": gap,
     }
     return item, None

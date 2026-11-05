@@ -30,7 +30,8 @@ from collectors.http_utils import fetch, fetch_binary  # noqa: E402
 from collectors.file_extract import extract_text  # noqa: E402
 from collectors.summarizer import summarize, guess_scope, guess_manufacturer_obligation  # noqa: E402
 from collectors.diff_engine import generate_document_gap  # noqa: E402
-from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
+from collectors.store import load_previous_snapshot, save_snapshot, load_regulations  # noqa: E402
+from collectors.mdcg_revision import backfill_items  # noqa: E402
 
 try:
     from bs4 import BeautifulSoup
@@ -302,7 +303,7 @@ def run(since_year=2026, since_month=1, today_only=False):
             "url": c["url"],
             "gap_analysis": gap,
         })
-    return results, None
+    return backfill_items(results), None
 
 
 def _extract_mdcg_no(title):

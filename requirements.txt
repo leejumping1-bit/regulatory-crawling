@@ -5,7 +5,7 @@ requests>=2.31.0
 beautifulsoup4>=4.12.0
 pypdf>=4.0.0
 python-docx>=1.1.0
-google-genai>=1.0.0
+google-genai>=2.34.0,<3
 
 # OpenAI를 우선 사용하고, 실패 시 Gemini/Anthropic으로 대체합니다.
 openai>=1.30.0

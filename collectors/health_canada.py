@@ -24,6 +24,7 @@ from collectors.http_utils import fetch  # noqa: E402
 from collectors.summarizer import summarize, guess_scope, guess_manufacturer_obligation  # noqa: E402
 from collectors.diff_engine import generate_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
+from collectors.regional_revision_evidence import collect_revision_evidence  # noqa: E402
 
 try:
     from bs4 import BeautifulSoup
@@ -190,6 +191,7 @@ def run(since_year=2026, since_month=1, today_only=False):
         "scope": guess_scope(full_text, title=title, publisher="Health Canada"),
         "manufacturer_obligation": "★" if guess_manufacturer_obligation(title, full_text) else "",
         "url": REGULATION_URL,
+        "revision_evidence": collect_revision_evidence("health_canada", REGULATION_URL),
         "gap_analysis": gap,
     }
     return [item], None

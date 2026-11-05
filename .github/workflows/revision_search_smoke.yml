@@ -1,0 +1,21 @@
+name: Revision search smoke test
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install 'google-genai>=2.34.0,<3' requests
+      - name: Verify authenticated Google grounding
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          REVISION_SEARCH_MAX_PER_RUN: '1'
+        run: |
+          python -c "from collectors.grounded_discovery import discover_links; x=discover_links('site:health.ec.europa.eu MDCG 2026-4 official guidance'); print('Grounding request succeeded; allowed source links:',len(x)); print('\n'.join(x)); assert x, 'No allowlisted source links returned'"

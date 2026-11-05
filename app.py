@@ -4,6 +4,7 @@ import io
 import textwrap
 import requests
 from datetime import date, datetime, timezone
+from urllib.parse import urlsplit
 
 from collectors.store import load_regulations
 from app_logic import (
@@ -32,6 +33,60 @@ def render_html(html: str):
     그대로 문자로 출력해버리는 버그가 있다. 각 줄의 선행 공백을 제거해서 방지한다."""
     flat = "\n".join(line.strip() for line in html.strip().splitlines())
     st.markdown(flat, unsafe_allow_html=True)
+
+
+def render_revision_evidence(ui, item):
+    """Display collector-supplied evidence; never infer changes from missing data."""
+    evidence = item.get("revision_evidence")
+    if not isinstance(evidence, dict):
+        ui.info("개정 내역이 검증되지 않았습니다. 공식 원문을 확인하세요.")
+        return
+
+    def valid_url(value):
+        if not isinstance(value, str):
+            return False
+        try:
+            parts = urlsplit(value)
+            return parts.scheme in ("http", "https") and bool(parts.hostname)
+        except ValueError:
+            return False
+
+    current = evidence.get("current_url")
+    previous = evidence.get("previous_url")
+    status = evidence.get("status")
+    sections = evidence.get("sections")
+    sections = sections if isinstance(sections, list) else []
+    sections = [s for s in sections if isinstance(s, dict)
+                and isinstance(s.get("quote"), str) and s["quote"].strip()]
+    explanation = evidence.get("explanation")
+
+    if status == "revision_history" and valid_url(current) and sections:
+        ui.markdown("**공식 개정 이력 원문**")
+        for section in sections:
+            if isinstance(section.get("title"), str) and section["title"].strip():
+                ui.text(section["title"])
+            ui.text(section["quote"])
+        ui.link_button("개정 이력 출처 (현재 공식 문서)", current)
+    elif (status == "verified_comparison" and evidence.get("previous_available") is True
+          and valid_url(previous) and valid_url(current)
+          and isinstance(explanation, str) and explanation.strip()):
+        ui.markdown("**공식 이전·현재 버전 대조 결과**")
+        ui.text(explanation)
+        ui.link_button("이전 버전 출처", previous)
+        ui.link_button("현재 버전 출처", current)
+    elif status == "discovery_incomplete":
+        ui.warning("이전 버전 확인 실패 — 공식 사이트 검색이나 원문 검증을 완료하지 못했습니다.")
+        ui.caption("과거 이력 확인 실패: 변경 여부를 단정할 수 없습니다.")
+        if valid_url(current):
+            ui.link_button("현재 버전 출처", current)
+    else:
+        ui.info("개정 내역이 검증되지 않았습니다. 공식 원문을 확인하세요.")
+        if valid_url(current):
+            ui.link_button("현재 버전 출처", current)
+
+    if evidence.get("previous_available") is False:
+        ui.warning("이전 버전: 찾을 수 없음")
+        ui.caption("이전 버전이 없어 직접 대조할 수 없습니다. 자료가 없다는 사실만으로 변경 여부를 단정할 수 없습니다.")
 
 
 st.markdown(textwrap.dedent("""
@@ -379,20 +434,11 @@ with st.container(border=True):
 
 st.markdown("<div style='height:18px'></div>", unsafe_allow_html=True)
 
-# ==================== 3. Gap 분석 ====================
+# ==================== 3. 개정 이력 ====================
 with st.container(border=True):
     render_html('<div class="rw-panel-head"><span class="rw-step">03</span>'
-                '<h2>Gap 분석 <span class="rw-subtle">— 개정 전/후 원문 대조</span></h2></div>')
-
-    gap_data = selected_item.get("gap_analysis", {})
-
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown("**과거 규격 내용**")
-        st.info(gap_data.get("past_text") or "N.A.")
-    with col2:
-        st.markdown("**현재 규격 내용**")
-        st.success(gap_data.get("present_text") or "N.A.")
+                '<h2>개정 이력 <span class="rw-subtle">— 공식 출처 기반</span></h2></div>')
+    render_revision_evidence(st, selected_item)
 
 st.markdown(
     "<p style='text-align:center;font-size:11px;color:var(--slate-500);padding:14px 0;'>"

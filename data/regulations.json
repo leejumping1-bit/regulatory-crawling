@@ -115,7 +115,15 @@
       "present_text": "변경된 내용 없음",
       "diff_html": "<div class=\"diff-omit\">변경된 문단이 없습니다. 동일한 원문은 생략했습니다.</div>"
     },
-    "no": 6
+    "no": 6,
+    "revision_evidence": {
+      "status": "discovery_incomplete",
+      "current_url": "https://health.ec.europa.eu/document/download/a80332cf-e9f0-4d45-8863-3d96e8c2a675_en?filename=mdcg_2026-4_en.pdf",
+      "detail": "Official-site discovery not completed",
+      "search_status": "unavailable",
+      "current_sha256": "b98be8e86764d2059920ae61dbd8d205d6eb7c04238f773eb5de86acb039affc",
+      "current_pdf_sha256": "e83736fa7f63ac1de0c21c7a2d19c9bd01099a2531100de84027c8d7680e5bcd"
+    }
   },
   {
     "search_month": "2026-09",
@@ -212,7 +220,21 @@
       "present_text": "변경된 내용 없음",
       "diff_html": "<div class=\"diff-omit\">변경된 문단이 없습니다. 동일한 원문은 생략했습니다.</div>"
     },
-    "no": 11
+    "no": 11,
+    "revision_evidence": {
+      "status": "revision_history",
+      "current_url": "https://health.ec.europa.eu/document/download/12f9756a-1e0d-4aed-9783-d948553f1705_en?filename=md_mdcg_2020_guidance_classification_ivd-md_en.pdf",
+      "detail": "Caller-validated explicit change text",
+      "search_status": "not_needed",
+      "current_sha256": "7df76651eb7e2548d6b2a1de65fd27e055b3c2bde25a56142e56ed303f1dc5af",
+      "current_pdf_sha256": "dda56c14cfa2d9de85592762e38f69918de24781830a52e6a01efed52409e449",
+      "sections": [
+        {
+          "title": "Page 2",
+          "quote": " \n  \nMDCG 2020-16 revision 5 changes \nRule 7 Clarification of the rationale \nand revision of examples \n"
+        }
+      ]
+    }
   },
   {
     "search_month": "2026-08",
@@ -737,7 +759,15 @@
       "present_text": "변경된 내용 없음",
       "diff_html": "<div class=\"diff-omit\">변경된 문단이 없습니다. 동일한 원문은 생략했습니다.</div>"
     },
-    "no": 38
+    "no": 38,
+    "revision_evidence": {
+      "status": "discovery_incomplete",
+      "current_url": "https://health.ec.europa.eu/document/download/e10f7694-67b4-4093-a969-6f7e43747c44_en?filename=md_mdcg_2021_5_appendix_en.pdf",
+      "detail": "Official-site discovery not completed",
+      "search_status": "not_needed",
+      "current_sha256": "663fc24282ae721ead12fbc36d5a1f3adc3d75d9ab98ae7eb15cc03d9172f842",
+      "current_pdf_sha256": "18e71fb79c421b499727276d60e801bda992ac98f1d9079d0ca91824fc3771ec"
+    }
   },
   {
     "search_month": "2026-05",
@@ -891,7 +921,21 @@
       "present_text": "변경된 내용 없음",
       "diff_html": "<div class=\"diff-omit\">변경된 문단이 없습니다. 동일한 원문은 생략했습니다.</div>"
     },
-    "no": 46
+    "no": 46,
+    "revision_evidence": {
+      "status": "revision_history",
+      "current_url": "https://health.ec.europa.eu/document/download/cbb19821-a517-4e13-bf87-fdc6ddd1782e_en?filename=mdcg_2021-24_en.pdf",
+      "detail": "Caller-validated explicit change text",
+      "search_status": "not_needed",
+      "current_sha256": "aa1ef9db604c382c1e625e3abbc8bde9e92b91ecf9fed7cd66e0a2f5cd223417",
+      "current_pdf_sha256": "6bd1d1f4f6733ba38d5e9e904fe0cc2d1be60b6a30a1c1750a28e555e7fa2541",
+      "sections": [
+        {
+          "title": "Page 3",
+          "quote": " \n \n \n \n \nMDCG 2021-24 Rev 1 changes \n2.1 General requirements  Updated \n3.1.4 Invasiveness – Implantable devices  Word ‘surgical’ was replaced with ‘clinical’  \nDefinition updated \n3.2 Application of the classification rules Word ‘device’ was replaced with ‘product’  \n4.1.3 Active devices – Rule 9 Structure changed to better match the rule  \nRule 2 – Table  Updated \nRule 8 – Table Updated  \nRule 8 - Practical issues of classification Updated – new notes added (1-7) \nRule 9 - Practical issues of classification Updated  \nRule 10 – Table  \n \nUpdated \nRule 10 - Practical issues of classification Updated  \nRule 12 – Table Updated  \nRule 16 - Table Updated  \nRule 22 – Table Updated  \nRule 22 - Practical issues of classification Updated – new note added  "
+        }
+      ]
+    }
   },
   {
     "search_month": "2026-04",
@@ -971,7 +1015,15 @@
       "present_text": "변경된 내용 없음",
       "diff_html": "<div class=\"diff-omit\">변경된 문단이 없습니다. 동일한 원문은 생략했습니다.</div>"
     },
-    "no": 50
+    "no": 50,
+    "revision_evidence": {
+      "status": "discovery_incomplete",
+      "current_url": "https://health.ec.europa.eu/document/download/d90b3f63-1d62-43e6-bf5f-fb32ea7c47a2_en?filename=mdcg_2021-12_en.pdf",
+      "detail": "Official-site discovery not completed",
+      "search_status": "unavailable",
+      "current_sha256": "0509bd8a7ca7bb437e0686ac127159f55d71907940b90c8e112ceeb471eb31db",
+      "current_pdf_sha256": "fe5c02465d15783af90376215430e2bb5d540a24476b0ea702dff3c6efa8fb44"
+    }
   },
   {
     "search_month": "2026-03",
