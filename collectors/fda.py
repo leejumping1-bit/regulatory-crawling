@@ -1,23 +1,10 @@
-"""
-FDA(US) 수집기 — v2 (eCFR 공식 API 기반, 실제 변경이 있을 때만 수집)
-
-사용자 요청: eCFR 비교 페이지(Comparing the eCFR in effect on X to what was
-previously in effect on Y)처럼, 실제로 조문이 바뀐 경우에만 수집하고 싶다.
-
-이번 버전은 화면(JS 렌더링) 대신 eCFR이 공개 제공하는 API를 사용한다(키 불필요):
-  1) 버전 이력 조회: /api/versioner/v1/versions/title-21.json?part=820
-     → Part 820 관련 항목들의 최신 "issue_date"(개정 반영일)를 구한다.
-  2) 우리가 마지막으로 확인한 issue_date와 다르면 "변경 있음"으로 판단하고,
-     전문 텍스트를 가져온다: /api/versioner/v1/full/{issue_date}/title-21.xml?part=820
-  3) XML에서 텍스트만 추출해 우리가 저장해둔 이전 전문 스냅샷과 diff_engine으로 비교한다.
-
-eCFR의 기본 versions 응답은 페이지당 1,000건만 반환하므로, API의 part 필터를
-사용해 Part 820 데이터만 직접 요청한다.
-"""
+"""FDA Part 820 collector using substantive eCFR amendments and official text."""
+import json
+import os
 import re
 import sys
-import os
-from datetime import date
+import xml.etree.ElementTree as ET
+from datetime import date, timedelta
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch  # noqa: E402
@@ -29,105 +16,88 @@ VERSIONS_API = "https://www.ecfr.gov/api/versioner/v1/versions/title-21.json?par
 FULL_API_TMPL = "https://www.ecfr.gov/api/versioner/v1/full/{date}/title-21.xml?part=820"
 HUMAN_URL_TMPL = "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-H/part-820"
 DOC_NO = "21 CFR Part 820"
-
-# 마지막으로 확인한 issue_date를 기억해두는 상태 파일 (data/snapshots 아래에 저장)
+# Retain the existing key for compatibility; its value is now an amendment date.
 LAST_SEEN_KEY = "FDA_last_issue_date"
 
 
-def _extract_latest_issue_date(data):
-    """eCFR versions 응답에서 Part 820의 최신 issue_date를 반환한다."""
-    candidates = data.get("content_versions") or data.get("versions") or []
-    part_versions = [v for v in candidates if str(v.get("part")) == "820"]
-    dates = [v.get("issue_date") or v.get("amendment_date") for v in part_versions]
-    dates = [d for d in dates if d]
-    return max(dates) if dates else None
-
-
 def _extract_issue_dates(data):
+    """Return valid amendment dates only for explicitly substantive Part 820 rows."""
     candidates = data.get("content_versions") or data.get("versions") or []
-    return sorted({v.get("issue_date") or v.get("amendment_date") for v in candidates
-                   if str(v.get("part")) == "820" and (v.get("issue_date") or v.get("amendment_date"))})
+    dates = set()
+    for version in candidates:
+        if not isinstance(version, dict) or str(version.get("part")) != "820" or version.get("substantive") is not True:
+            continue
+        value = version.get("amendment_date")
+        try:
+            if isinstance(value, str) and date.fromisoformat(value).isoformat() == value:
+                dates.add(value)
+        except ValueError:
+            continue
+    return sorted(dates)
+
+
+def _extract_latest_issue_date(data):
+    dates = _extract_issue_dates(data)
+    return dates[-1] if dates else None
 
 
 def _get_latest_issue_date():
     res = fetch(VERSIONS_API)
     if not res.ok:
-        print(f"[fda][DEBUG] 버전 API 요청 실패: {res.error}")
         return None, res
-    print(f"[fda][DEBUG] 버전 API 응답 {len(res.text)}자")
     try:
-        import json
-        data = json.loads(res.text)
-    except Exception as e:
-        print(f"[fda][DEBUG] JSON 파싱 실패, 응답 앞부분: {res.text[:300]!r}")
-        return None, f"버전 API 응답 파싱 실패: {e}"
+        latest = _extract_latest_issue_date(json.loads(res.text))
+    except (ValueError, TypeError, AttributeError):
+        return None, "버전 API 응답 파싱 실패"
+    return (latest, None) if latest else (None, "Part 820 버전 정보를 찾지 못했습니다")
 
-    print(f"[fda][DEBUG] 최상위 키: {list(data.keys())}")
 
-    candidates = data.get("content_versions") or data.get("versions") or []
-    print(f"[fda][DEBUG] content_versions/versions 항목 수: {len(candidates)}")
-    if candidates:
-        print(f"[fda][DEBUG] 첫 항목 예시: {candidates[0]}")
-
-    latest_issue_date = _extract_latest_issue_date(data)
-    if not latest_issue_date:
-        return None, "Part 820 버전 정보를 응답에서 찾지 못했습니다 (스키마 확인 필요)"
-
-    return latest_issue_date, None
+def _part_text(xml_text):
+    """Reject error pages and malformed XML, and normalize visible part text."""
+    try:
+        root = ET.fromstring(xml_text)
+    except (ET.ParseError, ValueError, TypeError):
+        return None
+    if root.tag != "DIV5" or root.get("TYPE") != "PART" or root.get("N") != "820":
+        return None
+    return re.sub(r"\s+", " ", " ".join(root.itertext())).strip() or None
 
 
 def run(since_year=2026, since_month=1, today_only=False):
-    versions_res = fetch(VERSIONS_API)
-    if not versions_res.ok:
-        return [], None
-    import json
-    dates = _extract_issue_dates(json.loads(versions_res.text))
-    latest_date = dates[-1] if dates else None
-    err = None if latest_date else "버전 날짜를 찾지 못했습니다"
+    latest_date, err = _get_latest_issue_date()
     if latest_date is None:
-        print(f"[fda] 버전 확인 실패: {err}")
-        return [], None
+        raise RuntimeError(f"FDA 버전 확인 실패: {getattr(err, 'error', err)}")
 
     prev_seen = load_previous_snapshot("FDA", LAST_SEEN_KEY)
-    if prev_seen and prev_seen.strip() == latest_date:
-        # 마지막 확인 이후 변경 없음 — 사용자 요청대로 이 경우 수집하지 않는다
+    if prev_seen and prev_seen.strip() >= latest_date:
         return [], None
-
     if today_only and latest_date != date.today().isoformat():
         return [], None
-    if not today_only:
-        y, mo = int(latest_date[:4]), int(latest_date[5:7])
-        if (y, mo) < (since_year, since_month):
-            return [], None
-
-    full_res = fetch(FULL_API_TMPL.format(date=latest_date))
-    if not full_res.ok:
-        print(f"[fda] 전문 텍스트 조회 실패: {full_res.error}")
+    if not today_only and (int(latest_date[:4]), int(latest_date[5:7])) < (since_year, since_month):
         return [], None
 
-    xml_text = full_res.text
-    plain_text = re.sub(r"<[^>]+>", " ", xml_text)
-    plain_text = re.sub(r"\s+", " ", plain_text).strip()
+    # Compare the actual official text immediately before the amendment, never a
+    # potentially stale or unrelated local snapshot. Failure remains retryable.
+    prior_date = (date.fromisoformat(latest_date) - timedelta(days=1)).isoformat()
+    current_res = fetch(FULL_API_TMPL.format(date=latest_date))
+    prior_res = fetch(FULL_API_TMPL.format(date=prior_date))
+    if not current_res.ok or not prior_res.ok:
+        errors = [str(getattr(res, "error", "조회 실패")) for res in (current_res, prior_res) if not res.ok]
+        raise RuntimeError("공식 개정 전/후 원문 조회 실패: " + "; ".join(errors))
+    plain_text = _part_text(current_res.text)
+    prev_text = _part_text(prior_res.text)
+    if not plain_text or not prev_text:
+        raise RuntimeError("공식 개정 전/후 원문 형식 확인 실패")
+    if plain_text == prev_text:
+        return [], None
 
-    prev_text = load_previous_snapshot("FDA", DOC_NO)
-    if not prev_text and len(dates) >= 2:
-        prior_res = fetch(FULL_API_TMPL.format(date=dates[-2]))
-        if prior_res.ok:
-            prior_xml = prior_res.text
-            prev_text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", prior_xml)).strip()
     gap = generate_gap(prev_text, plain_text)
-    save_snapshot("FDA", DOC_NO, plain_text)
-    save_snapshot("FDA", LAST_SEEN_KEY, latest_date)
-
     summary = summarize(f"{DOC_NO} — {latest_date} 개정 반영", plain_text)
-    if not prev_text:
-        summary += "\n\n(※ 이번이 최초 수집이라 개정 전/후 비교는 다음 개정부터 가능합니다.)"
-
     title = f"21 CFR Part 820 (Quality Management System Regulation) — {latest_date} 개정 반영"
     item = {
         "search_month": latest_date[:7],
-        "publish_date": latest_date,
-        "effective_date": latest_date,
+        "publish_date": "",  # amendment date is not a verified publication date
+        "effective_date": "",
         "publisher": "FDA (US)",
         "doc_no": DOC_NO,
         "title": title,
@@ -137,6 +107,8 @@ def run(since_year=2026, since_month=1, today_only=False):
         "url": HUMAN_URL_TMPL,
         "gap_analysis": gap,
     }
+    save_snapshot("FDA", DOC_NO, plain_text)
+    save_snapshot("FDA", LAST_SEEN_KEY, latest_date)
     return [item], None
 
 

@@ -105,13 +105,6 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 .reg-table tr:hover td { background:#f1f6f8; }
 .reg-scope-tag { display:inline-block; font-size:11px; font-weight:600; padding:2px 8px; border-radius:99px; background:var(--slate-100); color:var(--navy-900); }
 
-.diff-box {
-  background:#fff; border:1px solid #d0d7de; border-radius:6px; padding:16px;
-  font-family:'IBM Plex Mono','Courier New',monospace; line-height:1.8; font-size:13px;
-}
-.diff-del { background:#ffebe9; color:#cf222e; text-decoration:line-through; padding:2px 4px; border-radius:3px; }
-.diff-add { background:#e6ffec; color:#1a7f37; font-weight:700; padding:2px 4px; border-radius:3px; }
-.diff-omit { color:#6e7781; font-style:italic; margin:8px 0; }
 .summary-card { background:var(--slate-100); border-left:4px solid var(--teal); padding:16px; border-radius:0 8px 8px 0; margin-bottom:6px; }
 </style>
 """), unsafe_allow_html=True)
@@ -400,11 +393,6 @@ with st.container(border=True):
     with col2:
         st.markdown("**현재 규격 내용**")
         st.success(gap_data.get("present_text") or "N.A.")
-
-    st.markdown("#### 🔍 CanLII Webdiff 스타일 문맥 비교")
-    st.caption("🔴 삭제된 문구 | 🟢 신규/업데이트 문구")
-    diff_html = gap_data.get("diff_html") or "변경사항이 없거나 신규 제정건입니다."
-    render_html(f'<div class="diff-box">{diff_html}</div>')
 
 st.markdown(
     "<p style='text-align:center;font-size:11px;color:var(--slate-500);padding:14px 0;'>"
