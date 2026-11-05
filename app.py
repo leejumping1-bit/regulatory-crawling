@@ -41,6 +41,7 @@ def render_mfds_pdf_evidence(ui, item):
     if evidence is None:
         return
     ui.markdown('**식약처 공식 신구조문대비표 원본**')
+    ui.caption('대비표 시작 쪽부터 PDF 마지막 쪽까지 표시하므로 표 외 내용이 포함될 수 있습니다.')
     ui.link_button('공식 첨부 PDF', evidence['source_url'])
     try:
         images = load_evidence_images(item, evidence)
