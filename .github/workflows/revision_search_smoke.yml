@@ -31,7 +31,12 @@ jobs:
           finally:
               client.close()
           try:
-              result = _generate('site:health.ec.europa.eu MDCG 2026-4 official guidance', os.environ['GEMINI_API_KEY'])
+              from google.genai import types
+              client = genai.Client(api_key=os.environ['GEMINI_API_KEY'], http_options=types.HttpOptions(timeout=20000))
+              try:
+                  result = client.models.generate_content(model='gemini-3.5-flash', contents='site:health.ec.europa.eu MDCG 2026-4 official guidance', config=types.GenerateContentConfig(tools=[types.Tool(google_search=types.GoogleSearch())]))
+              finally:
+                  client.close()
               candidate = (result.candidates or [None])[0]
               metadata = getattr(candidate, 'grounding_metadata', None)
               print('Search response received; grounding:', bool(metadata and metadata.web_search_queries and metadata.grounding_chunks))
