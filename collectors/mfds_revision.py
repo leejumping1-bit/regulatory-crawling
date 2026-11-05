@@ -21,13 +21,14 @@ def parse_notice(url, html, title=''):
     for block in body.find_all(['p', 'br']):
         block.insert_after('\n')
     text = body.get_text('', strip=False)
-    text = re.sub(r'\s+', ' ', text).strip()
+    text = '\n'.join(re.sub(r'[^\S\n]+', ' ', line).strip() for line in text.splitlines()).strip()
     if not re.search(r'개정', title):
         return incomplete
     marker = re.search(r'(?:<\s*주요\s*내용\s*>|(?:^|\s)\d+\s*\.\s*주요\s*내용)', text)
     if marker:
         remainder = text[marker.end():]
         remainder = re.split(r'<\s*(?:붙임|첨부|참고|문의|향후계획)[^>]*>|(?:^|\s)\d+\s*\.\s*(?:의견\s*제출|참고\s*사항|붙임|행정\s*사항)', remainder, maxsplit=1)[0].strip(' :')
+        remainder = re.sub(r'\n{3,}', '\n\n', remainder).strip(' :\n')
         if remainder and re.search(r'[가-하]\s*\.', remainder):
             label = '주요내용 (개정안)' if '개정' in title and ('(안)' in title or '예고' in title) else '주요내용'
             return {'status': 'revision_history', 'current_url': url,
