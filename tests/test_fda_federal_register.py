@@ -57,7 +57,7 @@ def test_run_combines_discovery_with_existing_collector(monkeypatch):
 
 def test_rejects_unsafe_incomplete_and_nonmedical_items(monkeypatch):
     rows = [document(agencies=[{'slug': 'other-agency'}]),
-            document(title='Drug Guidance', abstract='A drug therapy.'),
+            document(title='Drug Guidance', abstract='A drug therapy.', raw_text_url='https://www.federalregister.gov/documents/full_text/text/2026/04/01/2026-12345.txt'),
             document(title='Medical Devices; Public Meeting', type='Notice'),
             document(title=''),
             document(html_url='https://example.com/document'),
@@ -65,6 +65,7 @@ def test_rejects_unsafe_incomplete_and_nonmedical_items(monkeypatch):
             document(document_number='2026-99999', type='Rule', title='Medical Devices; Classification',
                      action='Final order', effective_on='2026-05-01')]
     monkeypatch.setattr(fda, 'federal_register_fetch', lambda url: response(rows))
+    monkeypatch.setattr(fda, 'fetch_fr_text', lambda url: 'A drug therapy.')
     items = fda.discover_federal_register(2026, 1)
     assert len(items) == 1
     assert items[0]['doc_no'] == '2026-99999'

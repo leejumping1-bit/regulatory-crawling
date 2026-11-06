@@ -3,12 +3,16 @@ import json
 import os
 import re
 import sys
+import time
+from html.parser import HTMLParser
+import requests
 import xml.etree.ElementTree as ET
 from datetime import date, timedelta
 from urllib.parse import urlencode, urlparse
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from collectors.http_utils import fetch  # noqa: E402
+from collectors.device_scope import has_explicit_device_term  # noqa: E402
 from collectors.summarizer import summarize, guess_manufacturer_obligation  # noqa: E402
 from collectors.diff_engine import generate_gap  # noqa: E402
 from collectors.store import load_previous_snapshot, save_snapshot  # noqa: E402
@@ -23,7 +27,76 @@ LAST_SEEN_KEY = "FDA_last_issue_date"
 federal_register_fetch = fetch
 FR_API = "https://www.federalregister.gov/api/v1/documents.json"
 FR_FIELDS = ("document_number", "title", "type", "publication_date", "effective_on",
-             "html_url", "abstract", "agencies", "action")
+             "html_url", "raw_text_url", "abstract", "agencies", "action")
+
+# Bound both request count and bytes; an exhausted budget is incomplete, not no-match.
+FR_TEXT_LIMIT = 40
+FR_TEXT_BYTES = 2_000_000
+
+
+class IncompleteFederalRegister(RuntimeError):
+    def __init__(self, items, failures):
+        self.items = items
+        super().__init__('원문 확인 불완전: ' + '; '.join(failures))
+
+
+class _VisibleText(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.parts = []
+        self.hidden = 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag in ('script', 'style'):
+            self.hidden += 1
+
+    def handle_endtag(self, tag):
+        if tag in ('script', 'style') and self.hidden:
+            self.hidden -= 1
+
+    def handle_data(self, data):
+        if not self.hidden:
+            self.parts.append(data)
+
+
+def _valid_raw_url(url, number, published):
+    p = urlparse(url or '')
+    expected = '/documents/full_text/text/' + published.replace('-', '/') + '/' + number + '.txt'
+    return (p.scheme == 'https' and p.netloc == 'www.federalregister.gov'
+            and p.path == expected and not p.params and not p.query and not p.fragment)
+
+
+def fetch_fr_text(url):
+    from collectors.http_utils import _robots_allowed, DEFAULT_HEADERS
+    if not _robots_allowed(url):
+        raise RuntimeError('robots.txt 차단')
+    time.sleep(0.2)
+    try:
+        with requests.get(url, headers=DEFAULT_HEADERS, timeout=(5, 15), stream=True, allow_redirects=False) as response:
+            if response.status_code != 200:
+                raise RuntimeError(f'HTTP {response.status_code}')
+            content = bytearray()
+            deadline = time.monotonic() + 30
+            for chunk in response.iter_content(65536):
+                if time.monotonic() > deadline:
+                    raise RuntimeError('원문 시간 제한 초과')
+                content.extend(chunk)
+                if len(content) > FR_TEXT_BYTES:
+                    raise RuntimeError('원문 크기 제한 초과')
+            text = content.decode('utf-8', errors='strict')
+            if not text.strip():
+                raise RuntimeError('빈 원문')
+            parser = _VisibleText()
+            parser.feed(text)
+            visible = ' '.join(parser.parts)
+            if not visible.strip():
+                raise RuntimeError('원문 파싱 실패')
+            number = urlparse(url).path.rsplit('/', 1)[-1].removesuffix('.txt')
+            if not re.search(r'\[FR\s+Doc\.\s*' + re.escape(number) + r'\b', visible, re.I):
+                raise RuntimeError('원문 문서 번호 검증 실패')
+            return visible
+    except (requests.RequestException, UnicodeError, ValueError) as exc:
+        raise RuntimeError(str(exc)) from exc
 
 
 def discover_federal_register(since_year=2026, since_month=1, today_only=False):
@@ -59,6 +132,8 @@ def discover_federal_register(since_year=2026, since_month=1, today_only=False):
         raise RuntimeError("Federal Register 페이지 제한 초과; 기간을 나누어 재시도")
     items = []
     seen = set()
+    failures = []
+    text_requests = 0
     for row in rows:
         title = row.get("title") or ""
         url = urlparse(row.get("html_url") or "")
@@ -71,13 +146,29 @@ def discover_federal_register(since_year=2026, since_month=1, today_only=False):
             not url.path.startswith("/documents/") or
             not title or not row.get("document_number") or
             not any(a.get("slug") == "food-and-drug-administration" for a in row.get("agencies", [])) or
-            not re.search(r"\bdevices?\b", title + " " + (row.get("abstract") or ""), re.I) or
             not (row.get("type") in ("Rule", "Proposed Rule") or
                  row.get("type") == "Notice" and re.search(r"\bguidance\b", title, re.I))):
             continue
         if row["document_number"] in seen:
             continue
         seen.add(row["document_number"])
+        if not has_explicit_device_term(title + " " + (row.get("abstract") or "")):
+            number = row['document_number']
+            text_url = row.get('raw_text_url')
+            if not _valid_raw_url(text_url, number, published):
+                failures.append(f'{number}: 원문 URL 검증 실패')
+                continue
+            if text_requests >= FR_TEXT_LIMIT:
+                failures.append(f'{number}: 원문 조회 수 제한')
+                continue
+            text_requests += 1
+            try:
+                text = fetch_fr_text(text_url)
+            except Exception as exc:
+                failures.append(f'{number}: {exc}')
+                continue
+            if not has_explicit_device_term(text):
+                continue
         status_text = title + " " + (row.get("action") or "")
         status = "draft" if re.search(r"\bdraft\b", status_text, re.I) or row.get("type") == "Proposed Rule" else (
             "final" if re.search(r"\bfinal\b", status_text, re.I) or row.get("type") == "Rule" else "unknown")
@@ -86,6 +177,8 @@ def discover_federal_register(since_year=2026, since_month=1, today_only=False):
                       "doc_no": row["document_number"], "title": title, "summary": ("[Federal Register 공식 초록 (영문)]\n" + row["abstract"]) if row.get("abstract") else "[공식 초록 없음] 문서 원문을 확인하세요.",
                       "scope": "종합", "manufacturer_obligation": "", "url": row["html_url"],
                       "document_status": status, "gap_analysis": None})
+    if failures:
+        raise IncompleteFederalRegister(items, failures)
     return items
 
 
@@ -186,6 +279,9 @@ def run(since_year=2026, since_month=1, today_only=False):
     discovered, part_items, errors = [], [], []
     try:
         discovered = discover_federal_register(since_year, since_month, today_only)
+    except IncompleteFederalRegister as exc:
+        discovered = exc.items
+        errors.append(f'Federal Register 확인 실패: {exc}')
     except Exception as exc:
         errors.append(f'Federal Register 확인 실패: {exc}')
     try:
