@@ -15,6 +15,8 @@ from app_logic import (
     filter_by_publisher,
     estimate_export_row_height,
     extract_core_content,
+    display_doc_no,
+    mdsap_status_is_stale,
 )
 
 PERMANENT_UPDATE_WORKFLOW_URL = (
@@ -187,6 +189,7 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
   text-align:center; vertical-align:middle; padding:9px 8px; border:1px solid #dee2e6;
   word-break:keep-all; white-space:normal; line-height:1.5;
 }
+.reg-table td.date-cell { white-space:nowrap; }
 .reg-table td.title-cell { text-align:left; }
 .reg-table td.title-cell a { color:var(--teal-dark); text-decoration:underline; font-weight:600; }
 .reg-table tr:hover td { background:#f1f6f8; }
@@ -201,6 +204,26 @@ REMOTE_DATA_URL = (
     "https://raw.githubusercontent.com/leejumping1-bit/regulatory-crawling/"
     "main/data/regulations.json"
 )
+
+
+REMOTE_MDSAP_STATUS_URL = REMOTE_DATA_URL.rsplit("/", 1)[0] + "/mdsap_status.json"
+
+
+@st.cache_data(ttl=60)
+def _load_mdsap_status():
+    # Never substitute the app's local file for the durable remote status.
+    try:
+        response = requests.get(REMOTE_MDSAP_STATUS_URL, timeout=15, headers={"Accept": "application/json"})
+        response.raise_for_status()
+        value = response.json()
+        if not isinstance(value, dict) or value.get("status") not in ("ok", "error"):
+            raise ValueError("invalid status")
+        checked = datetime.fromisoformat(value["checked_at"])
+        if checked.utcoffset() is None:
+            raise ValueError("timestamp must have a timezone")
+        return value
+    except Exception:
+        return None
 
 
 @st.cache_data(ttl=60)
@@ -273,7 +296,7 @@ with ctrl3:
                 "개정·업데이트일 Revision or update date": item.get("change_date") or item.get("revision_date") or "",
                 "시행일 Effectiveness Date": item.get("effective_date") or "",
                 "발행처 Published by": item.get("publisher") or "",
-                "규격 및 가이던스 번호 Regulation & Guidance No.": (item.get("doc_no") or "").replace("\n", " "),
+                "규격 및 가이던스 번호 Regulation & Guidance No.": display_doc_no(item),
                 "제목 Title": item.get("title") or "",
                 "내용요약 Summary": item.get("summary") or "",
                 "적용 범위 Scope": item.get("scope") or "",
@@ -366,6 +389,16 @@ st.caption(
     f"{datetime.now(timezone.utc).astimezone().strftime('%Y-%m-%d %H:%M:%S %Z')}"
 )
 
+mdsap_status = _load_mdsap_status()
+if mdsap_status is None:
+    st.warning("MDSAP 수집 상태 확인 불가: GitHub 영구 상태를 가져오지 못했거나 아직 없습니다.")
+elif mdsap_status_is_stale(mdsap_status['checked_at']):
+    st.warning(f"MDSAP 수집 상태 오래됨: 마지막 확인 {mdsap_status['checked_at']} (48시간 초과 또는 시계 오류)")
+elif mdsap_status["status"] == "error":
+    st.warning(f"MDSAP 수집 실패 또는 부분 수집 · 확인 시각: {mdsap_status['checked_at']} (상세 내용은 Actions 로그 확인)")
+else:
+    st.success(f"MDSAP 수집 완료 · 확인 시각: {mdsap_status['checked_at']} (변경 없음이나 전체 범위 확인을 의미하지 않음)")
+
 st.caption(
     "MFDS는 robots.txt 상 자동접근 비권장 사이트이나, 비상업적 사내 QA 모니터링 목적으로 "
     "서버 부담을 최소화(요청 간 딜레이 적용)하며 수집합니다."
@@ -384,14 +417,14 @@ with st.container(border=True):
 
     rows_html = ""
     for item in filtered_data:
-        doc_no_clean = (item.get("doc_no") or "").replace("\n", " ")
+        doc_no_clean = display_doc_no(item)
         manufacturer_obligation = item.get("manufacturer_obligation", item.get("sop_required")) or ""
         rows_html += (
             f'<tr>'
             f'<td>{item["no"]}</td>'
-            f'<td>{item.get("publish_date") or "-"}</td>'
-            f'<td>{item.get("change_date") or item.get("revision_date") or "-"}</td>'
-            f'<td>{item.get("effective_date") or "-"}</td>'
+            f'<td class="date-cell">{item.get("publish_date") or "-"}</td>'
+            f'<td class="date-cell">{item.get("change_date") or item.get("revision_date") or "-"}</td>'
+            f'<td class="date-cell">{item.get("effective_date") or "-"}</td>'
             f'<td>{item.get("publisher") or "-"}</td>'
             f'<td>{doc_no_clean}</td>'
             f'<td class="title-cell"><a href="{item.get("url") or "#"}" target="_blank">{item["title"]}</a></td>'
@@ -405,7 +438,7 @@ with st.container(border=True):
         '<th style="width:5%;">No.</th><th style="width:9%;">고시일</th>'
         '<th style="width:10%;">개정·업데이트일</th><th style="width:9%;">시행일</th><th style="width:12%;">발행처</th>'
         '<th style="width:14%;">규격/가이던스 번호</th><th style="width:34%;">제목 (클릭 시 이동)</th>'
-        '<th style="width:11%;">적용범위</th><th style="width:12%;">Manufacturer obligation</th>'
+        '<th style="width:11%;">적용범위</th><th style="width:12%;">Manufacturer<br>obligation</th>'
         f'</tr></thead><tbody>{rows_html}</tbody></table></div>'
     )
     render_html(table_html)
@@ -428,7 +461,7 @@ with st.container(border=True):
     summary_html = (
         '<div class="summary-card">'
         f'<h4>📌 {selected_item["title"]}</h4>'
-        f'<p><b>• 규격 번호:</b> {(selected_item.get("doc_no") or "").replace(chr(10), " ")} '
+        f'<p><b>• 규격 번호:</b> {display_doc_no(selected_item)} '
         f'| <b>발행처:</b> {selected_item.get("publisher") or "-"}</p>'
         f'<p><b>• 적용 범위:</b> {selected_item.get("scope") or "-"} '
         f'| <b>Manufacturer obligation:</b> <span style="color:var(--amber);font-weight:bold;">{selected_item.get("manufacturer_obligation", selected_item.get("sop_required")) or "-"}</span></p>'

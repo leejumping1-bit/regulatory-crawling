@@ -44,10 +44,12 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
       - name: Commit and push if updated
+        if: ${{ !cancelled() }}
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add data/regulations.json data/summary_cache.json data/snapshots/*.txt
+          if test -f data/mdsap_status.json; then git add data/mdsap_status.json; fi
           git commit -m "chore: regulatory data update (${{ github.event_name }}) [skip ci]" || exit 0
           for attempt in 1 2 3; do
             git push && exit 0

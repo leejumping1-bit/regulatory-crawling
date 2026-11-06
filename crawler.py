@@ -22,7 +22,9 @@ import inspect
 import sys
 import os
 import time
-from datetime import date
+import json
+from pathlib import Path
+from datetime import date, datetime, timezone
 
 sys.path.append(os.path.dirname(__file__))
 from collectors.store import upsert_regulations, load_regulations  # noqa: E402
@@ -31,6 +33,15 @@ from collectors.store import upsert_regulations, load_regulations  # noqa: E402
 # 앞선 기관들이 먼저 저장을 마치면, MFDS 단계에서 시간이 오래 걸리거나
 # 플랫폼 타임아웃으로 중단되더라도 이미 저장된 데이터는 보존된다.
 AUTO_AGENCIES = ["mdcg", "fda", "mhra", "mdsap", "tga", "health_canada", "pmda", "mfds"]
+MDSAP_STATUS_PATH = Path(__file__).parent / "data" / "mdsap_status.json"
+
+
+def _write_mdsap_status(status):
+    """Persist only public, non-sensitive monitoring metadata."""
+    MDSAP_STATUS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    temporary = MDSAP_STATUS_PATH.with_suffix(".tmp")
+    temporary.write_text(json.dumps({"status": status, "checked_at": datetime.now(timezone.utc).isoformat()}, ensure_ascii=False) + "\n", encoding="utf-8")
+    temporary.replace(MDSAP_STATUS_PATH)
 
 
 def _run_agency(mod, since_year, since_month, today_only):
@@ -63,6 +74,10 @@ def run_crawler(since_year=2026, since_month=1, only=None, progress_cb=None, tod
     summary = {}
 
     for key in targets:
+        # Start pessimistically: interrupted, partial and failed checks must not
+        # retain the previous successful state. Do not persist exception text.
+        if key == "mdsap" and not today_only:
+            _write_mdsap_status("error")
         try:
             mod = importlib.import_module(f"collectors.{key}")
         except Exception as e:
@@ -84,6 +99,16 @@ def run_crawler(since_year=2026, since_month=1, only=None, progress_cb=None, tod
                 progress_cb(key, msg)
             continue
         elapsed = time.time() - t0
+
+        if key == "mdsap" and (block_info is not None or (not today_only and not items)):
+            if items:
+                upsert_regulations(items)
+            msg = "수집 실패 또는 부분 수집 (상세 내용은 실행 로그 확인)"
+            summary[key] = msg
+            print(f"[ERROR] {key}: {msg}")
+            if progress_cb:
+                progress_cb(key, msg)
+            continue
 
         if block_info is not None:
             if getattr(block_info, "robots_disallowed", False):
@@ -114,6 +139,8 @@ def run_crawler(since_year=2026, since_month=1, only=None, progress_cb=None, tod
         if items:
             upsert_regulations(items)
 
+        if key == "mdsap" and not today_only:
+            _write_mdsap_status("ok")
         msg = f"{len(items)}건 수집 ({elapsed:.0f}초)"
         summary[key] = msg
         print(f"[OK] {key}: {msg}")

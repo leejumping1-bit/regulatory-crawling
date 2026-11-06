@@ -3,6 +3,26 @@
 import re
 
 
+def mdsap_status_is_stale(timestamp, now=None):
+    from datetime import datetime, timezone, timedelta
+    try:
+        checked = datetime.fromisoformat(timestamp)
+        if checked.utcoffset() is None:
+            return True
+        age = (now or datetime.now(timezone.utc)) - checked
+        return age < timedelta(0) or age > timedelta(hours=48)
+    except (ValueError, TypeError, OverflowError):
+        return True
+
+
+def display_doc_no(item):
+    """Suppress MHRA's synthetic event identifier, not real document numbers."""
+    number = (item.get("doc_no") or "").replace("\n", " ")
+    if item.get("publisher") == "MHRA (UK)" and re.fullmatch(r"MHRA-[0-9a-f]{24}", number):
+        return ""
+    return number
+
+
 def permanent_update_workflow_url():
     """Return the authenticated GitHub UI for a durable manual update.
 

@@ -25,7 +25,8 @@ def test_part820_failure_keeps_federal_register_results(monkeypatch):
     assert error and error.ok is False and '820 unavailable' in error.error
 
 
-def test_failed_fetch_not_reported_as_zero_success(monkeypatch):
+def test_failed_fetch_not_reported_as_zero_success(monkeypatch, tmp_path):
+    monkeypatch.setattr(crawler, 'MDSAP_STATUS_PATH', tmp_path / 'status.json')
     module = SimpleNamespace(run=lambda y, m: ([], SimpleNamespace(ok=False, blocked=False, robots_disallowed=False, error='timeout')))
     monkeypatch.setattr(crawler.importlib, 'import_module', lambda _: module)
     monkeypatch.setattr(crawler, 'load_regulations', lambda: [])

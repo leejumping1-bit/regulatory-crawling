@@ -83,7 +83,7 @@ def save_regulations(items):
 
 def _retain_failed_collection(old, new):
     """Retain prior material only for an exact, fully identified record."""
-    if not isinstance(old, dict) or new.get("publisher") not in {"MDCG (EU)", "MFDS (Korea)"}:
+    if not isinstance(old, dict) or new.get("publisher") not in {"MDCG (EU)", "MFDS (Korea)", "MDSAP"}:
         return new
     fields = ("publisher", "doc_no", "title", "url")
     if any(not isinstance(new.get(field), str) or not new[field].strip()
@@ -91,6 +91,10 @@ def _retain_failed_collection(old, new):
         return new
 
     result = dict(new)
+    if (new.get("publisher") == "MDSAP" and new.get("summary_status") == "source_extracted"
+            and old.get("summary_status") == "source_extracted"
+            and isinstance(old.get("summary"), str) and old["summary"].strip()):
+        result["summary"] = old["summary"]
     evidence = new.get("revision_evidence")
     previous = old.get("revision_evidence")
     if isinstance(evidence, dict) and evidence.get("status") == "discovery_incomplete" and isinstance(previous, dict):
