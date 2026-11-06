@@ -138,7 +138,9 @@ st.markdown(textwrap.dedent("""
   --teal:#0f8b8d; --teal-dark:#0b6668; --amber:#c8811a;
 }
 
-html, body, [class*="css"] { font-family: 'Noto Sans KR', sans-serif; }
+html, body, [class*="css"], .stApp, .stApp p, .stApp button, .stApp input,
+.stApp label, .stApp [data-baseweb="select"], .rw-topbar, .rw-panel-head,
+.reg-table, .summary-card { font-family:'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; }
 .stApp { background: var(--slate-100); }
 #MainMenu, footer, header[data-testid="stHeader"] { visibility: visible; }
 .block-container { padding-top: 1.4rem; max-width: 1180px; }
@@ -151,22 +153,17 @@ html, body, [class*="css"] { font-family: 'Noto Sans KR', sans-serif; }
   display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
 }
 .rw-brand { display:flex; align-items:center; gap:14px; }
-.rw-brand-mark {
-  font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:12px; letter-spacing:.12em;
-  background:rgba(15,139,141,.25); border:1px solid var(--teal); color:#8fe3e4;
-  padding:6px 10px; border-radius:6px; white-space:nowrap;
-}
-.rw-brand h1 { font-size:19px; margin:0 0 2px; font-weight:700; }
+.rw-brand h1 { font-size:22px; margin:0 0 2px; font-weight:700; line-height:1.45; }
 .rw-brand p { margin:0; font-size:12.5px; color:#9fb0d6; font-family:'IBM Plex Mono',monospace; }
-.rw-topbar-meta { font-size:12px; color:#b9c4e0; font-family:'IBM Plex Mono',monospace; text-align:right; }
+.rw-topbar-meta { font-size:14px; color:#d2dbee; text-align:right; }
 
 /* 컨트롤바(월선택/다운로드/수동업데이트) */
-.rw-controlbar-label { font-size:11.5px; font-weight:600; color:var(--slate-500); margin-bottom:2px; }
+.rw-controlbar-label { font-size:14px; font-weight:600; color:#45516a; margin-bottom:4px; }
 
 /* 패널 헤더 */
 .rw-panel-head { display:flex; align-items:center; gap:10px; margin: 4px 0 10px; }
-.rw-panel-head h2 { font-size:16px; margin:0; font-weight:700; color:var(--navy-900); }
-.rw-panel-head .rw-subtle { font-size:12.5px; font-weight:400; color:var(--slate-500); }
+.rw-panel-head h2 { font-size:19px; margin:0; font-weight:700; color:var(--navy-900); }
+.rw-panel-head .rw-subtle { font-size:14px; font-weight:400; color:#45516a; }
 .rw-step {
   font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; color:#fff;
   background:var(--navy-800); border-radius:5px; padding:3px 7px;
@@ -185,10 +182,10 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 .stButton>button:hover, .stDownloadButton>button:hover { filter: brightness(1.08); color:#fff; }
 
 .reg-table-container { width: 100%; overflow-x: auto; margin-bottom: 6px; }
-.reg-table { width: 100%; border-collapse: collapse; font-size: 12.8px; background:#fff; }
+.reg-table { width: 100%; min-width:1100px; border-collapse: collapse; font-size: 15px; background:#fff; }
 .reg-table th {
   background:var(--navy-900); color:#e7ecfa; font-weight:700; text-align:center;
-  vertical-align:middle; padding:9px 8px; border:1px solid #223154; white-space:nowrap; font-size:11.5px;
+  vertical-align:middle; padding:10px 8px; border:1px solid #223154; white-space:nowrap; font-size:14px;
 }
 .reg-table td {
   text-align:center; vertical-align:middle; padding:9px 8px; border:1px solid #dee2e6;
@@ -198,9 +195,12 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 .reg-table td.title-cell { text-align:left; }
 .reg-table td.title-cell a { color:var(--teal-dark); text-decoration:underline; font-weight:600; }
 .reg-table tr:hover td { background:#f1f6f8; }
-.reg-scope-tag { display:inline-block; font-size:11px; font-weight:600; padding:2px 8px; border-radius:99px; background:var(--slate-100); color:var(--navy-900); }
+.reg-scope-tag { display:inline-block; font-size:14px; font-weight:600; padding:2px 8px; border-radius:99px; background:var(--slate-100); color:var(--navy-900); }
 
 .summary-card { background:var(--slate-100); border-left:4px solid var(--teal); padding:16px; border-radius:0 8px 8px 0; margin-bottom:6px; }
+.summary-card h4 { font-size:19px; line-height:1.5; margin:0 0 12px; }
+.summary-card p { font-size:16px; line-height:1.8; overflow-wrap:anywhere; word-break:keep-all; }
+.summary-card .summary-text { font-size:16px; line-height:1.8; color:#17243a; }
 </style>
 """), unsafe_allow_html=True)
 
@@ -257,7 +257,6 @@ data, data_source = _load()
 render_html(f"""
 <div class="rw-topbar">
   <div class="rw-brand">
-    <span class="rw-brand-mark">RA/QA</span>
     <div>
       <h1>국내외 규격 및 가이던스 업데이트 검토대장</h1>
       <p>Global Regulatory &amp; Standards Watch — Gap Analysis Console</p>
@@ -471,7 +470,7 @@ with st.container(border=True):
         f'<p><b>• 적용 범위:</b> {selected_item.get("scope") or "-"} '
         f'| <b>Manufacturer obligation:</b> <span style="color:var(--amber);font-weight:bold;">{selected_item.get("manufacturer_obligation", selected_item.get("sop_required")) or "-"}</span></p>'
         '<hr><p><b>[요약 내용]</b></p>'
-        f'<p>{(selected_item.get("summary") or "").replace(chr(10), "<br>")}</p>'
+        f'<p class="summary-text">{(selected_item.get("summary") or "").replace(chr(10), "<br>")}</p>'
         '</div>'
     )
     render_html(summary_html)
