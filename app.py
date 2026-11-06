@@ -223,9 +223,6 @@ def _load():
 
 
 data, data_source = _load()
-if st.session_state.get("manual_data") is not None:
-    data = st.session_state["manual_data"]
-    data_source = "manual-session"
 
 
 # ==================== 상단 배너 ====================
@@ -353,41 +350,16 @@ with ctrl3:
 
 with ctrl4:
     st.markdown('<div class="rw-controlbar-label">🔄 데이터 업데이트</div>', unsafe_allow_html=True)
-    run_clicked = st.button("오늘자 임시 미리보기", use_container_width=True)
-    if run_clicked:
-        from crawler import run_crawler
-
-        progress_box = st.empty()
-        log_lines = []
-
-        def _progress(agency_key, status):
-            log_lines.append(f"· {agency_key}: {status}")
-            progress_box.markdown("\n\n".join(log_lines))
-
-        with st.spinner("오늘 게시된 항목을 확인 중입니다... (전체 기간 재수집이 아니라 빠르게 끝납니다)"):
-            saved, summary = run_crawler(progress_cb=_progress, today_only=True)
-            st.session_state["manual_data"] = saved
-            st.cache_data.clear()
-        st.success(f"완료! 오늘자 기준 총 {len(saved)}건 (전체 누적 기준)")
-        st.rerun()
-
     st.link_button(
-        "영구 업데이트 실행",
+        "갱신",
         PERMANENT_UPDATE_WORKFLOW_URL,
         use_container_width=True,
         help="GitHub Actions에서 Run workflow를 누르면 영구 데이터에 반영됩니다.",
     )
 
-st.caption(
-    "'오늘자 임시 미리보기'는 현재 세션에서만 유지됩니다. "
-    "재접속 후에도 남겨야 할 때는 '영구 업데이트 실행'을 열어 GitHub의 Run workflow를 누르세요. "
-    "예약 실행과 수동 영구 실행은 같은 수집기를 사용하며 data/regulations.json에 영구 반영됩니다."
-)
-
 source_label = {
     "github-main": "GitHub main 영구 데이터 (백그라운드 수집 결과)",
     "local-fallback": "앱 로컬 fallback 데이터 (GitHub 접근 실패)",
-    "manual-session": "수동 조회 임시 데이터 (현재 세션만 유지)",
 }.get(data_source, data_source)
 st.caption(
     f"데이터 출처: {source_label} · 확인시각: "
@@ -402,7 +374,7 @@ st.caption(
 st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
 if not filtered_data:
-    st.info("해당 월의 데이터가 없습니다. 상단의 '지금 실행' 버튼을 눌러 데이터를 수집해주세요.")
+    st.info("해당 조건의 데이터가 없습니다. 갱신을 통해 GitHub Actions에서 업데이트를 실행할 수 있습니다.")
     st.stop()
 
 # ==================== 1. 검토대장 ====================
