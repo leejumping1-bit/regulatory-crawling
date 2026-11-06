@@ -8,6 +8,11 @@ from urllib.parse import urlsplit
 
 from collectors.store import load_regulations
 from collectors.mfds_pdf_display import evidence_for_item, load_evidence_images
+import importlib
+import app_logic
+# Streamlit can retain imported modules across a hot deployment; reload helpers
+# before importing names added in the same release.
+importlib.reload(app_logic)
 from app_logic import (
     effective_month,
     filter_by_month,
