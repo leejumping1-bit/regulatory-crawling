@@ -182,14 +182,14 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 .stButton>button:hover, .stDownloadButton>button:hover { filter: brightness(1.08); color:#fff; }
 
 .reg-table-container { width: 100%; overflow-x: auto; margin-bottom: 6px; }
-.reg-table { width: 100%; min-width:1100px; border-collapse: collapse; font-size: 12.8px; background:#fff; }
+.reg-table { width: 100%; min-width:760px; table-layout: fixed; border-collapse: collapse; font-size: 12.8px; background:#fff; }
 .reg-table th {
   background:var(--navy-900); color:#e7ecfa; font-weight:700; text-align:center;
-  vertical-align:middle; padding:10px 8px; border:1px solid #223154; white-space:nowrap; font-size:11.5px;
+  vertical-align:middle; padding:9px 4px; border:1px solid #223154; white-space:normal; overflow-wrap:anywhere; font-size:11.5px;
 }
 .reg-table td {
-  text-align:center; vertical-align:middle; padding:9px 8px; border:1px solid #dee2e6;
-  word-break:keep-all; white-space:normal; line-height:1.5;
+  text-align:center; vertical-align:middle; padding:9px 4px; border:1px solid #dee2e6;
+  word-break:keep-all; overflow-wrap:anywhere; white-space:normal; line-height:1.5;
 }
 .reg-table td.date-cell { white-space:nowrap; }
 .reg-table td.title-cell { text-align:left; }
@@ -439,10 +439,10 @@ with st.container(border=True):
 
     table_html = (
         '<div class="reg-table-container"><table class="reg-table"><thead><tr>'
-        '<th style="width:5%;">No.</th><th style="width:9%;">고시일</th>'
-        '<th style="width:10%;">개정·업데이트일</th><th style="width:9%;">시행일</th><th style="width:12%;">발행처</th>'
-        '<th style="width:14%;">규격/가이던스 번호</th><th style="width:34%;">제목 (클릭 시 이동)</th>'
-        '<th style="width:11%;">적용범위</th><th style="width:12%;">Manufacturer<br>obligation</th>'
+        '<th style="width:4%;">No.</th><th style="width:10%;">고시일</th>'
+        '<th style="width:10%;">개정·업데이트일</th><th style="width:10%;">시행일</th><th style="width:8%;">발행처</th>'
+        '<th style="width:11%;">규격/가이던스 번호</th><th style="width:29%;">제목 (클릭 시 이동)</th>'
+        '<th style="width:7%;">적용범위</th><th style="width:11%;">Manufacturer<br>obligation</th>'
         f'</tr></thead><tbody>{rows_html}</tbody></table></div>'
     )
     render_html(table_html)

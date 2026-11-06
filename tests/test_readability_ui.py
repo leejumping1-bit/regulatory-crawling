@@ -4,10 +4,18 @@ from streamlit.testing.v1 import AppTest
 APP = Path(__file__).resolve().parents[1] / 'app.py'
 
 
+def test_table_fits_panel_without_forced_1100px_width():
+    source = APP.read_text(encoding='utf-8')
+    assert 'min-width:1100px' not in source
+    assert 'table-layout: fixed' in source
+    assert 'overflow-x: auto' in source
+    assert '.reg-table td.date-cell { white-space:nowrap; }' in source
+
+
 def test_table_uses_original_font_sizes_without_changing_summary():
     source = APP.read_text(encoding='utf-8')
     assert 'font-size: 12.8px; background:#fff' in source
-    assert 'white-space:nowrap; font-size:11.5px' in source
+    assert 'font-size:11.5px' in source
     assert '.reg-scope-tag { display:inline-block; font-size:11px' in source
     assert '.summary-card .summary-text { font-size:16px' in source
     assert '.reg-table td.date-cell { white-space:nowrap; }' in source
