@@ -153,7 +153,7 @@ html, body, [class*="css"], .stApp, .stApp p, .stApp button, .stApp input,
   display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
 }
 .rw-brand { display:flex; align-items:center; gap:14px; }
-.rw-brand h1 { font-size:22px; margin:0 0 2px; font-weight:700; line-height:1.45; }
+.rw-brand h1 { font-family:'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif !important; font-size:22px; margin:0 0 2px; font-weight:700; line-height:1.45; }
 .rw-brand p { margin:0; font-size:12.5px; color:#9fb0d6; font-family:'IBM Plex Mono',monospace; }
 .rw-topbar-meta { font-size:14px; color:#d2dbee; text-align:right; }
 
@@ -162,7 +162,7 @@ html, body, [class*="css"], .stApp, .stApp p, .stApp button, .stApp input,
 
 /* 패널 헤더 */
 .rw-panel-head { display:flex; align-items:center; gap:10px; margin: 4px 0 10px; }
-.rw-panel-head h2 { font-size:19px; margin:0; font-weight:700; color:var(--navy-900); }
+.rw-panel-head h2 { font-family:'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif !important; font-size:19px; margin:0; font-weight:700; color:var(--navy-900); }
 .rw-panel-head .rw-subtle { font-size:14px; font-weight:400; color:#45516a; }
 .rw-step {
   font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600; color:#fff;
