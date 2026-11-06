@@ -69,6 +69,17 @@ def test_load_remote_regulations_rejects_non_list(monkeypatch):
     with pytest.raises(ValueError, match="not a list"):
         store.load_remote_regulations("https://example.test/data.json")
 
+def test_retained_summary_keeps_its_official_source():
+    old = {'publisher':'MDCG (EU)','doc_no':'X','title':'Title','url':'https://example.test/x',
+           'summary':'공식 공지에 근거한 요약입니다.', 'summary_status':'source_extracted',
+           'summary_source':{'type':'official_announcement','url':'https://health.ec.europa.eu/x','text':'Original source'}}
+    new = {**old, 'summary':'[요약 오류]', 'summary_status':'pdf_unavailable'}
+    new.pop('summary_source')
+    result = store._retain_failed_collection(old, new)
+    assert result['summary_retained_stale'] is True
+    assert result['summary_source'] == old['summary_source']
+
+
 def test_sort_by_event_or_revision_date_not_original_publish_date(monkeypatch):
     items = [
         {'title': 'old event', 'publish_date': '2026-01-01'},

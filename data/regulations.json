@@ -149,8 +149,8 @@
     "publisher": "MDCG (EU)",
     "doc_no": "MDCG 2026-6",
     "title": "New MDCG 2026-6 Position Paper: Clinical evidence for orphan in vitro diagnostic medical devices",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (PDF 첨부파일을 찾지 못함)",
-    "summary_status": "pdf_unavailable",
+    "summary": "IVDR에 따른 희귀 체외진단기기의 임상 근거에 관한 지침이다. 검체 부족으로 임상 성능자료를 확보하기 어려운 상황에서 일정한 자료의 한계를 허용할 수 있지만, 안전성과 성능을 입증할 충분한 임상 근거가 필요하다고 설명한다. 제조업체·의료기관의 임상 근거와 시판 후 자료 생성, 인증기관 및 전문가 패널의 절차를 다룬다.",
+    "summary_status": "pdf_extracted",
     "scope": "체외진단 의료기기",
     "manufacturer_obligation": "",
     "url": "https://health.ec.europa.eu/medical-devices-sector/new-regulations/guidance-mdcg-endorsed-documents-and-other-guidance_en#mdcg-2026-6",
@@ -159,7 +159,14 @@
       "present_text": "비교 제외 (신규 제정·발표 문서)",
       "diff_html": "<div class=\"diff-omit\">신규 제정·발표 문서이므로 Gap 분석을 수행하지 않습니다. 공식 원문에서 직접 확인하세요.</div>"
     },
-    "no": 6
+    "no": 6,
+    "summary_source": {
+      "type": "official_document_excerpt",
+      "subtype": "full_document",
+      "url": "https://health.ec.europa.eu/document/download/3c335d66-18db-4ab2-9fdd-fe552e897200_en?filename=mdcg_2026-6_en.pdf",
+      "text": "The IVD Regulation (IVDR, Regulation (EU) 2017/746) requires that the level of clinical evidence for an IVD is sufficient to demonstrate its performance and safety before being placed on the market. This may present a challenge for IVDs that are specifically intended for use in rare diseases/conditions (e.g. a genetic test for a rare disease) or circumstances (e.g. a toxicological test for an uncommon intoxication). Such IVDs are termed ‘orphan IVDs’ in this guidance and the criteria that they should meet in order to qualify as orphan IVDs are provided. The necessary clinical evidence for an IVD should be based on a sufficient amount and quality of data in order to allow a qualified assessment of its safety, performance, and the intended clinical benefit(s). IVD performance is demonstrated by substantiating scientific validity, analytical performance, and clinical performance. For orphan IVDs, which by their nature address very small patient populations, generating clinical performance data within a reasonable timeframe may be challenging due to limited specimen availability. The field of rare disease/condition/circumstance diagnostics evolves rapidly, with technological developments that sit on the edge between research and clinical diagnostics. Additionally, low sales volumes may limit the commercial viability of orphan IVDs on the EU market. It is thus not surprising that many orphan IVDs are manufactured in-house by health institutions. These health institutions may face similar challenges as IVD manufacturers when generating clinical evidence for their in-house orphan IVDs. Given their unique challenges, the application of IVDR requirements to orphan IVDs should be balanced and proportionate, so that clinical evidence requirements are sufficiently met without unduly hindering or delaying the clinical use of these important devices. There are circumstances where it is acceptable for orphan IVDs to be placed on the market, or to be manufactured and used in-house, with limitations in clinical performance data. Without dedicated guidance, manufacturers, notified bodies, health institutions and regulators may interpret the clinical evidence requirements differently for these IVDs. Some IVDs may have both ‘orphan’ and ‘non-orphan’ indications. Where sufficient clinical evidence for the orphan indication is difficult to demonstrate, the principles in this guidance may be applied to support the orphan indication only. This guidance is divided into two main parts: PART A – Clinical evidence considerations (applicable to both manufacturers and health institutions): - The acceptability of limitations in pre-market clinical performance data for orphan IVDs - Key considerations on the evaluation of clinical performance of orphan IVDs - Generating post-market clinical performance data for orphan IVDs PART B – Procedural considerations (not applicable to health institutions): - Guidance for notified bodies on the assessment of orphan IVDs - The role of the expert panels in the context of orphan IVDs",
+      "sha256": "e7a3bee35b2579fabc226fbed78aab93def403a62e2f22d9f6af0f81ef82ba55"
+    }
   },
   {
     "search_month": "2026-10",
@@ -169,8 +176,8 @@
     "publisher": "MDCG (EU)",
     "doc_no": "New revision of the MDCG Position Paper ",
     "title": "New revision of the MDCG Position Paper on the management of SS(C)P in Eudamed after mandatory use",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (PDF 첨부파일을 찾지 못함)",
-    "summary_status": "pdf_unavailable",
+    "summary": "MDCG 2026-4 rev.1은 EUDAMED의 SS(C)P 업로드를 인증기관에서 제조업체로 전환하는 계획을 설명한다. 새 기능이 운영환경에 완전히 제공되기 전까지 인증기관은 신규 인증서 및 업데이트 등록 시 번역본을 제외한 원본을 업로드한다. 의무사용 전에 출시된 기기의 경우 제조업체가 SS(C)P를 가능한 한 빨리, 늦어도 2027년 3월 27일까지 업로드하도록 안내한다. 이는 MDCG 입장문의 안내이며 법적 의무기한으로 단정하지 않는다.",
+    "summary_status": "pdf_extracted",
     "scope": "종합",
     "manufacturer_obligation": "",
     "url": "https://health.ec.europa.eu/latest-updates/new-revision-mdcg-position-paper-management-sscp-eudamed-after-mandatory-use-2026-10-30_en",
@@ -179,7 +186,14 @@
       "present_text": "New revision of the MDCG Position Paper on the management of SS(C)P in Eudamed after mandatory use",
       "diff_html": "<span class=\"diff-add\">New revision of the MDCG Position Paper on the management of SS(C)P in Eudamed after mandatory use</span><br><br><i>(신규 published 문서 — 과거 규격 내용 없음)</i>"
     },
-    "no": 7
+    "no": 7,
+    "summary_source": {
+      "type": "official_document_excerpt",
+      "subtype": "full_document_revision",
+      "url": "https://health.ec.europa.eu/document/download/a80332cf-e9f0-4d45-8863-3d96e8c2a675_en?filename=mdcg_2026-4_en.pdf",
+      "text": "1. Current situation in EUDAMED: The summary of safety and clinical performance and the summary of safety and performance (SSCP and SSP respectively), are to be uploaded by the notified body during the process of registering certificates information according to Article 32(1) MDR and Article 29(1) IVDR. This policy is however evolving, as described below. 2. Revision of the guidance MDCG 2019-9 – rev.1 on SSCP: Guidance MDCG 2019-9 – rev.1 is being revised to assign to the manufacturer the task to upload the SSCPs in EUDAMED, both the ‘master’ version along with the translations1 in accordance with Article 29(4) MDR. It is the responsibility of the manufacturer to ensure that the uploaded SSCP is the one validated by the notified body during the certification process. The changes outlined in the revised guidance will be reflected in EUDAMED and will require the notified body to indicate which is the validated SSCP(s), or parts thereof, in accordance with Article 32(1) MDR, by ticking the box(es) corresponding to the relevant Basic UDI-DI(s). This functionality will be available when registering and/or linking the relevant certificate. See the guidance for more details. This procedure will apply as well to SSP (IVDs). 3. Timeline for implementation in EUDAMED: Changes will be implemented in EUDAMED in the coming months and after the mandatory use date. A transitional period will be foreseen to switch the task of SS(C)P upload in EUDAMED from the notified body to the manufacturer. In practice, from 28th May 2026 (date of mandatory use of the first four modules of EUDAMED) and until the new functionalities described in paragraph 2 are fully available in the EUDAMED Production environment, notified bodies need to upload SS(C)Ps alongside the registration of new certificates, including their updates, for concerned devices. The upload concerns only the master SS(C)Ps, without the translations. Management of translations will be done by the manufacturer in line with MDCG 2021-1 rev.1 and MDCG 2022-12 respectively.\nTherefore, manufacturers should upload SS(C)Ps in EUDAMED as soon as possible, and no later than 27 March 2027 for devices placed on the market before mandatory use considering that manufacturers and notified bodies should align on timelines to fulfil their registration obligations.",
+      "sha256": "fc3631817896bc8da8ec06c1053f4f31ef295281599e3cd12459f34a145c853f"
+    }
   },
   {
     "search_month": "2026-10",
@@ -375,8 +389,8 @@
     "publisher": "MDCG (EU)",
     "doc_no": "Webinar for Sponsors and Competent Autho",
     "title": "Webinar for Sponsors and Competent Authorities – Two Years of Experience with The Pilot Coordinated Assessment for CI/PS under MDR and IVDR (6 November 2026, 14:00-15:30)",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (PDF 첨부파일을 찾지 못함)",
-    "summary_status": "pdf_unavailable",
+    "summary": "임상시험·성능연구 공동평가 시범사업에 2년간 참여한 의뢰자와 회원국의 경험을 공유하는 온라인 웨비나다. 예비 의뢰자와 관련 이해관계자를 대상으로 하며 시범사업에 따른 평가를 마친 의료기기 제조업체, 관할당국 및 집행위원회 대표가 발표한다.",
+    "summary_status": "source_extracted",
     "scope": "종합",
     "manufacturer_obligation": "",
     "url": "https://health.ec.europa.eu/events/webinar-sponsors-and-competent-authorities-two-years-experience-pilot-coordinated-assessment-cips-2026-11-06_en",
@@ -385,7 +399,14 @@
       "present_text": "Webinar for Sponsors and Competent Authorities – Two Years of Experience with The Pilot Coordinated Assessment for CI/PS under MDR and IVDR (6 November 2026, 14:00-15:30)",
       "diff_html": "<span class=\"diff-add\">Webinar for Sponsors and Competent Authorities – Two Years of Experience with The Pilot Coordinated Assessment for CI/PS under MDR and IVDR (6 November 2026, 14:00-15:30)</span><br><br><i>(신규 published 문서 — 과거 규격 내용 없음)</i>"
     },
-    "no": 15
+    "no": 15,
+    "summary_source": {
+      "type": "official_announcement",
+      "subtype": "official_event_announcement",
+      "url": "https://health.ec.europa.eu/events/webinar-sponsors-and-competent-authorities-two-years-experience-pilot-coordinated-assessment-cips-2026-11-06_en",
+      "text": "A webinar will be organised on the experience gained by sponsors and Member States after two years of participating in the pilot coordinated assessment for clinical investigations and performance studies (CI/PS).\n\n## About the event\n\nThis webinar will provide an opportunity for prospective sponsors to:\n\n## Practical information\n\n|  |  |\n| --- | --- |\n| **Target audience:** | Prospective sponsors and other stakeholders interested in the pilot coordinated assessment for clinical investigations and performance studies. |\n| **Presenters:** | Representatives of medical device manufacturers that have completed assessments under the pilot, Competent Authorities and the European Commission. |\n| **When:** | 6 November 2026, 14:00 – 15:30 CET |\n| **Format:** | [Online webinar (Webex)](https://ecconf.webex.com/ecconf/j.php?MTID=m8b932a2e97320f9081194a9d6e8c2a6e) |\n| **Languages:** | English |",
+      "sha256": "b3a85f35945cec5420c3c465a74030856e315ceda85d0e26c6c98585398781c2"
+    }
   },
   {
     "search_month": "2026-10",
@@ -609,8 +630,8 @@
     "publisher": "MDCG (EU)",
     "doc_no": "HTA Regulation  - Commission selects fir",
     "title": "HTA Regulation  - Commission selects first medical devices for joint clinical assessment",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (PDF 첨부파일을 찾지 못함)",
-    "summary_status": "pdf_unavailable",
+    "summary": "유럽연합 집행위원회는 HTA 규정에 따른 최초의 의료기기 공동임상평가 대상으로 심혈관 질환 관련 기기 두 가지를 선정했다. 공지는 SAPIEN M3와 Highlife 승모판 대체 시스템을 명시하며 평가 결과가 회원국의 국가별 의사결정에 활용된다고 설명한다.",
+    "summary_status": "source_extracted",
     "scope": "종합",
     "manufacturer_obligation": "",
     "url": "https://ec.europa.eu/newsroom/sante/newsletter-archives/80023",
@@ -619,7 +640,14 @@
       "present_text": "HTA Regulation  - Commission selects first medical devices for joint clinical assessment",
       "diff_html": "<div class=\"diff-del\">EN   EN EUROPEAN COMMISSION Brussels, 2.10.2026 C(2026) 7113 final COMMISSION IMPLEMENTING DECISION of 2.10.2026 on the selection of medical devices for joint clinical assessment at Union level (Only the English text is authentic) (Text with EEA relevance) EN 1  EN COMMISSION IMPLEMENTING DECISION of 2.10.2026 on the selection of medical devices for joint clinical assessment at Union level (Only the English text is authentic) (Text with EEA relevance) THE EUROPEAN COMMISSION, Having regard to the Treaty on the Functioning of the European Union, Having regard to Regulation (EU)  2021/2282 of the European Parliament and of the Council of 15 December 2021 on health technology assessment and amend ing Directive 2011/24/EU1, and in particular Article 7(4) thereof, Whereas: (1) Pursuant to Article  7(4) of Regulation (EU)  2021/2282, after seeking a recommendation from the Member State Coordination Group on Health Technology Assessment established under Article 3 of that Regulation (‘the Coordination Group’), the Commission is to adopt a decision, by means of an implementing act, at least every two years, selecting medical devices and  in vitro diagnostic medical devices  for joint clinical assessment. Th e Commission is to select those devices from the medical devices for which the relevant expert panels, designated pursuant to Article  106(1) of Regulation (EU) 2017/745 of the European Parliament and of the Council2 (‘the expert panels’) have provided a scientific opinion or their views. (2) Pursuant to Article 3(2) of Commission Implementing Regulation (EU)  2024/26993, the European Medicines Agency is to provide, no later than 15  days after the end of the quarter concerned, the Commission acting as secretariat of the Coordination Group (‘the HTA secretariat’) with information on all medical devices and in vitro diagnostic medical devices for which the expert panels provided a scientific opinion or their views in the  framework of the clinical evaluation consultation procedure (‘CECP’) pursuant to Article 54 of Regulation (EU) 2017/745 or the performance evaluation consultation procedure pursuant to Article 48(6) of Regulation (EU) 2017/746 of the 1 OJ L 458, 22.12.2021, p. 1, ELI: http://data.europa.eu/eli/reg/2021/2282/oj. 2 Regulation (EU) 2017/745 of the European Parliament and of the Council of 5  April 2017 on medical devices, amending Directive  2001/83/EC, Regulation (EC)  No 178/2002 and Regulation (EC) No 1223/2009 and repealing Council Directives  90/385/EEC and 93/42/EEC (OJ L 117, 5.5.2017, p. 1, ELI: http://data.europa.eu/eli/reg/2017/745/oj). 3 Commission Imple menting Regulation (EU)  2024/2699 of 18  October 2024 laying down, pursuant to Regulation (EU)  2021/2282 of the European Parliament and of the Council, detailed procedural rules for the cooperation of the Member State Coordination Group on Health Technology  Assessment and the Commission with the European Medicines Agency in the form of exchange of information as regards the joint clinical assessment of medicinal products and medical devices and  in vitro diagnostic medical devices and as regards the joint sci entific consultation on medicinal products and medical devices ( OJ L, 2024/2699, 21.10.2024, ELI: http://data.europa.eu/eli/reg_impl/2024/2699/oj). EN 2  EN European Parliament and of the Council 4. For the first reporting period, the European Medicines Agency was to provide that information covering the period from 1 January 2024. (3) Pursuant to Article 4(2) of Implementing Regulation (EU) 2024/2699, t he HTA secretariat is to make that information available to the Coordination Group’s subgroup on joint clinical assessments (‘the JCA Subgroup’) for further analysis in the preparation of the recommendation referred to in Article 7(4) of Regulation (EU) 2021/2282. (4) On 15  April 2025, 15 July 2025, 15  October 2025, 15  January 2026 and 17 April 2026, the European Medicines Agency provided the HTA secretariat with information on all medical devices and in vitro diagnostic medical devices for which the expert panels provided a scientif ic opinion or their views during the period from 1 January 2024 to 31  March 2026. The HTA secretariat made that information available to the JCA Subgroup for further analysis in the preparation of the recommendation referred to in Article 7(4) of Regulation (EU) 2021/2282. (5) Based on the analysis of the JCA Subgroup, on 22  June 2026, the Coordination Group recommended that the Commission select for joint clinical assessment the medical devices under the names SAPIEN M3 TRANSCATHETER MITRAL VALVE REPLACEMENT SYSTEM  with CECP dossier No EMA/EX/0000242967 and HIGHLIFE TRANS -SEPTAL MITRAL VALVE REPLACEMENT SYSTEM  with CECP dossier No EMA/EX/0000309556. (6) The medical devices and in vitro diagnostic medical devices are to be selected for joint clinical assessment based on one or more of the criteria listed in points (a) to (f) of Article 7(4) of Regulation (EU) 2021/2282, namely, unmet medical needs, first in class, potential impact on patients, public health or healthcare systems, incorporation of software usi ng artificial intelligence, machine learning technologies or algorithms, significant cross-border dimension and major Union-wide added value. (7) Both medical devices recommended by the Coordination Group comply with  the criteria listed in Article 7(4), po ints (a), (b), (c), (e) and (f), of Regulation (EU) 2021/2282. (8) In particular, the medical device under the name SAPIEN M3 TRANSCATHETER MITRAL VALVE REPLACEMENT SYSTEM addresses an unmet medical need for the treatment of symptomatic moderate -to-severe or severe mitral regurgitation in patients who are deemed by a heart team unsuitable for surgery or transcatheter edge - to-edge therapy. The medical device is first in class, as currently there is no equivalent medical device with the same mechanism of acti on or technological approach available on the market for the same medical indication. That medical device is designed to lead to improvements in patients’ survival, morbidity, and quality of life. Therefore, it could have a potential impact on patients, pu blic health and healthcare systems. Furthermore, the medical device is within the remit of the decision -making bodies for health technology assessment of several Member States that confirmed that a joint clinical assessment of that medical device carried o ut at Union level would add value and achieve its objectives better than a clinical assessment carried out at Member State level. 4 Regulation (EU)  2017/746 of the European Parliament and of the Council of 5  April 2017 on  in vitro diagnostic medical devices and repealing Directive  98/79/EC and Commission Decision 2010/227/EU (OJ L 117, 5.5.2017, p. 176, ELI: http://data.europa.eu/eli/reg/2017/746/oj). EN 3  EN (9) On the day that the Coordination Group adopted its recommendation, all certificates of conformity had already been issued for the placing on the market of the medical device under the name SAPIEN M3 TRANSCATHETER MITRAL VALVE REPLACEMENT SYSTEM . There is therefore a risk of potential duplication of clinical assessments taking place both at Union and Member State levels. Howev er, the Coordination Group explained that that risk was mitigated in the case of that medical device, as only one Member State had declared an ongoing assessment at national level of that device, while several other Member States had confirmed that a joint clinical assessment carried out at Union level would add value and achieve its objectives better than the work carried out at the level of that Member State. (10) The medical device under the name HIGHLIFE TRANS-SEPTAL MITRAL VALVE REPLACEMENT SYSTEM addresses an unmet medical need for the treatment of moderate-to-severe or severe mitral valve regurgitation due to primary (i.e. degenerative), secondary (i.e. functional) or both primary and secondary mitral valve regurgitation in patients with le ft ventricular ejection fraction ≥ 30  % and left ventricular end-diastolic dimension ≤ 70 mm who do not have severe mitral annular calcification and are deemed by a multi-disciplinary heart team unsuitable for surgical repair/replacement or transcatheter edge-to-edge repair. The medical device is first in class as currently there is no equivalent medical device with the same mechanism of action or technological approach available on the market for the same medical indication. That medical device is designed  to lead to improvements in patients’ survival, morbidity, and quality of life. Therefore, it could have a potential impact on patients, public health and healthcare systems. Furthermore, the medical device is within the remit of the decision -making bodies  for health technology assessment of several Member States that confirmed that a joint clinical assessment of the medical device carried out at Union level would add value and achieve its objectives better than a clinical assessment carried out at Member State level. (11) On the day that the Coordination Group adopted its recommendation, all certificates of conformity had already been issued for the placing on the market  of the medical device under the name HIGHLIFE TRANS -SEPTAL MITRAL VALVE REPLACEMENT SYS TEM. There is therefore a risk of potential duplication of clinical assessments taking place both at Union and Member State levels. However, the Coordination Group explained that that risk was mitigated in the case of that medical device, as only one Membe r State had declared an ongoing assessment at national level of the device, while several other Member States had confirmed that a joint clinical assessment carried out at Union level would add value and achieve its objectives better than the work carried out at the level of that Member State. (12) The recommendation of the Coordination Group aligns with the Commission’s response to cardiovascular health as the Union’s leading public health challenge 5. Specifically, joint clinical assessments of cardiovasc ular medical devices, including cardiac valves, are expected to help Member States make fast and informed decisions on the pricing and reimbursement of those medical devices. 5 See Communication from the Commission of 16 December 2025  to the European Parliament, the Council, the European Economic and Social Committee and the Committee of the Regions  on an EU cardiovascular health plan: the Safe Hearts Plan (COM(2025) 1024 final), in particular pillar 3 ‘Living with cardiovascular diseases – improving patient treatment and care’. EN 4  EN (13) It is therefore appropriate to follow the recommendation of the Coordination Group and to select the medical devices under the names SAPIEN M3 TRANSCATHETER MITRAL VALVE REPLACEMENT SYSTEM  and HIGHLIFE TRANS -SEPTAL MITRAL VALVE REPLACEMENT SYSTEM for joint clinical assessment. (14) The measures provided for in this Decision are in accordance with the opinion of the Committee on Health Technology Assessment established by Article  33(1) of Regulation (EU) 2021/2282, HAS ADOPTED THIS DECISION: Article 1 The following medical devices are selected for joint clinical assessment at Union level: (a) name of medical device: SAPIEN M3 TRANSCATHETER MITRAL VALVE REPLACEMENT SYSTEM; name of manufacturer: EDWARDS LIFESCIENCES LLC; CECP dossier No: EMA/EX/0000242967; EU technical documentation assessment certificate No: G70  039555 0224 of 11 April 2025; (b) name of medical device: HIGHLIFE TRANS -SEPTAL MITRAL VALVE REPLACEMENT SYSTEM; name of manufacturer: HIGHLIFE SAS; CECP dossier No: EMA/EX/0000309556; EU technical documentation assessment certificate No: 2292597TD01 of 23 January 2026. Article 2 This Decision is addressed to the Member State Coordination Group on Health Technology Assessment. Done at Brussels, 2.10.2026 For the Commission Sandra GALLINA Director-General Directorate-General for Health and Food Safety</div>\n<div class=\"diff-add\">HTA Regulation  - Commission selects first medical devices for joint clinical assessment</div>"
     },
-    "no": 23
+    "no": 23,
+    "summary_source": {
+      "type": "official_announcement",
+      "subtype": "official_newsletter",
+      "url": "https://ec.europa.eu/newsroom/sante/newsletter-archives/80023",
+      "text": "The Commission has adopted its first decision to select two medical devices for joint clinical assessment under the EU Health Technology Assessment (HTA) Regulation. The two devices are both addressing cardiovascular disease.  One of the selected devices is the SAPIEN M3 Transcatheter Mitral Valve Replacement System, manufactured by Edwards Lifesciences LLC. The assessor and co-assessor for this joint clinical assessment are from the Dutch National Health Care Institute (ZIN) and the Norwegian Medical Products Agency (DMP), respectively.  The other device is the Highlife Trans-septal Mitral Valve Replacement System, manufactured by Highlife SAS. The assessor and a co-assessor for this joint clinical assessment are from the French National Authority for Health (HAS) and the Agency for Health Technology Assessment and Tariff System, Poland (AOTMiT).  The Commission Decision follows the recommendation by the Member State Coordination Group on Health Technology Assessment at its 22 June meeting.  Currently, there are 15 Joint clinical assessments ongoing for medicinal products with 4 published JCA reports. Today marks the beginning of joint work on medical devices under the HTA regulation.  Joint Clinical Assessments allow EU Member States to work together to assess the clinical benefits of new medicines and certain medical devices compared to existing health technologies. Patients and clinical experts are systematically consulted during this process. The outcome is a joint clinical assessment report and summary report. These reports will be used by Member States in their national decision-making procedures.",
+      "sha256": "29607e56d79d701733846277a5174f006c0ec63db537ab7d0814df495fa7a470"
+    }
   },
   {
     "search_month": "2026-10",
@@ -1963,8 +1991,8 @@
     "publisher": "MDCG (EU)",
     "doc_no": "Publication of videos from the third EMD",
     "title": "Publication of videos from the third EMDN training",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (PDF 첨부파일을 찾지 못함)",
-    "summary_status": "pdf_unavailable",
+    "summary": "제3차 EMDN 교육은 기기 생애주기 전반의 실무 활용, 규제 활동에서의 적용, 코드 부여 및 연례 개정 사례를 다뤘다. 산업계·인증기관·지역 당국의 관점도 포함했다.",
+    "summary_status": "source_extracted",
     "scope": "종합",
     "manufacturer_obligation": "",
     "url": "https://health.ec.europa.eu/medical-devices-topics-interest/european-medical-devices-nomenclature-emdn_en#third-training-2026",
@@ -1973,7 +2001,14 @@
       "present_text": "Publication of videos from the third EMDN training",
       "diff_html": "<div class=\"diff-del\">Medical Devices Medical Device Coordination Group Document  MDCG  2024-2 Rev.1 Page 1 of 7 MDCG  2024-2 Rev.1 Procedures for the updates of the European Medical Device Nomenclature Revision 1 – January 2025 This document has been endorsed by the Medical Device Coordination Group (MDCG) established by Article 103 of Regulation (EU) 2017/745. The MDCG is composed of representatives of all Member States and it is chaired by a representative of the European Commission. The document is not a European Commission document and it cannot be regarded as reflecting the official position of the European Commission. Any views expressed in this document are not legally binding and only the Court of Justice of the European Union can give binding interpretations of Union law. Medical Devices Medical Device Coordination Group Document  MDCG  2024-2 Rev.1 Page 2 of 7 First publication February 2024 First revision January 2025 General Inserting table for ad hoc procedure aligning with newly published template form for submissions Medical Devices Medical Device Coordination Group Document  MDCG  2024-2 Rev.1 Page 3 of 7 Table of Contents Procedures for the updates of the European Medical Device Nomenclature .............................4 A) Actors involved .........................................................................................................................4 MDCG Nomenclature working group .........................................................................................4 EMDN-TT .......................................................................................................................................4 Users...............................................................................................................................................5 B) Procedure for the annual revision of the EMDN .................................................................5 Phase I – Collection of requests (January) ...............................................................................5 Phase II – Evaluation of the requests and analysis of the practical use (February – July)5 Phase III – Validation and endorsement (August – October) ................................................5 Phase IV – MDCG endorsement and publication (November – December) .......................5 C) Pilot procedure for the ad-hoc updates of the EMDN requiring an expedited review ...6 Information to be submitted by applicants ................................................................................6 Processing of the ad-hoc requests ............................................................................................7 Medical Devices Medical Device Coordination Group Document  MDCG  2024-2 Rev.1 Page 4 of 7 Procedures for the updates of the European Medical Device Nomenclature The European Medical Device Nomenclature (EMDN), as established by Article 26 of Regulation (EU) 2017/745 – Medical Device Regulation (MDR) and Article 23 of Regulation (EU) 2017/746 - In Vitro Diagnostic medical devices Regulation (IVDR), will be annually reviewed and updated based on the practical use of the EMDN and feedback from its users. This document lays out the procedures for the annual revision as well as the procedure for ad-hoc requests requiring an expedited review. A) Actors involved MDCG Nomenclature working group The Nomenclature working group (“NOM WG”) is an expert group established under the Medical Device Coordination Group (“MDCG”) per Article 103(7) of the MDR responsible for managing, maintaining and monitoring the use of the EMDN. The NOM WG provides assi stance and advice to the Medical Device Coordination Group (MDCG) on all implementation issues related to the EMDN with the aim of supporting the functioning of the future European database on medical devices (EUDAMED). In particular, the NOM WG provides  relevant advice in matters related to the update and maintenance of the EU nomenclature, which is made available by the Commission, in accordance with Article 26 of Regulation (EU) 2017/745 and Article 23 of Regulation (EU) 2017/746. The NOM WG is compo sed of representatives of Member States&#x27; competent authorities who are experts in the particular policy area. The group also includes economic operators, healthcare professionals, notified bodies, hospitals, laboratories, patients and consumers at Union level which are appointed as observers to the working group, as a result of a public call for applications. EMDN-TT The European Medical Device Nomenclature Technical Team (EMDN-TT) is a smaller technical group established under the Nomenclature WG which i s composed of technical experts appointed by  the Italian Consortium 1 instituted for the implementation of project “Supporting the Maintenance of the European Medical Device Nomenclature” with the purpose to assess and review proposals, or to provide draft amendments, which include the definition of new and revisions of existing codes of the EMDN for the MDCG Nomenclature WG’s consideration. 1 Italian Consortium set up for the implementation of SMEMDN project, (HS – g- 22 – 19.02) is composed of the Ministry of Health (MOH) and by Friuli Venezia – Giulia Region (FVG – REG) Medical Devices Medical Device Coordination Group Document  MDCG  2024-2 Rev.1 Page 5 of 7 Users Users of the EMDN include but are not limited to competent authorities, notified bodies, manufacturers, auth orised representatives, importers, distributors, and persons referred to in Art. 22(1,3), trade associations, professional bodies, healthcare professionals, hospitals, laboratories, patients, consumers and the World Health Organization (WHO). B) Procedure for the annual revision of the EMDN The annual revisions of the EMDN will proceed by means of four phases. During each phase, different tasks and objectives are undertaken by different actors. Phase I – Collection of requests (January) Phase I of the proce dure involves the collection of requests from users through the platform for EMDN requests 2. The platform for requests will be available year -long. However, the deadline for submitting requests for processing in that same calendar year is 31 January 20XX. Phase II – Evaluation of the requests and analysis of the practical use (February – July) Phase II of the procedure involves a technical evaluation by the EMDN-TT of the: - requests submitted during Phase I, - requests by the NOM WG, - EMDN usage in EUDAMED (e.g. review of devices registered with multiple codes, review of devices registered with code extension “99”). Following the technical evaluation, a first draft proposal for the update of the EMDN is prepared. This proposal and the list of rejected requests are submitted to the NOM WG for review. Phase III – Validation and endorsement (August – October) Under Phase III of the procedure, the NOM WG reviews the proposal submitted at the end of Phase II and provides feedback on the proposed changes to the EMDN-TT, as necessary. Following the processing of feedback, a final draft is then endorsed by the NOM WG. Phase IV – MDCG endorsement and publication (November – December) Phase IV o f the procedure is the final part of the annual cycle and involves the endorsement of the final draft by the MDCG and publication of the officially endorsed update in EUDAMED and the EMDN browser. After MDCG endorsement, translations are elaborated in all EU languages and are validated by the NOM WG. 2 https://webgate.ec.europa.eu/dyna2/emdn/ Medical Devices Medical Device Coordination Group Document  MDCG  2024-2 Rev.1 Page 6 of 7 Note: the above -described timetable for annual updates may be subject to revision depending on the number of requests received. C) Pilot procedure for the ad -hoc updates of the EMDN requiring an expedited review The general rule remains that all requests must proceed through the annual procedure. For reasons related to established need, only requests submitted by competent authorities and notified bodies qualify under the ad-hoc procedure. Under the ad-hoc update procedure, only new code requests may be submitted. If the new code request results in the need to render obsolete or split other codes, then the request will be redirected to the annual procedure pathway. Information to be submitted by applicants A form must be filled out by the applicant  which can be found on the Commission’s website under ‘Guidance - MDCG endorsed documents and other guidance’. This form will require the following non-exhaustive information: 1 Name of NCA1 / NB 2 2 Indication if the request is needed for the registration in the UDI- DI module of EUDAMED 3 Established need demonstration, justification as to why the request should be assessed under the ad- hoc procedure 4 Justification as to why currently existing codes cannot be utilized 5 Manufacturer’s name and authorised representative (where applicable) 6 Device name or technology name under question 7 Detailed description of the device or technology under question, including its intended purpose; 8 Indication if this is considered a novel device 3 9 Indication if the device has or will undergo an Medical Devices Medical Device Coordination Group Document  MDCG  2024-2 Rev.1 Page 7 of 7 expert panel assessment 10 EMDN Category, Group, and Type where the code could be added 11 Draft term description for the new code 12 Reference to other devices on the market with similar technology, potentially also requiring the use of this new code (where applicable) 13 Additional information (e.g. reference to other nomenclature, if any) Processing of the ad-hoc requests Requests should be submitted to SANTE-EMDN@ec.europa.eu . Following receipt of the completed form, the Commission will circulate the information provided by the applicant to the EMDN -TT for a written consultation. Following assessment of the request, the EMDN-TT will provide feedback to the Commission who in turn will inform the applicant whether the application is eligible for the ad-hoc procedure. If the request is considered ineligible, the user will be informed and their submission will be deferred for an assessment under the annual update procedure. If the request is considered eligible for the ad -hoc procedure, it is further analysed by EMDN-TT and a technical proposal is elaborated and circulated with the NOM-WG for review and endorsement. Following the NOM -WG’s endorsement, the MDCG endorses the final version of the technical proposal. During the annual review procedure, ad -hoc updates will be reflected in the annual EMDN updated version.</div>\n<div class=\"diff-add\">Publication of videos from the third EMDN training</div>"
     },
-    "no": 70
+    "no": 70,
+    "summary_source": {
+      "type": "official_announcement",
+      "subtype": "official_information_page",
+      "url": "https://health.ec.europa.eu/medical-devices-topics-interest/european-medical-devices-nomenclature-emdn_en#third-training-2026",
+      "text": "The third training provided an overview of the evolving role of the EMDN, with particular focus on its practical use throughout the device lifecycle. It covered the application of the nomenclature in regulatory activities, practical case studies on EMDN code assignment and annual updates, as well as perspectives from industry, Notified Bodies and regional authorities.",
+      "sha256": "7a59656be179469782d2336af38cd53e34a05e2d1b5d0d1a52684783ce579b14"
+    }
   },
   {
     "publisher": "MDSAP",
@@ -2455,8 +2490,8 @@
     "publisher": "MDCG (EU)",
     "doc_no": "Monitoring of Notified Bodies: new MDR a",
     "title": "Monitoring of Notified Bodies: new MDR and IVDR reports",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (429 Client Error: Too Many Requests for url: https://health.ec.europa.eu/latest-updates/monitoring-notified-bodies-new-mdr-and-ivdr-reports-2026-07-20_en)",
-    "summary_status": "pdf_unavailable",
+    "summary": "2025년 인증기관 모니터링·현장평가 연례보고서의 회원국별 요약이 공개됐다는 공지다.",
+    "summary_status": "source_extracted",
     "scope": "종합",
     "manufacturer_obligation": "",
     "url": "https://health.ec.europa.eu/latest-updates/monitoring-notified-bodies-new-mdr-and-ivdr-reports-2026-07-20_en",
@@ -2465,7 +2500,14 @@
       "present_text": "비교 제외 (신규 제정·발표 문서)",
       "diff_html": "<div class=\"diff-omit\">신규 제정·발표 문서이므로 Gap 분석을 수행하지 않습니다. 공식 원문에서 직접 확인하세요.</div>"
     },
-    "no": 87
+    "no": 87,
+    "summary_source": {
+      "type": "official_announcement",
+      "subtype": "official_announcement",
+      "url": "https://health.ec.europa.eu/latest-updates/monitoring-notified-bodies-new-mdr-and-ivdr-reports-2026-07-20_en",
+      "text": "Member States summaries of the annual reports on the monitoring and on-site assessment of notified bodies in 2025, [now available",
+      "sha256": "63bc00291ef213b653001f5107f634bfbb9d53f6c3a393a8411ab436856b57f7"
+    }
   },
   {
     "search_month": "2026-07",
@@ -2920,8 +2962,8 @@
     "publisher": "MDCG (EU)",
     "doc_no": "New documents - Study supporting the mon",
     "title": "New documents - Study supporting the monitoring of availability of medical devices on the EU market",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (429 Client Error: Too Many Requests for url: https://health.ec.europa.eu/latest-updates/new-documents-study-supporting-monitoring-availability-medical-devices-eu-market-2026-07-03_en)",
-    "summary_status": "pdf_unavailable",
+    "summary": "의료기기 시장 공급 모니터링 연구와 관련해 제20차 인증기관 설문과 제3차 경제운영자 설문 자료를 공개했다는 공지다.",
+    "summary_status": "source_extracted",
     "scope": "종합",
     "manufacturer_obligation": "",
     "url": "https://health.ec.europa.eu/latest-updates/new-documents-study-supporting-monitoring-availability-medical-devices-eu-market-2026-07-03_en",
@@ -2930,7 +2972,14 @@
       "present_text": "비교 제외 (신규 제정·발표 문서)",
       "diff_html": "<div class=\"diff-omit\">신규 제정·발표 문서이므로 Gap 분석을 수행하지 않습니다. 공식 원문에서 직접 확인하세요.</div>"
     },
-    "no": 102
+    "no": 102,
+    "summary_source": {
+      "type": "official_announcement",
+      "subtype": "official_announcement",
+      "url": "https://health.ec.europa.eu/latest-updates/new-documents-study-supporting-monitoring-availability-medical-devices-eu-market-2026-07-03_en",
+      "text": "* [20th notified bodies (NB) survey](/document/download/59b9d90e-be42-4895-9f6f-bec35138bb0a_en?filename=md_nb_survey_certifications_applications_en.pdf)\n* [3rd economic operators (EO) survey](/document/download/61b46045-744a-41a7-bbcc-1af40fb92632_en?filename=md_availability_study_presentation_2025_en.pdf)",
+      "sha256": "8e16b53e410cb9f5f868570a95d0fcc9af2bf2a96c542fbd16ce6f21643e04f3"
+    }
   },
   {
     "search_month": "2026-07",
@@ -3126,8 +3175,8 @@
     "publisher": "MDCG (EU)",
     "doc_no": "Medical Devices: Delegated acts on well-",
     "title": "Medical Devices: Delegated acts on well-established technologies published",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (PDF 첨부파일을 찾지 못함)",
-    "summary_status": "pdf_unavailable",
+    "summary": "집행위원회 공지는 의료기기 규정상 확립된 기술(WET) 기기의 목록을 확대하는 위임규정 2건이 EU 관보에 게재됐다고 설명한다. 해당 목록은 안정적인 설계, 잘 알려진 안전성·임상성능 및 장기간의 시장 사용 이력을 가진 비교적 단순한 기기를 다룬다.",
+    "summary_status": "source_extracted",
     "scope": "종합",
     "manufacturer_obligation": "",
     "url": "https://ec.europa.eu/newsroom/sante/newsletter-archives/77013",
@@ -3136,7 +3185,14 @@
       "present_text": "Medical Devices: Delegated acts on well-established technologies published",
       "diff_html": "<div class=\"diff-del\">Print as PDF Medical Devices: Delegated acts on well-established technologies published If you have trouble reading this e-mail read the online version . 29 June 2026 Health and Food Safety Directorate-General eNews Follow us: | Public Health Medical Devices: Delegated acts on well-established technologies published Two delegated acts on well-established technologies (WET) under the Medical Devices Regulation have been published today in the Official Journal of the EU. Well-established technologies are relatively simple devices, with common and stable designs that don’t evolve much, well-known safety and clinical performance characteristics, and a long history on the market. The delegated regulations published today expand the list of WET devices under the Medical Devices Regulation. This will make certain requirements more proportionate for devices on that list, to reduce the burden on manufacturers, in line with the Commission’s simplification agenda. The list of WET devices included in these delegated acts was developed in 2025 by a dedicated Task Force of national experts from the Medical Device Coordination Group (MDCG), following a call for evidence that allowed stakeholder input. Now that the implementing acts have been published in the Offical Journal, they will enter into force in 20 days time. Commission Delegated Regulation (EU) 2026/1451 of 20 March 2026 amending Regulation (EU) 2017/745 of the European Parliament and of the Council as regards the list of implantable devices and class III devices exempted from the obligation to perform clinical investigations Commission Delegated Regulation (EU) 2026/1359 of 20 March 2026 amending Regulation (EU) 2017/745 of the European Parliament and of the Council as regards the list of class IIb implantable devices exempted from the obligation to perform an assessment of the technical documentation for every device This is the newsletter of DG Health and Food Safety . Visit Your Profile to subscribe, unsubscribe or change your options. For technical problems, please contact sante-webmaster@ec.europa.eu . The European Commission is committed to personal data protection. Any personal data is processed in line with the Regulation (EU) 2018/1725. Please read the privacy statement .</div>\n<div class=\"diff-add\">Medical Devices: Delegated acts on well-established technologies published</div>"
     },
-    "no": 111
+    "no": 111,
+    "summary_source": {
+      "type": "official_announcement",
+      "subtype": "official_newsletter",
+      "url": "https://ec.europa.eu/newsroom/sante/newsletter-archives/77013",
+      "text": "Two delegated acts on well-established technologies (WET) under the Medical Devices Regulation have been published today in the Official Journal of the EU.  Well-established technologies are relatively simple devices, with common and stable designs that don’t evolve much, well-known safety and clinical performance characteristics, and a long history on the market. The delegated regulations published today expand the list of WET devices under the Medical Devices Regulation. This will make certain requirements more proportionate for devices on that list, to reduce the burden on manufacturers, in line with the Commission’s simplification agenda.",
+      "sha256": "b1045ec6a365cb69004d890189321f791cde33b581f0b2de4a2dec7aa4e61f19"
+    }
   },
   {
     "search_month": "2026-06",
@@ -3240,8 +3296,8 @@
     "publisher": "MDCG (EU)",
     "doc_no": "COMBINE programme launches phase 2 of th",
     "title": "COMBINE programme launches phase 2 of the pilot coordinated assessment procedure for combined studies",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (PDF 첨부파일을 찾지 못함)",
-    "summary_status": "pdf_unavailable",
+    "summary": "COMBINE 복합연구 공동평가 시범사업 2단계는 참여 가능한 연구 범위를 넓히고 매월 참여의향을 접수한다. 허가가 필요한 체외진단기기 또는 동반진단 성능연구, 의료기기 임상시험과 결합된 다국가 시험용 의약품(IMP) 임상시험 등을 포함하며, 신청 예정 월의 전월 23일까지 참여의향을 제출해야 한다.",
+    "summary_status": "source_extracted",
     "scope": "종합",
     "manufacturer_obligation": "",
     "url": "https://ec.europa.eu/newsroom/sante/newsletter-archives/76937",
@@ -3250,7 +3306,14 @@
       "present_text": "COMBINE programme launches phase 2 of the pilot coordinated assessment procedure for combined studies",
       "diff_html": "<div class=\"diff-del\">Print as PDF COMBINE programme launches phase 2 of the pilot coordinated assessment procedure for combined studies If you have trouble reading this e-mail read the online version . 26 June 2026 Health and Food Safety Directorate-General eNews Follow us: | Public Health COMBINE programme launches phase 2 of the pilot coordinated assessment procedure for combined studies Building on the success of the first phase of the COMBINE coordinated assessment pilot, the European Commission and EU Member States are today launching the second phase. Phase 1 offered the first experience of coordinated assessment for combined studies through the Clinical Trials Information System (CTIS). Phase 2, which is expected to remain open for at least one year, expands the scope of studies eligible to participate and introduces a more agile, rolling process with monthly slots for the submission of expressions of interest. Today’s launch marks a major step towards more streamlined, efficient, and coordinated regulatory pathways across combined medicine-device therapies . By simplifying processes and enabling joint assessment, the pilot aims to support innovation while maintaining robust regulatory oversight across the EU. What’s New in phase 2 Eligibility for multinational investigational medicinal product (IMP) clinical trials combined with: Performance studies of IVDs or companion diagnostics requiring authorisation Clinical investigations of medical devices requiring authorisation Combined studies with Advanced Therapy Medicinal Products (ATMPs) possible Options for single or separate sponsors Procedure for substantial modifications in combined studies authorised in the pilot to be launched later in phase 2 Exploration of single protocols and joint documents When to express interest for phase 2 Sponsors must submit their expressions of interest by the 23rd of the month preceding the month in which they intend to submit their application. The first monthly application window will open in September 2026. To apply to the September round, sponsors must submit their expressions of interest by 23 August 2026. For more information and to apply for the pilot COMBINE coordinated assessment procedure, please visit the European Commission&#x27;s website . This is the newsletter of DG Health and Food Safety . Visit Your Profile to subscribe, unsubscribe or change your options. For technical problems, please contact sante-webmaster@ec.europa.eu . The European Commission is committed to personal data protection. Any personal data is processed in line with the Regulation (EU) 2018/1725. Please read the privacy statement .</div>\n<div class=\"diff-add\">COMBINE programme launches phase 2 of the pilot coordinated assessment procedure for combined studies</div>"
     },
-    "no": 115
+    "no": 115,
+    "summary_source": {
+      "type": "official_announcement",
+      "subtype": "official_newsletter",
+      "url": "https://ec.europa.eu/newsroom/sante/newsletter-archives/76937",
+      "text": "Building on the success of the first phase of the [COMBINE](https://health.ec.europa.eu/medical-devices-topics-interest/combine-programme_en) coordinated assessment pilot, the European Commission and EU Member States are today launching the second phase. Phase 1 offered the first experience of coordinated assessment for combined studies through the Clinical Trials Information System (CTIS). Phase 2, which is expected to remain open for at least one year, expands the scope of studies eligible to participate and introduces a more agile, rolling process with monthly slots for the submission of expressions of interest.  Today’s launch marks a major step towards more streamlined, efficient, and coordinated regulatory pathways across combined medicine-device therapies . By simplifying processes and enabling joint assessment, the pilot aims to support innovation while maintaining robust regulatory oversight across the EU. What’s New in phase 2  * Eligibility for multinational investigational medicinal product (IMP) clinical trials combined with:   + Performance studies of IVDs or companion diagnostics requiring authorisation   + Clinical investigations of medical devices requiring authorisation * Combined studies with Advanced Therapy Medicinal Products (ATMPs) possible * Options for single or separate sponsors * Procedure for substantial modifications in combined studies authorised in the pilot to be launched later in phase 2 * Exploration of single protocols and joint documents  When to express interest for phase 2 Sponsors must submit their expressions of interest by the 23rd of the month preceding the month in which they intend to submit their application. The first monthly application window will open in September 2026. To apply to the September round, sponsors must submit their expressions of interest by 23 August 2026.",
+      "sha256": "2b352179aad52476693b36cb65e7d313ec264d3c9e36fe3960f56430aeba2277"
+    }
   },
   {
     "search_month": "2026-06",
@@ -3531,8 +3594,8 @@
     "publisher": "MDCG (EU)",
     "doc_no": "Presentation published: HTA webinar for ",
     "title": "Presentation published: HTA webinar for health technology developers of high-risk medical devices and IVDs",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (PDF 첨부파일을 찾지 못함)",
-    "summary_status": "pdf_unavailable",
+    "summary": "고위험 의료기기 및 체외진단기기 개발자 대상 웨비나에서 회원국 HTA 조정그룹 관계자들이 공동임상평가와 공동과학자문 절차 및 관련 지침을 설명했다. 집행위원회 사무국은 HTA IT 플랫폼 이용을 포함한 행정·전산 절차를 안내했다.",
+    "summary_status": "source_extracted",
     "scope": "종합",
     "manufacturer_obligation": "",
     "url": "https://health.ec.europa.eu/events/eu-hta-regulation-webinar-health-technology-developers-high-risk-medical-devices-and-ivds-2026-06-19_en",
@@ -3541,7 +3604,14 @@
       "present_text": "Presentation published: HTA webinar for health technology developers of high-risk medical devices and IVDs",
       "diff_html": "<div class=\"diff-del\">Close This event has ended. In this webinar, Chairs and Co-chairs of the Member State Coordination Group on Health Technology Assessment (HTACG) and its subgroups explained the process for joint clinical assessments (JCA) and joint scientific consultations (JSC) for high-risk medical devices and in vitro diagnostic medical devices (IVDs). The webinar covered relevant guidance documents adopted by the HTACG. In addition, the HTA Secretariat of the European Commission explained the relevant administrative and IT processes, including how to access and use the HTA IT Platform for the JSC and JCA workflows. The webinar was targeted at representatives of health technology developers of high-risk medical devices and IVDs. Agenda Webinar slides Privacy statement Video recordings EU HTA governance for medical devices Joint clinical assessments for medical device s Methodology for medical devices Joint scientific consultations for medical devices Closing Q&amp;A on HTA for medical devices health technology assessment Friday 19 June 2026, 12:00 - 14:00 (CEST) Practical information When Friday 19 June 2026, 12:00 - 14:00 (CEST) Languages English</div>\n<div class=\"diff-add\">Presentation published: HTA webinar for health technology developers of high-risk medical devices and IVDs</div>"
     },
-    "no": 126
+    "no": 126,
+    "summary_source": {
+      "type": "official_announcement",
+      "subtype": "official_event_report",
+      "url": "https://health.ec.europa.eu/events/eu-hta-regulation-webinar-health-technology-developers-high-risk-medical-devices-and-ivds-2026-06-19_en",
+      "text": "In this webinar, Chairs and Co-chairs of the Member State Coordination Group on Health Technology Assessment (HTACG) and its subgroups explained the process for joint clinical assessments (JCA) and joint scientific consultations (JSC) for high-risk medical devices and in vitro diagnostic medical devices (IVDs). The webinar covered relevant guidance documents adopted by the HTACG.\n\nIn addition, the HTA Secretariat of the European Commission explained the relevant administrative and IT processes, including how to access and use the HTA IT Platform for the JSC and JCA workflows.",
+      "sha256": "fa8c62c20ac9dd38a80bb1b6e1cd5d9a8cb4497b44e1fdd5b1ec20c92df63d59"
+    }
   },
   {
     "search_month": "2026-06",
@@ -4575,8 +4645,8 @@
     "publisher": "MDCG (EU)",
     "doc_no": "New Implementing Regulation sets out uni",
     "title": "New Implementing Regulation sets out uniform requirements for conformity assessment and notified bodies",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (PDF 첨부파일을 찾지 못함)",
-    "summary_status": "pdf_unavailable",
+    "summary": "집행위원회 공지에 따르면 시행규정 2026/977은 인증기관의 적합성평가에 대해 제조업체 견적, 주요 단계별 기한과 중지기간, 비용·기간 모니터링 및 연간 공개, 재인증 절차를 규정한다. 원칙적 적용일은 2027년 2월 25일이며 기간·비용 연간보고는 2028년 1월 1일부터 적용된다.",
+    "summary_status": "source_extracted",
     "scope": "종합",
     "manufacturer_obligation": "",
     "url": "https://ec.europa.eu/newsroom/sante/newsletter-archives/75370",
@@ -4585,7 +4655,14 @@
       "present_text": "비교 제외 (신규 제정·발표 문서)",
       "diff_html": "<div class=\"diff-omit\">신규 제정·발표 문서이므로 Gap 분석을 수행하지 않습니다. 공식 원문에서 직접 확인하세요.</div>"
     },
-    "no": 165
+    "no": 165,
+    "summary_source": {
+      "type": "official_announcement",
+      "subtype": "official_newsletter",
+      "url": "https://ec.europa.eu/newsroom/sante/newsletter-archives/75370",
+      "text": "The Commission [Implementing Regulation (EU) 2026/977](https://eur-lex.europa.eu/eli/reg_impl/2026/977/oj), published in the OJEU on 5 May 2026, specifies certain uniform requirements for conformity assessment activities carried out by notified bodies designated under the Medical Device Regulations.  These include:   * requirements for issuing quotations to manufacturers to provide reliable estimation of the overall requested services and costs, * maximum timeliness and “clock-stops” for key stages, such as application review and contract signature, quality management system audits, product verification, decision and certificate issuance, and assessment of changes, * requirements for notified bodies to establish a system to monitor the duration and costs of their conformity assessment activities and publish the information on annual basis. * Clarified procedures and timelines for re-certification activities, reducing uncertainty for notified bodies and manufacturers.   The Implementing Regulation will apply from 25 February 2027 onwards, with the exception of the annual report on timelines and costs of conformity assessment activities which will apply as from 1 January 2028.",
+      "sha256": "576b1d11ac8c984fb1464e4c6c6817f0bc715c30b20e0de3ecb12c5eddbb72f0"
+    }
   },
   {
     "search_month": "2026-05",
@@ -5055,8 +5132,8 @@
     "publisher": "MDCG (EU)",
     "doc_no": "Implementing Regulation (EU) 2026/977 – ",
     "title": "Implementing Regulation (EU) 2026/977 – uniform requirements for conformity assessment and notified bodies (Annex VII)",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (PDF 첨부파일을 찾지 못함)",
-    "summary_status": "pdf_unavailable",
+    "summary": "집행위원회 공식 공지는 시행규정 2026/977이 인증기관의 적합성평가에 관해 견적, 주요 단계별 기한과 중지기간, 비용·기간 모니터링 및 재인증 절차를 정한다고 설명한다. 공지에 따르면 원칙적 적용일은 2027년 2월 25일이고 기간·비용 연간보고의 적용일은 2028년 1월 1일이다. 이는 규정 전문이 아닌 공지에 근거한 요약이다.",
+    "summary_status": "source_extracted",
     "scope": "종합",
     "manufacturer_obligation": "",
     "url": "https://eur-lex.europa.eu/eli/reg_impl/2026/977/oj",
@@ -5065,7 +5142,14 @@
       "present_text": "Implementing Regulation (EU) 2026/977 – uniform requirements for conformity assessment and notified bodies (Annex VII)",
       "diff_html": "<div class=\"diff-del\">× Skip to main content EUR-Lex Access to European Union law This document is an excerpt from the EUR-Lex website You are here EUROPA EUR-Lex home Implementing regulation - EU - 2026/977 - EN - EUR-Lex Help Print Menu Quick search Use quotation marks to search for an &quot;exact phrase&quot;. Append an asterisk ( * ) to a search term to find variations of it (transp * , 32019R * ). Use a question mark ( ? ) instead of a single character in your search term to find variations of it (ca ? e finds case, cane, care). Search tips Need more search options? Use the Advanced search Document 32026R0977 Help Print ​ Commission Implementing Regulation (EU) 2026/977 of 4 May 2026 laying down certain uniform quality management and procedural requirements for the conformity assessment activities carried out by a notified body designated under Regulations (EU) 2017/745 and (EU) 2017/746 of the European Parliament and of the Council Commission Implementing Regulation (EU) 2026/977 of 4 May 2026 laying down certain uniform quality management and procedural requirements for the conformity assessment activities carried out by a notified body designated under Regulations (EU) 2017/745 and (EU) 2017/746 of the European Parliament and of the Council Commission Implementing Regulation (EU) 2026/977 of 4 May 2026 laying down certain uniform quality management and procedural requirements for the conformity assessment activities carried out by a notified body designated under Regulations (EU) 2017/745 and (EU) 2017/746 of the European Parliament and of the Council C/2026/2798 OJ L, 2026/977, 5.5.2026, ELI: http://data.europa.eu/eli/reg_impl/2026/977/oj (BG, ES, CS, DA, DE, ET, EL, EN, FR, GA, HR, IT, LV, LT, HU, MT, NL, PL, PT, RO, SK, SL, FI, SV) In force ELI: http://data.europa.eu/eli/reg_impl/2026/977/oj Expand all Collapse all Languages, formats and authentic version Language BG ES CS DA DE ET EL EN FR GA HR IT LV LT HU MT NL PL PT RO SK SL FI SV HTML EN Toggle Dropdown BG ES CS DA DE ET EL EN FR GA HR IT LV LT HU MT NL PL PT RO SK SL FI SV PDF - authentic OJ EN Toggle Dropdown BG ES CS DA DE ET EL EN FR GA HR IT LV LT HU MT NL PL PT RO SK SL FI SV e-signature EN Toggle Dropdown BG ES CS DA DE ET EL EN FR GA HR IT LV LT HU MT NL PL PT RO SK SL FI SV How to verify the authenticity of the Official Journal Multilingual display Language 1 English (en) Bulgarian (bg) Spanish (es) Czech (cs) Danish (da) German (de) Estonian (et) Greek (el) English (en) French (fr) Irish (ga) Croatian (hr) Italian (it) Latvian (lv) Lithuanian (lt) Hungarian (hu) Maltese (mt) Dutch (nl) Polish (pl) Portuguese (pt) Romanian (ro) Slovak (sk) Slovenian (sl) Finnish (fi) Swedish (sv) Language 2 Please choose Bulgarian (bg) Spanish (es) Czech (cs) Danish (da) German (de) Estonian (et) Greek (el) English (en) French (fr) Irish (ga) Croatian (hr) Italian (it) Latvian (lv) Lithuanian (lt) Hungarian (hu) Maltese (mt) Dutch (nl) Polish (pl) Portuguese (pt) Romanian (ro) Slovak (sk) Slovenian (sl) Finnish (fi) Swedish (sv) Language 3 Please choose Bulgarian (bg) Spanish (es) Czech (cs) Danish (da) German (de) Estonian (et) Greek (el) English (en) French (fr) Irish (ga) Croatian (hr) Italian (it) Latvian (lv) Lithuanian (lt) Hungarian (hu) Maltese (mt) Dutch (nl) Polish (pl) Portuguese (pt) Romanian (ro) Slovak (sk) Slovenian (sl) Finnish (fi) Swedish (sv) Display Text Official Journal of the European Union EN L series 2026/977 5.5.2026 COMMISSION IMPLEMENTING REGULATION (EU) 2026/977 of 4 May 2026 laying down certain uniform quality management and procedural requirements for the conformity assessment activities carried out by a notified body designated under Regulations (EU) 2017/745 and (EU) 2017/746 of the European Parliament and of the Council (Text with EEA relevance) THE EUROPEAN COMMISSION, Having regard to the Treaty on the Functioning of the European Union, Having regard to Regulation (EU) 2017/745 of the European Parliament and of the Council of 5 April 2017 on medical devices, amending Directive 2001/83/EC, Regulation (EC) No 178/2002 and Regulation (EC) No 1223/2009 and repealing Council Directives 90/385/EEC and 93/42/EEC ( 1 ) , and in particular Article 36(3) thereof, Having regard to Regulation (EU) 2017/746 of the European Parliament and of the Council of 5 April 2017 on in vitro diagnostic medical devices and repealing Directive 98/79/EC and Commission Decision 2010/227/EU ( 2 ) , and in particular Article 32(3) thereof, Whereas: (1) Regulations (EU) 2017/745 and (EU) 2017/746 establish a regulatory framework to ensure the smooth functioning of the internal market as regards medical devices and in vitro diagnostic medical devices, taking as a base a high level of protection of health for patients and users. At the same time, those Regulations set high standards of quality and safety for medical devices and in vitro diagnostic medical devices in order to meet common safety concerns as regards such devices. (2) Under Regulations (EU) 2017/745 and (EU) 2017/746</div>\n<div class=\"diff-add\">Implementing Regulation (EU) 2026/977 – uniform requirements for conformity assessment and notified bodies (Annex VII)</div>"
     },
-    "no": 182
+    "no": 182,
+    "summary_source": {
+      "type": "official_announcement",
+      "subtype": "official_newsletter_not_full_regulation",
+      "url": "https://ec.europa.eu/newsroom/sante/newsletter-archives/75370",
+      "text": "The Commission [Implementing Regulation (EU) 2026/977](https://eur-lex.europa.eu/eli/reg_impl/2026/977/oj), published in the OJEU on 5 May 2026, specifies certain uniform requirements for conformity assessment activities carried out by notified bodies designated under the Medical Device Regulations.  These include:   * requirements for issuing quotations to manufacturers to provide reliable estimation of the overall requested services and costs, * maximum timeliness and “clock-stops” for key stages, such as application review and contract signature, quality management system audits, product verification, decision and certificate issuance, and assessment of changes, * requirements for notified bodies to establish a system to monitor the duration and costs of their conformity assessment activities and publish the information on annual basis. * Clarified procedures and timelines for re-certification activities, reducing uncertainty for notified bodies and manufacturers.   The Implementing Regulation will apply from 25 February 2027 onwards, with the exception of the annual report on timelines and costs of conformity assessment activities which will apply as from 1 January 2028.",
+      "sha256": "576b1d11ac8c984fb1464e4c6c6817f0bc715c30b20e0de3ecb12c5eddbb72f0"
+    }
   },
   {
     "search_month": "2026-05",
@@ -6122,8 +6206,8 @@
     "publisher": "MDCG (EU)",
     "doc_no": "MDCG 2026-1",
     "title": "New MDCG 2026-1 Position Paper: Summary of EMDN 2025 Submissions and outcome of annual revision",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (PDF 첨부파일을 찾지 못함)",
-    "summary_status": "pdf_unavailable",
+    "summary": "2025년 공개협의 및 MDCG 명명법 작업반의 EMDN 개정 요청을 수용·부분 수용·불수용으로 구분하고 사례와 이유를 제시한다. 부분 수용의 예로 새 코드 요청은 인정하되 제안된 계층과 다른 계층에 반영하는 경우를 들고, 불수용 사유로 정보 부족이나 명명법 구조에 맞지 않는 요청을 제시한다.",
+    "summary_status": "pdf_extracted",
     "scope": "종합",
     "manufacturer_obligation": "",
     "url": "https://health.ec.europa.eu/medical-devices-sector/new-regulations/guidance-mdcg-endorsed-documents-and-other-guidance_en#mdcg-2026-1",
@@ -6132,7 +6216,14 @@
       "present_text": "New MDCG 2026-1 Position Paper: Summary of EMDN 2025 Submissions and outcome of annual revision",
       "diff_html": "<span class=\"diff-add\">New MDCG 2026-1 Position Paper: Summary of EMDN 2025 Submissions and outcome of annual revision</span><br><br><i>(신규 published 문서 — 과거 규격 내용 없음)</i>"
     },
-    "no": 218
+    "no": 218,
+    "summary_source": {
+      "type": "official_document_excerpt",
+      "subtype": "full_document",
+      "url": "https://health.ec.europa.eu/document/download/56772d7d-ce71-4ce5-801e-a82f267e61f4_en?filename=mdcg_2026-1_en.pdf",
+      "text": "OUTCOME OF THE ANALYSIS OF SUBMISSIONS 1. ACCEPTED 2. PARTIALLY ACCEPTED E.g. the request for a new code is accepted but not in the level proposed by the submitter.\n3. NOT ACCEPTED E.g.\nrequest not integrated/integrated with no sufficient information/technical details for the technical evaluation; request to insert an existing level; request to insert a new level/edit an existing level not compliant with the nomenclature structure.",
+      "sha256": "4a083949c7e13a4c786d173bccee0b0a161c46b89b0c53982a492208564e81fb"
+    }
   },
   {
     "search_month": "2026-04",
@@ -7539,8 +7630,8 @@
     "publisher": "MDCG (EU)",
     "doc_no": "Medical Devices: Register now for high-l",
     "title": "Medical Devices: Register now for high-level conference on 16 March 2026",
-    "summary": "[요약 오류] PDF 원문을 확보·추출하지 못해 요약을 생성하지 않았습니다. (PDF 첨부파일을 찾지 못함)",
-    "summary_status": "pdf_unavailable",
+    "summary": "집행위원회의 브뤼셀 의료기기 고위급 회의 공지다. 의료기기 및 체외진단기기 법령 개정 제안의 영향을 논의하며, 적합성평가의 예측가능성, EU 차원의 임상 근거와 전문가 패널, 혁신 기술을 주제로 분과회의를 진행한다고 밝혔다.",
+    "summary_status": "source_extracted",
     "scope": "종합",
     "manufacturer_obligation": "",
     "url": "https://ec.europa.eu/newsroom/sante/newsletter-archives/71729",
@@ -7549,7 +7640,14 @@
       "present_text": "Medical Devices: Register now for high-level conference on 16 March 2026",
       "diff_html": "<div class=\"diff-del\">Print as PDF Medical Devices: Register now for high-level conference on 16 March 2026 If you have trouble reading this e-mail read the online version . 3 February 2026 Health and Food Safety Directorate-General eNews Follow us: | | Public Health Medical Devices: Register now for high-level conference on 16 March 2026 On 16 March, the European Commission will host a high-level conference in Brussels entitled “Medical Devices: Innovation and patient safety”, as part of the Cypriot Presidency. Olivér Várhelyi , EU Commissioner for Health and Animal Welfare, will deliver a keynote address at the event. Participants will include representatives from EU regulatory authorities, EU institutions and decision-makers, experts from EU stakeholders’ associations and other stakeholders. The conference follows the proposal to revise the EU’s medical devices and in-vitro diagnostic medical devices legislation, put forward by the Commission on 16 December 2025. It will take stock of latest developments in the sector and the impact that the proposed revisions can have for patients, companies and authorities. The conference will feature three breakout sessions focusing on: Enhanced predictability for conformity assessments : combining certainty with flexibility Clinical evidence at EU level to support the regulatory framework : the key role of Expert Panels Breakthrough technologies for better care : turning guidance into reality Registration for onsite participation at the conference is now open and will close on 20 February. Please note that registration is mandatory. The conference will also be web-streamed live. More information Event page Registration page Medical devices webpage This is the newsletter of DG Health and Food Safety . Visit Your Profile to subscribe, unsubscribe or change your options. For technical problems, please contact sante-webmaster@ec.europa.eu . The European Commission is committed to personal data protection. Any personal data is processed in line with the Regulation (EU) 2018/1725. Please read the privacy statement .</div>\n<div class=\"diff-add\">Medical Devices: Register now for high-level conference on 16 March 2026</div>"
     },
-    "no": 263
+    "no": 263,
+    "summary_source": {
+      "type": "official_announcement",
+      "subtype": "official_newsletter",
+      "url": "https://ec.europa.eu/newsroom/sante/newsletter-archives/71729",
+      "text": "On 16 March, the European Commission will host a high-level conference in Brussels entitled “Medical Devices: Innovation and patient safety”, as part of the Cypriot Presidency.  **Olivér Várhelyi**, EU Commissioner for Health and Animal Welfare, will deliver a keynote address at the event. Participants will include representatives from EU regulatory authorities, EU institutions and decision-makers, experts from EU stakeholders’ associations and other stakeholders.  The conference follows the proposal to revise the EU’s medical devices and in-vitro diagnostic medical devices legislation, put forward by the Commission on 16 December 2025. It will take stock of latest developments in the sector and the impact that the proposed revisions can have for patients, companies and authorities.  The conference will feature three breakout sessions focusing on:   * **Enhanced predictability for conformity assessments**: combining certainty with flexibility * **Clinical evidence at EU level to support the regulatory framework**: the key role of Expert Panels * **Breakthrough technologies for better care**: turning guidance into reality",
+      "sha256": "a7ae4187f1ab9b4772103999f4745be3d38acead295c3ed8d2788be53805cd1f"
+    }
   },
   {
     "search_month": "2026-02",

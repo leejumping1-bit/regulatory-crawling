@@ -105,6 +105,8 @@ def _retain_failed_collection(old, new):
             and isinstance(old.get("summary"), str) and old["summary"].strip()
             and (old.get("summary_status") in {"source_extracted", "pdf_extracted"} or old.get("summary_retained_stale") is True)):
         result["summary"] = old["summary"]
+        if isinstance(old.get("summary_source"), dict):
+            result["summary_source"] = old["summary_source"]
         result["summary_retained_stale"] = True
     return result
 

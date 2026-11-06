@@ -480,6 +480,12 @@ with st.container(border=True):
     if source_type in {"official_abstract", "official_change_note", "third_party_extracted_official_revision_history"}:
         label = {"official_abstract": "공식 초록", "official_change_note": "공식 변경 설명", "third_party_extracted_official_revision_history": "공식 개정 이력(제3자 추출)"}[source_type]
         st.caption(f"요약 근거: {label}. 문서 전체 요약이나 신구 대조 결과는 아닙니다.")
+    elif source_type in {"official_document_excerpt", "official_announcement"}:
+        label = "공식 문서에서 추출한 내용" if source_type == "official_document_excerpt" else "공식 공지·설명"
+        st.caption(f"요약 근거: {label}. 출처의 확인된 내용만 요약했습니다.")
+        source_url = selected_item["summary_source"].get("url")
+        if source_url and urlsplit(source_url).scheme == "https" and urlsplit(source_url).hostname in {"health.ec.europa.eu", "ec.europa.eu", "eur-lex.europa.eu"}:
+            st.link_button("요약 출처 열기", source_url)
     if selected_item.get("summary_status") == "summary_unavailable":
         st.warning("한글 요약을 생성하지 못했습니다. 아래 내용은 공식 영문 원문입니다.")
     if selected_item.get("summary_retained_stale"):
