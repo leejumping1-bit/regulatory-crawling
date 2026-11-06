@@ -476,8 +476,18 @@ with st.container(border=True):
     render_html(summary_html)
     if selected_item.get("document_status") in ("draft", "final"):
         st.caption("문서 상태: " + ("초안" if selected_item["document_status"] == "draft" else "최종 규칙·최종 안내"))
+    source_type = (selected_item.get("summary_source") or {}).get("type")
+    if source_type in {"official_abstract", "official_change_note", "third_party_extracted_official_revision_history"}:
+        label = {"official_abstract": "공식 초록", "official_change_note": "공식 변경 설명", "third_party_extracted_official_revision_history": "공식 개정 이력(제3자 추출)"}[source_type]
+        st.caption(f"요약 근거: {label}. 문서 전체 요약이나 신구 대조 결과는 아닙니다.")
+    if selected_item.get("summary_status") == "summary_unavailable":
+        st.warning("한글 요약을 생성하지 못했습니다. 아래 내용은 공식 영문 원문입니다.")
     if selected_item.get("summary_retained_stale"):
-        st.warning("원문 재조회에 실패해 이전에 저장한 요약을 표시합니다. 최신 여부는 확인되지 않았습니다.")
+        reason = selected_item.get("summary_retained_stale_reason")
+        if reason == "generation_failed_or_deferred":
+            st.warning("이번 원문의 한글 요약 생성이 실패하거나 미뤄져 이전 요약을 표시합니다. 현재 원문과 다를 수 있습니다.")
+        else:
+            st.warning("원문 재조회에 실패해 이전에 저장한 요약을 표시합니다. 최신 여부는 확인되지 않았습니다.")
 
 st.markdown("<div style='height:18px'></div>", unsafe_allow_html=True)
 

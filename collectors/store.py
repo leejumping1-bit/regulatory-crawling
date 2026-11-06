@@ -91,7 +91,7 @@ def _retain_failed_collection(old, new):
         return new
 
     result = dict(new)
-    if (new.get("publisher") == "MDSAP" and new.get("summary_status") == "source_extracted"
+    if (new.get("publisher") == "MDSAP" and not new.get("summary_source") and new.get("summary_status") == "source_extracted"
             and old.get("summary_status") == "source_extracted"
             and isinstance(old.get("summary"), str) and old["summary"].strip()):
         result["summary"] = old["summary"]

@@ -28,6 +28,7 @@ from datetime import date, datetime, timezone
 
 sys.path.append(os.path.dirname(__file__))
 from collectors.store import upsert_regulations, load_regulations  # noqa: E402
+from collectors.excerpt_summary import ExcerptSummarizer  # noqa: E402
 
 # MFDS(가장 느림 — 3개 게시판 × 상세페이지 × 첨부다운로드)를 마지막 순서로 배치.
 # 앞선 기관들이 먼저 저장을 마치면, MFDS 단계에서 시간이 오래 걸리거나
@@ -96,6 +97,7 @@ def run_crawler(since_year=2026, since_month=1, only=None, progress_cb=None, tod
     """
     targets = only or AUTO_AGENCIES
     summary = {}
+    excerpt_engine = ExcerptSummarizer()
 
     for key in targets:
         # Start pessimistically: interrupted, partial and failed checks must not
@@ -123,6 +125,20 @@ def run_crawler(since_year=2026, since_month=1, only=None, progress_cb=None, tod
                 progress_cb(key, msg)
             continue
         elapsed = time.time() - t0
+
+        if key in {"fda", "mhra", "mdsap"} and items:
+            old_by_key = {(x.get("publisher"), x.get("doc_no")): x for x in load_regulations()}
+            # Newest first, but reserve capacity for the other target agencies.
+            agency_start = excerpt_engine.calls
+            other_targets = len({x for x in targets if x in {"fda", "mhra", "mdsap"}} - {key})
+            limit = 30 if not other_targets else 10
+            for item in sorted(items, key=lambda x: x.get("change_date") or x.get("revision_date") or x.get("publish_date") or "", reverse=True):
+                original_max = excerpt_engine.max_calls
+                excerpt_engine.max_calls = min(original_max, agency_start + limit)
+                updated = excerpt_engine.process(item, old_by_key.get((item.get("publisher"), item.get("doc_no"))))
+                excerpt_engine.max_calls = original_max
+                item.clear()
+                item.update(updated)
 
         if key == "mdsap" and (block_info is not None or (not today_only and not items)):
             if items:
@@ -167,6 +183,10 @@ def run_crawler(since_year=2026, since_month=1, only=None, progress_cb=None, tod
         if key == "mdsap" and not today_only:
             _write_mdsap_status("ok")
         msg = f"{len(items)}건 수집 ({elapsed:.0f}초)"
+        if key in {"fda", "mhra", "mdsap"}:
+            incomplete = sum(1 for item in items if item.get("summary_status") == "summary_unavailable" or item.get("summary_retained_stale") is True)
+            if incomplete:
+                msg += f"; 요약 미완료 {incomplete}건"
         summary[key] = msg
         print(f"[OK] {key}: {msg}")
         if progress_cb:
