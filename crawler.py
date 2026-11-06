@@ -44,6 +44,30 @@ def _write_mdsap_status(status):
     temporary.replace(MDSAP_STATUS_PATH)
 
 
+def _mdsap_public_reasons(error):
+    """Emit only fixed public diagnostic messages, never arbitrary exception text."""
+    allowed = (
+        'priority version or exact official PDF link unavailable or ambiguous',
+        'official URL prohibited or invalid', 'unexpected HTTP status',
+        'response too large', 'reader source URL mismatch', 'cover title mismatch',
+        'cover version mismatch', 'cover revision date missing',
+        'revision history missing', 'current revision history not verified',
+        'revision history empty or too large', 'extracted text too large',
+        'document feed empty or invalid',
+    )
+    parts = error.split('; ') if isinstance(error, str) else []
+    reasons = []
+    for part in parts:
+        if part.startswith('P0002 현재 확인 실패: '):
+            detail = part[len('P0002 현재 확인 실패: '):]
+            reasons.append('P0002: ' + (detail if detail in allowed else 'source retrieval or validation failed'))
+        elif part.startswith('RSS 확인 실패 ('):
+            reasons.append('RSS: source retrieval or validation failed')
+        elif part.startswith('RSS 신규 개정 '):
+            reasons.append('RSS: newer revision conflicts with detail page')
+    return '; '.join(dict.fromkeys(reasons)) or '원인 미확인'
+
+
 def _run_agency(mod, since_year, since_month, today_only):
     """today_only를 기관 수집기가 지원하면 그대로 넘기고, 아니면 이번 달로 좁혀
     호출한 뒤 결과를 오늘 날짜로 재필터링한다."""
@@ -92,8 +116,8 @@ def run_crawler(since_year=2026, since_month=1, only=None, progress_cb=None, tod
         try:
             items, block_info = _run_agency(mod, since_year, since_month, today_only)
         except Exception as e:
-            msg = f"실행 오류: {e}"
-            print(f"[ERROR] {key} 실행 실패: {e}")
+            msg = "실행 오류: 수집기 예외" if key == "mdsap" else f"실행 오류: {e}"
+            print(f"[ERROR] {key} 실행 실패: {'수집기 예외' if key == 'mdsap' else str(e)}")
             summary[key] = msg
             if progress_cb:
                 progress_cb(key, msg)
@@ -106,6 +130,7 @@ def run_crawler(since_year=2026, since_month=1, only=None, progress_cb=None, tod
             msg = "수집 실패 또는 부분 수집 (상세 내용은 실행 로그 확인)"
             summary[key] = msg
             print(f"[ERROR] {key}: {msg}")
+            print(f"[ERROR] {key} 상세: {_mdsap_public_reasons(getattr(block_info, 'error', None))}")
             if progress_cb:
                 progress_cb(key, msg)
             continue

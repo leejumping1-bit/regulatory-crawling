@@ -5,6 +5,33 @@ from datetime import datetime
 import crawler
 
 
+def test_mdsap_logs_known_failure_without_exposing_secrets(tmp_path, monkeypatch, capsys):
+    path = tmp_path / 'mdsap_status.json'
+    monkeypatch.setattr(crawler, 'MDSAP_STATUS_PATH', path)
+    monkeypatch.setattr(crawler, 'load_regulations', lambda: [])
+    detail = ('P0002 현재 확인 실패: priority version or exact official PDF link unavailable or ambiguous; '
+              'RSS 확인 실패 (https://www.mdsap.global/feeds/documents.xml): token=supersecret')
+    block = SimpleNamespace(ok=False, error=detail)
+    monkeypatch.setattr(crawler.importlib, 'import_module', lambda _: SimpleNamespace(run=lambda y, m: ([], block)))
+    crawler.run_crawler(only=['mdsap'])
+    output = capsys.readouterr().out
+    assert 'priority version or exact official PDF link unavailable or ambiguous' in output
+    assert 'supersecret' not in output
+    assert 'supersecret' not in path.read_text()
+    assert json.loads(path.read_text())['status'] == 'error'
+
+
+def test_mdsap_unexpected_exception_does_not_leak_to_log(tmp_path, monkeypatch, capsys):
+    monkeypatch.setattr(crawler, 'MDSAP_STATUS_PATH', tmp_path / 'status.json')
+    monkeypatch.setattr(crawler, 'load_regulations', lambda: [])
+    def fail(y, m):
+        raise RuntimeError('token=supersecret')
+    monkeypatch.setattr(crawler.importlib, 'import_module', lambda _: SimpleNamespace(run=fail))
+    crawler.run_crawler(only=['mdsap'])
+    assert 'supersecret' not in capsys.readouterr().out
+    assert 'supersecret' not in (tmp_path / 'status.json').read_text()
+
+
 def test_mdsap_status_freshness():
     from datetime import datetime, timezone, timedelta
     from app_logic import mdsap_status_is_stale

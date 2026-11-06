@@ -2,6 +2,38 @@ from collectors import mdsap
 from test_mdsap_jina import HTML, TEXT, URL
 
 
+def test_detail_retries_transient_reader_non_document_then_succeeds(monkeypatch):
+    calls = []
+    def get(url, *, reader=False, html=False):
+        calls.append((url, reader, html))
+        if not reader:
+            raise OSError('direct timeout')
+        return '<html><body>temporary upstream response</body></html>' if len(calls) == 2 else HTML
+    monkeypatch.setattr(mdsap, '_get', get)
+    assert mdsap._attachment(mdsap._detail()) == ('011', URL)
+    assert len(calls) == 3
+
+
+def test_feed_retries_reader_invalid_xml_then_succeeds(monkeypatch):
+    calls = []
+    def get(url, *, reader=False, html=False):
+        calls.append(reader)
+        if not reader:
+            raise OSError('direct timeout')
+        return '<html>temporary error</html' if len(calls) == 2 else '<rss><channel><item><title>Update</title></item></channel></rss>'
+    monkeypatch.setattr(mdsap, '_get', get)
+    assert mdsap._feed(mdsap.RSS_URL)[0].findtext('title') == 'Update'
+    assert calls == [False, True, True]
+
+
+def test_detail_retry_remains_fail_closed_for_ambiguous_documents(monkeypatch):
+    ambiguous = HTML + HTML
+    monkeypatch.setattr(mdsap, '_get', lambda *args, **kwargs: ambiguous)
+    import pytest
+    with pytest.raises(ValueError, match='ambiguous'):
+        mdsap._detail()
+
+
 def test_run_falls_back_and_returns_partial_failure(monkeypatch):
     calls = []
     def get(url, *, reader=False, html=False):

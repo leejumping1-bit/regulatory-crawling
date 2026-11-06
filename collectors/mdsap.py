@@ -58,9 +58,16 @@ def _detail():
         _attachment(text)
         return text
     except Exception:
-        text = _get(LIBRARY_URL, reader=True, html=True)
-        _attachment(text)
-        return text
+        # Reader may return an HTTP-200 upstream error page. Retry once, but
+        # retain the exact same validation and robots checks on every attempt.
+        for attempt in range(2):
+            try:
+                text = _get(LIBRARY_URL, reader=True, html=True)
+                _attachment(text)
+                return text
+            except Exception:
+                if attempt == 1:
+                    raise
 
 
 def _attachment(html):
@@ -117,16 +124,21 @@ def parse_priority(html, text):
 
 
 def _feed(url):
+    def parse(text):
+        entries = ET.fromstring(text).findall('./channel/item')
+        if not entries:
+            raise ValueError('document feed empty or invalid')
+        return entries[:10]
+
     try:
-        text = _get(url)
-        ET.fromstring(text)
+        return parse(_get(url))
     except Exception:
-        text = _get(url, reader=True, html=True)
-    root = ET.fromstring(text)
-    entries = root.findall('./channel/item')
-    if not entries:
-        raise ValueError('document feed empty or invalid')
-    return entries[:10]
+        for attempt in range(2):
+            try:
+                return parse(_get(url, reader=True, html=True))
+            except Exception:
+                if attempt == 1:
+                    raise
 
 
 def run(since_year=2026, since_month=1, max_items=10, today_only=False):
