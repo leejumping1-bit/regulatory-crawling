@@ -182,10 +182,10 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 .stButton>button:hover, .stDownloadButton>button:hover { filter: brightness(1.08); color:#fff; }
 
 .reg-table-container { width: 100%; overflow-x: auto; margin-bottom: 6px; }
-.reg-table { width: 100%; min-width:1100px; border-collapse: collapse; font-size: 15px; background:#fff; }
+.reg-table { width: 100%; min-width:1100px; border-collapse: collapse; font-size: 12.8px; background:#fff; }
 .reg-table th {
   background:var(--navy-900); color:#e7ecfa; font-weight:700; text-align:center;
-  vertical-align:middle; padding:10px 8px; border:1px solid #223154; white-space:nowrap; font-size:14px;
+  vertical-align:middle; padding:10px 8px; border:1px solid #223154; white-space:nowrap; font-size:11.5px;
 }
 .reg-table td {
   text-align:center; vertical-align:middle; padding:9px 8px; border:1px solid #dee2e6;
@@ -195,7 +195,7 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 .reg-table td.title-cell { text-align:left; }
 .reg-table td.title-cell a { color:var(--teal-dark); text-decoration:underline; font-weight:600; }
 .reg-table tr:hover td { background:#f1f6f8; }
-.reg-scope-tag { display:inline-block; font-size:14px; font-weight:600; padding:2px 8px; border-radius:99px; background:var(--slate-100); color:var(--navy-900); }
+.reg-scope-tag { display:inline-block; font-size:11px; font-weight:600; padding:2px 8px; border-radius:99px; background:var(--slate-100); color:var(--navy-900); }
 
 .summary-card { background:var(--slate-100); border-left:4px solid var(--teal); padding:16px; border-radius:0 8px 8px 0; margin-bottom:6px; }
 .summary-card h4 { font-size:19px; line-height:1.5; margin:0 0 12px; }
