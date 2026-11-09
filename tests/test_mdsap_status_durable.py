@@ -84,7 +84,9 @@ def test_app_renders_remote_status_and_rerun(monkeypatch):
         def __init__(self, payload): self.payload = payload
         def raise_for_status(self): pass
         def json(self): return self.payload
-    state = {"status": "error", "checked_at": "2026-11-06T00:00:00+00:00"}
+    from datetime import timezone
+    checked_at = datetime.now(timezone.utc).isoformat()
+    state = {"status": "error", "checked_at": checked_at}
     def get(url, **kwargs):
         return Response(state if url.endswith("mdsap_status.json") else [])
     monkeypatch.setattr(requests, "get", get)
@@ -93,7 +95,7 @@ def test_app_renders_remote_status_and_rerun(monkeypatch):
     from pathlib import Path
     app = AppTest.from_file(Path(__file__).resolve().parents[1] / "app.py").run(timeout=90)
     assert not app.exception
-    assert any("MDSAP" in x.value and "실패" in x.value and "2026-11-06" in x.value for x in app.warning)
+    assert any("MDSAP" in x.value and "실패" in x.value and checked_at in x.value for x in app.warning)
     state["status"] = "ok"
     import streamlit as st
     st.cache_data.clear()
