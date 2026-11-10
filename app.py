@@ -411,19 +411,18 @@ with st.expander("데이터 출처 및 수집 안내"):
         f"{datetime.now(timezone.utc).astimezone().strftime('%Y-%m-%d %H:%M:%S %Z')}"
     )
     st.caption("MFDS는 robots.txt 상 자동접근 비권장 사이트이나, 비상업적 사내 QA 모니터링 목적으로 서버 부담을 최소화(요청 간 딜레이 적용)하며 수집합니다.")
+    mdsap_status = _load_mdsap_status()
+    if mdsap_status is None:
+        st.warning("MDSAP AU 수집 상태 확인 불가: GitHub 영구 상태를 가져오지 못했거나 아직 없습니다.")
+    elif mdsap_status_is_stale(mdsap_status['checked_at']):
+        st.warning(f"MDSAP AU 수집 상태 오래됨: 마지막 확인 {mdsap_status['checked_at']} (48시간 초과 또는 시계 오류)")
+    elif mdsap_status["status"] == "error":
+        st.warning(f"MDSAP AU 수집 실패 · 확인 시각: {mdsap_status['checked_at']}")
+    else:
+        st.success(f"MDSAP AU 수집 완료 · 확인 시각: {mdsap_status['checked_at']} (변경 없음이나 전체 범위 확인을 의미하지 않음)")
 
 if data_source == "local-fallback":
     st.warning("GitHub 데이터 접근 실패: 로컬 fallback 데이터를 표시합니다.")
-
-mdsap_status = _load_mdsap_status()
-if mdsap_status is None:
-    st.warning("MDSAP 수집 상태 확인 불가: GitHub 영구 상태를 가져오지 못했거나 아직 없습니다.")
-elif mdsap_status_is_stale(mdsap_status['checked_at']):
-    st.warning(f"MDSAP 수집 상태 오래됨: 마지막 확인 {mdsap_status['checked_at']} (48시간 초과 또는 시계 오류)")
-elif mdsap_status["status"] == "error":
-    st.warning(f"MDSAP 수집 실패 또는 부분 수집 · 확인 시각: {mdsap_status['checked_at']} (상세 내용은 Actions 로그 확인)")
-else:
-    st.success(f"MDSAP 수집 완료 · 확인 시각: {mdsap_status['checked_at']} (변경 없음이나 전체 범위 확인을 의미하지 않음)")
 
 st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
