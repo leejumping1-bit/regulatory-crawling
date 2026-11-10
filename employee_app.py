@@ -132,7 +132,7 @@ st.markdown(textwrap.dedent("""
 :root {
   --navy-950:#0b1220; --navy-900:#101a30; --navy-800:#16223d;
   --slate-100:#f4f6fb; --slate-200:#e7eaf3; --slate-300:#d3d8e6; --slate-500:#697390;
-  --teal:#0f8b8d; --teal-dark:#0b6668; --amber:#c8811a;
+  --teal:#168dcc; --teal-dark:#126a9c; --amber:#c8811a;
 }
 
 html, body, [class*="css"], .stApp, .stApp p, .stApp button, .stApp input,
@@ -144,15 +144,15 @@ html, body, [class*="css"], .stApp, .stApp p, .stApp button, .stApp input,
 
 /* 상단 배너 */
 .rw-topbar {
-  background: linear-gradient(120deg, var(--navy-950) 0%, var(--navy-800) 100%);
-  border-bottom: 3px solid var(--teal); border-radius: 10px;
-  padding: 18px 22px; margin-bottom: 18px; color: #fff;
+  background: #fff;
+  border:1px solid #e0eaf2; border-bottom: 3px solid var(--teal); border-radius: 10px;
+  padding: 18px 22px; margin-bottom: 18px; color: var(--navy-900);
   display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
 }
 .rw-brand { display:flex; align-items:center; gap:14px; }
 .rw-brand h1 { font-family:'Noto Sans KR', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif !important; font-size:22px; margin:0 0 2px; font-weight:700; line-height:1.45; }
-.rw-brand p { margin:0; font-size:12.5px; color:#9fb0d6; font-family:'IBM Plex Mono',monospace; }
-.rw-topbar-meta { font-size:14px; color:#d2dbee; text-align:right; }
+.rw-brand p { margin:0; font-size:12.5px; color:#5e7896; font-family:'IBM Plex Mono',monospace; }
+.rw-topbar-meta { font-size:14px; color:#506c88; text-align:right; }
 
 /* 컨트롤바(월선택/다운로드/수동업데이트) */
 .rw-controlbar-label { font-size:14px; font-weight:600; color:#45516a; margin-bottom:4px; }
@@ -181,8 +181,8 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 .reg-table-container { width: 100%; overflow-x: auto; margin-bottom: 6px; }
 .reg-table { width: 100%; min-width:760px; table-layout: fixed; border-collapse: collapse; font-size: 12.8px; background:#fff; }
 .reg-table th {
-  background:var(--navy-900); color:#e7ecfa; font-weight:700; text-align:center;
-  vertical-align:middle; padding:9px 4px; border:1px solid #223154; white-space:normal; overflow-wrap:anywhere; font-size:11.5px;
+  background:#eaf4fa; color:#173958; font-weight:700; text-align:center;
+  vertical-align:middle; padding:9px 4px; border:1px solid #d8e1e8; white-space:normal; overflow-wrap:anywhere; font-size:11.5px;
 }
 .reg-table td {
   text-align:center; vertical-align:middle; padding:9px 4px; border:1px solid #dee2e6;
@@ -194,16 +194,20 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 .reg-table tr:hover td { background:#f1f6f8; }
 .reg-scope-tag { display:inline-block; font-size:11px; font-weight:600; padding:2px 8px; border-radius:99px; background:var(--slate-100); color:var(--navy-900); }
 
-.monthly-report { font-family:'Noto Sans KR', sans-serif; }
+.monthly-report { font-family:'Noto Sans KR', sans-serif; color:#132846; }
+.monthly-report h2 { font-family:'Noto Sans KR', sans-serif !important; font-size:21px !important; line-height:1.4; margin:0 0 10px; }
+.monthly-footnote { color:#627991; font-size:11px; margin:4px 0 8px; }
 .monthly-table-container { max-height:680px; overflow:auto; width:100%; }
 .monthly-table { width:100%; min-width:700px; table-layout:fixed; border-collapse:collapse; background:#fff; font-size:12px; line-height:1.45; }
 .monthly-table td:nth-child(2) { font-size:10px; }
-.monthly-table th, .monthly-table td { border:1px solid #d8e1e8; padding:5px 6px; vertical-align:top; overflow-wrap:anywhere; }
-.monthly-table th { position:sticky; top:0; background:#223154; color:#fff; font-size:11px; z-index:1; }
+.monthly-table th, .monthly-table td { border:1px solid #d8e1e8; padding:5px 6px; vertical-align:middle; text-align:center; overflow-wrap:anywhere; }
+.monthly-table td:nth-child(4), .monthly-table td:nth-child(5) { text-align:left; }
+.monthly-table tbody tr:nth-child(even) { background:#f5f9fc; }
+.monthly-table th { position:sticky; top:0; background:#eaf4fa; color:#173958; font-size:11px; z-index:1; }
 .monthly-table th:nth-child(1) { width:4%; } .monthly-table th:nth-child(2) { width:11%; }
 .monthly-table th:nth-child(3) { width:10%; } .monthly-table th:nth-child(4) { width:22%; }
 .monthly-table th:nth-child(5) { width:41%; } .monthly-table th:nth-child(6) { width:12%; }
-.monthly-note { color:#536176; font-size:11px; margin-top:3px; }
+.monthly-note { color:#2884aa; font-size:11px; margin-top:3px; }
 .monthly-warning { color:#8a4b00; font-weight:600; font-size:11px; margin-top:3px; }
 .summary-card { background:var(--slate-100); border-left:4px solid var(--teal); padding:16px; border-radius:0 8px 8px 0; margin-bottom:6px; }
 .summary-card h4 { font-size:19px; line-height:1.5; margin:0 0 12px; }

@@ -27,7 +27,7 @@ def test_mhra_report_date_does_not_change_ledger(monkeypatch, filename):
         assert not app.exception
         report = next(m.value for m in app.markdown if 'class="monthly-report"' in m.value)
         ledger = next(m.value for m in app.markdown if '<table class="reg-table">' in m.value)
-        assert '2026-10-16</span> (업데이트일)' in report
+        assert '2026-10-16</span>' in report
         assert '2020-02-11' not in report
         assert '2020-02-11' in ledger and '2026-10-16' in ledger
 
@@ -52,7 +52,7 @@ def test_report_matches_filtered_ledger_and_saved_summary(monkeypatch, filename)
     report = next(m.value for m in app.markdown if 'class="monthly-report"' in m.value)
     assert report.count('<tr class="monthly-row">') == 2
     assert report.index('<td>7</td>') < report.index('<td>2</td>')
-    for value in ['2026-01-01', 'FDA', 'A &lt;guide&gt;', '★', '첫 줄<br>둘째 &lt;원문&gt;', '요약 없음', '초안', '공식 초록', '이전 요약', '한글 요약을 생성하지 못했습니다']:
+    for value in ['2026-01-01', 'FDA', 'A &lt;guide&gt;', '★', '첫 줄<br>둘째 &lt;원문&gt;', '요약 없음', '이전 요약', '한글 요약을 생성하지 못했습니다']:
         assert value in report
     assert '2026-01-02' not in report and '2026-03-01' not in report
     assert '기관별로 고시·변경·개정일 기준이 다를 수 있음' in report
@@ -98,7 +98,7 @@ def test_report_table_excerpts_are_verbatim_for_real_records_and_escaping():
     items += [dict(no=9999, title='<script>x</script>', publisher='A&B', publish_date='2026-01-01', manufacturer_obligation='★', summary='[핵심 내용]\n첫 번째 <핵심> 문장입니다.\n[제조업체 의무사항]\n- 제조자는 기록을 보관해야 합니다.\n[기타]\n무시.', summary_retained_stale=True)]
     html = monthly_report_html(items, '전체', '전체')
     parser = Parser(); parser.feed(html)
-    assert parser.headers == ['No.', '고시일 / MHRA 업데이트일', '발행처', '제목', '요약내용', 'Manufacturer obligation']
+    assert parser.headers == ['No.', '고시일', '발행처', '제목', '요약내용', 'Manufacturer obligation']
     assert len(parser.rows) == len(items)
     for row, item in zip(parser.rows, items):
         assert row[0] == str(item['no'])
@@ -107,7 +107,6 @@ def test_report_table_excerpts_are_verbatim_for_real_records_and_escaping():
         assert row[2] == (item.get('publisher') or '-')
         assert row[3].startswith(item.get('title') or '-')
         assert row[5] == (item.get('manufacturer_obligation', item.get('sop_required')) or '-')
-        assert '요약 근거:' in row[4]
         if item.get('summary_retained_stale'):
             assert '이전' in row[4] and ('다를 수 있습니다' in row[4] or '최신 여부는 확인되지 않았습니다' in row[4])
         if item.get('summary_status') == 'summary_unavailable':
@@ -115,7 +114,8 @@ def test_report_table_excerpts_are_verbatim_for_real_records_and_escaping():
     assert all(excerpt in (item.get('summary') or '') for item, excerpts in zip(items, parser.row_excerpts) for excerpt in excerpts)
     assert '&lt;script&gt;' in html and '<script>' not in html and 'A&amp;B' in html
     assert '발췌 · 전체 내용은 아래 02' in html
-    assert '요약 근거:' in html and '이전에 저장한 요약' in html
+    assert '요약 근거:' not in html and '문서 상태:' not in html and '이전에 저장한 요약' in html
+    assert html.count('MHRA는 해당 월의 업데이트일 우선 표시') == 1
     assert '첫 번째 <핵심> 문장입니다.' in parser.excerpts
     assert '- 제조자는 기록을 보관해야 합니다.' in parser.excerpts
 
@@ -130,3 +130,11 @@ def test_structured_excerpt_preserves_continuation_of_complete_bullets():
     assert '두 번째 완결된 항목입니다.' in '\n'.join(excerpts)
     assert '세 번째 항목입니다.' not in '\n'.join(excerpts)
     assert all(part in summary for part in excerpts)
+
+
+def test_monthly_report_styles_match_between_apps():
+    def monthly_styles(filename):
+        text = (ROOT / filename).read_text()
+        start = text.index('.monthly-report {')
+        return text[start:text.index('.summary-card {', start)]
+    assert monthly_styles('app.py') == monthly_styles('employee_app.py')
