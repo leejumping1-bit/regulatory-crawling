@@ -197,7 +197,7 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 .monthly-report { font-family:'Noto Sans KR', sans-serif; }
 .monthly-table-container { max-height:680px; overflow:auto; width:100%; }
 .monthly-table { width:100%; min-width:700px; table-layout:fixed; border-collapse:collapse; background:#fff; font-size:12px; line-height:1.45; }
-.monthly-table td:nth-child(2) { white-space:nowrap; font-size:10px; }
+.monthly-table td:nth-child(2) { font-size:10px; }
 .monthly-table th, .monthly-table td { border:1px solid #d8e1e8; padding:5px 6px; vertical-align:top; overflow-wrap:anywhere; }
 .monthly-table th { position:sticky; top:0; background:#223154; color:#fff; font-size:11px; z-index:1; }
 .monthly-table th:nth-child(1) { width:4%; } .monthly-table th:nth-child(2) { width:11%; }

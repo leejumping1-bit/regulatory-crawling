@@ -142,6 +142,37 @@ def monthly_summary_excerpts(summary):
     return passages, len(passages) != 1 or passages[0] != text.strip()
 
 
+def monthly_report_date(item):
+    """Select an MHRA date only when its actual precision confirms the bucket."""
+    from datetime import date
+
+    publication = item.get("publish_date") or "-"
+    if item.get("publisher") not in {"MHRA", "MHRA (UK)"}:
+        return publication, ""
+    month = item.get("search_month")
+
+    def matches(value):
+        if not isinstance(value, str) or not isinstance(month, str):
+            return False
+        if not re.fullmatch(r"\d{4}-\d{2}", month):
+            return False
+        if not re.fullmatch(r"\d{4}-\d{2}(?:-\d{2})?", value):
+            return False
+        try:
+            date.fromisoformat(value if len(value) == 10 else value + "-01")
+        except ValueError:
+            return False
+        return value[:7] == month
+
+    for key in ("change_date", "revision_date"):
+        value = item.get(key)
+        if matches(value):
+            return value, " (업데이트일)"
+    if matches(item.get("publish_date")):
+        return publication, ""
+    return publication, " (해당 월 일치 미확인)"
+
+
 def monthly_report_html(items, selected_month, selected_publisher):
     """Render the same filtered ledger as an escaped compact report table."""
     from html import escape
@@ -151,7 +182,7 @@ def monthly_report_html(items, selected_month, selected_publisher):
         return escape(str(value or ""), quote=True)
 
     labels = {"official_abstract": "공식 초록", "official_change_note": "공식 변경 설명", "third_party_extracted_official_revision_history": "공식 개정 이력(제3자 추출)", "official_document_excerpt": "공식 문서에서 추출한 내용", "official_announcement": "공식 공지·설명"}
-    parts = [f'<div class="monthly-report"><h2>월별 업데이트 요약 보고서</h2><p>조회 월: {e(selected_month)} · 발행처: {e(selected_publisher)} · 총 {len(items)}건<br>월 기준: 대장 분류 월(search_month), 기관별로 고시·변경·개정일 기준이 다를 수 있음. 전체는 모든 월을 포함합니다.<br>Manufacturer obligation 빈칸은 의무가 없다는 뜻이 아님.</p><div class="monthly-table-container"><table class="monthly-table"><thead><tr><th>No.</th><th>고시일</th><th>발행처</th><th>제목</th><th>요약내용</th><th>Manufacturer obligation</th></tr></thead><tbody>']
+    parts = [f'<div class="monthly-report"><h2>월별 업데이트 요약 보고서</h2><p>조회 월: {e(selected_month)} · 발행처: {e(selected_publisher)} · 총 {len(items)}건<br>월 기준: 대장 분류 월(search_month), 기관별로 고시·변경·개정일 기준이 다를 수 있음. 전체는 모든 월을 포함합니다.<br>Manufacturer obligation 빈칸은 의무가 없다는 뜻이 아님.</p><div class="monthly-table-container"><table class="monthly-table"><thead><tr><th>No.</th><th>고시일 / MHRA 업데이트일</th><th>발행처</th><th>제목</th><th>요약내용</th><th>Manufacturer obligation</th></tr></thead><tbody>']
     for item in items:
         excerpts, shortened = monthly_summary_excerpts(item.get("summary"))
         summary = '<br>'.join('<span class="monthly-excerpt">' + e(x).replace("\n", "<br>") + '</span>' for x in excerpts) or '요약 없음'
@@ -178,6 +209,7 @@ def monthly_report_html(items, selected_month, selected_publisher):
         if item.get("document_status") in ("draft", "final"):
             title += '<div class="monthly-note">문서 상태: ' + ("초안" if item["document_status"] == "draft" else "최종 규칙·최종 안내") + '</div>'
         obligation = item.get("manufacturer_obligation", item.get("sop_required")) or "-"
-        parts.append(f'<tr class="monthly-row"><td>{e(item["no"])}</td><td>{e(item.get("publish_date") or "-")}</td><td>{e(item.get("publisher") or "-")}</td><td>{title}</td><td>{summary}</td><td>{e(obligation)}</td></tr>')
+        date, annotation = monthly_report_date(item)
+        parts.append(f'<tr class="monthly-row"><td>{e(item["no"])}</td><td><span style="white-space:nowrap">{e(date)}</span>{e(annotation)}</td><td>{e(item.get("publisher") or "-")}</td><td>{title}</td><td>{summary}</td><td>{e(obligation)}</td></tr>')
     parts.append('</tbody></table></div></div>')
     return ''.join(parts)

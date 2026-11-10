@@ -11,6 +11,28 @@ ITEMS = [
 ]
 
 @pytest.mark.parametrize('filename', ['app.py', 'employee_app.py'])
+def test_mhra_report_date_does_not_change_ledger(monkeypatch, filename):
+    st.cache_data.clear()
+    item = dict(no=1, title='MHRA document', publisher='MHRA (UK)', search_month='2026-10',
+                publish_date='2020-02-11', change_date='2026-10-16', summary='요약')
+    class Response:
+        def raise_for_status(self): pass
+        def json(self): return [item]
+    monkeypatch.setattr('requests.get', lambda *a, **kw: Response())
+    app = AppTest.from_file(str(ROOT / filename), default_timeout=30).run()
+    assert not app.exception
+    for month, publisher in [('전체', '전체'), ('2026-10', 'MHRA (UK)')]:
+        app.selectbox[0].select(month).run()
+        app.selectbox[1].select(publisher).run()
+        assert not app.exception
+        report = next(m.value for m in app.markdown if 'class="monthly-report"' in m.value)
+        ledger = next(m.value for m in app.markdown if '<table class="reg-table">' in m.value)
+        assert '2026-10-16</span> (업데이트일)' in report
+        assert '2020-02-11' not in report
+        assert '2020-02-11' in ledger and '2026-10-16' in ledger
+
+
+@pytest.mark.parametrize('filename', ['app.py', 'employee_app.py'])
 def test_report_matches_filtered_ledger_and_saved_summary(monkeypatch, filename):
     st.cache_data.clear()
     class Response:
@@ -76,11 +98,12 @@ def test_report_table_excerpts_are_verbatim_for_real_records_and_escaping():
     items += [dict(no=9999, title='<script>x</script>', publisher='A&B', publish_date='2026-01-01', manufacturer_obligation='★', summary='[핵심 내용]\n첫 번째 <핵심> 문장입니다.\n[제조업체 의무사항]\n- 제조자는 기록을 보관해야 합니다.\n[기타]\n무시.', summary_retained_stale=True)]
     html = monthly_report_html(items, '전체', '전체')
     parser = Parser(); parser.feed(html)
-    assert parser.headers == ['No.', '고시일', '발행처', '제목', '요약내용', 'Manufacturer obligation']
+    assert parser.headers == ['No.', '고시일 / MHRA 업데이트일', '발행처', '제목', '요약내용', 'Manufacturer obligation']
     assert len(parser.rows) == len(items)
     for row, item in zip(parser.rows, items):
         assert row[0] == str(item['no'])
-        assert row[1] == (item.get('publish_date') or '-')
+        if item.get('publisher') != 'MHRA (UK)':
+            assert row[1] == (item.get('publish_date') or '-')
         assert row[2] == (item.get('publisher') or '-')
         assert row[3].startswith(item.get('title') or '-')
         assert row[5] == (item.get('manufacturer_obligation', item.get('sop_required')) or '-')
