@@ -1,3 +1,4 @@
+from html import escape
 import streamlit as st
 import pandas as pd
 import io
@@ -14,6 +15,7 @@ import app_logic
 # before importing names added in the same release.
 importlib.reload(app_logic)
 from app_logic import (
+    monthly_report_html,
     effective_month,
     filter_by_month,
     effective_publisher,
@@ -197,6 +199,11 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 .reg-table tr:hover td { background:#f1f6f8; }
 .reg-scope-tag { display:inline-block; font-size:11px; font-weight:600; padding:2px 8px; border-radius:99px; background:var(--slate-100); color:var(--navy-900); }
 
+.monthly-report { font-family:'Noto Sans KR', sans-serif; max-height:680px; overflow-y:auto; padding-right:8px; }
+.monthly-item { padding:16px; margin:12px 0; border:1px solid #d8e1e8; border-radius:8px; overflow-wrap:anywhere; }
+.monthly-item h3 { margin:0 0 8px; font-size:18px; }
+.monthly-item p { margin:6px 0; line-height:1.7; }
+.monthly-warning { color:#8a4b00; font-weight:600; }
 .summary-card { background:var(--slate-100); border-left:4px solid var(--teal); padding:16px; border-radius:0 8px 8px 0; margin-bottom:6px; }
 .summary-card h4 { font-size:19px; line-height:1.5; margin:0 0 12px; }
 .summary-card p { font-size:16px; line-height:1.8; overflow-wrap:anywhere; word-break:keep-all; }
@@ -388,10 +395,15 @@ source_label = {
     "github-main": "GitHub main 영구 데이터 (백그라운드 수집 결과)",
     "local-fallback": "앱 로컬 fallback 데이터 (GitHub 접근 실패)",
 }.get(data_source, data_source)
-st.caption(
-    f"데이터 출처: {source_label} · 확인시각: "
-    f"{datetime.now(timezone.utc).astimezone().strftime('%Y-%m-%d %H:%M:%S %Z')}"
-)
+with st.expander("데이터 출처 및 수집 안내"):
+    st.caption(
+        f"데이터 출처: {source_label} · 확인시각: "
+        f"{datetime.now(timezone.utc).astimezone().strftime('%Y-%m-%d %H:%M:%S %Z')}"
+    )
+    st.caption("MFDS는 robots.txt 상 자동접근 비권장 사이트이나, 비상업적 사내 QA 모니터링 목적으로 서버 부담을 최소화(요청 간 딜레이 적용)하며 수집합니다.")
+
+if data_source == "local-fallback":
+    st.warning("GitHub 데이터 접근 실패: 로컬 fallback 데이터를 표시합니다.")
 
 mdsap_status = _load_mdsap_status()
 if mdsap_status is None:
@@ -403,16 +415,14 @@ elif mdsap_status["status"] == "error":
 else:
     st.success(f"MDSAP 수집 완료 · 확인 시각: {mdsap_status['checked_at']} (변경 없음이나 전체 범위 확인을 의미하지 않음)")
 
-st.caption(
-    "MFDS는 robots.txt 상 자동접근 비권장 사이트이나, 비상업적 사내 QA 모니터링 목적으로 "
-    "서버 부담을 최소화(요청 간 딜레이 적용)하며 수집합니다."
-)
-
 st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
 if not filtered_data:
     st.info("해당 조건의 데이터가 없습니다. 갱신을 통해 GitHub Actions에서 업데이트를 실행할 수 있습니다.")
     st.stop()
+
+with st.container(border=True):
+    render_html(monthly_report_html(filtered_data, selected_month, selected_publisher))
 
 # ==================== 1. 검토대장 ====================
 with st.container(border=True):
@@ -455,22 +465,23 @@ with st.container(border=True):
     render_html('<div class="rw-panel-head"><span class="rw-step">02</span>'
                 '<h2>업데이트 내용 요약 <span class="rw-subtle">— 선택 항목 원문 또는 요약</span></h2></div>')
 
+    items_by_no = {item["no"]: item for item in reversed(filtered_data)}
     selected_no = st.selectbox(
         "GAP 분석 및 세부 요약을 확인할 규격 [No.]를 선택하세요:",
         options=[item["no"] for item in filtered_data],
-        format_func=lambda x: f"No. {x} - {next(i['title'] for i in filtered_data if i['no'] == x)}",
+        format_func=lambda x: f"No. {x} - {items_by_no[x]['title']}",
     )
-    selected_item = next(item for item in filtered_data if item["no"] == selected_no)
+    selected_item = items_by_no[selected_no]
 
     summary_html = (
         '<div class="summary-card">'
-        f'<h4>📌 {selected_item["title"]}</h4>'
-        f'<p><b>• 규격 번호:</b> {display_doc_no(selected_item)} '
-        f'| <b>발행처:</b> {selected_item.get("publisher") or "-"}</p>'
-        f'<p><b>• 적용 범위:</b> {selected_item.get("scope") or "-"} '
-        f'| <b>Manufacturer obligation:</b> <span style="color:var(--amber);font-weight:bold;">{selected_item.get("manufacturer_obligation", selected_item.get("sop_required")) or "-"}</span></p>'
+        f'<h4>📌 {escape(str(selected_item["title"]))}</h4>'
+        f'<p><b>• 규격 번호:</b> {escape(str(display_doc_no(selected_item)))} '
+        f'| <b>발행처:</b> {escape(str(selected_item.get("publisher") or "-"))}</p>'
+        f'<p><b>• 적용 범위:</b> {escape(str(selected_item.get("scope") or "-"))} '
+        f'| <b>Manufacturer obligation:</b> <span style="color:var(--amber);font-weight:bold;">{escape(str(selected_item.get("manufacturer_obligation", selected_item.get("sop_required")) or "-"))}</span></p>'
         '<hr><p><b>[요약 내용]</b></p>'
-        f'<p class="summary-text">{(selected_item.get("summary") or "").replace(chr(10), "<br>")}</p>'
+        f'<p class="summary-text">{escape(str(selected_item.get("summary") or "")).replace(chr(10), "<br>")}</p>'
         '</div>'
     )
     render_html(summary_html)

@@ -101,3 +101,41 @@ def estimate_export_row_height(values, column_widths):
                     for line in text.splitlines())
         max_lines = max(max_lines, lines)
     return min(240, max(18, 6 + max_lines * 13))
+
+
+def monthly_report_html(items, selected_month, selected_publisher):
+    """Render the already-filtered ledger rows, without changing saved content."""
+    from html import escape
+    from urllib.parse import urlsplit
+
+    def e(value):
+        return escape(str(value or ""), quote=True)
+
+    parts = [f'<div class="monthly-report"><h2>월별 업데이트 요약 보고서</h2><p>조회 월: {e(selected_month)} · 발행처: {e(selected_publisher)} · 총 {len(items)}건<br>월 기준: 대장 분류 월(search_month), 기관별로 고시·변경·개정일 기준이 다를 수 있음. 전체는 모든 월을 포함합니다.<br>Manufacturer obligation 빈칸은 의무가 없다는 뜻이 아님.</p>']
+    for item in items:
+        summary = e(item.get("summary")).replace("\n", "<br>") or "요약 없음"
+        obligation = item.get("manufacturer_obligation", item.get("sop_required")) or "-"
+        parts.append(f'<article class="monthly-item"><h3>No. {e(item["no"])} · {e(item.get("title") or "-")}</h3>'
+                     f'<p>고시일: {e(item.get("publish_date") or "-")}</p>'
+                     f'<p>발행처: {e(item.get("publisher") or "-")} · Manufacturer obligation: {e(obligation)}</p>'
+                     f'<p class="monthly-summary"><b>[요약 내용]</b><br>{summary}</p>')
+        if item.get("document_status") in ("draft", "final"):
+            parts.append('<p>문서 상태: ' + ("초안" if item["document_status"] == "draft" else "최종 규칙·최종 안내") + '</p>')
+        source = item.get("summary_source") or {}
+        kind = source.get("type")
+        labels = {"official_abstract": "공식 초록", "official_change_note": "공식 변경 설명", "third_party_extracted_official_revision_history": "공식 개정 이력(제3자 추출)", "official_document_excerpt": "공식 문서에서 추출한 내용", "official_announcement": "공식 공지·설명"}
+        if kind in labels:
+            caveat = "문서 전체 요약이나 신구 대조 결과는 아닙니다." if kind in {"official_abstract", "official_change_note", "third_party_extracted_official_revision_history"} else "출처의 확인된 내용만 요약했습니다."
+            parts.append(f'<p>요약 근거: {labels[kind]}. {caveat}</p>')
+            url = source.get("url") or ""
+            parsed = urlsplit(url)
+            if kind in {"official_document_excerpt", "official_announcement"} and parsed.scheme == "https" and parsed.hostname in {"health.ec.europa.eu", "ec.europa.eu", "eur-lex.europa.eu"}:
+                parts.append(f'<p><a href="{e(url)}" target="_blank" rel="noopener noreferrer">요약 출처 열기</a></p>')
+        if item.get("summary_status") == "summary_unavailable":
+            parts.append('<p class="monthly-warning">⚠ 한글 요약을 생성하지 못했습니다. 아래 내용은 공식 영문 원문입니다.</p>')
+        if item.get("summary_retained_stale"):
+            warning = "이번 원문의 한글 요약 생성이 실패하거나 미뤄져 이전 요약을 표시합니다. 현재 원문과 다를 수 있습니다." if item.get("summary_retained_stale_reason") == "generation_failed_or_deferred" else "원문 재조회에 실패해 이전에 저장한 요약을 표시합니다. 최신 여부는 확인되지 않았습니다."
+            parts.append(f'<p class="monthly-warning">⚠ {warning}</p>')
+        parts.append('</article>')
+    parts.append('</div>')
+    return ''.join(parts)
