@@ -180,7 +180,7 @@ def monthly_report_html(items, selected_month, selected_publisher):
     def e(value):
         return escape(str(value or ""), quote=True)
 
-    parts = [f'<div class="monthly-report"><h2>월별 업데이트 요약 보고서</h2><p>조회 월: {e(selected_month)} · 발행처: {e(selected_publisher)} · 총 {len(items)}건<br>월 기준: 대장 분류 월(search_month), 기관별로 고시·변경·개정일 기준이 다를 수 있음. 전체는 모든 월을 포함합니다.<br>Manufacturer obligation 빈칸은 의무가 없다는 뜻이 아님.</p><div class="monthly-footnote">MHRA는 해당 월의 업데이트일 우선 표시</div><div class="monthly-table-container"><table class="monthly-table"><thead><tr><th>No.</th><th>고시일</th><th>발행처</th><th>제목</th><th>요약내용</th><th>Manufacturer obligation</th></tr></thead><tbody>']
+    parts = [f'<div class="monthly-report"><h2>월별 업데이트 요약 보고서</h2><p>조회 월: {e(selected_month)} · 발행처: {e(selected_publisher)} · 총 {len(items)}건<br>월 기준: 대장 분류 월(search_month), 기관별로 고시·변경·개정일 기준이 다를 수 있음. 전체는 모든 월을 포함합니다.</p><div class="monthly-footnote">MHRA는 해당 월의 업데이트일 우선 표시</div><div class="monthly-table-container"><table class="monthly-table"><thead><tr><th>No.</th><th>고시일</th><th>발행처</th><th>제목</th><th>요약내용</th><th>Manufacturer obligation</th></tr></thead><tbody>']
     for item in items:
         excerpts, shortened = monthly_summary_excerpts(item.get("summary"))
         summary = '<br>'.join('<span class="monthly-excerpt">' + e(x).replace("\n", "<br>") + '</span>' for x in excerpts) or '요약 없음'

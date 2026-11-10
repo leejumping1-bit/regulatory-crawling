@@ -56,7 +56,8 @@ def test_report_matches_filtered_ledger_and_saved_summary(monkeypatch, filename)
         assert value in report
     assert '2026-01-02' not in report and '2026-03-01' not in report
     assert '기관별로 고시·변경·개정일 기준이 다를 수 있음' in report
-    assert '빈칸은 의무가 없다는 뜻이 아님' in report
+    assert 'Manufacturer obligation 빈칸은 의무가 없다는 뜻이 아님' not in report
+    assert 'Manufacturer obligation</th>' in report
     assert '다른 월' not in report
     assert 'search_month' in report and '2026-01' in report
     ledger = next(m.value for m in app.markdown if '<table class="reg-table">' in m.value)
