@@ -202,8 +202,9 @@ div[data-testid="stVerticalBlockBorderWrapper"] {
 .monthly-table td:nth-child(2) { font-size:10px; }
 .monthly-table th, .monthly-table td { border:1px solid #d8e1e8; padding:5px 6px; vertical-align:middle; text-align:center; overflow-wrap:anywhere; }
 .monthly-table td:nth-child(4), .monthly-table td:nth-child(5) { text-align:left; }
-.monthly-table tbody tr:nth-child(even) { background:#f5f9fc; }
+.monthly-table tbody tr { background:#fff; }
 .monthly-table th { position:sticky; top:0; background:#eaf4fa; color:#173958; font-size:11px; z-index:1; }
+.monthly-table th:not(:last-child) { font-size:13px; }
 .monthly-table th:nth-child(1) { width:4%; } .monthly-table th:nth-child(2) { width:11%; }
 .monthly-table th:nth-child(3) { width:10%; } .monthly-table th:nth-child(4) { width:22%; }
 .monthly-table th:nth-child(5) { width:41%; } .monthly-table th:nth-child(6) { width:12%; }
