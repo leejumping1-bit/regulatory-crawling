@@ -23,31 +23,14 @@ def mdsap_source_messages(state, rows, now=None):
     stored = max(numbers) if numbers else '저장된 버전 없음'
     messages = [f'MDSAP AU P0002 마지막 저장 버전: {stored}',
                 '[MDSAP AU P0002 공식 페이지](https://www.mdsap.global/documents/library/audit-approach)']
-    if not state:
-        messages.append('MDSAP AU 수집 상태 확인 불가 · 수동 확인 권장')
-        return messages
-    stamp = state.get('checked_at', '확인 시각 없음')
-    stale = mdsap_status_is_stale(stamp, now)
+    state = state if isinstance(state, dict) else {}
     sources = state.get('sources')
-    if isinstance(sources, dict):
-        if state.get('status') == 'error':
-            messages.append(f'MDSAP 전체 수집 상태: 실패 · 확인 시각: {stamp} · 수동 확인 권장')
-        for key, label in [('p0002', 'MDSAP AU P0002'), ('documents_rss', 'MDSAP 문서 RSS'), ('news_rss', 'MDSAP 뉴스 RSS')]:
-            outcome = sources.get(key)
-            if outcome == 'ok' and not stale:
-                continue
-            result = {'ok': '상태 오래됨', 'error': '수집 실패'}.get(outcome, '상태 확인 불가')
-            note = ' · 수동 확인 권장' if stale or outcome != 'ok' else ''
-            age = ' · 상태 오래됨' if stale and outcome != 'ok' else ''
-            messages.append(f'{label} {result} · 확인 시각: {stamp}{age}{note}')
+    if 'sources' not in state:
+        outcome = state.get('status')  # Legacy status has no per-source details.
     else:
-        outcome = state.get('status')
-        if outcome == 'ok' and not stale:
-            return messages
-        result = {'ok': '상태 오래됨', 'error': '수집 실패'}.get(outcome, '상태 확인 불가')
-        age = ' · 상태 오래됨' if stale and outcome != 'ok' else ''
-        note = ' · 수동 확인 권장'
-        messages.append(f'MDSAP AU {result} · 확인 시각: {stamp}{age}{note}')
+        outcome = sources.get('p0002') if isinstance(sources, dict) else None
+    if outcome != 'ok' or mdsap_status_is_stale(state.get('checked_at'), now):
+        messages.append('MDSAP AU P0002 최신 여부 미확인 · 수동 확인 권장')
     return messages
 
 

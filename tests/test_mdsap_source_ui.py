@@ -1,63 +1,50 @@
 from datetime import datetime, timezone
 
+import pytest
+
 from app_logic import mdsap_source_messages
 
 NOW = datetime(2026, 11, 10, 12, tzinfo=timezone.utc)
 STAMP = '2026-11-10T11:00:00+00:00'
 LIBRARY = 'https://www.mdsap.global/documents/library/audit-approach'
+NOTICE = 'MDSAP AU P0002 최신 여부 미확인 · 수동 확인 권장'
+ROWS = [{'publisher': 'MDSAP', 'doc_no': 'MDSAP AU P0002.011'}]
 
 
-def test_failed_legacy_status_keeps_truth_and_stored_version():
-    rows = [{'publisher': 'MDSAP', 'doc_no': 'MDSAP AU P0002.011'}]
-    messages = mdsap_source_messages({'status': 'error', 'checked_at': STAMP}, rows, NOW)
+@pytest.mark.parametrize('state,unverified', [
+    (None, True), ({}, True), ('invalid', True),
+    ({'status': 'error', 'checked_at': STAMP}, True),
+    ({'status': 'unknown', 'checked_at': STAMP}, True),
+    ({'status': 'ok', 'checked_at': STAMP}, False),
+    ({'status': 'ok', 'checked_at': '2026-11-01T00:00:00+00:00'}, True),
+    ({'status': 'ok', 'checked_at': 'invalid'}, True),
+    ({'status': 'error', 'checked_at': STAMP, 'sources': {'p0002': 'error', 'documents_rss': 'error', 'news_rss': 'error'}}, True),
+    ({'status': 'error', 'checked_at': STAMP, 'sources': {'p0002': 'ok', 'documents_rss': 'error', 'news_rss': 'error'}}, False),
+    ({'status': 'ok', 'checked_at': STAMP, 'sources': {'p0002': 'unknown'}}, True),
+    ({'status': 'ok', 'checked_at': STAMP, 'sources': {}}, True),
+    ({'status': 'ok', 'checked_at': STAMP, 'sources': []}, True),
+    ({'status': 'ok', 'checked_at': STAMP, 'sources': None}, True),
+    ({'status': 'ok', 'checked_at': STAMP, 'sources': {'p0002': 'ok'}}, False),
+    ({'status': 'ok', 'checked_at': '2026-11-01T00:00:00+00:00', 'sources': {'p0002': 'ok'}}, True),
+])
+def test_source_messages_are_neutral_and_only_describe_p0002(state, unverified):
+    messages = mdsap_source_messages(state, ROWS, NOW)
     text = '\n'.join(messages)
-    assert 'MDSAP AU P0002.011' in text and STAMP in text
-    assert '실패' in text and '수동 확인 권장' in text and LIBRARY in text
-    assert '완료' not in text
+    assert 'MDSAP AU P0002.011' in text and LIBRARY in text
+    assert (NOTICE in messages) is unverified
+    assert len(messages) == (3 if unverified else 2)
+    assert not any(word in text for word in ['실패', 'RSS', '완료', '변경 없음'])
 
 
-def test_structured_sources_are_reported_independently():
-    state = {'status': 'error', 'checked_at': STAMP, 'sources': {
-        'p0002': 'error', 'documents_rss': 'ok', 'news_rss': 'error'}}
-    text = '\n'.join(mdsap_source_messages(state, [], NOW))
-    assert '저장된 버전 없음' in text
-    assert 'MDSAP AU P0002 수집 실패' in text
-    assert 'MDSAP 문서 RSS' not in text
-    assert 'MDSAP 뉴스 RSS 수집 실패' in text
+def test_no_stored_version():
+    assert '저장된 버전 없음' in mdsap_source_messages(None, [], NOW)[0]
 
 
-def test_structured_overall_failure_is_not_hidden_when_sources_succeed():
-    state = {'status': 'error', 'checked_at': STAMP, 'sources': {
-        'p0002': 'ok', 'documents_rss': 'ok', 'news_rss': 'ok'}}
-    text = '\n'.join(mdsap_source_messages(state, [], NOW))
-    assert 'MDSAP 전체 수집 상태: 실패' in text
-    assert '수집 완료' not in text
-
-
-def test_successful_sources_only_show_stored_version_and_official_link():
-    state = {'status': 'ok', 'checked_at': STAMP, 'sources': {
-        'p0002': 'ok', 'documents_rss': 'ok', 'news_rss': 'ok'}}
-    messages = mdsap_source_messages(state, [{'publisher': 'MDSAP', 'doc_no': 'MDSAP AU P0002.011'}], NOW)
-    assert len(messages) == 2
-    assert 'MDSAP AU P0002 마지막 저장 버전: MDSAP AU P0002.011' in messages[0]
-    assert LIBRARY in messages[1]
-
-
-def test_stale_success_is_not_misreported_as_failure_or_completion():
-    state = {'status': 'ok', 'checked_at': '2026-11-01T00:00:00+00:00', 'sources': {
-        'p0002': 'ok', 'documents_rss': 'ok', 'news_rss': 'ok'}}
-    text = '\n'.join(mdsap_source_messages(state, [], NOW))
-    assert '오래됨' in text and '수동 확인 권장' in text
-    assert '수집 완료' not in text and '실패' not in text
-
-
-def test_stale_error_displays_both_failure_and_staleness():
-    text = '\n'.join(mdsap_source_messages({'status': 'error', 'checked_at': '2026-11-01T00:00:00+00:00'}, [], NOW))
-    assert all(x in text for x in ['수집 실패', '오래됨', '수동 확인 권장'])
-
-
-def test_both_dashboards_render_source_information(monkeypatch):
+@pytest.mark.parametrize('filename', ['app.py', 'employee_app.py'])
+@pytest.mark.parametrize('p0002', ['error', 'ok', 'unknown'])
+def test_both_dashboards_hide_failure_and_rss_statuses(monkeypatch, filename, p0002):
     from pathlib import Path
+    import json
     import requests
     import streamlit as st
     from streamlit.testing.v1 import AppTest
@@ -67,18 +54,16 @@ def test_both_dashboards_render_source_information(monkeypatch):
         def raise_for_status(self): pass
         def json(self): return self.value
 
-    stamp = datetime.now(timezone.utc).isoformat()
-    state = {'status': 'error', 'checked_at': stamp, 'sources': {
-        'p0002': 'error', 'documents_rss': 'ok', 'news_rss': 'error'}}
-    import json
-    rows = [next(x for x in json.loads((Path(__file__).resolve().parents[1] / 'data/regulations.json').read_text()) if x.get('doc_no') == 'MDSAP AU P0002.011')]
+    state = {'status': 'error', 'checked_at': datetime.now(timezone.utc).isoformat(), 'sources': {
+        'p0002': p0002, 'documents_rss': 'error', 'news_rss': 'error'}}
+    root = Path(__file__).resolve().parents[1]
+    rows = [next(x for x in json.loads((root / 'data/regulations.json').read_text()) if x.get('doc_no') == 'MDSAP AU P0002.011')]
     monkeypatch.setattr(requests, 'get', lambda url, **kw: Response(state if url.endswith('mdsap_status.json') else rows))
-    for filename in ('app.py', 'employee_app.py'):
-        st.cache_data.clear()
-        app = AppTest.from_file(Path(__file__).resolve().parents[1] / filename).run(timeout=90)
-        assert not app.exception
-        source = next(x for x in app.expander if x.label == '데이터 출처 및 수집 안내')
-        text = '\n'.join(x.value for x in list(source.caption) + list(source.markdown))
-        assert all(x in text for x in ['MDSAP AU P0002.011', stamp, '수집 실패', '수동 확인 권장', LIBRARY, 'MDSAP 뉴스 RSS 수집 실패'])
-        assert '수집 완료' not in text
-        assert not any('MDSAP' in x.value for x in source.warning)
+    st.cache_data.clear()
+    app = AppTest.from_file(root / filename).run(timeout=90)
+    assert not app.exception
+    source = next(x for x in app.expander if x.label == '데이터 출처 및 수집 안내')
+    text = '\n'.join(x.value for x in list(source.caption) + list(source.markdown) + list(source.warning))
+    assert 'MDSAP AU P0002.011' in text and LIBRARY in text
+    assert (NOTICE in text) is (p0002 != 'ok')
+    assert not any(word in text for word in ['실패', 'RSS', '수집 완료', '변경 없음'])

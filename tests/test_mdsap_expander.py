@@ -42,15 +42,8 @@ def test_mdsap_status_is_inside_source_expander(monkeypatch, filename, case):
     assert not any('MDSAP' in x.value for x in source.warning)
     text = '\n'.join(inside)
     assert '저장된 버전 없음' in text and 'https://www.mdsap.global/documents/library/audit-approach' in text
-    if case == 'unknown':
-        assert '확인 불가' in text and '수동 확인 권장' in text
-    elif case == 'ok' or (case == 'persisted' and state['status'] == 'ok' and now - datetime.fromisoformat(stamp) <= timedelta(hours=48)):
-        assert stamp not in text and '수집 완료' not in text
-    else:
-        assert stamp in text
-        assert '수동 확인 권장' in text
-        assert '수집 완료' not in text
-        if state['status'] == 'error':
-            assert '실패' in text
-        if case == 'stale' or (case == 'persisted' and now - datetime.fromisoformat(stamp) > timedelta(hours=48)):
-            assert '오래됨' in text
+    outcome = state.get('sources', {}).get('p0002') if 'sources' in state else state.get('status')
+    fresh = timedelta(0) <= now - datetime.fromisoformat(stamp) <= timedelta(hours=48)
+    unverified = case == 'unknown' or outcome != 'ok' or not fresh
+    assert ('MDSAP AU P0002 최신 여부 미확인 · 수동 확인 권장' in text) is unverified
+    assert not any(word in text for word in ('실패', 'RSS', '수집 완료', '변경 없음'))

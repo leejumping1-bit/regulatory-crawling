@@ -95,7 +95,8 @@ def test_app_renders_remote_status_and_rerun(monkeypatch):
     from pathlib import Path
     app = AppTest.from_file(Path(__file__).resolve().parents[1] / "app.py").run(timeout=90)
     assert not app.exception
-    assert any("MDSAP" in x.value and "실패" in x.value and checked_at in x.value for x in app.caption)
+    assert any("MDSAP AU P0002 최신 여부 미확인 · 수동 확인 권장" in x.value for x in app.caption)
+    assert not any("실패" in x.value for x in app.caption)
     state["status"] = "ok"
     import streamlit as st
     st.cache_data.clear()
@@ -148,4 +149,4 @@ def test_app_shows_unknown_when_remote_status_unavailable(monkeypatch):
     st.cache_data.clear()
     app = AppTest.from_file(Path(__file__).resolve().parents[1] / "app.py").run(timeout=90)
     assert not app.exception
-    assert any("MDSAP" in x.value and "확인 불가" in x.value for x in app.caption)
+    assert any("MDSAP AU P0002 최신 여부 미확인 · 수동 확인 권장" in x.value for x in app.caption)
