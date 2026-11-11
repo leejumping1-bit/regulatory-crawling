@@ -34,15 +34,19 @@ def mdsap_source_messages(state, rows, now=None):
             messages.append(f'MDSAP 전체 수집 상태: 실패 · 확인 시각: {stamp} · 수동 확인 권장')
         for key, label in [('p0002', 'MDSAP AU P0002'), ('documents_rss', 'MDSAP 문서 RSS'), ('news_rss', 'MDSAP 뉴스 RSS')]:
             outcome = sources.get(key)
-            result = {'ok': '수집 완료', 'error': '수집 실패'}.get(outcome, '상태 확인 불가')
+            if outcome == 'ok' and not stale:
+                continue
+            result = {'ok': '상태 오래됨', 'error': '수집 실패'}.get(outcome, '상태 확인 불가')
             note = ' · 수동 확인 권장' if stale or outcome != 'ok' else ''
-            age = ' · 상태 오래됨' if stale else ''
+            age = ' · 상태 오래됨' if stale and outcome != 'ok' else ''
             messages.append(f'{label} {result} · 확인 시각: {stamp}{age}{note}')
     else:
         outcome = state.get('status')
-        result = {'ok': '수집 완료', 'error': '수집 실패'}.get(outcome, '상태 확인 불가')
-        age = ' · 상태 오래됨' if stale else ''
-        note = ' · 수동 확인 권장' if stale or outcome != 'ok' else ' (변경 없음이나 전체 범위 확인을 의미하지 않음)'
+        if outcome == 'ok' and not stale:
+            return messages
+        result = {'ok': '상태 오래됨', 'error': '수집 실패'}.get(outcome, '상태 확인 불가')
+        age = ' · 상태 오래됨' if stale and outcome != 'ok' else ''
+        note = ' · 수동 확인 권장'
         messages.append(f'MDSAP AU {result} · 확인 시각: {stamp}{age}{note}')
     return messages
 

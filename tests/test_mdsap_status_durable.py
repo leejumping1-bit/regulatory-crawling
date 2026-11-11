@@ -101,7 +101,8 @@ def test_app_renders_remote_status_and_rerun(monkeypatch):
     st.cache_data.clear()
     app.run(timeout=90)
     assert not app.exception
-    assert any("MDSAP" in x.value and "완료" in x.value for x in app.caption)
+    assert not any("MDSAP" in x.value and ("완료" in x.value or "실패" in x.value) for x in app.caption)
+    assert any("MDSAP AU P0002 마지막 저장 버전" in x.value for x in app.caption)
 
 
 def test_workflow_stages_status_even_when_crawler_fails():
