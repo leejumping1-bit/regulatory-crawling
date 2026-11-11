@@ -74,9 +74,13 @@ def persist(base_status, base_marker, marker, result_status, before, after):
     from collectors import store
     old = {(x.get('publisher'), x.get('doc_no')): x for x in before if x.get('publisher') == 'MDSAP'}
     changed = [x for x in after if x.get('publisher') == 'MDSAP' and old.get((x.get('publisher'), x.get('doc_no'))) != x]
-    git('restore', '--worktree', '--staged', '--', 'data')
-    if base_marker is None:
-        MARKER.unlink(missing_ok=True)
+    # Only the crawler's two outputs may be dirty; never restore other data or
+    # accidentally include a staged change in the retry commit.
+    if (git('diff', '--cached', '--name-only', '--', '.').strip() or
+            git('diff', '--name-only', '--', '.', ':(exclude)data/regulations.json',
+                ':(exclude)data/mdsap_status.json').strip()):
+        raise RuntimeError('checkout contains unexpected changes after collection')
+    git('restore', '--worktree', '--', 'data/regulations.json', 'data/mdsap_status.json')
     for attempt in range(3):
         git('fetch', 'origin', 'main')
         git('checkout', '--detach', 'FETCH_HEAD')
@@ -108,10 +112,12 @@ def persist(base_status, base_marker, marker, result_status, before, after):
 
 
 def main():
-    # This script deliberately restores generated data before applying the result
-    # to fresh main. Never discard an operator's pre-existing local edits.
-    if subprocess.run(['git', 'diff', '--quiet', 'HEAD', '--', 'data'], cwd=ROOT).returncode:
-        raise RuntimeError('data contains pre-existing changes')
+    # Check index and worktree separately: their changes can cancel in diff HEAD.
+    for args in (['diff', '--quiet'], ['diff', '--cached', '--quiet']):
+        if subprocess.run(['git', *args], cwd=ROOT).returncode:
+            raise RuntimeError('checkout contains pre-existing changes')
+    if git('ls-files', '--others', '--exclude-standard').strip():
+        raise RuntimeError('checkout contains untracked changes')
     if MARKER.exists() and not git('ls-files', '--', 'data/mdsap_retry.json').strip():
         raise RuntimeError('retry marker is untracked')
     status, original_marker = read(STATUS), read(MARKER)

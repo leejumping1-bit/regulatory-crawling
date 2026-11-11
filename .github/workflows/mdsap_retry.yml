@@ -13,6 +13,7 @@ permissions:
 concurrency:
   group: regulatory-data-update
   cancel-in-progress: false
+  queue: max
 
 jobs:
   retry:

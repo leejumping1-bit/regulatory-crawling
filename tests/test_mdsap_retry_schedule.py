@@ -85,7 +85,7 @@ def test_semantic_merge_retries_rejected_push_without_touching_other_agencies(tm
             status.write_text(json.dumps(state))
             marker.unlink(missing_ok=True)
             data.write_text(json.dumps([old, other]))
-        return 'data/regulations.json' if args[:3] == ('diff', '--cached', '--name-only') else ''
+        return 'data/regulations.json' if args == ('diff', '--cached', '--name-only') else ''
     monkeypatch.setattr(retry, 'git', git)
     results = iter([1, 0])
     monkeypatch.setattr(retry.subprocess, 'run', lambda *a, **k: SimpleNamespace(returncode=next(results)))
