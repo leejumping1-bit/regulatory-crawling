@@ -15,6 +15,38 @@ def mdsap_status_is_stale(timestamp, now=None):
         return True
 
 
+def mdsap_source_messages(state, rows, now=None):
+    """Describe stored P0002 separately from the latest monitoring outcome."""
+    numbers = [row.get('doc_no', '') for row in rows if isinstance(row, dict)
+               and row.get('publisher') == 'MDSAP'
+               and re.fullmatch(r'MDSAP AU P0002\.\d{3}', row.get('doc_no') or '')]
+    stored = max(numbers) if numbers else '저장된 버전 없음'
+    messages = [f'MDSAP AU P0002 마지막 저장 버전: {stored}',
+                '[MDSAP AU P0002 공식 페이지](https://www.mdsap.global/documents/library/audit-approach)']
+    if not state:
+        messages.append('MDSAP AU 수집 상태 확인 불가 · 수동 확인 권장')
+        return messages
+    stamp = state.get('checked_at', '확인 시각 없음')
+    stale = mdsap_status_is_stale(stamp, now)
+    sources = state.get('sources')
+    if isinstance(sources, dict):
+        if state.get('status') == 'error':
+            messages.append(f'MDSAP 전체 수집 상태: 실패 · 확인 시각: {stamp} · 수동 확인 권장')
+        for key, label in [('p0002', 'MDSAP AU P0002'), ('documents_rss', 'MDSAP 문서 RSS'), ('news_rss', 'MDSAP 뉴스 RSS')]:
+            outcome = sources.get(key)
+            result = {'ok': '수집 완료', 'error': '수집 실패'}.get(outcome, '상태 확인 불가')
+            note = ' · 수동 확인 권장' if stale or outcome != 'ok' else ''
+            age = ' · 상태 오래됨' if stale else ''
+            messages.append(f'{label} {result} · 확인 시각: {stamp}{age}{note}')
+    else:
+        outcome = state.get('status')
+        result = {'ok': '수집 완료', 'error': '수집 실패'}.get(outcome, '상태 확인 불가')
+        age = ' · 상태 오래됨' if stale else ''
+        note = ' · 수동 확인 권장' if stale or outcome != 'ok' else ' (변경 없음이나 전체 범위 확인을 의미하지 않음)'
+        messages.append(f'MDSAP AU {result} · 확인 시각: {stamp}{age}{note}')
+    return messages
+
+
 def display_doc_no(item):
     """Suppress MHRA's synthetic event identifier, not real document numbers."""
     number = (item.get("doc_no") or "").replace("\n", " ")
