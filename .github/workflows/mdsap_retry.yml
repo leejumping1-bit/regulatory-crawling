@@ -2,6 +2,8 @@ name: MDSAP scheduled retry
 
 on:
   schedule:
+    # GitHub Actions cron is UTC (every 15 minutes; also :00/:15/:30/:45 KST).
+    # Runs may be delayed; deadlines are measured from the initial failure.
     - cron: '*/15 * * * *'
   workflow_dispatch: {}
 

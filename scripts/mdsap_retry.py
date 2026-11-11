@@ -26,8 +26,18 @@ def timestamp(value):
     return parsed.astimezone(timezone.utc)
 
 
+def priority_failed(status):
+    if not isinstance(status, dict):
+        return False
+    sources = status.get('sources')
+    if isinstance(sources, dict) and sources.get('p0002') in ('ok', 'error'):
+        return sources['p0002'] == 'error'
+    # Legacy or interrupted checks have no source breakdown; fail closed.
+    return status.get('status') == 'error'
+
+
 def plan_retry(status, marker, now):
-    if not isinstance(status, dict) or status.get('status') != 'error':
+    if not priority_failed(status):
         return None, False
     try:
         checked = timestamp(status['checked_at'])
@@ -74,7 +84,10 @@ def persist(base_status, base_marker, marker, result_status, before, after):
             print('MDSAP status or retry marker changed; discarding stale retry result')
             return
         latest = {(x.get('publisher'), x.get('doc_no')): x for x in read(DATA, []) if x.get('publisher') == 'MDSAP'}
-        if any(latest.get((x.get('publisher'), x.get('doc_no'))) != old.get((x.get('publisher'), x.get('doc_no'))) for x in changed):
+        # A newer revision may have a different doc_no; guard the whole MDSAP
+        # set, ignoring the presentation-only row numbers changed by sorting.
+        clean = lambda rows: {k: {f: v for f, v in row.items() if f != 'no'} for k, row in rows.items()}
+        if clean(latest) != clean(old):
             print('MDSAP records changed concurrently; discarding stale retry result')
             return
         if changed:
@@ -110,7 +123,7 @@ def main():
         result = read(STATUS)
         if not isinstance(result, dict) or result.get('status') not in ('ok', 'error'):
             raise ValueError('missing MDSAP result status')
-        if result['status'] == 'ok':
+        if not priority_failed(result):
             marker = None
         else:
             marker['attempt'] += 1
