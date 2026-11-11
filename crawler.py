@@ -37,11 +37,15 @@ AUTO_AGENCIES = ["mdcg", "fda", "mhra", "mdsap", "tga", "health_canada", "pmda",
 MDSAP_STATUS_PATH = Path(__file__).parent / "data" / "mdsap_status.json"
 
 
-def _write_mdsap_status(status):
+def _write_mdsap_status(status, sources=None):
     """Persist only public, non-sensitive monitoring metadata."""
     MDSAP_STATUS_PATH.parent.mkdir(parents=True, exist_ok=True)
     temporary = MDSAP_STATUS_PATH.with_suffix(".tmp")
-    temporary.write_text(json.dumps({"status": status, "checked_at": datetime.now(timezone.utc).isoformat()}, ensure_ascii=False) + "\n", encoding="utf-8")
+    payload = {"status": status, "checked_at": datetime.now(timezone.utc).isoformat()}
+    if sources is not None:
+        payload["sources"] = {name: sources.get(name) if sources.get(name) in {"ok", "error"} else "unknown"
+                              for name in ("p0002", "documents_rss", "news_rss")}
+    temporary.write_text(json.dumps(payload, ensure_ascii=False) + "\n", encoding="utf-8")
     temporary.replace(MDSAP_STATUS_PATH)
 
 
@@ -115,8 +119,12 @@ def run_crawler(since_year=2026, since_month=1, only=None, progress_cb=None, tod
             continue
 
         t0 = time.time()
+        sources = None
         try:
-            items, block_info = _run_agency(mod, since_year, since_month, today_only)
+            if key == "mdsap" and callable(getattr(mod, "run_detailed", None)):
+                items, block_info, sources = mod.run_detailed(since_year, since_month, today_only=today_only)
+            else:
+                items, block_info = _run_agency(mod, since_year, since_month, today_only)
         except Exception as e:
             msg = "실행 오류: 수집기 예외" if key == "mdsap" else f"실행 오류: {e}"
             print(f"[ERROR] {key} 실행 실패: {'수집기 예외' if key == 'mdsap' else str(e)}")
@@ -143,6 +151,8 @@ def run_crawler(since_year=2026, since_month=1, only=None, progress_cb=None, tod
         if key == "mdsap" and (block_info is not None or (not today_only and not items)):
             if items:
                 upsert_regulations(items)
+            if not today_only:
+                _write_mdsap_status("error", sources)
             msg = "수집 실패 또는 부분 수집 (상세 내용은 실행 로그 확인)"
             summary[key] = msg
             print(f"[ERROR] {key}: {msg}")
@@ -181,7 +191,7 @@ def run_crawler(since_year=2026, since_month=1, only=None, progress_cb=None, tod
             upsert_regulations(items)
 
         if key == "mdsap" and not today_only:
-            _write_mdsap_status("ok")
+            _write_mdsap_status("ok", sources)
         msg = f"{len(items)}건 수집 ({elapsed:.0f}초)"
         if key in {"fda", "mhra", "mdsap"}:
             incomplete = sum(1 for item in items if item.get("summary_status") == "summary_unavailable" or item.get("summary_retained_stale") is True)

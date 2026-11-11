@@ -141,13 +141,15 @@ def _feed(url):
                     raise
 
 
-def run(since_year=2026, since_month=1, max_items=10, today_only=False):
+def run_detailed(since_year=2026, since_month=1, max_items=10, today_only=False):
     items, errors = [], []
+    sources = {'p0002': 'error', 'documents_rss': 'error', 'news_rss': 'error'}
     try:
         html = _detail()
         _, pdf = _attachment(html)
         text = _get(pdf, reader=True)
         items.append(parse_priority(html, text))
+        sources['p0002'] = 'ok'
     except Exception as exc:
         errors.append('P0002 현재 확인 실패: ' + str(exc)[:200])
         # Only mark an existing identified record stale; never invent a version.
@@ -159,9 +161,10 @@ def run(since_year=2026, since_month=1, max_items=10, today_only=False):
                 items.append(stale)
     # Both RSS feeds are supplemental checks, not independently verified
     # regulatory changes. Never add their unverified entries to the ledger.
-    for feed_url in (RSS_URL, NEWS_RSS_URL):
+    for source, feed_url in (('documents_rss', RSS_URL), ('news_rss', NEWS_RSS_URL)):
         try:
             entries = _feed(feed_url)
+            sources[source] = 'ok'
             if feed_url == NEWS_RSS_URL and items and items[0].get('revision_evidence', {}).get('status') == 'revision_history':
                 current = int(items[0]['doc_no'].rsplit('.', 1)[-1])
                 for entry in entries:
@@ -169,6 +172,14 @@ def run(since_year=2026, since_month=1, max_items=10, today_only=False):
                     match = re.search(r'\brevision\s+(\d{1,3})\b.*\baudit\s+approach\b', title, re.I)
                     if match and int(match[1]) > current:
                         errors.append(f'RSS 신규 개정 {match[1]} 발견: 상세 문서와 불일치')
+                        sources[source] = 'error'
         except Exception as exc:
+            sources[source] = 'error'
             errors.append('RSS 확인 실패 (' + feed_url + '): ' + str(exc)[:120])
-    return items, FetchResult(False, error='; '.join(errors)) if errors else None
+    return items, FetchResult(False, error='; '.join(errors)) if errors else None, sources
+
+
+def run(since_year=2026, since_month=1, max_items=10, today_only=False):
+    """Keep the established two-value collector interface."""
+    items, error, _ = run_detailed(since_year, since_month, max_items, today_only)
+    return items, error
