@@ -2125,23 +2125,17 @@
     "scope": "",
     "manufacturer_obligation": "",
     "summary": "[개정 이력 주요 내용: 버전 010 → 011]\n• QMS 프로세스의 위험기반 관리 요구사항을 Management task 7에서 task 1로 옮겼다. Task 7은 제품 전 수명주기의 위험관리 감독에 초점을 맞췄다.\n• 호주 TGA의 제조업체·스폰서 간 UDI 책임을 명확히 하고, task 6의 초점을 교육에서 역량으로 바꿨다.\n• PCCP의 AI 기기 한정 표현을 삭제하고, 사이버보안과 시판 후 피드백 관련 내용을 추가했다.\n• 기기 또는 포장 변경 시 새 UDI에 관한 FDA 요구사항을 추가했다. 설계 검토의 적합성 평가 부분에서는 독립 검토자에 관한 기존 FDA 요구사항을 삭제했다.\n• Annex 2에서 ‘critical supplier’를 ‘sterilization and laboratory service suppliers’로 바꿨다.\n위 내용은 공식 개정 이력의 일부이며 Jina Reader가 추출한 텍스트를 바탕으로 했다.",
-    "summary_status": "source_unavailable",
+    "summary_status": "source_extracted",
     "gap_analysis": "",
     "revision_evidence": {
-      "status": "discovery_incomplete",
-      "current_url": "https://www.mdsap.global/documents/library/audit-approach",
-      "detail": "P0002 현재 확인 실패: priority version or exact official PDF link unavailable or ambiguous",
-      "retained_evidence": {
-        "status": "revision_history",
-        "current_url": "https://www.mdsap.global/sites/default/files/2026-07/MDSAP%20AU%20P0002.011%20MDSAP%20Audit%20Approach.pdf",
-        "sections": [
-          {
-            "title": "Summary of Changes from Prior Revisions — Jina Reader 제3자 추출 텍스트 (PDF 바이트 미검증)",
-            "quote": "Changes from version 010 to 011 \n\nMinor wording clarifications throughout \n\nManagement, task 1 – moved the requirements for a risk-based approach to be applied to the control of the quality management system processes from Management task 7 to this task \n\nManagement, task 5 – clarified Australian (TGA) requirements for UDI responsibilities between manufacturer and sponsor \n\nManagement, task 6 – refocused task from training to competence \n\nManagement, task 7 – refocused task to management oversight of risk management throughout the product lifecycle; moved requirements for a risk-based control of QMS processes to Management, Task 1 \n\nDevice Marketing Authorization and Facility Registration, task 3 – revised Predetermined Change Control Plan (PCCP) to remove specificity for Artificial Intelligence enabled devices \n\nMeasurement, Analysis and Improvement, task 12 – added provisions for device cybersecurity and postmarket feedback \n\nDesign and Development, task 7 – added US FDA requirements for device cybersecurity; added  RDC ANVISA 848/2024: Art. 1 to the requirement for Brazil \n\nDesign and Development, task 12 - added US FDA requirements for device cybersecurity; added new linkage to Measurement, Analysis and Improvement \n\nDesign and Development, task 13 – added US FDA requirements for new UDI when the device or packaging changes \n\nDesign and Development, task 14 – removed the old US FDA requirement for an independent reviewer for design review in the “Assessing Conformity” section \n\nProduction and Service Control – task 1 – added Australian (TGA) requirements for UDI; moved assessing conformity for FDA UDI to the country-specific portion of the task \n\nProduction and Service Control – task 16 – amended Australian (TGA) requirements to incorporate UDI \n\nProduction and Service Control – task 18 – added FDA definition of “life-supporting, life-sustaining” device \n\nProduction and Service Control – task 26 – added provisions for devices with software functions to the “Assessing Conformity” for installation activities \n\nPurchasing – task 5 – pointed the reader to Management, task 5 where Australian (TGA) UDI responsibilities between manufacturer and sponsor are clarified \n\nAnnex 2 – replaced “critical supplier” with “sterilization and laboratory service suppliers” 164"
-          }
-        ]
-      },
-      "retained_evidence_stale": true
+      "status": "revision_history",
+      "current_url": "https://www.mdsap.global/sites/default/files/2026-07/MDSAP%20AU%20P0002.011%20MDSAP%20Audit%20Approach.pdf",
+      "sections": [
+        {
+          "title": "Summary of Changes from Prior Revisions — Jina Reader 제3자 추출 텍스트 (PDF 바이트 미검증)",
+          "quote": "Changes from version 010 to 011 \n\nMinor wording clarifications throughout \n\nManagement, task 1 – moved the requirements for a risk-based approach to be applied to the control of the quality management system processes from Management task 7 to this task \n\nManagement, task 5 – clarified Australian (TGA) requirements for UDI responsibilities between manufacturer and sponsor \n\nManagement, task 6 – refocused task from training to competence \n\nManagement, task 7 – refocused task to management oversight of risk management throughout the product lifecycle; moved requirements for a risk-based control of QMS processes to Management, Task 1 \n\nDevice Marketing Authorization and Facility Registration, task 3 – revised Predetermined Change Control Plan (PCCP) to remove specificity for Artificial Intelligence enabled devices \n\nMeasurement, Analysis and Improvement, task 12 – added provisions for device cybersecurity and postmarket feedback \n\nDesign and Development, task 7 – added US FDA requirements for device cybersecurity; added  RDC ANVISA 848/2024: Art. 1 to the requirement for Brazil \n\nDesign and Development, task 12 - added US FDA requirements for device cybersecurity; added new linkage to Measurement, Analysis and Improvement \n\nDesign and Development, task 13 – added US FDA requirements for new UDI when the device or packaging changes \n\nDesign and Development, task 14 – removed the old US FDA requirement for an independent reviewer for design review in the “Assessing Conformity” section \n\nProduction and Service Control – task 1 – added Australian (TGA) requirements for UDI; moved assessing conformity for FDA UDI to the country-specific portion of the task \n\nProduction and Service Control – task 16 – amended Australian (TGA) requirements to incorporate UDI \n\nProduction and Service Control – task 18 – added FDA definition of “life-supporting, life-sustaining” device \n\nProduction and Service Control – task 26 – added provisions for devices with software functions to the “Assessing Conformity” for installation activities \n\nPurchasing – task 5 – pointed the reader to Management, task 5 where Australian (TGA) UDI responsibilities between manufacturer and sponsor are clarified \n\nAnnex 2 – replaced “critical supplier” with “sterilization and laboratory service suppliers” 164"
+        }
+      ]
     },
     "summary_source": {
       "type": "third_party_extracted_official_revision_history",
@@ -2153,9 +2147,7 @@
       "source_sha256": "eb2e08070f43d2bc518dc16f3e812826f1444b261d5633b13ef984c7bbfce165",
       "source_type": "third_party_extracted_official_revision_history"
     },
-    "no": 74,
-    "summary_retained_stale": true,
-    "summary_retained_stale_reason": "source_unavailable"
+    "no": 74
   },
   {
     "search_month": "2026-07",
