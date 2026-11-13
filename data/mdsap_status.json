@@ -1,1 +1,9 @@
-{"status": "ok", "checked_at": "2026-11-13T04:23:54.653796+00:00", "sources": {"p0002": "ok", "documents_rss": "ok", "news_rss": "ok"}}
+{
+  "status": "ok",
+  "checked_at": "2026-11-13T04:23:54.653796+00:00",
+  "sources": {
+    "p0002": "ok",
+    "documents_rss": "ok",
+    "news_rss": "ok"
+  }
+}
