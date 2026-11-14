@@ -14,7 +14,7 @@ Guidance on classification of medical devices
  
 April 2026  
  
-This document has been endorsed by the Medical Device Coordination Group (MDCG) established by Article 103 of Regulation (EU)  
+This document has been endorsed by the Medical Device Coordination Group (MDCG) established by Article 103 of Regulation (EU) 
 2017/745. The MDCG is composed of representatives of all Member States, and it is chaired by a representative of the European 
 Commission. 
 The document is not a European Commission document, and it cannot be regarded as reflecting the official position of the European 
@@ -109,29 +109,29 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
 1 Purpose of medical device classification 
  
-The classification of medical devices  in use by the EU medical device legislation  is a risk-based system taking into account the vulnerability of 
-the human body and the potential risks associated with the devices. This approach use s a set of criteria that can be combined in various ways 
-in order to determine classification, e.g. duration of contact with the body, degree of invasiveness , local vs. systemic effect, potential toxicity, 
-the part of the body affected by the use of the device and if the device depends on a source of energy . The criteria can then be applied to a 
-vast range of different medical devices and technologies. These are referred to as the ‘classific ation rules’ and are set out in Annex VIII  of 
-Regulation (EU) 2017/745 on medical devices  (MDR). They correspond, to a large extent, to the classification rules established by the 
+The classification of medical devices in use by the EU medical device legislation is a risk-based system taking into account the vulnerability of 
+the human body and the potential risks associated with the devices. This approach uses a set of criteria that can be combined in various ways 
+in order to determine classification, e.g. duration of contact with the body, degree of invasiveness, local vs. systemic effect, potential toxicity, 
+the part of the body affected by the use of the device and if the device depends on a source of energy. The criteria can then be applied to a 
+vast range of different medical devices and technologies. These are referred to as the ‘classification rules’ and are set out in Annex VIII of 
+Regulation (EU) 2017/745 on medical devices (MDR). They correspond, to a large extent, to the classification rules established by the 
 International Medical Device Regulators Forum (IMDRF) in the guidance document GHTF/SG1/N77:20121. 
 2 Practical relevance of classification  
  
-The purpose of this chapter is to provide a general overview on the impact of the classification of medical devices  on different aspects of the 
-device compliance with the legal requirements . The explanations provide some simplified concepts and are not exhaustive. For details see the 
+The purpose of this chapter is to provide a general overview on the impact of the classification of medical devices on different aspects of the 
+device compliance with the legal requirements. The explanations provide some simplified concepts and are not exhaustive. For details see the 
 MDR and related additional guidance2.  
  
 2.1 General requirements 
  
-Irrespective of the class of the device, all devices must  comply with all relevant obligations of the MDR . However, some requirements depend 
+Irrespective of the class of the device, all devices must comply with all relevant obligations of the MDR. However, some requirements depend 
 on the device classification.  
  
 For example, the devices must:  
 • meet the general safety and performance requirements, including the requirements regarding the information to be supplied by the 
 manufacturer (Annex I of the MDR); 
-• be subject to the reporting requirements under the medical device vigilance system ; 
-• be CE marked (except custom -made devices and devices intended for clinical investigation, in which case they should comply with the 
+• be subject to the reporting requirements under the medical device vigilance system; 
+• be CE marked (except custom-made devices and devices intended for clinical investigation, in which case they should comply with the 
 provisions of respectively Art. 52.8 and Annex XIII or Articles 62 – 80, 82 and Annex XV); 
 • be assigned a Unique Device Identifier (UDI) number and be registered in the electronic system, in accordance with MDR Article 29; 
 • if the device is implantable, be supplied with an implant card and information to the patient in accordance with Article 18. 
@@ -147,35 +147,35 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
 According to MDR Article 51 devices are divided into the following classes I, IIa, IIb and III, taking into account the intended purpose of the devices 
 and their inherent risks. Classification is to be carried out in accordance with Annex VIII to the MDR. In addition, and according to Article 52(7)(a), 
 (b) and (c), Class I devices can be further subdivided into Is – sterile condition, Im – measuring function and Ir – reusable surgical. 
-The technical documentation 3 to be drawn up by the manufacturer must include the risk class of the device and the justification for the 
+The technical documentation3 to be drawn up by the manufacturer must include the risk class of the device and the justification for the 
 classification rule(s) applied in accordance with Annex VIII of the MDR. 
  
 Sections 2.2-2.6 give an overview of some requirements that depend on the class of the device. For detailed and exhaustive provisions on each 
-topic, refer to the MDR, as well as to dedicated guidance where available 4. 
+topic, refer to the MDR, as well as to dedicated guidance where available4. 
  
-Annex XVI products should be classified in accordance with the classification rules in Annex VIII  of the MDR and taking into account possible 
+Annex XVI products should be classified in accordance with the classification rules in Annex VIII of the MDR and taking into account possible 
 provisions within the relevant implementing acts covering Annex XVI devices. This guidance document contains elements that may be relevant 
-for Annex XVI products, except for the elements which are specific to devices with a medical purpose.  It should be read together with the 
+for Annex XVI products, except for the elements which are specific to devices with a medical purpose. It should be read together with the 
 relevant guidance document specific for Annex XVI products. 
  
 2.2 Conformity assessment 
  
-Conformity assessment is the process demonstrating whether the requirements of the MDR relating to a device have been fulfill ed. 
-Demonstrating conformity is in the first instance the responsibility of the manufacturer and for most devices  classes the conformity is then 
+Conformity assessment is the process demonstrating whether the requirements of the MDR relating to a device have been fulfilled. 
+Demonstrating conformity is in the first instance the responsibility of the manufacturer and for most devices classes the conformity is then 
 assessed by a notified body. The higher the class of the device, the greater the involvement of a notified body in conformity assessment. Annex 
-I (general safety and performance requirements) and Annexes II (technical documentation) and III (technical documentation on post -market 
-surveillance) apply to all devices regardless of class. Further relevant conformity assessment procedures  (laid down in Annex es IX to XI)  will 
-depend on the class of the device. For some classes, the manufacturer has a choice of more than one procedure. Conformity ass essment is 
+I (general safety and performance requirements) and Annexes II (technical documentation) and III (technical documentation on post-market 
+surveillance) apply to all devices regardless of class. Further relevant conformity assessment procedures (laid down in Annexes IX to XI) will 
+depend on the class of the device. For some classes, the manufacturer has a choice of more than one procedure. Conformity assessment is 
 described in MDR Article 52. 
  
 Custom-made or investigational devices falling into any class have their own provisions: Annex XIII for custom-made devices and Article 82 for 
-investigational devices. For class III implantable custom -made devices, the manufacturer also needs to apply either Chapter I of Annex IX or 
+investigational devices. For class III implantable custom-made devices, the manufacturer also needs to apply either Chapter I of Annex IX or 
 Part A of Annex XI. 
  
 2.3 Clinical evaluation and investigation 
  
-For any device regardless of class, the manufacturer must ensure the general safety and performance requirements  are satisfied (MDR Article 
-5, MDR Annex I). This includes carrying out a clinical evaluation ( MDR Article 5 (3), MDR Article 61, MDR Annex XIV . For implantable devices 
+For any device regardless of class, the manufacturer must ensure the general safety and performance requirements are satisfied (MDR Article 
+5, MDR Annex I). This includes carrying out a clinical evaluation (MDR Article 5 (3), MDR Article 61, MDR Annex XIV. For implantable devices 
 and class III devices, a premarket clinical investigation is compulsory, with some exceptions such as modifications of an existing device, 
  
 3 Annex II 1.1 (f) MDR 
@@ -186,24 +186,24 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
 8 
  
 demonstrated equivalence to CE-marked device, placed on the market under Directive 90/385/EEC or Directive 93/42/EEC for which sufficient 
-clinical data is already available, and specific exemptions laid down in Article 61(6)(b). The conditions for starting a clin ical investigation vary 
-depending on the class of the device (see MDR Article 70(7) and Article 78). According to Article 61(10), if demonstration of conformity w ith 
-Annex I requirements based on clinical data is not deemed appropriate, the manufact urer shall justify this in the technical documentation. 
+clinical data is already available, and specific exemptions laid down in Article 61(6)(b). The conditions for starting a clinical investigation vary 
+depending on the class of the device (see MDR Article 70(7) and Article 78). According to Article 61(10), if demonstration of conformity with 
+Annex I requirements based on clinical data is not deemed appropriate, the manufacturer shall justify this in the technical documentation. 
 For class III implantable devices and class IIb active devices intended to administer or remove a medicinal product, the notified body must also 
 follow the clinical evaluation consultation procedure where certain documentation including the clinical evaluation report is submitted for review 
 by expert panels (MDR Article 54 and Section 5.1 of Annex IX). It must notify the Member State competent authorities of the certificates it has 
 granted for these types of devices (MDR Article 55). The manufacturer may consult an expert panel on their clinical development strategy prior 
 to performing the clinical evaluation and/or investigation (MDR Article 61(2)). See also MDCG Guideline 2019-35 for interpretation of Article 54. 
-For implantable devices and class III devices, other than custom -made or investigational devices, the manufacturer must update the post -
+For implantable devices and class III devices, other than custom-made or investigational devices, the manufacturer must update the post-
 market clinical follow-up evaluation report as it will serve an input for the writing of the Periodic Safety Update Report, and, if indicated, the 
 summary of safety and clinical performance6 (MDR Article 32). 
  
 2.4 Post-market surveillance 
  
-The manufacturer must update the clinical evaluation with clinically relevant information coming from post -market surveillance, in particular 
+The manufacturer must update the clinical evaluation with clinically relevant information coming from post-market surveillance, in particular 
 the post-market clinical follow-up. 
-For class I devices, including sterile, those with a measuring function  and the reusable surgical instruments , the manufacturer must prepare 
-and maintain a post-market surveillance report (MDR Article 85), which must be made available to the competent authorities on request.  
+For class I devices, including sterile, those with a measuring function and the reusable surgical instruments, the manufacturer must prepare 
+and maintain a post-market surveillance report (MDR Article 85), which must be made available to the competent authorities on request. 
 For class IIa, IIb and III devices, the manufacturer must prepare a periodic safety update report for each device, and, where relevant, for each 
 category or group of devices (MDR Article 86). This report must be updated at least annually for class IIb and III devices and at least every two 
 years for class IIa devices. 
@@ -212,17 +212,17 @@ years for class IIa devices.
  
 For class III implantable devices, economic operators and health institutions are obliged to have a record of the UDI of the devices they have 
 supplied or with which they have been supplied (MDR Article 27).  
-For class II and III devices, the economic operator is obliged to provide information on the Member State(s) where the device is , or is to be, 
+For class II and III devices, the economic operator is obliged to provide information on the Member State(s) where the device is, or is to be, 
 made available when registering the device (Annex VI Part A 2.4). In the case of implantable and class III devices, the economic operator must 
  
-5 MDCG 2019-3 https://ec.europa.eu/health/sites/default/files/md_sector/docs/md_mdcg_2019_3_rev1_cecp_en.pdf   
-6 MDCG 2019-9 https://ec.europa.eu/health/sites/health/files/md_sector/docs/md_mdcg_2019_9_sscp_en.pdf   
+5 MDCG 2019-3 https://ec.europa.eu/health/sites/default/files/md_sector/docs/md_mdcg_2019_3_rev1_cecp_en.pdf  
+6 MDCG 2019-9 https://ec.europa.eu/health/sites/health/files/md_sector/docs/md_mdcg_2019_9_sscp_en.pdf  
 Medical Devices 
 Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1  
  
 9 
  
-provide the summary of safety and clinical performance  (Annex VI Part A 2.14).  For single-use class I and IIa devices packaged and labelled 
+provide the summary of safety and clinical performance (Annex VI Part A 2.14).  For single-use class I and IIa devices packaged and labelled 
 individually, the UDI carrier does not have to appear on the packaging but must appear on a higher level of packaging (Annex VI Part C 4.3). 
 However, if the healthcare provider does not have access to the higher level of packaging, the UDI carrier must appear on the individual device 
 packaging. 
@@ -230,7 +230,7 @@ packaging.
 2.6 Instructions for use 
  
 Generally, instructions for use must be supplied together with the device. By way of exception, class I and IIa devices may be supplied without 
-instructions for use if such devices can safely be used without the instructions and no other provisions of Annex I Section 2 3 state otherwise. 
+instructions for use if such devices can safely be used without the instructions and no other provisions of Annex I Section 23 state otherwise. 
  
 3 How to carry out classification 
  
@@ -243,7 +243,7 @@ also contains explanation of further terms. These relevant terms and definitions
  
  Specific medical purpose 
  
-The specific medical purpose is specified by the manufacturer from those listed in the indents of Article 2(1) MDR.  
+The specific medical purpose is specified by the manufacturer from those listed in the indents of Article 2(1) MDR. 
  
  Duration of use 
  
@@ -269,14 +269,14 @@ be considered as the time taken to apply the product but rather the duration for
  
 In calculating the duration referred to in Section 1 of Chapter I of Annex VIII of MDR, continuous use means: 
 ‘(a) The entire duration of use of the same device without regard to temporary interruption of use during a procedure or temporary removal for 
-purposes such as cleaning or disinfection of the device. Whether the interruption of use or the removal is temporary shall be  established in 
+purposes such as cleaning or disinfection of the device. Whether the interruption of use or the removal is temporary shall be established in 
 relation to the duration of the use prior to and after the period when the use is interrupted or the device removed; and 
-(b) the accumulated use of a device that is intended by the manufacturer to be replaced immediately with another of the same type. ’ 
+(b) the accumulated use of a device that is intended by the manufacturer to be replaced immediately with another of the same type.’ 
  
 For example, a scalpel may be used on the same patient throughout an operation that may last for several hours. The uninterrupted use for an 
 intended purpose, i.e. cutting tissue, will normally not last for more than a few seconds at a time. Therefore a scalpel is a transient use device. 
-However, where usage of a device is discontinued in order for the device to be replaced immediately by the same or an identical device  (e.g. 
-replacement of a ureteric catheter) this shall be considered an extension of the continuous use of the device.  
+However, where usage of a device is discontinued in order for the device to be replaced immediately by the same or an identical device (e.g. 
+replacement of a ureteric catheter) this shall be considered an extension of the continuous use of the device. 
  
 As another example, the overnight period when contact lenses are cleaned and disinfected is considered as a discontinuation of the device use. 
 For the determination of the duration of use, only the specified time period of uninterrupted wear of the lens (e.g. 16 hours) needs to be taken 
@@ -289,11 +289,11 @@ immediate replacement and an extension of the continuous use of the device.
  Invasiveness 
  
 Invasive device 
-Any device which, in whole or in part, penetrates inside the body, either through a body orifice or through the surface of th e body. A device 
+Any device which, in whole or in part, penetrates inside the body, either through a body orifice or through the surface of the body. A device 
 that administers energy to the body should not be considered as invasive if only energy it emits penetrates the body and not the device itself.  
  
 Body orifice 
-Any natural opening in the body, as well as the external surface of the eyeball, or any permanent artificial opening, such as  a stoma. 
+Any natural opening in the body, as well as the external surface of the eyeball, or any permanent artificial opening, such as a stoma. 
  
  
 7 MDR Annex VIII 3.6 
@@ -303,11 +303,11 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
 11 
  
 Injured skin or mucous membrane8  
-An area of skin or a mucous membrane presenting a pathological change or change following disease , a wound or a scar. 
+An area of skin or a mucous membrane presenting a pathological change or change following disease, a wound or a scar. 
  
 Surgically invasive device9 
-An invasive device which penetrates inside the body through the surface of the body, including through mucous membranes of bo dy orifices 
-with the aid or in the context of a surgical operation; and a device which produces penetration other than through a bo dy orifice. 
+An invasive device which penetrates inside the body through the surface of the body, including through mucous membranes of body orifices 
+with the aid or in the context of a surgical operation; and a device which produces penetration other than through a body orifice. 
 The term surgical operation used in this definition includes all clinical interventional procedures in which a device is placed into the body through 
 the surface of the body. A surgically invasive device always implies that it enters through an artificially created opening. This can be a large 
 opening, such as a surgical incision, or it can be a pinprick opening made by a needle. Therefore surgical gloves and needles used with syringes 
@@ -319,7 +319,7 @@ therefore devices introduced into such a stoma are not surgically invasive.
 • in contrast, a surgically created opening to allow access to the circulatory system should not be considered to be a body orifice. Devices 
 introduced into such an opening are surgically invasive.  
  
-The concept of surgically invasive should be understood to cover also liquids that are in invasive contact with organs, tissue s or other parts of 
+The concept of surgically invasive should be understood to cover also liquids that are in invasive contact with organs, tissues or other parts of 
 the body if the access for such liquids is through a surgically created opening.  
  
 For a device that administers a substance, such a substance must be assessed in its own right (e.g. substances administered by a jet injector). 
@@ -348,7 +348,7 @@ Any device intended to be partially introduced into the human body by clinical i
 for at least 30 days shall also be deemed to be an implantable device.  
  
 A ‘procedure’ must be understood in this context to include the clinical procedure during which the implant is placed into the body and the 
-immediate post-operative care that is associated with the procedure. The ‘procedure’ does not extend  to the conclusion of the therapeutic 
+immediate post-operative care that is associated with the procedure. The ‘procedure’ does not extend to the conclusion of the therapeutic 
 treatment, e.g. the removal of an implant must be considered to be another ‘procedure’. Thus, a plate used to fix a fractured bone, and which 
 remains in place after the procedure for at least 30 days is an implant even if it is taken out after the fracture has healed. In this case the 
 placing of the plate and its explantation are two different procedures. The term ‘clinical procedure’ will encompass both surgical and non-surgical 
@@ -363,7 +363,7 @@ implant.
 Critical anatomical locations 
 For the purposes of the MDR, ‘Central circulatory system’12 means the following blood vessels:  
 arteriae pulmonales, aorta ascendens, arcus aortae, aorta descendens to the bifurcatio aortae, arteriae coronariae, arteria carotis communis, 
-arteria carotis externa, arteria carotis interna, arteriae cerebrales, truncus brachiocephalicus, venae cordis, venae pulmona les, vena cava 
+arteria carotis externa, arteria carotis interna, arteriae cerebrales, truncus brachiocephalicus, venae cordis, venae pulmonales, vena cava 
 superior and vena cava inferior. 
  
 For the purposes of the MDR, ‘Central nervous system’13 means the brain, meninges and spinal cord. 
@@ -371,10 +371,10 @@ For the purposes of the MDR, ‘Central nervous system’13 means the brain, men
  Active medical devices 
  
 Active device means any device, the operation of which depends on a source of energy other than that generated by the human body for that 
-purpose, or by gravity, and which acts by changing the density of or converting that energy. Devices intended to transmit ene rgy, substances 
+purpose, or by gravity, and which acts by changing the density of or converting that energy. Devices intended to transmit energy, substances 
 or other elements between an active device and the patient, without any significant change, shall not be deemed to be active devices14. 
 The concept act by converting energy includes conversion of energy in the device and/or conversion at the interface between the device and 
-the tissues or in the tissues. Electrodes intended for E.C.G. or E.E.G are normally not considered active devices because the y do not normally 
+the tissues or in the tissues. Electrodes intended for E.C.G. or E.E.G are normally not considered active devices because they do not normally 
 act by conversion of energy. 
  
 12 MDR Annex VIII 2.6 
@@ -385,31 +385,31 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
 13 
  
-The application of energy from the human body for the purpose of operating a d evice does not make the device ‘active’  unless that energy is 
+The application of energy from the human body for the purpose of operating a device does not make the device ‘active’ unless that energy is 
 stored within the device for subsequent release. For instance, energy generated by human muscle and applied to the plunger of a syringe (thus 
 causing a substance to be delivered to a patient) does not make this syringe an active device. However, if a drug delivery system depends upon 
 manual winding to preload a spring which is subsequently released to deliver a substance, then the device incorporating the spring is an active 
 device. Another example of an active device are elastomeric pumps, where the energy from the human body is stored in the stretched elastomer 
 layer.  
 Medical devices using prestored gases and/or vacuum as a power source are regarded as active devices, as long as they fulfil both the 
-criteria under the definition e.g. gas mixers with anaesthesia machines, aerosol pain relief sprays with a pre -stored propellant gas supply and 
+criteria under the definition e.g. gas mixers with anaesthesia machines, aerosol pain relief sprays with a pre-stored propellant gas supply and 
 gas-powered suction pumps. 
-Heating/cooling pads intended only to release stored thermal energy are not active devices because they do not act by convers ion of energy. 
+Heating/cooling pads intended only to release stored thermal energy are not active devices because they do not act by conversion of energy. 
 However, heating/cooling pads which act by chemical action (e.g. exothermic or endothermic reaction) are active devices as they are converting 
 chemical energy into heat and/or vice versa.  
 The concept of significant change for energy includes changes in the nature, level and density of energy (see Rule 9). This means that for 
 instance an electrode is not considered an active device under this classification system as long as the energy input is intended to be the same 
 as the energy output. Resistance in a wire that causes minor changes between input and output cannot be considered to constitute ‘significant 
-change’. However, electrodes used in electrosurgery for cutting tissues or cauterisati on are active devices because their operation depends on 
-energy provided by a generator and their action is achieved by conversion of energy at the interface between the device and t he tissue or in 
+change’. However, electrodes used in electrosurgery for cutting tissues or cauterisation are active devices because their operation depends on 
+energy provided by a generator and their action is achieved by conversion of energy at the interface between the device and the tissue or in 
 the tissue.   
 Software is also an active device14. Software should be reviewed not only in the context of Rule 1115. 
 Active therapeutic device means any active device used, whether alone or in combination with other devices, to support, modify, replace or 
-restore biological functions or structures with a view to treatment or alleviation of an illness, injury or disability. 16 
+restore biological functions or structures with a view to treatment or alleviation of an illness, injury or disability.16 
 Active device intended for diagnosis and monitoring means any active device used, whether alone or in combination with other devices, 
-to supply information for detecting, diagnosing, monitoring or treating physiological conditions, states of health, illnesses  or congenital 
-deformities17. A device is considered to allow direct diagnosis when it provides the diagnosis of the disease or condition in question itsel f or 
-when it provides decisive information for the diagnosis 18. 
+to supply information for detecting, diagnosing, monitoring or treating physiological conditions, states of health, illnesses or congenital 
+deformities17. A device is considered to allow direct diagnosis when it provides the diagnosis of the disease or condition in question itself or 
+when it provides decisive information for the diagnosis18. 
  
  
 15 MDCG 2019-11 https://ec.europa.eu/health/sites/health/files/md_sector/docs/md_mdcg_2019_11_guidance_qualification_classification_software_en.pdf  
@@ -427,7 +427,7 @@ The following criteria, if fulfilled together, indicate that a device has a meas
  
 a) The device is intended by the manufacturer to measure:  
 - quantitatively a physiological or anatomical parameter, or  
-- a quantity or a quantifiable characteristic of energy or of substances (including medicinal products) delivered to or removed  from the human 
+- a quantity or a quantifiable characteristic of energy or of substances (including medicinal products) delivered to or removed from the human 
 body. Spoons or plastic syringes co-packed with medicinal products and used to measure a quantity of that medicinal product to be administered 
 to the patient are in this category. Devices for the delivery of liquid to the human body without graduation or scale (e.g. medicine spoons, cups, 
 droppers without graduation or scale or display of measuring unit) are not in this category19. 
@@ -436,14 +436,14 @@ b) The result of the measurement:
 - is displayed in legal units or other acceptable units within the meaning of Directive 80/181/ECC20, or 
 - is compared to at least one point of reference indicated in legal units or other acceptable units in compliance with the mentioned directive.. 
  
-c) The intended purpose implies accuracy, claimed explicitly or implicitly, where a  non-compliance with the implied accuracy could result in a 
+c) The intended purpose implies accuracy, claimed explicitly or implicitly, where a non-compliance with the implied accuracy could result in a 
 significant adverse effect on the patient’s health and safety. 
  
 The expression ‘claimed implicitly’ covers cases where the user, on the basis of the designation of the device or of its accompanying documents, 
-or on the basis of the common use , is entitled to expect accuracy where the  accuracy of the measurement has an impact on the diagnosis or 
+or on the basis of the common use, is entitled to expect accuracy where the accuracy of the measurement has an impact on the diagnosis or 
 therapy of the patient. 
  
-Measuring activities during the manufacturing process including those for  calibration purposes are not covered and do not  imply a measuring 
+Measuring activities during the manufacturing process including those for calibration purposes are not covered and do not imply a measuring 
 function of the manufactured device. 
  
  Systems and procedure packs 
@@ -468,7 +468,7 @@ combined to achieve a specific medical purpose22.
 Where the system or procedure pack incorporates devices which do not bear the CE marking or where the chosen combination of devices is not 
 compatible in view of their original intended purpose, or where the sterilisation has not been carried out in accordance with the manufacturer's 
 instructions the system or procedure pack shall be treated as a device in its own right and shall be subject to the relevant conformity assessment 
-procedure pursuant to  MDR Article 52. The classification is determined by the intended use  of the system or procedure pack . The natural or 
+procedure pursuant to MDR Article 52. The classification is determined by the intended use of the system or procedure pack. The natural or 
 legal person that combines the devices must assume the obligations incumbent on manufacturers. 
 For such combinations, including different devices, the classification is normally determined by the intended use. In those cases where the 
 intended use of the final device is not specific enough to determine the classification, the classification of the device is at the level of the highest 
@@ -479,15 +479,15 @@ classified device included, taking into account the new intended use of the devi
 This section gives notes on other terms used in Annex VIII of the MDR: 
 Systemic absorption: The process by which substances or their metabolites enter the body (e.g. by crossing mucous membranes) and are 
 distributed into the body via the blood and/or lymphatic system. 
-Wholly or mainly absorbed : The term ‘absorption’ in the context of implantable devices refers to the degradation of a material within the 
+Wholly or mainly absorbed: The term ‘absorption’ in the context of implantable devices refers to the degradation of a material within the 
 body and the metabolic elimination of the resulting degradation products from the body. It does not apply to those substances that are excreted 
-without modification from the body, e.g. insufflation gases for the abdominal cavity or laparoscopic and endoscopic procedure s. 
+without modification from the body, e.g. insufflation gases for the abdominal cavity or laparoscopic and endoscopic procedures. 
 Local dispersion: The condition by which substances remain in a specific site without being distributed into the body via the blood and/or 
 lymphatic system. 
 Medicine / medicinal product: According to the definition given in Directive 2001/83/EC: 
-‘(a) Any substance or combination of substances presented as having properties for treating or preventing disease in human bei ngs; or 
+‘(a) Any substance or combination of substances presented as having properties for treating or preventing disease in human beings; or 
 (b) Any substance or combination of substances which may be used in or administered to human beings with a view to restoring, correcting or 
-modifying physiological functions by exerting a pharmacological, immunological or metabolic action, or to making a medical di agnosis.’ 
+modifying physiological functions by exerting a pharmacological, immunological or metabolic action, or to making a medical diagnosis.’ 
  
 21 MDR article 2(10) 
 22 MDR article 2(11) 
@@ -499,9 +499,9 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
 A ‘nanomaterial’ means a natural, incidental or manufactured material containing particles in an unbound state or as an aggregate or as an 
 agglomerate and where, for 50% or more of the particles in the number size distribution, one or more external dimensions is in the size range 
 1-100 nm; Fullerenes, graphene flakes and single-wall carbon nanotubes with one or more external dimensions below 1 nm shall also be deemed 
-to be nanomaterials according to MDR, Article 2(18) . Related definitions on ‘particle’, ‘ag glomerate’ and ‘aggregate ’ are also included in the 
+to be nanomaterials according to MDR, Article 2(18). Related definitions on ‘particle’, ‘agglomerate’ and ‘aggregate’ are also included in the 
 MDR Article 2(19-21). The definitions on nanomaterial and the related terms were taken from Commission Recommendation 2011/696/EU on 
-the definition of nanomaterials 23. Guidance on terms and concepts used in the definition can be found in a report from the European 
+the definition of nanomaterials23. Guidance on terms and concepts used in the definition can be found in a report from the European 
 Commission’s Joint Research Centre.24 
 Derivative means a non-cellular substance extracted from human or animal tissue or cells through a manufacturing process. The final substance 
 used for manufacturing of the device in this case does not contain any cells or tissues. 
@@ -511,13 +511,13 @@ used for manufacturing of the device in this case does not contain any cells or 
 Before applying the classification rules, the manufacturer should first determine if the product concerned, based on its specific medical purpose, 
 falls in the scope of the MDR as medical device, accessory for a medical device (Article 2 MDR), medical device part or component for replacement 
 (Article 23(2) MDR) or as a product without an intended medical purpose listed in Annex XVI. 
-It is the intended and not the accidental use of the device that determines the class of the device. For instance, a suture o rganiser that is 
+It is the intended and not the accidental use of the device that determines the class of the device. For instance, a suture organiser that is 
 intended to keep suture threads used in open heart surgery in the correct order should not be considered as an invasive device if it is intended 
 to be kept outside the patient. Similarly, if a healthcare professional or others uses the device in a manner not intended by the manufacturer, 
 this does not change the class of the device for the purpose of conformity assessment. However, if the normal clinical use of the device changes 
 in time with evolving clinical practice such that the intended purpose and classification of the device changes, this should be addressed by the 
 manufacturer and the conformity of the device assessed for the new intended purpose. It is the intended purpose assigned by the manufacturer 
-to the device that determines the class of the device and not the class assigned to other similar products. For instance, two  sutures that have 
+to the device that determines the class of the device and not the class assigned to other similar products. For instance, two sutures that have 
 the same composition may well have different intended purposes. 
 In case several rules, or if, within the same classification rule, several sub-rules, apply to the same device based on the device intended purpose, 
 the strictest rule and sub-rule resulting in higher classification will apply. 
@@ -534,10 +534,10 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
  How to use the rules 
  
-The manufacturer must take into consideration all the rules in order to establish the proper classification for its device.  The strictest rule and 
-sub-rule resulting in the highest classification determines the class 25. It is quite conceivable for instance that one of the general rules that is 
+The manufacturer must take into consideration all the rules in order to establish the proper classification for its device. The strictest rule and 
+sub-rule resulting in the highest classification determines the class25. It is quite conceivable for instance that one of the general rules that is 
 not specific to active devices nevertheless applies to such a device. The intended purpose and all the device characteristics must be taken into 
-consideration. The characteristic or combination of characteristics in accordance with the intended purpose of the device tha t falls into the 
+consideration. The characteristic or combination of characteristics in accordance with the intended purpose of the device that falls into the 
 highest class determines the class for the device as a whole.  
 In addition to the classification rules set out in Annex VIII of MDR, the manufacturers must also take account of any applicable legal acts and 
 consider guidance documents which may support the classification of their device. 
@@ -547,7 +547,7 @@ consider guidance documents which may support the classification of their device
 A simple wound drainage system has usually three components that must be taken into consideration: the cannula, the tubing and the collector 
 unit. If the system is sold without a cannula, then the classification of the cannula does not need to be taken into account. It is assumed here 
 that the system is used for short term duration, i.e. that uninterrupted intended use is more than 60 minutes and less than 30 days. It is 
-furthermore assumed that the collected liquids are not intended to be reinfused into th e body nor reprocessed for eventual reinfusion and that 
+furthermore assumed that the collected liquids are not intended to be reinfused into the body nor reprocessed for eventual reinfusion and that 
 the device is not intended to be connected to a powered suction system. 
  
  
@@ -575,17 +575,17 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
 It is recognised that although the existing rules will adequately classify the vast majority of existing devices, a small number of devices may be 
 more difficult to classify. 
-As soon a notified body needs to be involved, a ny dispute between the manufacturer and the notified body concerned, arising from the 
+As soon a notified body needs to be involved, any dispute between the manufacturer and the notified body concerned, arising from the 
 application of Annex VIII, may be referred for a decision to the competent authority of the Member State in which the manufacturer (or its 
 authorized representative) has its registered place of business. In cases where the manufacturer has no registered place of business in the 
 Union and has not yet designated an authorised representative, the matter shall be referred to the competent authority of the Member State in 
-which the authorised representative ref erred to in the last indent of point  (b) of the second paragraph  of Section 2.2 of Annex IX has its 
-registered place of business.  Where the notified body concerned is established in a Member State other than that of the manufacturer, the 
+which the authorised representative referred to in the last indent of point (b) of the second paragraph of Section 2.2 of Annex IX has its 
+registered place of business. Where the notified body concerned is established in a Member State other than that of the manufacturer, the 
 competent authority must adopt its decision after consultation with the competent authority of the Member State that designated the notified 
 body. The competent authority of the Member State in which the manufacturer has its registered place of business will notify the MDCG and 
 the Commission of its decision. The decision can be made available upon request26.  
 Outside this regulatory procedure, competent authorities may refer on an ad hoc and voluntary basis complex classification cases for discussion 
-at the Borderline and Classification Working Group of the MDCG. Agreement positions on classification reached by this Working  Group are 
+at the Borderline and Classification Working Group of the MDCG. Agreement positions on classification reached by this Working Group are 
 published for reference in the Manual on Borderline and Classification. 
  
 26 Article 51 MDR 
@@ -1102,7 +1102,7 @@ wheelchairs, stretchers, dental patient chairs)
 way that a return flow is unlikely (e.g. to collect body 
 wastes such as urine collection bottles, incontinence pads 
 or collectors used with wound drainage devices). They may 
-be connected to the p atient by means of catheters and 
+be connected to the patient by means of catheters and 
 tubing 
 • Devices used to immobilise body parts and/or to apply force 
 or compression on them (e.g. non-sterile dressings used to 
@@ -1125,16 +1125,16 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
 Practical issues of classification 
 Some non-invasive devices are indirectly in contact with the body and can influence internal physiological processes by storing, channelling or 
-treating blood, other body liquids or liquids which are returned or infused into the body or by generating energy that is del ivered to the body. 
+treating blood, other body liquids or liquids which are returned or infused into the body or by generating energy that is delivered to the body. 
 These are handled by other rules because of the hazards inherent in such indirect influence on the body. 
-Note 1: Intact skin includes the skin around an established sto ma unless the skin is breached. Signs of breached skin include, but not limited 
-to, tears, erythema, oedema, weeping and infection. The definition of intact skin must apply for the continuous use of the device . 
-Note 2: Ultrasound gels are not to be absorbed or locally dispersed within the body at the site of action in order to achieve their i ntended 
+Note 1: Intact skin includes the skin around an established stoma unless the skin is breached. Signs of breached skin include, but not limited 
+to, tears, erythema, oedema, weeping and infection. The definition of intact skin must apply for the continuous use of the device. 
+Note 2: Ultrasound gels are not to be absorbed or locally dispersed within the body at the site of action in order to achieve their intended 
 purpose. 
  
 Rule 2 - Channelling or storing for eventual administration 
 General explanation of the rule 
-This rule applies to non -invasive devices intended for channeling or storing blood, body liquids, cells or tissues, liquids or gases  for specific 
+This rule applies to non-invasive devices intended for channeling or storing blood, body liquids, cells or tissues, liquids or gases for specific 
 purposes. Invasive devices, other than surgically invasive devices which are intended to administer medicinal products by inhalation, fall under 
 the Rule 20 
  
@@ -1147,7 +1147,7 @@ Class Rule 2 Examples
 IIa All non-invasive devices intended for channeling or storing blood, body liquids, cells or tissues, 
 liquids or gases for the purpose of eventual infusion, administration or introduction into the 
 body are classified as class IIa:  
-- if they may be connected 1 to a class IIa, class IIb or class III active device; or  if they are 
+- if they may be connected1 to a class IIa, class IIb or class III active device; or if they are 
 intended for use for channeling or storing blood or other body liquids or for storing organs, 
 parts of organs or body cells and tissues,  
 • Devices intended to be used as channels in 
@@ -1157,10 +1157,10 @@ intended for use with an infusion pump
 antistatic tubing for anaesthesia, anaesthesia 
 breathing circuits 
 • Syringes for infusion pumps  
-• Devices intended to channel blood ( e.g. in 
+• Devices intended to channel blood (e.g. in 
 transfusion, extracorporeal circulation)  
 • Devices intended for temporary storage and 
-transport of organs for transplantation ( i.e. 
+transport of organs for transplantation (i.e. 
 containers, bags) 
 Medical Devices 
 Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1  
@@ -1169,7 +1169,7 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
 • Devices intended for long term storage of 
 biological substances and tissues such as 
-corneas, sperm, human embryos, etc. ( i.e. 
+corneas, sperm, human embryos, etc. (i.e. 
 containers, bags) 
 • Fridges/freezers specifically intended for storing 
 blood, tissues etc. 
@@ -1188,12 +1188,12 @@ spoons specifically intended for administering
 medicines2  Empty syringes without needles 
  
 Practical issues of classification 
-If a device, e.g. tubing, intended to be used for a purpose that would require it to be connected to an active device , such a device will be 
+If a device, e.g. tubing, intended to be used for a purpose that would require it to be connected to an active device, such a device will be 
 automatically in class IIa, unless the manufacturer clearly states that it should not be connected to an active device of class IIa or higher.  
  
 Note 1: ‘May be connected to an active device’ - such a connection is deemed to exist between a non-active device and an active device where 
-the non-active device forms a link in the transfer of the substance between the patient and the active device and the safety and perf ormance 
-of one of the devices is  influenced by the other device. For instance, this applies to tubing in an extracorporeal circulation system which is 
+the non-active device forms a link in the transfer of the substance between the patient and the active device and the safety and performance 
+of one of the devices is influenced by the other device. For instance, this applies to tubing in an extracorporeal circulation system which is 
 downstream from a blood pump and in the same blood flow circuit but not directly connected to the pump.  
 Note 2: See also Chapter 3.1.6 regarding the possible measuring function. 
   
@@ -1207,7 +1207,7 @@ liquids or other liquids intended for implantation or administration into the bo
 General explanation of the rule 
 These types of devices must be considered separately from the non-contact devices of Rule 1 because they are indirectly invasive. They modify 
 substances that will eventually be administered into the body. This rule covers mostly the more sophisticated elements of extracorporeal 
-circulation sets, dialysis systems and autotransfusion systems as well as devices for extracorporeal treatment of body fluids  which may or may 
+circulation sets, dialysis systems and autotransfusion systems as well as devices for extracorporeal treatment of body fluids which may or may 
 not be immediately reintroduced into the body, including cases where the patient is not in a closed loop with the device. 
 This rule covers also substances in direct contact with human cells, tissues or organs in vitro before their implantation or administration, without 
 substances derived from human or animal origin such as human albumin. 
@@ -1243,7 +1243,7 @@ or used in vitro with human embryos before their implantation or administration 
 are classified as class III. 
 • Substances or mixture of substances for 
 transport, perfusion, storage of organs intended 
-for transplantation that  do not achieve the 
+for transplantation that do not achieve the 
 principal intended action by pharmacological, 
 immunological or metabolic means 
 Medical Devices 
@@ -1251,7 +1251,7 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
 32 
  
-• IVF or ART products with out principal 
+• IVF or ART products without principal 
 pharmacological/metabolic action (substances 
 or mixture of substances) 
 • IVF cell media without human albumin 
@@ -1268,7 +1268,7 @@ types of products, such as those used as a mechanical barrier, are well understo
 rapid technological developments in this area, with the emergence of new types of wound dressings for which new types of claims are made, 
 e.g. management of the microenvironment of a wound to enhance its natural healing mechanism. 
  
-More novel claims relate to the mechanism of healing by secondary intent, such as influencing the underlying mechanisms of granulation o r 
+More novel claims relate to the mechanism of healing by secondary intent, such as influencing the underlying mechanisms of granulation or 
 epithelial formation or preventing contraction of the wound. Some devices used on breached dermis or breached mucosa may even have a life-
 sustaining or lifesaving purpose, e.g. when there is full thickness destruction of the skin or mucosa over a large area and/or systemic impact.  
  
@@ -1283,7 +1283,7 @@ absorption of exudates;
 • Wound dressings for skin or mucous, such as: 
 absorbent pads, island dressings, cotton wool, 
 wound strips, adhesive bandages (sticking 
-plasters, band -aid) and gauze dressings which 
+plasters, band-aid) and gauze dressings which 
 act as a barrier, maintain wound position or 
 absorb exudates from the wound 
 • Ostomy bags 
@@ -1313,7 +1313,7 @@ secondary intent
 IIa - class IIa in all other cases  
 ! This rule applies also to the invasive devices that come into contact with injured mucous 
 membrane. 
-• Dressings for nose bleeds  (the purpose of the 
+• Dressings for nose bleeds (the purpose of the 
 dressing is not to manage micro-environment) 
 are in class I according to this rule 
 • Dental wound dressings not containing animal 
@@ -1321,20 +1321,20 @@ derived material
  
 Practical issues of classification 
 The classification of devices covered by this rule depends on the use intended by the manufacturer’s, e.g. a polymeric film dressing would be 
-in class IIa if the intended use is to manage the micro -environment of the wound or in class I if its intended use is limited to retaining an 
-invasive cannula at the wound site. Consequently , it is impossible to say a priori that a particular type of dressing belongs to a given class 
+in class IIa if the intended use is to manage the micro-environment of the wound or in class I if its intended use is limited to retaining an 
+invasive cannula at the wound site. Consequently, it is impossible to say a priori that a particular type of dressing belongs to a given class 
 without knowing its intended use as defined by the manufacturer. However, a claim that the device is interactive or active with respect to the 
 wound healing process usually implies that the device is at least class IIa. 
  
 Most dressings that are intended for a use that falls under class IIa or IIb also perform functions that are in class I, e.g. that of a mechanical 
 barrier. Such devices are nevertheless classified according to their intended use in the higher class.  
  
-For such devices incorporating a substance which, if used separately, can be considered to be medicinal product or a human blood derivative , 
+For such devices incorporating a substance which, if used separately, can be considered to be medicinal product or a human blood derivative, 
 or animal tissues or derivatives rendered non-viable, see Rule 14 or Rule 18 respectively. 
 Explanation of special concepts 
 Breached dermis or mucosa: the wound exposes at least partly the subcutaneous tissue. 
-Secondary intent: the wound heals by first being filled with granulation tissue ; subsequently the epithelium grows back over the granulation 
-tissue and the wound contracts. In contrast , primary intent implies that the edges of the wound are close enough or pulled together, e.g. by 
+Secondary intent: the wound heals by first being filled with granulation tissue; subsequently the epithelium grows back over the granulation 
+tissue and the wound contracts. In contrast, primary intent implies that the edges of the wound are close enough or pulled together, e.g. by 
 suturing, to allow the wound to heal before formation of granulation tissue. 
 Medical Devices 
 Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1  
@@ -1345,11 +1345,11 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
 Rule 5 - Devices invasive with respect to body orifices 
 General explanation of the rule 
-Invasiveness with respect to body orifices must be considered separately from invasiveness that penetrates through a cut in t he body surface 
+Invasiveness with respect to body orifices must be considered separately from invasiveness that penetrates through a cut in the body surface 
 (surgical invasiveness). For short term use, a further distinction must be made between invasiveness with respect to the less vulnerable anterior 
 parts of the ear, mouth and nose and the other anatomical sites that can be accessed through natural body orifices. A surgically created stoma, 
 which, for example, allows the evacuation of urine or faeces, is also to be considered a body orifice.  
-The d evices covered by this rule tend to be diagnostic and therapeutic instruments used in particular specialties ( otorhinolaryngology, 
+The devices covered by this rule tend to be diagnostic and therapeutic instruments used in particular specialties (otorhinolaryngology, 
 ophthalmology, dentistry, proctology, urology and gynaecology). 
 Class Rule 5  Examples 
 I All invasive devices with respect to body orifices, other than surgically invasive devices, 
@@ -1407,13 +1407,13 @@ ventilator
 spectrum 
  
 Practical issues of classification  
-Regarding devices intended for connection to an active device: the strictest rule and sub -rule resulting in higher classification will apply. For 
+Regarding devices intended for connection to an active device: the strictest rule and sub-rule resulting in higher classification will apply. For 
 instance a trachea cannula for long-term use need to be classified as class IIb.  
-Devices composed of substances which are absorbed by or locally dispersed in the human body may also fall under Rule 21  
+Devices composed of substances which are absorbed by or locally dispersed in the human body may also fall under Rule 21 
  
 Rule 6 - Surgically invasive devices intended for transient use (<60 min) 
 General explanation of the rule 
-This rule primarily covers three major groups of devices: devices that are used to create a conduit through the skin ( e.g. needles, cannulae), 
+This rule primarily covers three major groups of devices: devices that are used to create a conduit through the skin (e.g. needles, cannulae), 
 surgical instruments (e.g. scalpels, saws) and various types of catheters, suckers, etc. 
 Class Rule 6  Examples 
 IIa All surgically invasive1 devices intended for transient use are classified as class IIa  
@@ -1476,10 +1476,10 @@ or the central nervous system, in which case they are classified as class III;
 the cranium (Intended use: The dura mater 
 protection is intended to protect the dura 
 mater during surgical procedures. It has direct 
-contact to the CNS.  The bone punch can be 
+contact to the CNS. The bone punch can be 
 used at the cranium. A direct contact to the 
 CNS is possible during application.) 
-• Peripherally inserted central catheter ( PICC) 
+• Peripherally inserted central catheter (PICC) 
 line 
 • Heart valve occluders, sizers and holders  
 • Cardiovascular drainage cannula specifically 
@@ -1513,7 +1513,7 @@ Note 1: Terms such as ‘surgically invasive device’, ‘central circulatory s
 defined in Section 2 of Annex VIII to the MDR. In particular surgical instruments connected to an active device are not considered to be ‘reusable 
 surgical instruments’.  
 Note 2: The expression ‘correct a defect’ does not cover auxiliary devices that are used in heart surgery procedures, e.g. clamps, aortic punch 
-instruments. The first indent of this rule does not apply to aortic punches and similar cutting instruments which perform a f unction similar to 
+instruments. The first indent of this rule does not apply to aortic punches and similar cutting instruments which perform a function similar to 
 that of a scalpel.  
 Note 3: ‘Dedicated’ means that the intended purpose of the device or accessory is to specifically control, diagnose, monitor or correct a defect 
 of the heart or of the central circulatory system.  
@@ -1571,7 +1571,7 @@ IIb are intended to administer medicines1, in which case they are classified as 
  
 Practical issues of classification 
 Note 1: Administration of medicinal products is more than just channelling, it implies also storage and/or control of the volume and rate of 
-delivery. Implanted capsules for the slow release of medicines , placed on the market as a single integral product , are governed by Directive 
+delivery. Implanted capsules for the slow release of medicines, placed on the market as a single integral product, are governed by Directive 
 2001/83/EC or Regulation (EC) No 726/2004. 
  
 Rule 8 - Implantable devices and long-term surgically invasive devices (> 30 days) 
@@ -1603,7 +1603,7 @@ unless they:
 • Peripheral stents and peripheral valves  
 • Plates  
 • Intra-ocular lenses  
-• Internal closure devices  (including vascular 
+• Internal closure devices (including vascular 
 closure devices2)  
 • Tissue augmentation implants (excluding 
 breasts)  
@@ -1611,7 +1611,7 @@ breasts)
 • Peripheral vascular grafts and stents  
 • Penile implants  
 • Non-absorbable sutures, non-biodegreable bone 
-cements and maxillo -facial implants, visco-
+cements and maxillo-facial implants, visco-
 elastic surgical devices intended specifically for 
 ophthalmic anterior segment surgery3 
 • Pedicle screws 
@@ -1662,14 +1662,14 @@ implantable defibrillators
 • Implantable bladder stimulators 
 • Implantable sphincter stimulators 
 • Accessories to active implantable devices (with 
-or without contact to the heart ), be  it 
+or without contact to the heart), be it 
 implantable or non-implantable active or not6: 
 • torque wrench for implantable pulse 
 generator / implantable cardioverter 
 defibrillator 
 • cables for programmer / pacing system 
 analyser 
-• magnet for Implantable Pulse Generator  / 
+• magnet for Implantable Pulse Generator / 
 Implantable Cardioverter Generator 
 • programmer or an external transmitter 
 intended for activating or controlling the 
@@ -1687,7 +1687,7 @@ or
 • Shoulder 
 • Ankle 
 III - are spinal disc replacement implants or are implantable devices that come into contact with 
-the spinal column 7, in which case they are classified as class III with the exception of 
+the spinal column7, in which case they are classified as class III with the exception of 
 components such as screws, wedges, plates and instruments 
 • Spinal disc replacement implants 
 • Device placed in the disc space 
@@ -1702,7 +1702,7 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
 Practical issues of classification 
 Note 1: Article 52(4) states: “ […] for class IIb implantable devices, except sutures, staples, dental fillings, dental braces, tooth crowns, screws, 
-wedges, plates, wires, pins, clips and connectors, the assessment of the technical documentation as specified in Section 4 of  Annex IX shall 
+wedges, plates, wires, pins, clips and connectors, the assessment of the technical documentation as specified in Section 4 of Annex IX shall 
 apply for every device.” This does not imply classification of all sutures, staples, dental fillings, dental braces, tooth crowns, screws, wedges, 
 plates, wires, pins, clips and connectors as class IIb. Such devices must be classified in their own right according to their intended purpose and 
 the applicable rules. 
@@ -1722,15 +1722,15 @@ are considered similar to “screws, wedges, plates and instruments” exemption
  
  Active devices 
  
-Rule 9 - Active therapeutic devices intended to administer or exchange energy 1, as well as active devices 
+Rule 9 - Active therapeutic devices intended to administer or exchange energy1, as well as active devices 
 intended to control/monitor/directly influence certain devices 
 General explanation of the rule 
 This rule covers many different groups of devices, such as:  
 - electrical equipment used in surgery such as lasers and surgical generators;  
 - stimulation devices;  
-- devices intended to emit ionizing radiation 2 for therapeutic purposes, including devices which control or monitor such devices, or which 
+- devices intended to emit ionizing radiation2 for therapeutic purposes, including devices which control or monitor such devices, or which 
 directly influence their performance; 
-- devices intended for controlling, monitoring or directly influencing the performance of active implantable devices.  
+- devices intended for controlling, monitoring or directly influencing the performance of active implantable devices. 
 Medical Devices 
 Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1  
  
@@ -1738,7 +1738,7 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
  
 Active implantable devices are covered by Rule 8. 
-Rule 22 may also apply to active therapeutic devices 27.  
+Rule 22 may also apply to active therapeutic devices27.  
  
 Class  Rule 9 Examples 
 IIa All active therapeutic devices intended to administer or exchange energy are classified as 
@@ -1807,7 +1807,7 @@ devices
 IIb All active devices intended to emit ionizing radiation for therapeutic purposes, including 
 devices which control or monitor such devices, or which directly influence their performance, 
 are classified as class IIb 
-• Brachytherapy therapy devices  if the device also 
+• Brachytherapy therapy devices if the device also 
 generates the radiation 
 • Therapeutic cyclotrons and linear accelerators  
 • Therapeutic X-ray sources 
@@ -1815,7 +1815,7 @@ III All active devices that are intended for controlling, monitoring or directly
 performance of active implantable devices are classified as class III 
 • Programming units and pacing system analysers 
 • Cardioscopes with pacing pulse indicators 
-specifically intended to mon itor active implantable 
+specifically intended to monitor active implantable 
 devices 
 • Programmer for:  
 • implantable Pulse Generator (IPG); 
@@ -1825,7 +1825,7 @@ devices
 devices 
  
 Practical issues of classification 
-Note 1: The decision as to whether a medical device administers or exchanges energy to and from the human body in a potentially haz ardous 
+Note 1: The decision as to whether a medical device administers or exchanges energy to and from the human body in a potentially hazardous 
 way should take into account the following factors. The concept of ‘potentially hazardous’ is dependent on the type of technology involved and 
 the intended application of the device to the patient and not on the measures adopted by the manufacturer in view of good design management 
 (e.g. use of technical standards, risk analysis). For instance, all devices intended to emit ionizing radiation, all lung ventilators and lithotriptors 
@@ -1836,13 +1836,13 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
 44 
  
 Note 2: ‘Ionising radiation’ means energy transferred in the form of particles or electromagnetic waves of a wavelength of 100 nanometres or 
-less (a frequency of 3 × 1015 hertz or more) capable of producing ions directly or indirectly (Directive 2013/59/EURATOM, Article 4, 46).  
+less (a frequency of 3 × 1015 hertz or more) capable of producing ions directly or indirectly (Directive 2013/59/EURATOM, Article 4, 46). 
  
  
 Rule 10 - Active devices for diagnosis and monitoring or intended for diagnostic or therapeutic radiology 
 General explanation of the rule 
 This rule covers a whole range equipment in various fields for capture of physiological signals, as well as specifically therapeutic and diagnostic 
-radiology. Note that devices for recording diagnost ic X-ray images are covered by R ule 17. Devices specifically intended to monitor active 
+radiology. Note that devices for recording diagnostic X-ray images are covered by Rule 17. Devices specifically intended to monitor active 
 implantable devices fall under Rule 8 or Rule 9. 
 Class Rule 10 Examples 
 IIa Active devices intended for diagnosis and monitoring are classified as class IIa: 
@@ -1868,16 +1868,16 @@ IIa - if they are intended to allow direct diagnosis2 or monitoring of vital phy
 • Electronic blood pressure measuring equipment 
 • Devices for visual electrophysiology 
 • Fundoscopes for examination of the eye 
-IIb unless they are specifically intended for monitoring of vital physiological parameters 3 and the 
+IIb unless they are specifically intended for monitoring of vital physiological parameters3 and the 
 nature of variations of those parameters is such that it could result in immediate danger to 
 the patient, for instance variations in cardiac performance, respiration, activity of the central 
-nervous system, or they are intended for diagnosis in cl inical situations where the patient is 
+nervous system, or they are intended for diagnosis in clinical situations where the patient is 
 in immediate danger, in which cases they are classified as class IIb. 
 • Blood gas analysers used in open heart surgery 
 • Apnoea monitors, including apnoea monitors in 
 home care 
-• Patient monitors (i ntended use: Monitor 
-intended for multi -parameter patient 
+• Patient monitors (intended use: Monitor 
+intended for multi-parameter patient 
 monitoring. The device will produce visual and 
 audible alarms if any of the physiological 
 Medical Devices 
@@ -1887,32 +1887,32 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
 parameters monitored vary beyond pre-set 
 limits and timed alarm recordings will be 
-produced.), for example in  intensive care 
+produced.), for example in intensive care 
 monitoring, e.g. blood pressure, temperature, 
 oxygen saturation 
-IIb Active devices intended to emit ionizing radiation 4 and intended for diagnostic or 
-therapeutic radiology 5, including interventional radiology devices 5 and devices which 
-control or monitor 6 such devices, or which directly influence their performance, are 
+IIb Active devices intended to emit ionizing radiation4 and intended for diagnostic or 
+therapeutic radiology5, including interventional radiology devices5 and devices which 
+control or monitor6 such devices, or which directly influence their performance, are 
 classified as class IIb. 
 • Diagnostic X-Ray machine 
 • Computed Tomography Devices 
  
 Practical issues of classification / Explanation of special concepts  
-Note 1: ‘Illuminate’ means: to administer rays in visible light spectrum to for use in the process of diagnosis for ex ample in visual 
-electrophysiology and eye diseases, and not just to cast a light to improve the visibility. When performing diagnosis such as  visual 
+Note 1: ‘Illuminate’ means: to administer rays in visible light spectrum to for use in the process of diagnosis for example in visual 
+electrophysiology and eye diseases, and not just to cast a light to improve the visibility. When performing diagnosis such as visual 
 electrophysiology in search of eye diseases, the intended purpose of the device may not be limited to ‘illumination’.  
-Note 2: A device is considered to allow direct diagnosis when it  itself provides the diagnosis of the disease or condition in question or when it 
-provides decisive information for the diagnosis  (MDR 2017/745, Annex VIII, 3.7) . For the definition of diagnosis see the MDCG Guidance 
+Note 2: A device is considered to allow direct diagnosis when it itself provides the diagnosis of the disease or condition in question or when it 
+provides decisive information for the diagnosis (MDR 2017/745, Annex VIII, 3.7). For the definition of diagnosis see the MDCG Guidance 
 document covering the borderline between medical devices and medicinal products. 
-Note 3: Vital physiological processes and parameters include, for example , respiration, heart rate, cerebral functions, blood gases, blood 
+Note 3: Vital physiological processes and parameters include, for example, respiration, heart rate, cerebral functions, blood gases, blood 
 pressure and body temperature. Medical devices intended to be used for continuous surveillance of vital physiological parameters in anesthesia, 
 intensive care or emergency care are in class IIb, whilst medical devices intended to be used to obtain readings of vital physiological signals as 
-part of routine checkups or self-monitoring are in class IIa. A thermal imaging device intended to monitor blood flow is not considered to be a  
+part of routine checkups or self-monitoring are in class IIa. A thermal imaging device intended to monitor blood flow is not considered to be a 
 body temperature measuring device. 
 Note 4: ‘Ionising radiation’ means energy transferred in the form of particles or electromagnetic waves of a wavelength of 100 nanometers or 
-less (a frequency of 3 × 1015 hertz or more) capable of producing ions directly or indirectly (Directive 2013/59/EURATOM, Article 4, 46).  
+less (a frequency of 3 × 1015 hertz or more) capable of producing ions directly or indirectly (Directive 2013/59/EURATOM, Article 4, 46). 
 Note 5: Therapeutic interventional radiology refers to diagnosis being carried out during a surgical procedure. 
-Note 6: This refers to active devices for the control, monitoring or influencing the emission of ionizing  radiation and not to the subsequent 
+Note 6: This refers to active devices for the control, monitoring or influencing the emission of ionizing radiation and not to the subsequent 
 processing, recording or viewing of the resulting image. Devices for recording diagnostic X-ray images are covered by Rule 17. 
  
  
@@ -1927,10 +1927,10 @@ General explanation of the rule
 Rule 11 describes and categorizes the risk of software based on the combination of the significance of the information provided by the software 
 to the healthcare decision and the healthcare situation or patient’s condition. 
  
-This rule also distinguishes between MDSW (medical device software) intended to monitor vital and non -vital physiological processes (the sub-
+This rule also distinguishes between MDSW (medical device software) intended to monitor vital and non-vital physiological processes (the sub-
 rule only applies to software intended for monitoring purposes only). 
   
-Software or equipment attached to devices which do not specifically enable device(s) to be used in accordance with their inte nded purpose, or 
+Software or equipment attached to devices which do not specifically enable device(s) to be used in accordance with their intended purpose, or 
 to specifically or directly assist the medical functionality of the device in terms of its/their intended purpose do not meet the definition of an 
 accessory. 
 Software used in conjunction with medical devices(s) which solely record, store or display information would generally not be considered devices 
@@ -1951,7 +1951,7 @@ BRCA-positive individuals.
 • Cognitive therapy MDSW where a specialist 
 determines the necessary cognitive therapy 
 based on the outcome provided by the MDSW. 
-III — death or an irreversible deterioration of a person's state of health 1, in which case it is in 
+III — death or an irreversible deterioration of a person's state of health1, in which case it is in 
 class III; or 
 • MDSW intended to perform diagnosis by means 
 of image analysis for making treatment 
@@ -1975,7 +1975,7 @@ processes that are not considered to be vital.
 • Devices intended to be used to obtain readings 
 of vital physiological signals in routine check-ups 
 including monitoring at home.  
-IIb except if it is intended for monitoring of vital physiological parameters 3, where the nature of 
+IIb except if it is intended for monitoring of vital physiological parameters3, where the nature of 
 variations of those parameters is such that it could result in immediate danger to the patient, 
 in which case it is classified as class IIb.  
 • Medical devices including MDSW intended to be 
@@ -1984,7 +1984,7 @@ physiological processes in anaesthesia, intensive
 care or emergency care. 
 I All other software is classified as class I. • MDSW app intended to support conception by 
 calculating the user’s fertility status based on a 
-validated statistical algorithm . The user inputs 
+validated statistical algorithm. The user inputs 
 health data including basal body temperature 
 (BBT) and menstruation days to track and 
 predict ovulation. The fertility status of the 
@@ -2000,9 +2000,9 @@ Note 2: For the classification of software, it is needed to consider the intende
 treated and/or diagnosed), context of use (e.g. intensive care, emergency care, home use) of the software and of the information provided by 
 the software as well as of the possible decisions to be taken.  
 Note 3 Medical device software should be classified in the same way, regardless of the software's location or the type of interconnection 
-between the software and a (hardware) device. However, in line with implementing rule 3.3  Annex VIII to the MDR,  software which drives a 
-device or influences the use of a device shall fall within the same class as the device.  
-For further information on qualification and classification of software consult:  MDCG 2019 -11 Qualification and classification of software - 
+between the software and a (hardware) device. However, in line with implementing rule 3.3 Annex VIII to the MDR, software which drives a 
+device or influences the use of a device shall fall within the same class as the device. 
+For further information on qualification and classification of software consult: MDCG 2019-11 Qualification and classification of software - 
 Regulation (EU) 2017/745 and Regulation (EU) 2017/74628. 
  
  
@@ -2013,10 +2013,10 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
 48 
  
-Rule 12 - Active devices intended to administer and/or remove medicin al products, body liquids or other 
+Rule 12 - Active devices intended to administer and/or remove medicinal products, body liquids or other 
 substances to or from the body 
 General explanation of the rule 
-This rule is intended to primarily cover drug delivery systems and anaesthesia equipment. If the device ’s intended route of drug delivery is  
+This rule is intended to primarily cover drug delivery systems and anaesthesia equipment. If the device’s intended route of drug delivery is 
 pulmonary, Rule 20 applies. 
 Class Rule 12 Examples 
 IIa All active devices intended to administer and/or remove medicinal products, body liquids or 
@@ -2035,13 +2035,13 @@ which case they are classified as class IIb.
 • Dialysis equipment 
 • Blood pumps for heart-lung machines 
 • Hyperbaric chambers 
-• Pressure regulators for medical gases  with 
+• Pressure regulators for medical gases with 
 integrated flowmeter 
 • Medical gas mixers 
 • Moisture exchangers in breathing circuits if used 
-on unconscious or non -spontaneously breathing 
+on unconscious or non-spontaneously breathing 
 patients 
-• Oxygen concentrator used to deliver oxygen  
+• Oxygen concentrator used to deliver oxygen 
 enriched air directly to the patient 
  
  
@@ -2074,9 +2074,9 @@ Rule 14 - Devices incorporating, as an integral part, an ancillary medicinal pro
 derived from human blood or blood plasma  
 General explanation of the rule 
 This rule covers those devices incorporating, as an integral part, a substance which, if used separately, can be considered to be a medicinal product, 
-with an action ancillary to that  of the device . The principal intended action of the device must not be achieved through a pharmacological, 
+with an action ancillary to that of the device. The principal intended action of the device must not be achieved through a pharmacological, 
 immunological or metabolic action of the incorporated medicinal substance1. If the principal intended action of the device is mainly achieved by 
-the action of the medicinal substance, the integral product shall be governed by Directive 2001/83/EC or Regulation (EC) No 7 26/2004 of the 
+the action of the medicinal substance, the integral product shall be governed by Directive 2001/83/EC or Regulation (EC) No 726/2004 of the 
 European Parliament and of the Council, as applicable. For more information see the MDCG Guidance document covering the borderline between 
 medical devices and medicinal products. The same principle applies if a substance of animal origin, as defined in Art. 2(17), is part of the device 
 and has an action ancillary to that of a device. 
@@ -2097,7 +2097,7 @@ devices, are classified as class III.
 • Catheters coated with anticoagulants (e. g. heparin) 
 • Endodontic materials with antibiotics 
 • Ophthalmic irrigation solutions principally 
-intended for irrigation , which contain 
+intended for irrigation, which contain 
 components supporting the metabolism of the 
 endothelial cells of the cornea 
 • Dressings incorporating an antimicrobial agent 
@@ -2108,13 +2108,13 @@ wound
 albumin or thrombin 
 • Implants coated with human fibrinogen 
 • Blood bags incorporating heparin or other 
-substances as anticoagulant agents  which, if 
+substances as anticoagulant agents which, if 
 used separately, can be considered to be a 
 medicinal product 
 • IVF cell media with human albumin2 
 • Intra Uterine Devices (IUD) containing medicinal 
 substances3 including copper or silver 
-• Catheter lubrication gels containin g analgesia 
+• Catheter lubrication gels containing analgesia 
 e.g. lidocaine 
 Practical issues of classification 
 Note 1: The definition of ‘substance’ in Article 1 (3) of Directive 2001/83/EC is applicable as far as not excluded by the MDR (e. g. exclusion 
@@ -2124,8 +2124,8 @@ MDR, Annex VIII, chapter II, point 3.5.)
 Note 3: This only applies if the effect of the medicinal substance is ancillary – if it is the main effect, the IUD would be classified as a medicinal 
 product 
 N.B.: For the clarification of the meaning and application of ‘a substance which, if used separately, can be considered to be a medicinal product’ 
-and of ‘has an action ancillary to that of the device’, clarification which is relevant for the application of this rule , see clarification provided in 
-the respective section of the MDCG Guidance document covering the borderline between medical devices and medicinal products.  
+and of ‘has an action ancillary to that of the device’, clarification which is relevant for the application of this rule, see clarification provided in 
+the respective section of the MDCG Guidance document covering the borderline between medical devices and medicinal products. 
  
 Medical Devices 
 Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1  
@@ -2134,11 +2134,11 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
 Rule 15 - Devices used for contraception or prevention of sexually transmitted diseases 
 General explanation of the rule 
-This rule covers invasive, implantable and non -invasive medical devices for contraception or prevention  of sexually transmitted diseases , i.e. 
+This rule covers invasive, implantable and non-invasive medical devices for contraception or prevention of sexually transmitted diseases, i.e. 
 this rule is not limited to devices based on physical barriers. The rule covers contraception devices and devices used in prevention of transmission 
 of sexually transmitted diseases, where non-invasive, devices for transient or short-term use are of class IIb and long-term use or implantable 
 devices are of class III.  
-Devices for fertility monitoring or testing to facilitate conception (and not used in contraception ) are not covered by this rule. 
+Devices for fertility monitoring or testing to facilitate conception (and not used in contraception) are not covered by this rule. 
 Some devices may have dual functions, intended to be used both for contraception and prevention of the transmission of sexually transmitted 
 diseases, e.g. condoms.  
 Class Rule 15 Examples 
@@ -2163,8 +2163,8 @@ solutions used to support contact lenses placed on the ocular surface.
 The rule also covers substances and equipment specifically intended for the disinfection or sterilisation of devices intended by the manufacturer 
 to be sterilised or disinfected prior to use, as referred to in MDR Article 2(1). 
  
-This rule does not apply to physical means for the cleaning of medical devices, such as ultrasound and brushes  for general use. Such products 
-will only be medical devices if they are specifically intended for the cleaning, disinfection or sterilisation of medical dev ices. Devices specifically 
+This rule does not apply to physical means for the cleaning of medical devices, such as ultrasound and brushes for general use. Such products 
+will only be medical devices if they are specifically intended for the cleaning, disinfection or sterilisation of medical devices. Devices specifically 
 intended for physical cleaning of contact lenses are covered by this rule. 
  
  
@@ -2178,7 +2178,7 @@ IIb All devices intended specifically to be used for disinfecting, cleaning, rin
 appropriate, hydrating contact lenses are classified as class IIb. 
 • Contact lens storing solutions 
 • Cleaners for contact lenses 
-• Ultraviolet, vibration, or ultrasonic devices  for 
+• Ultraviolet, vibration, or ultrasonic devices for 
 cleaning and disinfecting contact lenses 
 IIa All devices intended specifically to be used for disinfecting or sterilising medical devices are 
 classified as class IIa,  
@@ -2186,17 +2186,17 @@ classified as class IIa,
 non-invasive medical devices  
 • Washer-disinfectors intended specifically for 
 disinfecting non-invasive medical devices 
-• Sterilisers intended to sterilise medical devices  
-(invasive or non -invasive) in a medical 
+• Sterilisers intended to sterilise medical devices 
+(invasive or non-invasive) in a medical 
 environment 
-IIb unless they are disinfecting solutions or washer -disinfectors intended specifically to be used 
-for disinfecting invasive devices, as the end point of processing 1, in which case they are 
+IIb unless they are disinfecting solutions or washer-disinfectors intended specifically to be used 
+for disinfecting invasive devices, as the end point of processing1, in which case they are 
 classified as class IIb. 
-• Solutions/disinfectors for trans  oesophageal 
+• Solutions/disinfectors for trans oesophageal 
 ultrasound probes) 
 • Washer-disinfector equipment specifically for 
 disinfecting endoscopes or other invasive devices 
-at the end point of processing  (e. g. dental 
+at the end point of processing (e. g. dental 
 equipment) 
 • Disinfectants for the fluid pathways of 
 haemodialysis equipment 
@@ -2210,7 +2210,7 @@ lenses)
  
 Practical issues of classification 
 Note 1: Including disinfecting solutions or washer-disinfectors that require no further processing for a disinfected device ready to be used. The 
-rule also covers devices where the intended use is to disinfect prion contaminations.  
+rule also covers devices where the intended use is to disinfect prion contaminations. 
  
 Rule 17 - Devices to record X-ray diagnostic images 
 General explanation of the rule 
@@ -2224,14 +2224,14 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
 of the human body. The intention of the rule is to cover primarily digital devices and analogous recording media, but not media (including digital 
 media) used for subsequent image processing and storage. 
 Class Rule 17 Examples 
-IIa Devices specifically intended for recording of diagnostic images generated by X -ray radiation 
+IIa Devices specifically intended for recording of diagnostic images generated by X-ray radiation 
 are classified as class IIa. 
 • Digital x-ray detectors for recording images 
 • Photostimulable phosphor plates 
 • X-ray films 
  
 Practical issues of classification 
-Note 1: Devices intended to emit ionizing radiation for diagnostic and or therapeutic purposes are not covered by this rule . See Rule 10.  
+Note 1: Devices intended to emit ionizing radiation for diagnostic and or therapeutic purposes are not covered by this rule. See Rule 10.  
  
 Rule 18 - Devices manufactured utilizing tissue or cells of human or animal origin or their derivatives 
 General explanation of the rule 
@@ -2253,7 +2253,7 @@ for use in body orifices
 • Collagen dermal fillers  
 • Bone graft substitutes 
 I3  unless such devices are manufactured utilising tissues or cells of animal origin, or their 
-derivatives, which are non -viable or rendered non -viable and are devices intended to come 
+derivatives, which are non-viable or rendered non-viable and are devices intended to come 
 into contact with intact skin only. 
 • Leather components of orthopaedic appliances 
  
@@ -2263,11 +2263,11 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
 54 
  
-Note 1: Derivatives are products that are processed from animal tissues and exclude s products made by animals e.g. milk, silk, beeswax, 
+Note 1: Derivatives are products that are processed from animal tissues and excludes products made by animals e.g. milk, silk, beeswax, 
 honey, propolis, royal jelly, hair, lanolin. 
-Note 2: The industrial manufacturing process for some devices may employ raw materials which contain small amounts of tallow or tal low 
-derivatives (e.g. stearates in polymers) for example for greasing the moulds. Such substances , which may be present in the final device only 
-as trace amounts, are not considered as derivatives of animal tissues for the purpose of this rule which therefore does not apply.  However, if 
+Note 2: The industrial manufacturing process for some devices may employ raw materials which contain small amounts of tallow or tallow 
+derivatives (e.g. stearates in polymers) for example for greasing the moulds. Such substances, which may be present in the final device only 
+as trace amounts, are not considered as derivatives of animal tissues for the purpose of this rule which therefore does not apply. However, if 
 such substances are a constituent part of a device the rule will apply, for example wound dressings impregnated with tallow. Such an exemption 
 applies only to classification, and not to other obligations related to devices manufactured utilising non-viable substances of animal origin, such 
 as those referred to in Annex I 13.2. 
@@ -2277,18 +2277,18 @@ skin is breached.
  
 Rule 19 - Devices incorporating or consisting of nanomaterial29 
 General explanation of the rule  
-The concept of internal exposure is a key element for the  classification incorporating or consisting of nanomaterials . In its ‘Opinion on the 
-Guidance on the Determination of Potential Health Effects of Nanoma terials Used in Medical Devices’ 30, the Scientific Committee on Emerging 
+The concept of internal exposure is a key element for the classification incorporating or consisting of nanomaterials. In its ‘Opinion on the 
+Guidance on the Determination of Potential Health Effects of Nanomaterials Used in Medical Devices’30, the Scientific Committee on Emerging 
 and Newly Identified Health Risks (SCENIHR) states as a conclusion, that the potential risk from the use of nanomaterials in medical devices is 
 mainly associated with the possibility for release of free nanoparticles from the device and the duration of exposure. Table 3 of the SCENIHR 
 Opinion estimates both external and internal exposure based on the type of device, type of application, type (location) of contact, and duration 
-of contact. As indicated in the explanation of table  3 of the SCENIHR opinion, the ‘potential internal systemic exposure of all organ systems’ is 
-what is listed, which can be expected to occur after release of free nanoparticles from invasive devices as well as from non -invasive devices in 
+of contact. As indicated in the explanation of table 3 of the SCENIHR opinion, the ‘potential internal systemic exposure of all organ systems’ is 
+what is listed, which can be expected to occur after release of free nanoparticles from invasive devices as well as from non-invasive devices in 
 contact with a breached or compromised body surface. This Table 3 uses the terms high/medium/low/negligible, as also used in the classification 
 rule. This Table 3 could be used as a starting point for correct classification. This Table 3 indicates a value for potential contact and/or external 
 exposure to the nanomaterial and potential  internal systemic exposure of all organ systems However, every individual device needs to be 
-classified taking into account its own specific characteristics with regard to the poten tial release of free nanoparticles  taking also into account 
-the exposure by the same nanomaterial via daily exposure routes., Also factors such as the number of nanomaterials in or on t he product and 
+classified taking into account its own specific characteristics with regard to the potential release of free nanoparticles taking also into account 
+the exposure by the same nanomaterial via daily exposure routes., Also factors such as the number of nanomaterials in or on the product and 
 the amount of product applied in the intended use have been taken into account. This Table 3 indicates a value for potential contact and/or 
 external exposure to the nanomaterial and potential internal systemic exposure of all organ systems. 
  
@@ -2301,37 +2301,37 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
  
 Class Rule19 Examples 
  All devices incorporating or consisting of nanomaterial are classified as  
-III —class III if they present a high1 or medium potential for internal exposure2 • Bone fillers with nanomaterials in their formulation  (not 
+III —class III if they present a high1 or medium potential for internal exposure2 • Bone fillers with nanomaterials in their formulation (not 
 polymerized before blood/tissue contact, and degradable) 
-• Superparamagnetic iron oxide nanoparticles  
+• Superparamagnetic iron oxide nanoparticles 
 (Intended use: thermal ablation of tumors or thermal modulation 
 of the tumor microenvironment by submission to alternating 
 magnetic fields) 
-• Intravascular catheter made of non -degradable polymer, with 
+• Intravascular catheter made of non-degradable polymer, with 
 nano-coating31 
 IIb — class IIb if they present a low1 potential for internal exposure • Bone fixation screws/plates with a strongly   bound nano-coating 
 high potential  
-• Solution administration set made of non -degradable polymer, 
+• Solution administration set made of non-degradable polymer, 
 with a strongly  bound nano-coating  
-IIa — class IIa if they present a negligible1 potential for internal exposure • Intravascular catheter for short term use made of non -
+IIa — class IIa if they present a negligible1 potential for internal exposure • Intravascular catheter for short term use made of non-
 degradable polymer, with nanomaterial embedded in the polymer 
 matrix    
-• Solution administration set made of non -degradable polymer, 
+• Solution administration set made of non-degradable polymer, 
 with nanomaterial embedded in the polymer matrix 
 • Dental filling materials 
  
 Practical issues of classification  
 Note 1: The high, medium, low or negligible potential of internal exposure is based on the combination of different factors such as the application 
-site of a medical device, type of contact (e.g. tissue, cells or body fluids), contact time and the type of incorporation of the nanomaterial(s ) 
-(free, fixed, embedded). When the nanomaterial is applied as coating on the surface of the device, it is important to conside r the type of 
+site of a medical device, type of contact (e.g. tissue, cells or body fluids), contact time and the type of incorporation of the nanomaterial(s) 
+(free, fixed, embedded). When the nanomaterial is applied as coating on the surface of the device, it is important to consider the type of 
 interaction with the material (chemisorption versus physisorption). When the nanomaterial is embedded in a matrix it will be important to 
 consider the degradability of the material. 
-Note 2: Internal exposure: exposure may occur via injured skin or mucous membrane, (surgically) invasive devices and implantable devices.   
+Note 2: Internal exposure: exposure may occur via injured skin or mucous membrane, (surgically) invasive devices and implantable devices.  
 Note 3: Dental materials which are placed in the patient’s teeth in a paste form, where they are cured to a solid form, may release nanomaterials 
-during a very short exposure time. For most of the exposure time, these devices contain firmly bound nanomaterials. In many c ases, grinding 
+during a very short exposure time. For most of the exposure time, these devices contain firmly bound nanomaterials. In many cases, grinding 
 and/or polishing takes place during the application of the device, and could also lead to exposure to nanomaterials. Such nanomaterials do not 
 necessarily contain the original nanomaterials present in the paste formulation.  It is very important to include this aspect in the risk assessment 
-of such devices . For classification purposes the potential internal exposure to nanomaterials from these devices can generally be considered 
+of such devices. For classification purposes the potential internal exposure to nanomaterials from these devices can generally be considered 
  
 31 Coating containing nanomaterials 
 Medical Devices 
@@ -2342,38 +2342,38 @@ Medical Device Coordination Group Document      MDCG 2021- 24 Rev.1
 negligible. Classification of this kind of materials should be based on the first state, in this example, the short exposure to the paste form which 
 has higher potential for release than the cured material. 
 Note 4: Devices with components incorporating nanomaterials that have no intended direct or indirect contact with users or patients, such as 
-the tires of wheelchairs or walking frames made from rubber reinforced with carbon black nanomaterials, should be exempt from classific ation 
+the tires of wheelchairs or walking frames made from rubber reinforced with carbon black nanomaterials, should be exempt from classification 
 under Rule 19. 
 Note 5: Medical devices not incorporating or consisting of nanomaterials can still present a potential for internal exposure to nanomaterials due 
-to degradation or wear processes. While it is very important to include this aspect in the risk assessment of such de vices, it is not a factor to 
+to degradation or wear processes. While it is very important to include this aspect in the risk assessment of such devices, it is not a factor to 
 be considered when deciding the classification under Rule 19 since this rule is only applicable for medical devices incorporating or consisting of 
 nanomaterials. 
  
 Rule 20 - Invasive devices, intended to administer medicinal product by inhalation 
 General explanation of the rule 
 This rule covers active and non-active medical devices with a respiratory route of drug delivery. 
-In contrast to other rules covering devices that administer medicinal products, R ule 20 is also specifically intended to cover medical devices 
-where the impact of the medical device on the efficacy and safety of the administered medicinal product is critical. The rule  also covers drug-
+In contrast to other rules covering devices that administer medicinal products, Rule 20 is also specifically intended to cover medical devices 
+where the impact of the medical device on the efficacy and safety of the administered medicinal product is critical. The rule also covers drug-
 delivery products that are intended to treat life-threatening conditions.  
 Class Rule 20 Examples 
 IIa All invasive devices with respect to body orifices, other than surgically invasive devices, which 
 are intended to administer medicinal products by inhalation are classified as class IIa, 
 • Spacer intended for metered dose inhalers 
-(attached to the inhaler) unless treating life -
+(attached to the inhaler) unless treating life-
 threatening conditions. 
 • Inhalers for nicotine replacement therapy 
 (nicotine not included) 
 • Oxygen delivery system with a nasal cannula 
 unless treating life-threatening conditions 
 • Inhalers and nebulisers in case their mode of 
-action has pro bably no essential impact on the 
+action has probably no essential impact on the 
 efficacy and safety of the administered 
 medicinal product or which are not intended to 
 treat life-threatening conditions 
-IIb unless their mode of action has an essential impact 1 on the efficacy and safety of the 
+IIb unless their mode of action has an essential impact1 on the efficacy and safety of the 
 administered medicinal product or they are intended to treat life- threatening conditions, in 
 which case they are classified as class IIb 
-• Nebulisers (not pre -charged with a specific 
+• Nebulisers (not pre-charged with a specific 
 medicinal product) where the failure to deliver 
 the appropriate dosage characteristics could be 
 hazardous 
@@ -2387,7 +2387,7 @@ attached to the inhaler.
  
 Practical issues of classification 
 Note 1. ‘Essential impact’ includes drug delivery systems where the device has a significant impact on factors that influence inhaled medicinal 
-product deposition within the airways including inhalation flow, aerosol velocity, the particle size  of the inhaled drug and the amount of drug 
+product deposition within the airways including inhalation flow, aerosol velocity, the particle size of the inhaled drug and the amount of drug 
 reaching the patient.  
  
 Rule 21 Devices composed of substances that are introduced via a body orifice or applied to the skin 
@@ -2396,8 +2396,8 @@ This rule covers a wide range of exclusively substance-based medical devices. In
 medical device, including those according to the definition of ‘substance’ in Article 1(3) of Directive 2001/83/EC. This is provided that they are 
 not excluded by the MDR (e.g. exclusion criteria in article 1 (6) (h)). The specific medical purpose is specified by the manufacturer from those 
 listed in the indents of Article 2(1) MDR.  
-Importantly, if the principal intended action of such substance -based medical devices is achieved or supported by pharmacological, 
-immunological or metabolic means , Directive 2001/83/EC or Regulation (EC) No 726/2004 or R ule 14 has to be applied to the product, 
+Importantly, if the principal intended action of such substance-based medical devices is achieved or supported by pharmacological, 
+immunological or metabolic means, Directive 2001/83/EC or Regulation (EC) No 726/2004 or Rule 14 has to be applied to the product, 
 respectively. 
 The classification takes into account the site of application of the medical device as well as the site where the medical device performs its action 
 in or on the human body. For the purpose of this rule nails are also considered as falling under ‘skin’. 
@@ -2452,9 +2452,9 @@ N.B.: examples provided do not imply that the products are a priori qualified as
 device has been established. 
  
 Note 1: There is a normal anatomical connection, the Eustachian tube, from the middle ear to the nasopharynx. If the Eustachian tube was to 
-be accessed from the nasopharynx direction, this would be con sidered beyond the pharynx, so this does not fulfil the criteria of ‘as far as the 
+be accessed from the nasopharynx direction, this would be considered beyond the pharynx, so this does not fulfil the criteria of ‘as far as the 
 pharynx’.  
-Note 2: In the majority of cases the drops would only enter the ear as far as the ear drum . This is regarded as applied to the skin. The outer 
+Note 2: In the majority of cases the drops would only enter the ear as far as the ear drum. This is regarded as applied to the skin. The outer 
 layer of the tympanic membrane is epithelium, so if there is an intact tympanic membrane, then the drops are applied only to the skin and has 
 its action locally, and consequently the device would be class IIa. This will be the case unless the ear drum (tympanic membrane) is perforated 
 and the product is intended to be used on perforated ear drums. 
@@ -2469,15 +2469,15 @@ General explanation of the rule
 This rule is intended for therapeutic devices whose intended functionality is dependent to a significant degree on an integrated or incorporated 
 diagnostic function. 
 Automated or ‘closed-loop’ therapeutic systems are systems in which relevant biological conditions are automatically monitored (uses feedback 
-from physiological sensors)  and is used to adjust  a therapy in order to maintain or achieve a particular physiological state. Such devices are 
-normally used in precision medicine and/or personali sed therapies for obtaining optimal therapeutic efficacy. This rule covers systems such as 
+from physiological sensors) and is used to adjust a therapy in order to maintain or achieve a particular physiological state. Such devices are 
+normally used in precision medicine and/or personalised therapies for obtaining optimal therapeutic efficacy. This rule covers systems such as 
 autonomic pharmacological (drug-delivery) and neuromodulation systems. 
 Class Rule 22 Examples 
 III Active therapeutic devices with an integrated or incorporated diagnostic function1 which 
 significantly determines the patient management by the device, such as closed loop systems 
 or automated external defibrillators, are classified as class III. 
-• Automated external defibrillators (AED)  
-including their pads/electrodes  if they are an 
+• Automated external defibrillators (AED) 
+including their pads/electrodes if they are an 
 integral part of the defibrillators1 
 • Semiautomatic external defibrillators 
 • Automated closed loop insulin delivery system 
@@ -2490,11 +2490,11 @@ patients
 (DBS) treatment of various neurological 
 conditions 
 • Closed-loop dynamic neurochemical control of 
-therapeutic interventions e.g. target -controlled 
+therapeutic interventions e.g. target-controlled 
 anaesthesia / infusion systems 
  
 Practical issues of classification 
-Note 1: ‘Integrated or incorporated diagnostic function’ means the functionality of a system including a physiological sensor s e.g. the AED 
-electrodes/pads using a feedback control to process and record changes in the patient ’s physiological state to continuously adjust a therapy . 
-The diagnostic function can be physically integrated or a component of an external sub -system. 
-Note 2: Defibrillators’ pads/electrodes placed on the market on their own may be considered under Rule 9  or Rule 1.
+Note 1: ‘Integrated or incorporated diagnostic function’ means the functionality of a system including a physiological sensors e.g. the AED 
+electrodes/pads using a feedback control to process and record changes in the patient’s physiological state to continuously adjust a therapy. 
+The diagnostic function can be physically integrated or a component of an external sub-system. 
+Note 2: Defibrillators’ pads/electrodes placed on the market on their own may be considered under Rule 9 or Rule 1.

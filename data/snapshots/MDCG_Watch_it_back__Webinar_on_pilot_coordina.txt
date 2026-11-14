@@ -1,0 +1,42 @@
+Expression of interest form for the coordinated assessment pilot procedure  
+CLINICAL INVESTIGATIONS UNDER MDR/ PERFORMANCE STUDIES UNDER IVDR
+To be filled out by the sponsor or the legal representative.
+Application title
+Please provide a title and short description of the clinical investigation or performance study.
+1. Sponsor Information
+Name of sponsor: [sponsor’s name]
+Address: [sponsor’s address]
+Name of the main contact point for the Coordinated Assessment Procedure Pilot: [name of contact person]
+Email: [contact person’s email]
+Phone number: [contact person’s phone number]
+2. Study Details: 
+Clinical Investigation under MDR
+Performance Study under IVDR Article 58 (1a)
+Performance Study under IVDR Article 58 (1b or c)
+Performance Study under IVDR Article 58 (2)
+Objective: [objective of the Investigation/Performance Study] 
+Study Design: [brief description of study design]
+Population: [target population]
+Duration: [estimated number of months from start date to end of trial)]- 
+3. Device Description
+Main Investigational Device risk-class III
+Main Investigational Device risk-class IIb invasive
+Main Investigational Device risk-class IIa invasive
+Main Investigational Device IVD
+Name of the Device: [device name]
+Intended Use: [intended use of the device]
+Description: [brief description of the device]
+Combined study with a medicinal product: [yes/no]
+4. Member States Involved
+Proposed coordinating Member State: [name of the proposed coordinating Member State]
+Other Member States involved:
+[Member State 1]
+[Member State 2]
+[Member State 3]
+[Add as necessary]
+Please consult the list of available Member States for the pilot coordinated assessment. 
+5. Desired timing for submission to Competent Authorities for the Coordinated Assessment Procedure Pilot: [week (if known), month, year]
+The secretariat can be contacted at SANTE-CA-CIPS@ec.europa.eu.
+By submitting this document, the information provided will be collected, processed, and stored in compliance with the Regulation 2018/1725 (“EUDPR”). You can consult the privacy statement here.
+
+Date:

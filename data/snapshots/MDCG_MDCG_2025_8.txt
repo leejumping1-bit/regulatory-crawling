@@ -40,22 +40,22 @@ Page 3 of 44
  
 Table of contents 
  
-1. Introduction and scope ................................ ................................ ................................ ... 4 
-2. Terminology ................................ ................................ ................................ ................... 5 
-3. Basic UDI-DI and Master UDI-DI ................................ ................................ .................... 8 
-3.1 Spectacle frames – Basic and Master UDI-DI assignment ................................ ............... 9 
-3.2 Spectacle lenses – Basic and Master UDI-DI assignment ................................ ..............14 
+1. Introduction and scope ................................................................................................... 4 
+2. Terminology ................................................................................................................... 5 
+3. Basic UDI-DI and Master UDI-DI .................................................................................... 8 
+3.1 Spectacle frames – Basic and Master UDI-DI assignment ............................................... 9 
+3.2 Spectacle lenses – Basic and Master UDI-DI assignment ..............................................14 
 3.3 Ready-to-wear reading spectacles – Basic and Master UDI-DI assignment....................21 
 4. Master UDI-DI assignment on container package, packaging levels and packaging 
-variants ................................ ................................ ................................ ................................ 27 
+variants ................................................................................................................................27 
 5. Vigilance reporting for spectacle frames, spectacle lenses and ready-to-wear reading 
-spectacles ................................ ................................ ................................ ............................27 
+spectacles ............................................................................................................................27 
 6. Timeline for the assignment, application and Eudamed registration of device’s Master 
-UDI-DIs ................................ ................................ ................................ ................................ 28 
-7. Annex ................................ ................................ ................................ ............................28 
-7.1 Spectacle frames – decision tree ................................ ................................ ....................29 
-7.2 Spectacle lenses – additional infographic ................................ ................................ .......31 
-7.3 Ready-to-wear reading spectacles – decision tree ................................ ..........................32 
+UDI-DIs ................................................................................................................................28 
+7. Annex ............................................................................................................................28 
+7.1 Spectacle frames – decision tree ....................................................................................29 
+7.2 Spectacle lenses – additional infographic .......................................................................31 
+7.3 Ready-to-wear reading spectacles – decision tree ..........................................................32 
  
   
 Medical Devices 
@@ -63,20 +63,20 @@ Medical Device Coordination Group Document MDCG 2025-8 Rev. 1
 Page 4 of 44 
  
 1. Introduction and scope 
-The introduction of the Unique Device Identification (UDI) system referred to in Article 27  of 
-Regulation (EU) 2017/745 on medical devices ( MDR)1 aims to ensure an adequate level of 
+The introduction of the Unique Device Identification (UDI) system referred to in Article 27 of 
+Regulation (EU) 2017/745 on medical devices (MDR)1 aims to ensure an adequate level of 
 identification and traceability with respect to medical devices. Basic UDI-DIs, UDI-DIs and UDI-
 PIs shall be assigned (in compliance with the rules of the designated issuing entities) by 
 manufacturers to all devices, other than custom-made devices, prior to their placement on the 
 market. 
-To further strengthen and enhance traceability and recording of UDIs, manufa cturers shall 
-register Basic UDI -DIs and UDI -DIs in the European Database on Medical Devices 
+To further strengthen and enhance traceability and recording of UDIs, manufacturers shall 
+register Basic UDI-DIs and UDI-DIs in the European Database on Medical Devices 
 (Eudamed)2. 
 For certain groups of devices that are presenting a high level of individualisation (‘highly 
-individualised devices’, HID), Annex VI, Part C MDR has b een amended with provisions on 
+individualised devices’, HID), Annex VI, Part C MDR has been amended with provisions on 
 assignment of Master UDI-DI to HIDs. Provisions for spectacle frames, spectacle lenses and 
 ready-to-wear reading spectacles have been introduced in Section 6.6.2 by Commission 
-Delegated Regulation (EU) 202 5/1920 on Master UDI -DI for spectacle frames, spectacle 
+Delegated Regulation (EU) 2025/1920 on Master UDI-DI for spectacle frames, spectacle 
 lenses and ready-to-wear reading spectacles3. 
 Master UDI-DI is intended as the identifier of a group of HID (i.e. contact lenses, spectacle 
 frames, spectacle lenses and ready-to-wear reading spectacles) presenting specific similarities 
@@ -84,8 +84,8 @@ with respect to defined design (clinically and non-clinically) relevant paramete
 Even though all economic operators have to contribute according to Article 25 MDR, it is the 
 sole responsibility of the manufacturer to comply with the UDI requirements in order to ensure 
 an appropriate level of traceability of the device, according to Article 10(7) MDR. 
-This document aims to provi de guidance in the implementation of Master UDI -DI rules for 
-spectacle frames, spectacle lenses  and ready -to-wear reading spectacles  as regards its 
+This document aims to provide guidance in the implementation of Master UDI-DI rules for 
+spectacle frames, spectacle lenses and ready-to-wear reading spectacles as regards its 
 structure, assignment, labelling and registration in Eudamed. 
 NOTES: This document is intended to be read in conjunction with Regulation (EU) 2017/745 
 on medical devices (MDR), Commission Delegated Regulation (EU) 2025/1920, MDCG 2025-
@@ -116,20 +116,20 @@ Page 5 of 44
 Spectacle frame: Highly individualised device intended to hold spectacle lenses in front of the 
 patient's eyes. As an adaptable highly individualised medical device (see MDCG 2021-38, page 
 3), it is fitted and adjusted at the point of care according to the manufacturer's instructions. 
-These necessary steps are traditionally carried out by a n eye care professional (e.g. optician 
+These necessary steps are traditionally carried out by an eye care professional (e.g. optician 
 or an optometrist) to adapt to the specific anatomical features of an individual patient prior to 
 use. The frame may be part of a combination with other highly individualised medical devices 
 (e.g. lenses) that are assembled and shaped to form a spectacle. 
-Spectacle lens:  Highly individuali sed device with an intended purpose to correct vision 
-impairment such as eye refractive errors  (myopia, hyperopia, astigmatism and presbyopia ). 
+Spectacle lens: Highly individualised device with an intended purpose to correct vision 
+impairment such as eye refractive errors (myopia, hyperopia, astigmatism and presbyopia). 
 Spectacle lenses are supplied following a prescription from an eye care professional (e.g. 
-ophthalmologist). The spectacle lens es may be assembled and shaped to be  part of a 
+ophthalmologist). The spectacle lenses may be assembled and shaped to be part of a 
 combination with another highly individualised medical device (e.g. spectacle frame) to form a 
 spectacle. 
-Ready-to-wear reading spectacle:  Highly individualised device intended to correct vision 
-impairment for near vision activities  and reading. The device is ready to use and is a pre-
+Ready-to-wear reading spectacle: Highly individualised device intended to correct vision 
+impairment for near vision activities and reading. The device is ready to use and is a pre-
 mounted non-prescription reading spectacle. This device is composed of two identical single-
-vision spectacle lenses with limited spherical power  range assembled and shaped into a 
+vision spectacle lenses with limited spherical power range assembled and shaped into a 
 spectacle frame. 
 Full-rim spectacle frame: A type of spectacle in which the frame front completely surrounds 
 the lenses with a frame material, either metal, plastic or others or a combination of it. 
@@ -170,7 +170,7 @@ used, but are not limited to, are woods, bamboo and carbon fibre.
 Combination spectacle frame12: 
 A spectacle frame in which at least the principal components (rims, bridge, lugs and temples) 
 are made of at least two different material categories (categories of material include, but are 
-not limited to, metal, plastic and natural organic materials). Com mon materials used for 
+not limited to, metal, plastic and natural organic materials). Common materials used for 
 combination frames include, but are not limited to, Monel, stainless steel, titanium, gold, silver, 
 cellulose acetate, propionate, nylon, polycarbonate, woods, bamboo and carbon fibre. 
 Organic lenses: Uncut (round) spectacle lenses with both sides optically worked and finished 
@@ -196,20 +196,20 @@ Medical Device Coordination Group Document MDCG 2025-8 Rev. 1
 Page 7 of 44 
  
 Basic UDI-DI: Primary identifier of device sharing the same intended purpose, risk class and 
-same essential design characteristics. It is the main key for records in the UDI database  and 
+same essential design characteristics. It is the main key for records in the UDI database and 
 is referenced in the EU declaration of conformity. It is not to be reflected on device label. 
 Master UDI-DI: Unique identifier used for grouping certain devices presenting a high level of 
 individualisation (‘highly individualised devices’, HID) as for spectacle frames, spectacle lenses 
 and ready-to-wear reading spectacles as defined in Commission Delegated Regulation (EU) 
 2025/1920. It is acting as UDI-DI as defined in Part C of Annex VI to the MDR. Such HID share 
-the same combination of design parameters (clinical and non -clinical). It is the access key to 
+the same combination of design parameters (clinical and non-clinical). It is the access key to 
 the device dataset registered in Eudamed. Master UDI-DI assignment for manufacturer should 
 follow the rules defined in the following documents and reflected in this guidance document: 
 • Regulation (EU) 2017/745 (MDR) 
 • Commission Delegated Regulation (EU) 2025/1920 
 • EU designated issuing entities standard. 
 UDI-PI: according to MDR Annex VI, Part C, Section 1, the different types of UDI-PIs include 
-lot number and /or manufacturing date  among others . The UDI (Master UDI -DI + UDI -PI) 
+lot number and/or manufacturing date among others. The UDI (Master UDI-DI + UDI-PI) 
 intends to enable the automatic identification of the individual device to conform with the MDR 
 UDI requirements. 
   
@@ -218,11 +218,11 @@ Medical Device Coordination Group Document MDCG 2025-8 Rev. 1
 Page 8 of 44 
  
 3. Basic UDI-DI and Master UDI-DI 
-Assignment rules of UDI -DI per the MDR is defined in its Annex VI , Part C , Section 3.9. 
+Assignment rules of UDI-DI per the MDR is defined in its Annex VI, Part C, Section 3.9. 
 However, the assignment rules of Master UDI-DI differ from the assignment rules of UDI-DI. It 
 also affects the triggers which requires the assignment of a new UDI-DI per MDR. 
-Master UDI -DI is acting as UDI -DI and should be assigned to devices sharing the same 
-essential design characteristics,  the same intended purpose  and the same combination of 
+Master UDI-DI is acting as UDI-DI and should be assigned to devices sharing the same 
+essential design characteristics, the same intended purpose and the same combination of 
 design parameters. 
 The table below compares different device identifiers given by the assignment of Master UDI-
 DI for spectacle frames, spectacle lenses and ready-to-wear reading spectacles. 
@@ -265,7 +265,7 @@ Parameters Values (assignment triggers)
 Frame construction Full-rim, half-rim, rimless, other types 
 Frame material Metal, plastic, Combination, other types 
  
-Basic UDI -DI assignment scheme for spectacle frames reflecting parameter s and values  
+Basic UDI-DI assignment scheme for spectacle frames reflecting parameters and values 
 (assignment triggers): 
  
  
@@ -273,7 +273,7 @@ Master UDI-DI
 Commission Delegated Regulation (EU) 2025/1920: “A UDI-DI shall be assigned to spectacle 
 frames that have the same combination of design parameters, including at least the horizontal 
 boxed lens size (‘Master UDI-DI’)”. 
-Master UDI-DI design parameter is the horizontal boxed lens size  with discrete values  in a 
+Master UDI-DI design parameter is the horizontal boxed lens size with discrete values in a 
 typical range between 40 mm and 60 mm (assignment triggers). 
 Master UDI-DI assignment for spectacle frames is a combination of 2 Basic UDI-DI parameters 
 values and a Master UDI-DI design parameter value (assignment trigger): 
@@ -285,12 +285,12 @@ Medical Device Coordination Group Document MDCG 2025-8 Rev. 1
 Page 10 of 44 
  
 Basic UDI-DI and Master UDI-DI 
-Basic UDI -DI and  Master UDI -DI assignment scheme for spectacle frames reflecting 
+Basic UDI-DI and Master UDI-DI assignment scheme for spectacle frames reflecting 
 parameters and values (assignment triggers) + UDI-PI: 
  
  
 Decision tree for the assignment of Basic UDI-DI 
-A decision tree for the assignment of the Basic UDI -DI for spectacle frames is shown below. 
+A decision tree for the assignment of the Basic UDI-DI for spectacle frames is shown below. 
 Another version of the decision tree, which includes the Master UDI-DI assignment, is available 
 in the Annex. 
  
@@ -385,10 +385,10 @@ Full-rim, plastic Basic UDI-DI #3 50 M-UDI-DI #6
 Model ref A 
 Half-rim, metal Basic UDI-DI #4 48 M-UDI-DI #7 
  
-Note: Parameters in bold and underlined in 1 example reflect Basic UDI -DI and/or Master UDI -DI 
+Note: Parameters in bold and underlined in 1 example reflect Basic UDI-DI and/or Master UDI-DI 
 assignment triggers compared to the previous example. 
  
-*Different spectacle frame brands/trademarks and catalogue numbers are not Master UDI -DI 
+*Different spectacle frame brands/trademarks and catalogue numbers are not Master UDI-DI 
 assignment triggers 
   
 Medical Devices 
@@ -396,11 +396,11 @@ Medical Device Coordination Group Document MDCG 2025-8 Rev. 1
 Page 13 of 44 
  
 Labelling for spectacle frames 
-The rules on UDI carrier in Section 4 of Part C of Annex VI to the MDR  and relevant issuing 
+The rules on UDI carrier in Section 4 of Part C of Annex VI to the MDR and relevant issuing 
 entity (for instance GS1) standard shall apply to the Master UDI-DI. 
 The label layout shown below is for illustrative purposes only, to show how the UDI (Master 
 UDI-DI + UDI-PI) might appear, and does not reflect a requirement to align the exact layout of 
-the device label as shown,  or as a presumption of compliance with the MDR or any other 
+the device label as shown, or as a presumption of compliance with the MDR or any other 
 regulatory requirements. 
  
  
@@ -425,18 +425,18 @@ organic or mineral
 Design Single vision, multifocal, power variation lens, other 
 types 
  
-Basic UDI -DI assignment scheme for spectacle lenses reflecting parameters and values  
+Basic UDI-DI assignment scheme for spectacle lenses reflecting parameters and values 
 (assignment triggers): 
  
  
 Master UDI-DI 
 Commission Delegated Regulation (EU) 2025/1920: “A UDI-DI shall be assigned to spectacle 
 lenses that have the same combination of design parameters, including at least groups of 
-mean spheres (spherical equivalent power), groups of addition power and groups of similar  
+mean spheres (spherical equivalent power), groups of addition power and groups of similar 
 vision impairments (‘Master UDI-DI’). 
-Master UDI -DI design parameters for assignment are based on intended purpose of a 
+Master UDI-DI design parameters for assignment are based on intended purpose of a 
 spectacle lens to correct vision impairments, defined by its nominal prescription (spherical 
-power, cylinder if applicable and addition if applicable)  expressed in  groups of spherical 
+power, cylinder if applicable and addition if applicable) expressed in groups of spherical 
 equivalent power values range and 3 groups of addition values range. 
   
  
@@ -464,10 +464,10 @@ M = +1.00 D + (+2.00 D/2) or +3.00D + (-2.00 D/2) = +2,00 D
 +2,00 D (-4,00) 
 M = -2.00 D + (+4.00 D/2) or +2.00 D + (-4.00 D/2) = 0.00 D 
  
-The result  of spherical equivalent power  allows to position the spectacle lens in a typical 
-spectacle lens spherical equivalent power  values range intended to correct  specific vision 
+The result of spherical equivalent power allows to position the spectacle lens in a typical 
+spectacle lens spherical equivalent power values range intended to correct specific vision 
 impairment group categories that are specified as follows: 
-• Spherical equivalent power  values range < 0.00 D without prescribed cylinder are 
+• Spherical equivalent power values range < 0.00 D without prescribed cylinder are 
 spherical or aspherical spectacle lens in concave minus range and are usually prescribed 
 to correct vision impairment myopia. 
  
@@ -483,16 +483,16 @@ eye does not need correction seen as emmetropia, but the other patient eye does.
 lens still in afocal range and are usually prescribed when one patient’s eye does need a 
 correction for vision impairment emmetropia + astigmatism. 
  
-• Spherical equivalent power  values range >  0.00D without prescribed cylinder are 
+• Spherical equivalent power values range > 0.00D without prescribed cylinder are 
 spherical or aspherical spectacle lens in convex positive range and are usually prescribed 
 to correct vision impairment hyperopia. 
  
-• Spherical equivalent power  values range >  0.00D with prescribed cylinder  are toric 
-spectacle lens still in con vex positive range and are usually prescribed to correct vision 
+• Spherical equivalent power values range > 0.00D with prescribed cylinder are toric 
+spectacle lens still in convex positive range and are usually prescribed to correct vision 
 impairment hyperopia + astigmatism. 
 Another spectacle lens design parameter to consider, if applicable, is addition in dioptres that 
 can be prescribed to complement one of the 6 vision impairment group categories mentioned 
-previously. This spectacle lens is  either power variation or multifocal lens  usually to correct 
+previously. This spectacle lens is either power variation or multifocal lens usually to correct 
 additional vision impairment presbyopia. This parameter for Master UDI-DI assignment is split 
 Medical Devices 
 Medical Device Coordination Group Document MDCG 2025-8 Rev. 1  
@@ -509,16 +509,16 @@ trigger) between ≥ 1.25 D and < 2.00 D
 • Advanced/High presbyopia with a typical nominal prescribed addition value in range 
 (assignment trigger) ≥ 2.00 D 
 For one combination of Basic UDI-DI parameters values (assignment triggers) and taking into 
-account the spectacle lens prescription, the manufacturer will assign a  Master UDI-DI to the 
+account the spectacle lens prescription, the manufacturer will assign a Master UDI-DI to the 
 spectacle lens based on its intended purpose link to vision impairments. Its intended purpose 
 start with its initial nominal prescription (spherical power, cylinder) expressed in a spherical 
-equivalent power range (assignment trigger) and in group of addition s values range if 
+equivalent power range (assignment trigger) and in group of additions values range if 
 applicable (assignment trigger). 
 Master UDI-DI assignment scheme for spectacles lenses reflecting parameters and values 
 ranges (assignment triggers): 
  
  
-Basic UDI -DI and Master UDI-DI assignment scheme for spectacle lenses reflecting 
+Basic UDI-DI and Master UDI-DI assignment scheme for spectacle lenses reflecting 
 parameters and value ranges (assignment triggers) + UDI-PI: 
  
   
@@ -741,7 +741,7 @@ presbyopia
 “advanced/high” 
 M-UDI-DI #9 
  
-Note: Parameter s in bold and underlined in 1 example reflect Basic UDI -DI and/or Master UDI -DI 
+Note: Parameters in bold and underlined in 1 example reflect Basic UDI-DI and/or Master UDI-DI 
 assignment triggers compared to the previous example. 
  
 * Different spectacle lens brands/trademarks and catalogue number are not Master UDI-DI assignment 
@@ -751,11 +751,11 @@ Medical Device Coordination Group Document MDCG 2025-8 Rev. 1
 Page 20 of 44 
  
 Labelling for spectacle lenses 
-The rules on UDI carrier in section 4 of Part C of Annex VI to the MDR  and relevant issuing 
+The rules on UDI carrier in section 4 of Part C of Annex VI to the MDR and relevant issuing 
 entity (for instance GS1) standard shall apply to the Master UDI-DI. 
 The labels layout presented below are for illustrative purposes only to reflect how the UDI 
 (Master UDI-DI + UDI-PI) might appear and does not reflect a requirement to align device 
-labelling exact layout as shown , or seen as a presumption of confor mity to the MDR or any 
+labelling exact layout as shown, or seen as a presumption of conformity to the MDR or any 
 other regulatory requirements. 
  
  
@@ -789,7 +789,7 @@ Master UDI-DI design parameter:
 • Frame horizontal boxed lens size with discrete values in a typical range between 40 
 mm and 60 mm (assignment triggers) 
  
-• Lens spherical power  with discrete values in the range : +1.00 D to +3.50 D 
+• Lens spherical power with discrete values in the range: +1.00 D to +3.50 D 
 (assignment triggers) 
   
 
@@ -801,7 +801,7 @@ Ready to wear reading spectacles Master UDI-DI assignment scheme:
  
  
 Basic UDI-DI and Master UDI-DI 
-Basic UDI-DI and Master UDI -DI assignment scheme for ready-to wear reading spectacles 
+Basic UDI-DI and Master UDI-DI assignment scheme for ready-to wear reading spectacles 
 reflecting parameter and values (assignment triggers) + UDI-PI: 
  
   
@@ -822,7 +822,7 @@ Medical Device Coordination Group Document MDCG 2025-8 Rev. 1
 Page 24 of 44 
  
 Decision trees for the assignment of Master UDI-DI 
-Decision trees for the assignment of Master UDI -DIs for ready-to-wear reading spectacles 
+Decision trees for the assignment of Master UDI-DIs for ready-to-wear reading spectacles 
 taking as examples a Basic UDI-DI with a value A and a Basic UDI-DI with a value E previously 
 developed in Basic UDI-DI decision tree are shown below. 
  
@@ -943,7 +943,7 @@ combination,
 Lens: mineral 
 Basic UDI-DI #3 48 +1.50 M-UDI-DI #6 
  
-Note: Parameter s in bold and underlined in 1 example reflect Basic UDI -DI and/or Master UDI -DI 
+Note: Parameters in bold and underlined in 1 example reflect Basic UDI-DI and/or Master UDI-DI 
 assignment triggers compared to the previous example. 
  
 * Different spectacle ready to wear reading spectacles brands/trademarks and catalogue numbers are 
@@ -954,7 +954,7 @@ Medical Device Coordination Group Document MDCG 2025-8 Rev. 1
 Page 26 of 44 
  
 Labelling for ready-to-wear reading spectacles 
-The rules on UDI carrier in section 4 of Part C of Annex VI to the MDR  and relevant issuing 
+The rules on UDI carrier in section 4 of Part C of Annex VI to the MDR and relevant issuing 
 entity (for instance GS1) standard shall apply to the Master UDI-DI. 
 The label layout shown below is for illustrative purposes only, to show how the UDI (Master 
 UDI-DI + UDI-PI) might appear, and does not reflect a requirement to align the exact layout of 
@@ -973,15 +973,15 @@ Page 27 of 44
 4. Master UDI-DI assignment on container package, packaging 
 levels and packaging variants 
 According to Part C of Annex VI to the MDR, higher levels of packaging must have their own 
-UDI-DI. As the Master UDI -DI replaces the UDI -DI for spectacle frame s, spectacle lens and 
+UDI-DI. As the Master UDI-DI replaces the UDI-DI for spectacle frames, spectacle lens and 
 ready-to-wear reading spectacles, higher levels of packaging must have their own Master UDI-
 DI, if applicable. 
-Spectacle frames, spectacle lenses and ready-to-wear reading spectacles : Typically 1 
+Spectacle frames, spectacle lenses and ready-to-wear reading spectacles: Typically 1 
 sale/trade unit corresponds to 1 spectacle frame or 1 spectacle lens or 1 ready-to-wear reading 
-spectacle. Hence, higher levels of packaging than device packaging  (cartons) are typically 
+spectacle. Hence, higher levels of packaging than device packaging (cartons) are typically 
 containing frames or lenses or ready-to-wear reading spectacles where multiple Master UDI-
 DIs have been assigned to the devices. Consequently, higher levels of packaging are most 
-often to be considered as shipping containers for logistic purpose  and should not have an 
+often to be considered as shipping containers for logistic purpose and should not have an 
 assigned Master UDI-DI reflecting its contents. 
 In the event of a secondary packaging containing multiple devices (sale/trade items) with same 
 assigned Master UDI-DI and corresponding to 1 sales unit, a Master UDI-DI may have to be 
@@ -989,19 +989,19 @@ assigned to the higher level of packaging other than device package to reflect i
  
 5. Vigilance reporting for spectacle frames, spectacle lenses and 
 ready-to-wear reading spectacles 
-For spectacle frame s, spectacle lens es and ready -to-wear reading spectacle s as high ly 
-individualised devices, in case of vigilance reporting  following a  serious incident, the 
-manufacturer should provide the UDI (M aster UDI-DI + UDI-PI) of devices involved through  
+For spectacle frames, spectacle lenses and ready-to-wear reading spectacles as highly 
+individualised devices, in case of vigilance reporting following a serious incident, the 
+manufacturer should provide the UDI (Master UDI-DI + UDI-PI) of devices involved through 
 the Manufacturer Incident Report (MIR) form (both when using a PDF MIR16 and the Eudamed 
 Vigilance and Post-Market Surveillance module). 
-Since one Master UDI-DI encompasses a range of devices  (group of devices) that can have 
-multiple references, catalogue numbers and multiple PI’s values , it is important that the 
+Since one Master UDI-DI encompasses a range of devices (group of devices) that can have 
+multiple references, catalogue numbers and multiple PI’s values, it is important that the 
 manufacturer provide devices UDI (Master UDI-DI + UDI-PI) but also segregate more 
 precisely, through its internal QMS/product traceability/product internal codification, devices 
-involved in the serious incident reflected by  at least  one UDI (Master UDI -DI + UDI-PI) 
+involved in the serious incident reflected by at least one UDI (Master UDI-DI + UDI-PI) 
 assignment. 
 Note: due to the timeline for the application of the Master UDI-DI assignment obligation, there 
-is a possibility that spectacle frames, spectacle lenses and ready -to-wear reading spectacles 
+is a possibility that spectacle frames, spectacle lenses and ready-to-wear reading spectacles 
 may not yet be registered in the UDI/Devices Eudamed module when it becomes mandatory. 
 When issuing entities Master UDI-DI codification standard will be fully available, manufacturers 
 should engage with an issuing entity as soon as possible, and at least before the Vigilance 
@@ -1016,24 +1016,24 @@ Page 28 of 44
  
 6. Timeline for the assignment, application and Eudamed 
 registration of device’s Master UDI-DIs 
-Commission Delegated Regulation (EU) 2025/1920 on Master UDI -DI for spectacle frames, 
+Commission Delegated Regulation (EU) 2025/1920 on Master UDI-DI for spectacle frames, 
 spectacle lenses and ready-to-wear reading spectacles was published in the Official Journal 
 of the European Union (OJEU) on 23/09/2025 and entered into force on 13/10/2025. It applies 
-from 01/11/2028, providing three-years transitional period as from its entry into force before  
-the assignment of Master UDI-DI to spectacle frames, spectacle lens es and ready-to-wear 
+from 01/11/2028, providing three-years transitional period as from its entry into force before 
+the assignment of Master UDI-DI to spectacle frames, spectacle lenses and ready-to-wear 
 reading spectacles labelling becomes mandatory. 
-The “MDCG 2025-7 Position Paper: Timelines of the implementation of ‘Master UDI -DI’ to 
+The “MDCG 2025-7 Position Paper: Timelines of the implementation of ‘Master UDI-DI’ to 
 contact lenses and spectacle frames, spectacle lenses and ready to wear reading spectacles”17 
-provides timeline clarification for highly individualised device (HID) manufactu rers on Master 
+provides timeline clarification for highly individualised device (HID) manufacturers on Master 
 UDI-DI assignment and device labelling requirement in regard to the Class I device 
 requirements laid down in Article 123(f) MDR. Eudamed device registration for HID is also 
 clarified against the Eudamed gradual roll-out timeline applicable to all medical devices other 
 than HID. 
-Spectacle frames, spectacle lens, ready to wear reading spectacles produced prior to 1 st of 
+Spectacle frames, spectacle lens, ready to wear reading spectacles produced prior to 1st of 
 November 2028 are not required to have a Master UDI-DI on the label. 
 All this information is available on the section “Master UDI-DI for highly individualised devices” 
 of the Commission webpage “Public Health > Medical Devices - Topics of Interest > Unique 
-Device Identifier - UDI”18.More information is available in  the Eudamed information centre19 
+Device Identifier - UDI”18.More information is available in the Eudamed information centre19 
 and in the user guide20 of the UDI/Devices Registration module of Eudamed21. 
  
 7. Annex 
