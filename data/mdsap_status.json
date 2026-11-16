@@ -1,1 +1,9 @@
-{"status": "error", "checked_at": "2026-11-16T04:04:13.746945+00:00", "sources": {"p0002": "error", "documents_rss": "error", "news_rss": "error"}}
+{
+  "status": "error",
+  "checked_at": "2026-11-16T04:52:42.403825+00:00",
+  "sources": {
+    "p0002": "error",
+    "documents_rss": "error",
+    "news_rss": "error"
+  }
+}
