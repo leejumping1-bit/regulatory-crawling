@@ -1,0 +1,166 @@
+EN   EN 
+ 
+ 
+ 
+EUROPEAN 
+COMMISSION  
+Brussels, 20.11.2026  
+C(2026) 8632 final 
+ 
+COMMISSION IMPLEMENTING DECISION 
+of 20.11.2026 
+on the selection of a medical device for joint clinical assessment at Union level 
+(Text with EEA relevance) 
+ 
+EN 1  EN 
+COMMISSION IMPLEMENTING DECISION 
+of 20.11.2026 
+on the selection of a medical device for joint clinical assessment at Union level 
+(Text with EEA relevance) 
+THE EUROPEAN COMMISSION, 
+Having regard to the Treaty on the Functioning of the European Union, 
+Having regard to Regulation (EU) 2021/2282 of the European Parliament and of the Council 
+of 15 December 2021 on health technology assessment and amending Directive 2011/24/EU1, 
+and in particular Article 7(4) thereof, 
+Whereas: 
+(1) Pursuant to Article 7(4) of Regulation (EU) 2021/2282, after seeking a 
+recommendation from the Member State Coordination Group on Health Technology 
+Assessment established under Article 3 of that Regulation (‘the Coordination Group’), 
+the Commission is to adopt a decision, by means of an implementing act, at least every 
+two years selecting medical devices and in vitro diagnostic medical devices for joint 
+clinical assessment. The Commission is to select those devices from the devices for 
+which the relevant expert panels designated pursuant to Article 106(1) of Regulation 
+(EU) 2017/745 of the European Parliament and of the Council2 (‘the expert panels’) 
+have provided a scientific opinion or their views. 
+(2) Pursuant to Article 3(2) of Commission Implementing Regulation (EU) 2024/26993, 
+the European Medicines Agency is to provide, no later than 15 days after the end of 
+the quarter concerned, the Commission acting as secretariat of the Coordination Group 
+(‘the HTA secretariat’) with information on all medical devices and in vitro diagnostic 
+medical devices for which the expert panels provided a scientific opinion or their 
+views in the framework of the clinical evaluation consultation procedure (‘CECP’) 
+pursuant to Article 54 of Regulation (EU) 2017/745 or the performance evaluation 
+ 
+1 OJ L 458, 22.12.2021, p. 1, ELI: http://data.europa.eu/eli/reg/2021/2282/oj. 
+2 Regulation (EU) 2017/745 of the European Parliament and of the Council of 5 April 2017 on medical 
+devices, amending Directive 2001/83/EC, Regulation (EC) No 178/2002 and Regulation (EC) 
+No 1223/2009 and repealing Council Directives 90/385/EEC and 93/42/EEC (OJ L 117, 5.5.2017, p. 1, 
+ELI: http://data.europa.eu/eli/reg/2017/745/oj). 
+3 Commission Implementing Regulation (EU) 2024/2699 of 18 October 2024 laying down, pursuant to 
+Regulation (EU) 2021/2282 of the European Parliament and of the Council, detailed procedural rules 
+for the cooperation of the Member State Coordination Group on Health Technology Assessment and the 
+Commission with the European Medicines Agency in the form of exchange of information as regards 
+the joint clinical assessment of medicinal products and medical devices and in vitro diagnostic medical 
+devices and as regards the joint scientific consultation on medicinal products and medical devices (OJ 
+L, 2024/2699, 21.10.2024, ELI: http://data.europa.eu/eli/reg_impl/2024/2699/oj). 
+EN 2  EN 
+consultation procedure (‘PECP’) pursuant to Article 48(6) of Regulation (EU) 
+2017/746 of the European Parliament and of the Council4. 
+(3) Pursuant to Article 4(2) of Implementing Regulation (EU) 2024/2699, the HTA 
+secretariat is to make that information available to the Coordination Group’s subgroup 
+on joint clinical assessments (‘the JCA Subgroup’) for further analysis in the 
+preparation of the recommendation referred to in Article 7(4) of Regulation (EU) 
+2021/2282. 
+(4) On 13 July 2026, the European Medicines Agency provided the HTA secretariat with 
+information on all medical devices and in vitro diagnostic medical devices for which 
+the expert panels provided a scientific opinion or their views during the period from 
+1 April 2026 to 30 June 2026. The HTA secretariat made that information available to 
+the JCA Subgroup for further analysis in the preparation of the recommendation 
+referred to in Article 7(4) of Regulation (EU) 2021/2282. 
+(5) Based on the analysis of the JCA Subgroup, on 16 September 2026, the Coordination 
+Group recommended that the Commission select for joint clinical assessment the 
+medical devices under the names ‘PRIMA Products’ with CECP dossier No 
+EMA/EX/0000340980 and ‘Disposable Cervical Photodynamic Therapy Lamp 
+(CEVIRA device)’ with CECP dossier No EMA/EX/0000336395. 
+(6) The medical devices and in vitro diagnostic medical devices are to be selected for joint 
+clinical assessment based on one or more of the criteria listed in points (a) to (f) of 
+Article 7(4) of Regulation (EU) 2021/2282, namely, unmet medical needs, first in 
+class, potential impact on patients, public health or healthcare systems, incorporation 
+of software using artificial intelligence, machine learning technologies or algorithms, 
+significant cross-border dimension and major Union-wide added value. 
+(7) The medical device under the name ‘PRIMA Products’ recommended by the 
+Coordination Group complies with the criteria listed in Article 7(4), points (a), (b), (c), 
+(e) and (f), of Regulation (EU) 2021/2282. 
+(8) In particular, the medical device under the name ‘PRIMA Products’ addresses an 
+unmet medical need for the restoration of limited visual perception in severely sight 
+impaired persons with functional optical nerve and retinal ganglion cell layer who 
+have lost their central vision due to the degeneration of photoreceptor cells caused by 
+atrophic dry age-related macular degeneration. The medical device is first in class, as 
+currently there is no equivalent medical device with the same mechanism of action or 
+technological approach available on the market for the same medical indication. The 
+medical device may improve functional outcomes and quality of life of those patients. 
+Therefore, it could have a potential impact on patients, public health and healthcare 
+systems. Furthermore, the competent decision-making bodies for health technology 
+assessment of several Member States have confirmed that a joint clinical assessment 
+of that medical device carried out at Union level would add value and achieve its 
+objectives better than a clinical assessment carried out at Member State level. 
+(9) On the day that the Coordination Group adopted its recommendation, all certificates of 
+conformity had already been issued for the placing on the market of the medical 
+device under the name ‘PRIMA Products’. There is therefore a risk of potential 
+duplication of clinical assessments taking place both at Union and Member State 
+ 
+4 Regulation (EU) 2017/746 of the European Parliament and of the Council of 5 April 2017 on in 
+vitro diagnostic medical devices and repealing Directive 98/79/EC and Commission 
+Decision 2010/227/EU (OJ L 117, 5.5.2017, p. 176, ELI: http://data.europa.eu/eli/reg/2017/746/oj). 
+EN 3  EN 
+levels. However, the Coordination Group explained that such risk was mitigated in the 
+case of that medical device, as no Member State had declared an ongoing assessment 
+at national level. 
+(10) The recommendation of the Coordination Group to select for joint clinical assessment 
+the medical device under the name ‘PRIMA Products’ aligns with the Commission’s 
+objective of accelerating health biotechnology products’ time to market, while 
+maintaining the highest safety standards for the protection of the population and the 
+environment5. 
+(11) It is therefore appropriate to follow the recommendation of the Coordination Group as 
+regards the medical device under the name ‘PRIMA Products’ and to select that 
+medical device for joint clinical assessment. 
+(12) As regards the medical device under the name ‘Disposable Cervical Photodynamic 
+Therapy Lamp (CEVIRA device)’, following the letter from the HTA secretariat to the 
+health technology developer pursuant to Article 3(1) of Commission Implementing 
+Regulation (EU) 2025/20866, the health technology developer confirmed that the 
+device does not have an independent therapeutic indication and its application scope is 
+strictly limited to the authorised therapeutic indication of the paired medicinal product 
+that is currently under evaluation by the European Medicines Agency7. The joint 
+clinical assessment would therefore primarily concern the paired medicinal product 
+instead of the medical device. Rather, medicinal products are subject to joint clinical 
+assessment under Article 7(1), points (a) and (b), of Regulation (EU) 2021/2282, 
+following the stepwise approach set out in Article 7(2) thereof. 
+(13) As Article 7(4) of Regulation (EU) 2021/2282 does not cover medicinal products, the 
+medical device under the name ‘Disposable Cervical Photodynamic Therapy Lamp 
+(CEVIRA device)’ should not be selected for joint clinical assessment. 
+(14) The measures provided for in this Decision are in accordance with the opinion of 
+the Committee on Health Technology Assessment established by Article 33(1) of 
+Regulation (EU) 2021/2282, 
+HAS ADOPTED THIS DECISION:  
+Article 1 
+The following medical device is selected for joint clinical assessment at Union level: 
+ 
+5 See explanatory memorandum for the Proposal for a Regulation of the European Parliament and of the 
+Council on establishing a framework of measures for strengthening Union’s biotechnology and 
+biomanufacturing sectors particularly in the area of health and amending Regulations (EC) No 
+178/2002, (EC) No 1394/2007, (EU) No 536/2014, (EU) 2019/6, (EU) 2024/795 and (EU) 2024/1938 
+(European Biotech Act) (COM(2025) 1022 final): “The European Biotech Act will seek to streamline 
+the relevant EU legislative frameworks to create an enabling environment for innovation and 
+development in order to accelerate time to market”. 
+6 Commission Implementing Regulation (EU) 2025/2086 of 17 October 2025 laying down, pursuant to 
+Regulation (EU) 2021/2282 on health technology assessment, procedural rules for the interaction 
+during, exchange of information on, and participation in, the preparation and update of joint clinical 
+assessments of medical devices and in vitro diagnostic medical devices at Union level, as well as 
+templates for those joint clinical assessments (OJ L, 2025/2086, 20.10.2025, ELI: 
+http://data.europa.eu/eli/reg_impl/2025/2086/oj). 
+7 Medicinal product hexaminolevulinate (see Applications for new human medicines under evaluation: 
+March 2026, Reference Number: EMA/53995/2026, available here: 
+https://www.ema.europa.eu/en/medicines/medicines-human-use-under-evaluation). 
+EN 4  EN 
+name of medical device: PRIMA Products; 
+name of manufacturer: La Science; 
+CECP dossier No: EMA/EX/0000340980; 
+EU technical documentation assessment certificate No: 2300953TD01 of 14 July 
+2026. 
+Article 2 
+This Decision is addressed to the Member State Coordination Group on Health Technology 
+Assessment. 
+Done at Brussels, 20.11.2026 
+ For the Commission 
+ SANDRA GALLINA 
+ Director-General 
+ Directorate-General for Health and Food Safety
