@@ -1,74 +1,800 @@
-체외진단의료기기 품목 및 품목별 등급에 관한 규정 일부개정고시
-2026. 6.
-식품의약품안전처
-1. 개정이유
-및 주요내용
-코로나19를 계기로 자가검사용 체외진단의료기기가 대중화되면서, 다양한 질병을 대상으로 한 자가검사용 제품의 추가 도입 요구가 증가함에 따라 감염병 유행 시 신속한 검사 접근성을 제공하여 개인의 건강관리와 자기 결정권을 지원하고, 의료기관 방문에 대한 부담으로 검사 기피가 발생할 수 있는 질환에 대해서는 조기 인지 및 적절한 의료적 대응을 유도할 수 있는 수단을 마련하기 위해 자가검사용 체외진단의료기기 품목을 추가로 지정하려는 것임
-2. 기타 참고사항
-가. 관계법령 : 체외진단의료기기법
-나. 예산조치 : 별도조치 필요 없음
-다. 합    의 : 해당사항 없음
-라. 기    타
-(1) 행정예고 :
-공고 제2026-159호(2026.3.26. ～ 2026.4.14.)
-(2) 규제심사 : 규제 없음
-식품의약품안전처고시  제2026-45호
-「체외진단의료기기법」 제3조 및 같은 법 시행규칙 제2조에 따른
-「체외진단의료기기 품목 및 품목별 등급에 관한 규정」(식품의약품안전처
-고시 제2025-95호, 2025. 11. 21.)을 다음과 같이 개정 고시합니다.
-2026년 6월 30일
-식품의약품안전처장
 체외진단의료기기 품목 및 품목별 등급에 관한 규정
-일부개정고시
-체외진단의료기기 품목 및 품목별 등급에 관한 규정 일부를 다음과 같이 개정한다.
-별표의 K05060.01 다음에 K05070.01을 다음과 같이 신설한다.
-K05070.01 자가검사용호흡기바이러스면역검사시약[3] IVD reagentsfor self testing of Influenza virus or SARS-CoV-2 using immunological method 자가검사용으로 비강 검체
-등을 사용하여 인플루엔자 바이러스(Influenza virus) 또는
-제2형 중증급성호흡기증후군 코로나바이러스(SARS-CoV-2)
-관련 항원․항체 검출에 사용되는 시약
-별표의 K06050.01 다음에 K06060.01을 다음과 같이 신설한다.
-K06060.01 자가검사용마약류물질대사검사시약[2] IVD reagents for
-self testing of drugs of abuse 자가검사용으로 소변 또는
-타액에서 마약, 대마 등 마약류
-및/또는 그
-대사체 검출에
-사용되는 시약. 다만, 범죄 수사 등의 목적으로 수사기관에서 구매․사용하기 위해서 제조된 제품은 제외한다.
-부      칙
+식품의약품안전처 고시 제2020-34호(2020. 5. 1. 제정)
+식품의약품안전처 고시 제2021-11호(2020. 2.22. 개정)
+식품의약품안전처 고시 제2024-44호(2024. 8. 8. 개정)
+식품의약품안전처 고시 제2025-23호(2025. 4. 7. 개정)
+식품의약품안전처 고시 제2025-95호(2025. 11. 21. 개정)
+식품의약품안전처 고시 제2026-45호(2026. 6. 30. 개정)
+제1조(목적) 이 규정은 「체외진단의료기기법」 제3조 및 같은 법 시행규칙 제2조에 따른 체외진단의료기기의 품목 및 품목별 등급에 관하여 필요한 사항을 정함을 목적으로 한다.
+제2조(품목 분류 기준) ① 체외진단의료기기의 성능을 발휘하고 사용 목적을 달성함을 주된 기능으로 하는 독립적으로 제조·판매되는 체외진단의료기기의 부분품으로서 안전성·유효성 확보가 필요한 경우 별도의 체외진단의료기기 품목으로 분류할 수 있다.
+② 체외진단의료기기를 둘 이상 조합·연결·구성하여 별도의 체외진단의료기기로 사용하는 경우 그 전체를 하나의 체외진단의료기기로 분류할 수 있다.
+③ 품목의 재분류를 신청하고자 하는 자는 별지 제1호서식의 신청서에 다음의 자료를 첨부하여 식품의약품안전처장에게 제출하여야 한다.
+1. 기술문서 등에 관한 자료
+2. 재분류 대상 체외진단의료기기와 유사한 다른 체외진단의료기기와의 구조·원리, 성능, 사용목적, 사용방법 등 기술적 특성의 비교·분석에 관한 자료
+④ 식품의약품안전처장은 다음 각 호에 모두 해당하는 체외진단의료기기를 자가검사용 체외진단의료기기로 분류할 수 있다.
+1. 전문가가 아닌 일반인이 스스로 생리학적 상태 등을 검사할 목적으로 사용할 필요성이 있는 체외진단의료기기
+2. 타액이나 소변 등 채취가 용이한 검체를 사용하는 체외진단의료기기
+3. 일반인이 전문적인 지식 없이도 사용방법을 쉽게 이해하고 사용할 수 있는 체외진단의료기기
+4. 검사 오류가 개인이나 공중보건에 미치는 잠재적 위해성이 크지 않은 체외진단의료기기
+⑤ 제4항에도 불구하고 「공중보건 위기대응 의료제품의 개발 촉진 및 긴급 공급을 위한 특별법」 제2조제2호에 따른 공중보건 위기상황 대응 또는 「감염병의 예방 및 관리에 관한 법률」 제4조제2항제1호에 따른 감염병의 예방 및 방역대책에 필요한 경우 자가검사용 체외진단의료기기로 분류할 수 있다.
+⑥ 식품의약품안전처장은 이해관계인 등의 신청이 있거나 재분류의 필요가 있다고 인정되는 경우에는 체외진단의료기기 전문가위원회의 심의를 거쳐 90일 이내에 심사·결정한 후 그 결과를 신청인에게 통보하고, 이를 고지하여야 한다.
+제3조(체외진단의료기기 품목 및 품목별 등급) 「체외진단의료기기법 시행규칙」제2조제5항에 따른 체외진단의료기기 품목 및 품목별 등급은 별표와 같다.
+제4조(규제의 재검토) 「행정규제기본법」제8조 및 「훈령·예규 등의 발령 및 관리에 관한 규정」에 따라 2020년 7월 1일을 기준으로 매 3년이 되는 시점(매 3년째의 6월 30일까지를 말한다)마다 그 타당성을 검토하여 개선 등의 조치를 하여야 한다.
+부칙 &lt; 제2020-34호, 2020. 5. 1. &gt;
+제1조(시행일) 이 고시는 2020년 5월 1일부터 시행한다.
+제2조(용기 등의 기재사항에 관한 적용례) 별표의 품목명 등은 이 고시 시행 후 최초로 제조장 또는 보세구역에서 반출되는 체외진단의료기기부터 적용한다.
+제3조(분류번호, 품목명 및 등급 등의 변경에 관한 경과조치) ① 종전의 「의료기기 품목 및 품목별 등급에 관한 규정」에 따라 이미 허가, 인증을 받거나 신고한 품목은 이 고시에 따라 변경된 분류번호, 품목명, 품목정의 및 등급이 별도의 변경 절차 없이 변경된 것으로 본다.
+② 제1항에도 불구하고 종전의 「의료기기 품목 및 품목별 등급에 관한 규정」에 따라 이미 허가, 인증을 받거나 신고한 품목은 이 고시 시행 후 1년이 되는 날까지 제3조 및 별표의 체외진단의료기기 품목 및 품목별 등급에 따라 식품의약품안전처장 또는 한국의료기기안전정보원으로부터 체외진단의료기기의 허가증, 인증서, 신고증명서를 다시 발급받아야 한다.
+제4조(용기 등의 기재사항에 관한 경과조치) 이 고시 시행 당시 종전의 규정에 따른 기재사항이 적혀 있는 용기, 포장 또는 첨부문서는 2022년 4월 30일까지 사용할 수 있다.
+제5조(다른 고시의 개정 등)「의료기기 품목 및 품목별 등급에 관한 규정」(식품의약품안전처고시 제2019-109호, 2019. 11. 20.) 일부를 다음과 각 호와 같이 개정한다.
+1. 별표 대분류 “(A) 기구 기계[기구·기계] Medical Instruments”
+중 중분류 “A22000 혈액 검사용 기기 Hematological testing apparatus”, “A22500 유전자 분석 기구”, “A24000 소변 또는 분변 분석 기기 Urine or excrement analyzers”,  “A24500 체외진단용 소프
+트웨어 IVD software”, “A32000 의료용 원심분리기
+Centrifuge for
+medical use
+” 및 해당 중분류에 포함된 모든 소분류를 삭제 한다
+2. 별표 대분류 “(A) 기구 기계[기구·기계] Medical Instruments” 중 중분류 “A13000 방사선 진료 장치 Radiologic device”에 속한 “A13130.01 베타계수기
+Radiation survey meter, beta ray”, “A13140.01
+감마계수기 Radiation survey meter, gamma ray” 및 “A13150.01 베타·감마계수기 Radiation survey meter, gamma ray, beta ray”, 중분류 “A17000 심혈관용 기계 기구 Cardiovascular devices”에 속한 “A17150.02 체외검사용옥시미터 Oximeter, in vitro, line-powered” 및 “A17160.01 옥시헤모글로빈분석장치
+analyser, haematology,
+oxyhaemoglobin”, 중분류 “A25000 체액 분석기
+Body fluid testing apparatus”에 속한 “A25010.01 체액분석기
+Analyser, body fluids”,
+“A25030.01 체액점도계
+Viscometer, electronic”,
+“A25040.01 모유분석기
+Analyser, human milk”,
+중분류 “A33000 조직 가공기
+Tissue processing
+device”에 속한 “A33030.01 표본가공기
+Sample processing system”,
+중분류 “A34000 의료용 정온기 Thermostats for medical use”에 속한 “A34020.01 의료용미생물배양기
+Culture medium, bacterial cultivation/identification
+” 및 “A34030.01 의료용세포·조직배양기 Culture medium, tissue”를 삭제 한다
+3. 별표 대분류 “(D) 체외진단용 시약 Reagents for In vitro Diagnostics(IVD Reagents)” 및 여기에 포함된 모든 중분류, 소분류를 삭제한다.
+부칙 &lt; 제2021-11호, 2021. 2. 22. &gt;
+제1조(시행일) 이 고시는 공포한 날부터 시행한다.
+제2조(허가·인증·신고의 신청 등에 관한 적용례) 이 고시는 이 고시 시행 전에 종전의 규정에 따른 체외진단의료기기 제조(수입) 허가 또는 변경허가신청서, 체외진단의료기기 제조(수입) 인증 또는 변경인증신청서, 체외진단의료기기 제조(수입) 신고서 및 의료기기 기술문서 등 심사의뢰서가 접수된 경우에 대해서도 적용한다.
+제3조(일반적 경과조치) 이 고시 시행 전에 종전의 규정에 따라 행하여진 허가, 인증, 신고, 기술문서심사 및 그 밖의 행위는 그에 해당하는 이 고시의 규정에 따라 행하여진 것으로 본다.
+제4조(분류번호, 품목명 및 등급 등의 변경에 관한 경과조치) ① 이 고시 시행당시 종전의 규정에 따라 이미 허가, 인증을 받거나 신고한 품목 중 이 고시에 따라 분류번호, 품목명, 품목정의 및 등급이 변경된 경우에는 별도의 변경 절차 없이 변경된 것으로 본다.
+② 제1항에도 불구하고 다음 각 호의 어느 하나에 해당하는 경우에는 2021년 4월 30일까지 식품의약품안전처장 또는 한국의료기기안전정보원장으로부터 개정규정에 따라 변경된 품목명으로 허가증, 인증서 또는 신고증명서를 다시 발급받아야 한다.
+1. “J08040.01 임상화학효소검사시약”으로 인증 받은 “J11010.01 당뇨질환관련검사시약”
+2. 대분류 “(J) 임상화학 검사기기 Devices for Clinical Chemistry” 중 어느 하나의 소분류로 허가 또는 인증받거나 신고한 “J20030.01 기타 임상화학 검사지Ⅰ”, “J20030.02 기타 임상화학 검사지Ⅱ” 또는 “J20030.03 기타 임상화학 검사지Ⅲ”
+3. “P04010.01 병리조직진단보조소프트웨어”로 허가받은 “P04010.02 세포조직병리진단보조소프트웨어”
+제5조(용기 등의 기재사항에 관한 경과조치) 이 고시 시행 전에 종전의 규정에  따른 기재사항이 적혀있는 용기, 포장 또는 첨부문서는 이 고시 시행일부터 1년이 되는 날까지 사용할 수 있다.
+부칙
+&lt; 제2024-44호, 2024. 8. 8. &gt;
+제1조(시행일) 이 고시는 고시한 날부터 시행한다.
+제2조(허가·인증·신고의 신청 등에 관한 적용례) 이 고시는 이 고시 시행전에
+「체외진단의료기기 허가·신고·심사 등에 관한 규정
+」에 따라
+의료
+기기 제조(수입) 허가 또는 변경허가신청서, 의료기기 제조(수입)
+인증 또는
+변경인증신청서, 의료기기 제조(수입) 신고서, 의료기기 기술문서 등 심사
+의뢰서가 접수된 경우에 대해서도 적용한다.
+제
+3조(일반적 경과조치) 이 고시 시행 전에 종전의「체외진단의료기기 허가
+·신고·심사 등에 관한 규정
+」에 따라 행하여진 허가, 인증, 신고, 기술문서심사 및 그 밖의 행위는 그에 해당하는 이 고시의 규정에 따라 행하여진 것으로 본다.
+부칙 (디지털의료제품 분류 및 등급 지정 등에 관한 규정)&lt;제2025-23호, 2025.04.07.&gt;
+제1조(시행일) 이 고시는 고시한 날부터 시행한다. 제2조부터 제4조까지 생략
+제5조(다른 고시의 개정 등) ① 생략
+② 「체외진단의료기기 품목 및 품목별 등급에 관한 규정」(식품의약품안전처 고시)의 일부를 다음과 같이 개정한다. 별표1 "(P) 체외진단 소프트웨어 IVD Software" 및 여기에 포함된 모든 분류를 삭제한다.
+부      칙 &lt; 제2025-95호, 2025. 11. 21. &gt;
+이 고시는 고시한 날부터 시행한다.
+부      칙 &lt; 제2026-45호, 2026. 6. 30. &gt;
 제1조(시행일) 이 고시는 고시한 날부터 시행한다. 다만, 별표 중 K06060.01
 자가검사용마약류물질대사검사시약은 고시한 날부터 2년이 경과한 날부터 시행한다.
 제2조(허가신청 등에 관한 적용례) 이 고시 시행 당시
-「체외진단의료
-기기 허가․신고․심사 등에 관한 규정」에 따라
-제2형 중증급성
-호흡기증후군 코로나바이러스 관련 항원․항체 검출에 사용하는 시약에
-대한
+「체외진단의료기기 허가․신고․심사 등에 관한 규정」에 따라
+제2형 중증급성호흡기증후군 코로나바이러스 관련 항원․항체 검출에 사용하는 시약에 대한
 체외진단의료기기 제조(수입) 허가 또는 변경허가신청서, 의료기기 기술문서 등 심사의뢰서가 접수된 경우에도 적용한다.
 제3조(자가검사용마약류물질대사검사시약에 관한 특례) 별표 중 K06060.01
-자가검사용마약류물질대사검사시약은 개정 규정 시행일 이전이라도 「체외진단의료기기 허가․신고․심사 등에 관한 규정」에 따른 인증 절차를 진행할 수 있으며, 해당 인증 절차가 개정 규정 시행일 이전에
-완료된 경우에는 해당 품목의 인증일을 해당 품목의 개정 규정 시행일로
-한다.
+자가검사용마약류물질대사검사시약은 개정 규정 시행일 이전이라도 「체외진단의료기기 허가․신고․심사 등에 관한 규정」에 따른 인증 절차를 진행할 수 있으며, 해당 인증 절차가 개정 규정 시행일 이전에 완료된 경우에는 해당 품목의 인증일을 해당 품목의 개정 규정 시행일로 한다.
 제4조(일반적 경과조치) 이 고시 시행 전에 종전의 규정에 따라 행하여진 허가, 인증, 기술문서심사 및 그 밖의 행위는 그에 해당하는 이 고시의 규정에 따라 행하여진 것으로 본다.
 제5조(
 제2형 중증급성호흡기증후군 코로나바이러스 관련 항원․항체 검출에 사용하는 시약
 에 관한 경과조치) ① 체외진단의료기기 제조업자 또는 수입업자는 이 고시 시행 당시 종전의 규정에 따른 기재사항이 기재되어 있는
 제2형 중증급성호흡기증후군 코로나바이러스 관련 항원․항체 검출에 사용하는 시약
 관련 용기, 외부포장 또는 첨부문서 등을 이 고시 시행일로부터 1년이 되는 날까지 체외진단의료기기의 제조 또는 수입에 사용하여 출하할 수 있다.
-② 체외진단의료기기 판매업자는 제2형 중증급성호흡기증후군 코로나
-바이러스 관련 항원․항체 검출에 사용하는 시약에 대해 이 고시 시행 당시 종전의 규정에 따라 기재사항이 기재되어 출하된 제품
-및 제1항에 따라 출하된 제품을 해당 제품의 사용기간 또는 유효
-기간까지 유통․판매할 수 있다.
+② 체외진단의료기기 판매업자는 제2형 중증급성호흡기증후군 코로나바이러스 관련 항원․항체 검출에 사용하는 시약에 대해 이 고시 시행 당시 종전의 규정에 따라 기재사항이 기재되어 출하된 제품 및 제1항에 따라 출하된 제품을 해당 제품의 사용기간 또는 유효기간까지 유통․판매할 수 있다.
 ③ 이 고시 시행 당시 종전의 규정에 따라 이미 허가를 받은
-제2형
-중증급성호흡기증후군 코로나바이러스 관련 항원․항체 검출에 사용
-하는 시약
-은 별도의 변경 절차 없이 이 고시에 따라 분류번호, 품목명
-, 품목정의가 변경된 것으로 본다.
-신ㆍ구조문대비표
-현        행
-개   정   안
-[별표] 체외진단의료기기 품목 및 품목별 등급
-&lt;신  설&gt;
-[별표] 체외진단의료기기 품목 및 품목별 등급
-K05070.01 자가검사용호흡기바이러스면역검사시약[3]  IVD reagents for self testing of Influenza virus or SARS-CoV-2 using immunological method 자가검사용으로 비강 검체 등을 사용하여 인플루엔자 바이러스(Influenza virus) 또는 제2형 중증급성호흡기증후군 코로나바이러스(SARS-CoV-2) 관련 항원․항체 검출에 사용되는 시약
-&lt;신  설&gt;
-K06060.01 자가검사용마약류물질대사검사시약[2] IVD reagents for self testing of drugs of abuse 자가검사용으로 소변 또는 타액에서 마약, 대마 등 마약류 및/또는 그 대사체 검출에 사용되는 시약. 다만, 범죄 수사 등의 목적으로 수사기관에서 구매․사용하기 위해서 제조된 제품은 제외한다.
+제2형 중증급성호흡기증후군 코로나바이러스 관련 항원․항체 검출에 사용하는 시약
+은 별도의 변경 절차 없이 이 고시에 따라 분류번호, 품목명, 품목정의가 변경된 것으로 본다.
+[별 표]
+체외진단의료기기 품목 및 품목별 등급
+(I) 검체 전처리 기기 Devices for Sample Preparation
+I01000
+의료용
+원심분리장비 Centrifuge for medical use
+I01010.01
+범용상온원심분리장치 [1]
+Centrifuge, tabletop, low-/medium-speed, room temperature
+,
+general-purpose  실온에서 의료용 검체 등을 온도조절기능 없이 원심 분리하는 범용 기기로서 보통 저속 또는 중속(최고 17,000rpm)의 장치.
+I01020.01
+의료용고속/초고속원심분리장치 [1]  Centrifuge, floor, high/ultra high-speed  온도조절
+기능
+이 있는 것을 포함하며 소량의 의료용 검체 등을 중속(보통 10,000rpm) 또는 초고속
+(보통 100,000rpm)으로 원심 분리하는 장치.
+I01030.01  세포용원심분리장치 [1]  Centrifuge, low-/medium-speed, cytological
+일반적으로 혈액으로부터 혈구, 세포 등을 중속 또는 저속에서 원심력으로 분리 또는 세정에 사용하는 장치.
+I01040.01  세포용온도조절식원심분리장치 [2]  Centrifuge, low-/medium-speed, refrigerating  혈액으로부터 혈구, 세포 등을 원심 분리하는 기기로서 챔버 내 온도 조절 기능이 있으며 보통 저속 또는 중속(최고 17,000rpm)의 장치로 세포용원심분리장치가 온도조절기능이 있으면 여기에 해당한다.
+I02000 세포 및 조직 검체 처리장비 Cell/Tissue preparation instruments for IHC
+I02010.01  표본가공장치 [1]  Sample processing instruments
+인체 조직, 체액, 혈액 등의 표본을
+탈석회, 침윤, 절개, 현미경용 슬라이드 봉입, 도말 표본(smearing) 제작, 염색(staining)
+, 조직 절편 등에 사용하는 장치.
+I02020.01  혈
+액검체처리기 [1]  Blood sample preparation instruments, general  액상 또는 액상으로
+희석된 혈액 검체 전처리에 사용하는 장치 또는 기구로 분리, 교반, 혼합, 농축,
+혈구 냉동, 중량 측정, 혈액백의 접착 등에 사용하는 장치. 단, 검체 처리를 위한 단순 용기는 제외
+한다.
+I02030.01  조직검사용자동염색장치 [1]  Auto stainer for pathology
+병리검사 시 조직표본이나 세포진, 혈액검사 등 표본을 염색하는 장치 또는 도말하는 장치.
+I03000 추출·농축 기기 Concentration/extraction devices
+I03010.01  핵산추출장치 [1]  Extractor, nucleic acid  인체유래 검체에서 분자진단을 위하여 핵산(DNA, RNA)을 자동으로 추출하는 장치.
+I03020.01  핵산추출시약 [1]  IVD reagents for extracting nucleic acids  인체유래 검체에서 분자진단을 위하여 핵산(DNA, RNA)을 추출하는 시약.
+I03030.01  검체농축기구 [1]  Clinical sample concentrator  소변검체로부터 요단백분석을 하고자 원심분리 및 진공 기능 등을 이용하여 검체 중 특정 성분을 검사하기 위해 농축하는 기구. 단, 자체의 기능적 특성이 없는 검체 용기는 제외한다.
+I03040.01  세포분리기구 [1]
+Blood cell separating tools  세포검사를 위해 혈액 또는 체액에서 원심분리기 등에 적용하여 질량 또는 크기별로 세포를 분리하도록 고안된 기구.
+I03050.01  조혈모세포농축시약 [2] IVD reagents for concentrating hematopoietic cell 질병진단을 위해 인체유래검체에서 면역자기분리법 등으로 특정 조혈모세포를 선택하여 농축하는 시약.
+I04000 배양장비 Cell/Tissue culture device
+I04010.01  세
+포및조직배양기 [1]  Human cell &amp; Tissue culture incubator  세포 및 조직을 배양하는 장치.
+I04020.01
+미생물배양기 [1]  Culture medium, bacterial cultivation incubator  의료용으로 사용하
+는 감염성 미생물을 배양하는 장치.
+I20000 기타 전처리 기기 Other devices for Sample preparation
+I20010.01  기타전처리일체형시약 [1]  Other reagent of sample preparation kit  진단검사용 검체 전처리를 위하여 일련의 단계에 필요한 시약들로 구성된 일체형 시약.
+I20020.01  검체수송배지 [1]  Specimen transport media 질병의 진단을 목적으로 검체의 수송 및 보존을 위해서 사용되는 배지
+I20030.01  기타검체전처리기 [1] Other devices or tools for sample preparation 인체 조직, 체액, 혈액, 세포 등의 검체를 전처리하는데 범용적으로 사용되는 기타 기구 또는 도구.
+(J) 임상화학 검사기기 Devices for Clinical Chemistry
+J01000 임상화학 분석장비 Clinical chemistry analyzer
+J01010.01  의료용플로방식임상화학자동분석장치 [1]
+Flow type clinical chemistry automated analyzer
+생화학분석기로 증류수, 샘플, 시약, 희석액, 세척액을 포함한 용액의 흐름 속에 로터 등으로 사람의 체액성분을 일정 간격 주입하면 일어나는 화학반응으로 특정성분을 분석, 측정하는 자동 또는 반자동 장치.
+J01020.01  의료용분리방식임상화학자동분석장치 [1]  Clinical chemistry automated analyzer
+생화학분석기로서 검사에 사용되며 시료가 개별 용기에서 반응하도록 구성되었으며, 원심 방식이 아닌 자동 또는 반자동 분석 장치.
+J01030.01  의료용원심방식임상화학자동분석장치
+[1]
+Centrifugal clinical chemistry automated analyzer
+생화학분석기로서 원심분리기 내에서 발생한 반응을 광도계로 모니터링하고 시료가 개별 용기
+에서 반응하도록 구성되었으며, 원심 방식인 자동 또는 반자동 분석 장치.
+J01040.01  의료용건식임상화학자동분석장치 [1]  Dry type clinical chemistry automated analyzer  임상검체 또는 시약과 사람 조직 간의 반응으로 생성된 화학물질을 LED에 의한 빛의 반사도 변화율을 대조물질, 보정물질로 비교 분석하여 질병의 진단에 사용하는 장치 시료가 포함된 검사지 또는 다층 필름 등을 사용한다.
+J01050.01  의료용팩식임상화학자동분석장치
+[1]  Packed type clinical chemistry automated analyzer
+화학물질 또는 사람의 조직 시료의 정성 정량 분석에 이용되는 자동 또는 반자동 장치로서 주머니 같은 용기에 시약이 들어 있고, 시료를 넣음으로써 용기 중에서 반응이 진행되어 광도 분석 하는 장치.
+J01060.01  의료용형광분광장치 [1]  Fluorometer for clinical use  서로 다른 파장을 물질에 투사하여 그 형광도에 따라 정량 분석하는 장치.
+J01070.01
+의료용광도장치 [1]  Photometer for clinical use  검체 중 분석물질의 광도(광학)적 특성을 측정함에 따라 물질농도를 정량하는 장치.
+J01080.01  의료용분광광도장치 [1]  Spectrophotometer for clinical use  검체 중 분석물질의 분광 광도(광학)적 특성을 측정함에 따라 물질농도를 정량하는 장치.
+J01090.01  의료용비색장치 [1]  Colorimeter for clinical use  검체 중 분석물질의 비색법에 의해 측정함에 따라 물질농도를 정량하는 장치.
+J01100.01
+의료용염광광도장치 [1]  analyzer, photometer, flame emission  체액 내의 금속 이온, 소듐, 포타슘, 리튬 등의 농도를 광도 측정하는 장치.
+J01110.01
+단백질용전기영동검사장치 [1]  Protein electrophoresis system  전기영동법을 이용하여 혈액, 혈장, 뇨, 뇌척수액 등의 체액 내 단백, 효소 등을 분리, 그 변화를 측정하는 자동 또는 반자동 장치.
+J01120.01  의료용가스액체크로마토그래피검사장치 [1]  analyzer, Chromatograph, liquid gas  아미노산 또는 호르몬 등의 액체시료성분을 가스액체를 이용해 분리, 고정 및 정량하는 자동 또는 반자동 장치(시료중의 다양한 중량의 용질은 압력에 의해 칼럼 안에 분포하며 그래픽 및 데이터를 출력할 수 있음).
+J01130.01  의료용고압액체크로마토그래피검사장치 [1]
+analyzer, Chromatograph, high pressure liquid
+아미노산 또는 호르몬 등의 액체시료성분을 고속액체 크로마토그래피(HPLC)를 이용해 분리, 고정 및 정량하는 자동 또는 반자동 장치(시료중의 다양한 중량의 용질은 압력에 의해 칼럼 안에 분포하며 그래픽 및 데이터를 출력할 수 있음).
+J01140.01  의료용질량분석장치 [1]  Mass spectrometry  임상검체 중 특정성분의 질량을 질량 대 전하의 비로 측정하는 장치.
+J01150.01  의료용전해질분석장치 [1]  Electrolyte, Ion-selective analyzer  검체(전혈, 혈장, 혈청 등) 속의 나트륨, 칼륨, 염화물, 칼슘, 리튬 등의 전해질 성분 등을 분석하는 자동 또는 반자동 장치(독립형과 다른 분석장치의 모듈 포함).
+J01160.01  전기식단백질분석장치 [1]  Protein analyzer, electronic, plasmonic  검체(전혈, 혈장, 혈청 등) 속의 단백질 또는 분자 상호(교차포함)간의 면역학적 결합, 이온 결합 등을 전기적 저항(임피던스), 빛에너지로 인한 금속 내 자유전자의 진동(plasmon)원리 등을 이용하여 결합력 또는 결합된 단백질의 정량, 특징 등을 분석하여 진단에 사용하는 장치. 단, 단순히 비색이나 광학적 원리만으로 결과를 확인하는 장치는 여기서 제외한다.
+J02000 방사선 측정장비 Radiometer
+J02010.01  베타계수기 [2]  Radiation survey meter, beta ray  임상 시료에서 방사되는 베타선을 계수하는 장치.
+J02020.01  감
+마계수기 [2]  Radiation survey meter, gamma ray  임상 시료에서 방사되는 감마선을
+계수하는 장치.
+J02030.01
+베
+타·감마계수기 [2]  Radiation survey meter, gamma ray, beta ray  임상 시료에서 방사되는 베타선과 감마선을 계수하는 장치.
+J03000 혈액성분 검사장비 Blood Components Analyzer
+J03010.01  혈당측정기 [1]
+Glucose analyzer for clinical use
+혈액 또는 체액의 포도당, 케톤 등을 측정하여 당질대사 장애를 진단하는데 사용하는 장치 단, 개인용은 여기서 제외한다.
+J03020.01
+자동혈구계산기 [1]  Hematology analyzer, cell-quantifying  혈액 또는 체액 검체를 전기전도법 등의
+원리를 이용하여 혈구 세포(백혈구, 적혈구, 혈소판 등)의 동정, 분류 또는 계수에 사용하는 장치. 단, 유세포분석법을 이용한 장치는 여기서 제외한다.
+J03030.01  체외검사용옥시미터장치 [2]  Oximeter, in vitro, line-powered  신체에서 채취한 혈액검체 중의 산소농도 및 헤모글로빈을 측정하기 위하여 사용되는 광전자 장치.
+J03040.01
+콜레스테롤분석장치 [1]  Cholesterol analyzer, laboratory  혈청 전혈 중의 콜레스테롤
+을 측정하는 장치.
+J03050.01  당
+화혈색소측정장치 [1]  Hematology analyzer, glycohemoglobin  전기영동 또는 면역측정
+등
+의 방법을 이용해 사람 혈액 중에 존재하는 당화혈색소(HbAlc) 농도를 측정하는 전용장치.
+J03060.01  카
+테콜아민분석장치 [1]  Catecholamine analyzer  생물학적 시료중의 카테콜아민 농도를 측정하는 장치.
+J03070.01
+크레아티닌분석장치 [1]  Creatinine analyzer  요 또는 혈청시료중의 크레아티닌 농도를 측정하는 장치.
+J03080.01  젖
+산측정장치 [1]  Lactate analyzer  혈액, 혈장 등의 체액 내 젖산을 측정하는 장치(전극법이나 검사지를 이용하여 측정하며 자동 또는 반자동 장치 포함).
+J03090.01  빌리루빈측정장치 [1]  analyzer, Bilirubinometry  혈장, 혈청, 소변 등 체액 내의 빌리루빈을 측정하는 장치(자동 또는 반자동 장치 포함).
+J03100.01  자
+동헤모글로빈측정장치 [1]  Hemoglobin analyzer  혈액 중 헤모글로빈의 양을 분광광도법으로 측정하는 장치.
+J03110.01  헤마토크릿측정장치 [1]  Hematocrit analyzer  혈액 중 헤마토크릿을 전기전도법으로 측정하는 장치.
+J03120.01
+혈액가스분석장치 [1]  analyzer, blood gases  혈액, 혈장, 혈청 내의 가스 분압(pCO
+2
+, pO
+2
+), pH를 측정하는 장치(독립형과 다른 분석장치의 모듈 포함).
+J03130.01
+적혈구침강속도측정장치 [1]  Erythrocyte sedimentation rate analyzer  광도측정법을 이용해 전혈 중의 적혈구의 침강속도(ESR)를 측정하는 자동 또는 반자동 장치.
+J03140.01  자동헤파린분석장치 [1]  Heparin analyzer  혈액 내의 헤파린의 양 및 환자 순환계의 헤파린을 중화하는 데에 필요한 프로타민의 양을 광도 측정하여 분석하는 장치.
+J03150.01  혈액점도계 [1]  Blood viscometer for clinical use  전혈, 혈청 또는 혈장 등의 흐름에 대한 분자간력에 의한 유체의 저항을 측정하기 위해 이용하는 장치.
+J04000 개인용 체외진단 검사장비 IVD analyzer for self test
+J04010.01  개인용혈당측정기 [3]  Blood glucose meter for self test  당질대사 이상 환자의 자가 모니터링용으로 혈액 또는 체액의 포도당 및 케톤을 자가 측정하는 장치. 단, 체내삽입형제품은 여기서 제외한다.
+J04020.01  개인용요화학분석기 [2]  Urine analyzer for self test  소변의 화학적 성분, 물리적 성질을
+광도 측정법 또는 입자패턴 분석을 통해 측정하는 자동 또는 반자동 자가분석장치.
+단, 임신진단, 가임시기 등의 정보와 관련된 내분비물질을 검사장치는 여기서 제외한다.
+J04030.01  개인용임신내분비물질검사기 [2]  E
+ndocrinology/hormone analyzer for self test, related
+to pregnancy
+의학적 결정을 내리는데 단독으로 사용되지 않는 검사로 임신진단, 가임기 등의 정보, 내분비 또는 호르몬 검사 시 사용되는 자가분석장치(임상증상 및 증후, 다른 검사결과 참조 필요).
+J04040.01
+개인용혈액응고시간검사기 [3]
+Blood coagulation analyzer for self test. 자가검사용으로 모세혈을 이용하여 혈액응고시간 검사 등에 사용되는 측정장치
+J05000 혈액응고 검사장비 Blood Coagulant Analyzer
+J05010.01  혈액응고시간분석장치 [1]  Coagulation analyzer  전혈에서 응고에 필요한 시간을 측정하는 장치(정맥혈 또는 모세혈의 PT(Prothrombin Time)을 측정하여 레이저 광도계 등으로 광도를 측정).
+J05020.01  혈전분석장치 [1]  Haematology analyzer, thrombosis  광도측정법을 이용하여 혈전형성 등의 혈액응집 또는 혈관에서의 응고의 존재를 측정하는 장치.
+J05030.01  자동혈소판응집측정장치 [1]  Aggregrometer, platelet  혈소판의 형상변화, 응집 과정을 측정하는 장치. 기록할 수 있는 분석장치가 포함되어 있거나 연결하여 사용할 수 있다.
+J06000 체액 검사장비 Body fluid analyzer
+J06010.01  체액점도장치 [1]  Viscometer, electronic  자궁 경부 점액의 점도 등 체액의 점도를 측정하는 장치.
+J06020.01  정자·정액분석장치 [1]  Sperm/semen analyzer  시료 중 정자의 농도를 측정하여 활동도(운동성)특성을 나타내는 장치.
+J06030.01  모유성분분석장치 [1]  analyzer, human milk  미숙아 또는 저체중아의 질병 예방 등 관리를 위하여 모유성분을 분석하는 장치.
+J06040.01  의료용삼투압장치 [1]  Osmometer for clinical use  체액의 삼투압(용액의 오스몰 농도 -단위체적당 용질의 양)을 측정하는 장치.
+J07000 임상검사용 요화학 및 분변 검사장비 Clinical urinary and stool analyzer
+J07010.01  요화학분석기 [1]  Urine chemistry analyzer, (semi-)automated  소변의 화학적 성분,
+물
+리적 성질을 광도 측정법 또는 입자패턴 분석을 통해 측정하는 자동 또는 반자동 장
+치.
+단, 개인용요화학분석기는 여기서 제외한다.
+J07020.01  요침사분석장치 [1]  Urine cell image analyzer, (semi-)automated  소변 내 유형성분(요 침사물)을 광학적, 전기적, 면역학적 방식의 세포 영상분석법을 통해 검사하는 자동 또는 반자동 장치.
+J07030.01  분변분석
+장치
+[1]  analyzer, stool  분변을 검사하는 장치.
+J07040.01  요비중
+장치
+[1]  Urine specific gravity kit  소변의 비중을 측정하는 장치.
+J08000 임상화학 검사시약 IVD reagent for clinical chemistry
+J08010.01  전해질검사시약 [2]  IVD reagents for electrolyte tests  암모니아, 중탄산염, 칼슘, 염화물, 리튬, 마그네슘, 무기인/인, 칼륨 및 나트륨 등 전해질 검사 시 사용되는 시약.
+J08020.01  혈액가스검사시약 [2]  IVD reagents for blood gas analysis  이산화탄소, pH, 산소, pH/산소분압(pO2)/이산화탄소분압(pCO2)
+대사물질
+등 혈액가스검사 시 사용되는 시약.
+J08030.01
+총
+혈색소검사시약 [2]  IVD reagents for total Hb test  총 혈색소(Total Hb(Hemoglobin))
+검사 시 사용되는 시약.
+J08040.01
+임상화학효소검사시약 [2]  IVD reagents for clinical enzymes  아스파테이트아미노전이
+효소(AST), 알라닌아미노전이효소(ALT), 탈인산화효소(Phosphatase), 아밀레이스(Amylase)
+,
+지
+방분해효소(Lipase), LAP, 알돌레이스(Aldolase), 콜린에스터레이스(Cholinesterase), γ-GTP
+,
+알칼리인산분해효소이소엔자임(ALP isoenzyme), 아밀레이스이소엔자임(Amylas
+e
+isoenzyme), 아데노신탈아미노화효소(ADA), 엔지오텐신전환효소(ACE), G6PD, 크레아티닌
+인산화효소(CK), CK isoenzyme LD, δ-아미노레부리닉산 디하이드라테이스(ALA dehydratase)
+,
+5-누클리오티데이스(Nucleotidase), 파이루베이트인산화효소(Pyruvate kinase) 등을 검사
+시 사용되는 시약.
+J08050.01
+선천성기형아검사시약 [3]  IVD Reagents for congenital anomaly screening  임산부를 대상으
+로 인히빈(Inhibin) A, 사람융모성선자극호르몬(hCG), 비결합 에스트리올(Unconjugated estriol, uE3), 알파태아 단백질(Alpha feto protein, AFP) 등 선천성 기형아 산전 검사에 사용하는 시약.
+J08060.01  임상검사범용정도관리물질Ⅰ [1]
+General calibrators, controls or standards, classⅠ, for
+clinical chemistry  임상화학 검사에 사용되는 잠재적 위해성이 1등급인 시약 또는 장비와 함께 사용하는 범용 정도관리물질
+(진단검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+J08060.02
+임상검사범용정도관리물질Ⅱ [2]  General calibrators, controls or standards, classⅡ, fo
+r
+clinical chemistry
+임상화학 검사에 사용되는 잠재적 위해성이 2등급인 시약 또는 장비와 함께 사용하는 범용 정도관리물질
+(진단검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+J08060.03
+임상검사범용정도관리물질Ⅲ [3]  General calibrators, controls or standards, classⅢ, fo
+r
+clinical chemistry
+임상화학 검사에 사용되는 잠재적 위해성이 3등급인 시약 또는 장비와 함께 사용하는 범용 정도관리물질
+(진단검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+J09000 혈구 검사시약 IVD reagent for blood cell test
+J09010.01  혈구염색시약 [1]  IVD reagents for hematological stains  라이트 염색(Wright stain) 등의 혈구염색검사 시 사용되는 시약.
+J09020.01  적혈구침강속도검사시약 [2]  IVD reagents for erythrocyte sedimentation rate(ESR)  적혈구 침강속도(ESR) 검사 시 사용되는 시약(단순 희석 및 전해질시약 제외).
+J09030.01  유세포분석용보조시약 [1]  IVD supportive reagents for flow cytometric test  유세포 분석에서 완충액, 세정액 등과 같이 보조적으로 사용되는 시약.
+J09040.01  유세포분석용혈구검사시약 [2]  IVD reagents for flow cytometric test  혈구의 종류를 유세포분석기(flow cytometer)로 구분하기 위하여 세포 표지 단백질을 특이적으로 표지하는 시약. 단, 조직적합성검사 목적의 시약은 여기서 제외한다.
+J10000 혈액응고 검사시약 IVD reagent for hemostasis and thrombosis
+J10010.01  혈액응고검사시약 [3]  IVD reagents for diagnostic blood coagulation test  지혈치료 및
+혈전증 등 의학적 진단을 내리는데 단독으로 사용가능한 시약으로, 프로트롬빈시간(PT),
+활성화부분트롬보플라스틴시간(APTT), 트롬빈시간(Thrombin time), 섬유소원검사(Fibrino
+gen), 혈소판응집 검사(Platelet function test), 항 혈액응고인자(Anti-factor) Xa 등의 검사 시 사용되는 시약.
+J10020.01  혈액응고인자검사시약 [2]  IVD reagents for blood coagulation factor test  응고인자 I(
+섬유소원, Fibrinogen), 응고인자 II(프로트롬빈, Prothrombin), 응고인자 IIa(트롬빈, Thrombin
+), 응고인자 V, 응고인자 VII, 응고인자 VIIa, 응고인자 VIII, 응고인자 IX, 응고인자
+X, 응고인자 XI, 응고인자 XII, 응고인자 XIIa, 응고인자 XIII, 고분자량키니노겐(HMW-Kininogen), 폰빌레브란트 인자(von Willebrand factor, VWF), 항트롬빈(Anti-thrombin),
+C단백 및 S단백(Protein-C &amp; S), 루푸스항응고인자(Lupus anticoagulant), 혈소판 제4인자
+(Platelet factor 4), 베타트롬보글로불린(β-thromboglobulin), 프리칼리크레인/플레처 인자(Prekallikrein/Fletcher factor), 칼리크레인(Kallikrein) 응고인자, 폰빌레브란트인자 항원(von Willebrand Factor Antigen), 폰빌레브란트인자 : 리스토세틴 보조인자 활성도(von Willebrand Factor : Ristocetin Cofactor Activity),
+폰빌레브란트 응고결합측정 등 혈액응고인자 검사 시 사용되는 시약.
+J10030.01  혈구응집검사시약 [2]  IVD reagents for red cell agglutination, not for transfusion  의학적 결정을 내리는데 단독으로 사용되지 않는 시약으로
+발작성야간혈색소뇨증 검사(PNH test)
+등 수혈의학 이외의 목적으로 사용되는 시약(임상증상 및 증후, 다른 검사결과 참조 필요).
+J11000 내분비계 검사시약 IVD reagents for endocrine test
+J11010.01  당뇨질환관련검사시약 [2]  IVD reagents for diabetes mellitus
+C-펩티드(C-peptide), 글루카곤(Glucagon), 인슐린(Insulin), 인슐린 자가항체(IAA, Insulin Autoantibody), GAD 자가항체(GADA, Glutamic Acid Decarboxylase Autoantibody), 섬세포세포질 자가항체(ICA, Islet Cell Cytoplasmic Autoantibody), 인슐린종 관련 자가항체(IA-2A, Insulinoma-Associatied-2 Autoantibody), 당화헤모글로빈/당화혈색소(Glycosylated/Glycated Haemoglobin), 티로신 인산분해효소(Tyrosine Phosphatase), 프로인슐린(Proinsulin)
+등 당뇨질환 검사 시 사용되는 시약.
+J11020.01  신장대사물질측정검사시약 [2]  IVD reagents for kidney metabolite measurement test  알도스테론(Aldosterone), 안지오텐신(Angiotensin) I/II, 안지오텐신전환효소(Angiotensin Converting Enzyme), 코티솔(Cortisol), 레닌(Renin), 호중구 젤라티나아제-연관 리포칼린(Neutrophil Gelatinase associated Lipocalin) 등 신장대사물질 측정 검사 시 사용되는 시약.
+J11030.01  골구성물질대사측정검사시약 [2]
+IVD reagents for bone and mineral metabolite measurement
+test
+골-특이적 알칼리인산분해효소(BALP, Bone-specific Alkaline Phosphatase),
+칼시토닌(Calcitonin),
+콜라겐Ⅰ형 C-말단 텔로펩타이드(CTx-1, C-terminal Crosslinked Telopeptide of Collagen TypeⅠ), 콜라겐Ⅰ형 N-말단 텔로펩타이드(NTx-1, N-terminal Crosslinked Telopeptide of Collagen TypeⅠ), 프로콜라겐Ⅰ형 C-말단 프로펩타이드(P1CP, Procollagen typeⅠ C-terminal Propeptide), 프로콜라겐Ⅰ형 N-말단 프로펩타이드(P1NP, Procollagen typeⅠ N-terminal Propeptide),
+고리형 아데노신 일인산염(Cyclic Adenosin Monophosphate), 디옥시피리디놀린(Deoxypyridinoline),
+1,25-디히드록시비타민 D(1,25-dihydroxyvitamin D, Calcitriol), 25-히드록시비타민 D(25-hydroxyvitamin D, Calcifediol),
+히드록시프롤린(Hydroxyproline), 오스테오칼신(Osteocalcin),
+부갑상샘호르몬(PTH, Parathyroid Hormone),
+부갑상샘호르몬 관련 펩티드
+(Parathyroid Hormone related Peptide), 피리디놀린(Pyridinoline),
+타르트레이트 내성 산 포스파타제 5b(TRAP 5b, Tartrate-resistant Acid Phosphatase-5b)
+등 골구성물질대사 측정 검사 시 사용되는 시약.
+J11040.01  내분비호르몬및펩타이드검사시약
+[2]  IVD reagents for endocrine hormone and peptid
+e  부신피질자극호르몬(ACTH, Adenocorticotropic Hormone), 인간성장호르몬(HGH, Human Growth Hormone), 인슐린유사 성장인자(IGF, Insulin-like Growth Factor)-I/II, 인슐린유사 성장인자 결합 단백 1/3(IGFBP1, Insulin-like Growth Factor Binding Protein 1/3), 혈관작용장펩티드(Vasoactive Intestinal Polypeptide), 바소프레신(Vasopressin) 등 검사 시 사용되는 시약.
+J11050.01  신경내분비기능검사시약 [2]
+IVD reagents for neurosecretion function  봄베신(Bombesin),
+베타 엔도르핀(b-Endorphin), 17-히드록시프로게스테론(17-Hydroxyprogesterone), 17-케톤생성 스테로이드(17-Ketogenic Steroids), 17-케토스테로이드(17-Ketosteroids), 알파 멜라닌세포자극호르몬(a-Melanocyte Stimulating Hormones), 뉴로텐신(Neurotensin), 성장호르몬억제인자(Somatostatin), 물질 P (Substance P) 등 신경내분비 기능 검사 시 사용되는 시약.
+J11060.01  갑상선기능호르몬검사시약 [2]  IVD Reagents for thyroid function hormone tests  유리삼요오드티로닌(FT3), 유리티록신(FT4), 신생아 갑상샘자극호르몬(TSH), 역삼요드티로닌(rT3), 삼요드티로닌, 삼요드티로닌 섭취율(T-upake), 티록신(Thyroxine), 갑상샘글로불린(Thyroglobulin), 갑상샘결합글로불린(TBG), 갑상샘자극호르몬, 신생아 티록신 및 기타 갑상샘 호르몬 기능 검사 시 사용되는 시약.
+J11070.01  혈중임신·출산호르몬및단백질검사시약 [2]  IVD Reagents for pregnancy/childbirth hormone and protein tests  난임검사, 임신 유무 검사 또는 임신초기에 사용하는 안드로
+스테네디온(d4A), 디하이드로에피안드로스테론 황산염(Dehydro-epiandrosterone Sulfate),
+에스트라디올(Estradiol), 난포자극호르몬(Follicle Stimulating Hormone), 황체형성호르몬(Luteinising Hormone), 프로게스테론(Progesterone), 17-OH 프로게스테론, 프롤락틴(Prol
+actin), 성호르몬결합글로불린(SHBG), 테스토스테론(Testosterone), 안드로스테론(Androste
+rone), 안드로스타네디올 글루쿠로니드(Androstanediol-Glucuronide), 11-데스옥시 콜티
+졸(11-Desoxycortisol), 코르티코스테론(Corticosteron), Alpha 2-임신관련 당단백질(Pregna
+ncy Associated Glycoprotein), 에스트리올(E3), 에스트론(Estrone), 총 사람융모성선자극호르몬(Total hCG), 베타 사람융모성선자극호르몬(b-hCG), 사람태반락토겐(HPL), 임신 특이 B1-당단백질(glycoprotein), 당단백질(Glycoprotein), 임신과 관련된 혈장 단백 A, 태반성장인자(PGF), 용해성 fms-유사 티로신 인산화효소-1, 유리 베타 사람융모성성선자극호르몬(Free Beta HCG), 항뮬러관호르몬(Anti-Mûllerian Hormone) 등 혈중(전혈, 혈장, 혈청) 임신/출산과 관련한 호르몬 및 단백질 검사 시약. 단, 스트립형태 및 개인용은 여기서 제외한다.
+J12000
+임
+상검사용 요화학 및 분변 검사시약 IVD reagent for clinical urinary and stool test
+J12010.01  요화학검사시약 [2]  IVD reagents for urine chemistry  우로빌리노겐(Urobilinogen), 단
+백질(Protein), 포도당(Glucose), 혈액(Blood), 빌리루빈(Bilirubin), 케톤체(Ketone body), pH,
+비중, 아질산염, 백혈구 등 요화학 검사 시 사용되는 시약. 단, 요를 이용한 마약 및 독성물질대사 검사시약은 여기서 제외한다.
+J12020.01  분변잠혈검사시약 [2]  IVD reagents for fecal occult blood test  분변 잠혈 반응검사, 분변 혈색소 정량검사 등의 분변 잠혈 검사 시 사용되는 시약.
+J12030.01  분변내단백질검사시약 [2]  IVD reagents for fecal albumin test  분변 내 알부민, 빌리루빈, 췌장엘라스타아제 등 분변 내 단백질 또는 효소 검사 시 사용되는 시약.
+J13000 임상화학 검사지 IVD strip for clinical chemistry, non-self
+J13010.01  임상검사용혈당검사지 [2]  Clinical IVD strip for glucose strip  혈당 또는 케톤 검사에 사용되는 검사지. 단, 개인용혈당검사지는 여기서 제외한다.
+J13020.01  임상검사용단백질‧지질검사지 [2]  Clinical IVD strip for protein/lipid strip  콜레스테롤(Cholesterol), 고밀도지질단백(HDL), 젖산염(Lactate), 중성지방(Triglyceride), 요소(Urea), 당화헤모글로빈/당화혈색소(Glycosylated/Glycated Haemoglobin), 저밀도지질단백(LDL) 및 크레아티닌(Creatinine) 등 검사지. 단, 개인용검사지는 여기서 제외한다.
+J13030.01  임상검사용임신내분비물질검사지 [2]  Clinical IVD strip for endocrine, related to pregnant  의학적 결정을 내리는데 단독으로 사용되지 않는 검사로 임신진단, 가임기 등의 정보, 내분비 또는 호르몬 검사 시 사용되는 검사지(임상증상 및 증후, 다른 검사결과 참조 필요). 단, 개인용검사지는 여기서 제외한다.
+J14000 개인용 임상화학 검사지 IVD strip for self test
+J14010.01  개인용혈당검사지 [3]  IVD strip for glucose self test  자가검사용으로 혈당 또는 케톤 검사에 사용되는 검사지.
+J14020.01  개인용단백질·지질검사지 [2]  IVD strip for protein/lipid self test  자가검사용으로 콜레스테롤(Cholesterol), 고밀도지질단백(HDL), 젖산염(Lactate), 중성지방(Triglyceride), 요소(Urea), 당화헤모글로빈/당화혈색소(Glycosylated/Glycated hemoglobin), 저밀도지질단백(LDL) 및 크레아티닌(Creatinine) 등 검사지.
+J14030.01  개인용임신내분비물질검사지 [2]  IVD strip for endocrine self test  자가검사용으로 의학적 결정을 내리는데 단독으로 사용되지 않는 것으로 임신진단, 가임기 등의 정보, 내분비 또는 호르몬 검사 시 사용되는 검사지(임상증상 및 증후, 다른 검사결과 참조 필요).
+J14040.01  개인용혈액응고시간검사지 [3]  IVD strip for blood coagulation self test  자가검사용 혈액응고시간 검사지.
+J20000 기타 임상화학 검사기기 IVD devices for other clinical chemistry
+J20010.01
+기타임상화학검사기Ⅰ [1]  Other instruments or devices, classⅠ, for other clinical chemistry
+임상화학검사를 위한 잠재적 위해성이 1등급인 기타 장치 또는 기구.
+J20010.02
+기타임상화학검사기Ⅱ [2]  Other instruments or devices, classⅡ, for other clinical chemistry
+임상화학검사를 위한 잠재적 위해성이 2등급인 기타 장치 또는 기구.
+J20010.03
+기타임상화학검사기Ⅲ [3]  Other instruments or devices, classⅢ, for other clinical chemistry
+임상화학검사를 위한 잠재적 위해성이 3등급인 기타 장치 또는 기구.
+J20020.01  기타임상화학검사시약Ⅰ [1]  Other Reagents, classⅠ, for clinical chemistry  임상화학검사를 위한 잠재적 위해성이 1등급인 기타 시약.
+J20020.02  기타임상화학검사시약Ⅱ [2]  Other Reagents, classⅡ, for clinical chemistry  임상화학검사를 위한 잠재적 위해성이 2등급인 기타 시약.
+J20020.03  기타임상화학검사시약Ⅲ [3]  Other Reagents, class Ⅲ, for clinical chemistry  임상화학검사를 위한 잠재적 위해성이 3등급인 기타 시약.
+J20030.01  기타임상화학검사지Ⅰ [1]
+Other IVD strip, classⅠ, for clinical chemistry  임상화학검사를 위한 잠재적 위해성이 1등급인 기타 검사지.
+J20030.02  기타임상화학검사지Ⅱ [2]
+Other IVD strip, classⅡ, for clinical chemistry  임상화학검사를 위한 잠재적 위해성이 2등급인 기타 검사지.
+J20030.03  기타임상화학검사지Ⅲ [3]
+Other IVD strip, classⅢ, for clinical chemistry  임상화학검사를 위한 잠재적 위해성이 3등급인 기타 검사지.
+(K) 면역 검사기기 Devices for Clinical Immunology
+K01000 면역반응 검사장비 Clinical immune response analyzer
+K01010.01  의료용효소면역검사장치 [1]  Enzyme immunoassay/ELISA analyzer  체액 또는 혈액 중의 특정 성분과 효소가 접합된 항체 또는 항원을 반응시키고 발색기질을 첨가하여 발색의 강도에 따라 특정 성분을 분석하는 자동 또는 반자동 장치.
+K01020.01  의료용면역형광측정장치 [1]  Fluorimetric immunoassay analyzer(FIA), stationary  체액 또는 혈액 중의 특정 성분과 형광물질이 결합된 항원 또는 항체를 반응시킨 후, 광 에너지를 가하여 발생되는 형광치의 강도에 따라 특정 성분을 분석하는 자동 또는 반자동 장치.
+K01030.01  의료용면역발광측정장치 [1]  Chemiluminescence assay(CLIA) analyzer  체액 또는 혈액 중의 특정 성분과 발광물질이 결합된 항원 또는 항체를 반응시킨 후, 전기 또는 화학물질을 가하여 발생되는 발광치의 강도에 따라 특정 성분을 분석하는 자동 또는 반자동 장치.
+K01040.01  의료용면역비탁측정장치 [1]  Immunonephelometry analyzer  체액 또는 혈액 중 특정 성분에 특이적인 항원 또는 항체로 복합체를 만들고 빛을 가하여 산란된 빛의 세기를 측정하여 특정 성분을 분석하는 자동 또는 반자동 장치.
+K01050.01  의료용면역흡광측정장치 [1]  Immunoabsorbance analyzer  체액 또는 혈액 중의 특정 성분과 항원 또는 항체를 반응시킨 후, 가시광선 또는 자외선의 투과시켜 광 흡수의 정도에 따라 특정 성분을 분석하는 자동 또는 반자동 장치.
+K01060.01  유세포분석장치 [1]  Flow cytometry  형광 표지가 접합된 항체를 이용한 유세포분석법으로 형광을 내는 혈구 수 측정 또는 혈구별 구성비를 측정하는 장치.
+K01070.01  의료용면역희석판정장치 [1]  Immunodilution analyzer for clinical use  배수 희석 등을 이용한 혈청 반응에 따른 반응으로 생기는 침전, 응집 등을 지표로 삼는 희석 및 판정 장치.
+K02000 면역관련단백질 검사시약 IVD reagent for immune related protein test
+K02010.01  면역글로불린검사시약 [2]  IVD reagents for specific protein(immunoglobulin) test  면역글로불린 A, D, G 및 M, 경쇄(chain) 카파(kappa) 및 람다(lambda) 경쇄 등의 검사 시 사용되는 시약.
+K02020.01
+보체성분검사시약 [2]  IVD reagents for specific protein(complement component) test  보체성분(C1q, C3/C3c, C4, C5a, C5-9 및 CH50) 등의 검사 시 사용되는 시약.
+K02030.01  심질환표지자검사시약 [3]  IVD reagents for cardiac marker  B형 나트리유레틱 펩타
+이드(BNP)/pro B형 나트리유레틱 펩타이드(proBNP), 크레아틴 키나제-MB(Creatine Ki
+nase-MB mass), 심장형 지방산-결합 단백질(Heart-Type Fatty Acid-Binding Protein), 글리코겐 포스포릴라아제 BB(Glycogen Phosphorylase BB), 마이오글로빈(Myoglobin),  트로포닌(Troponin) I/T, 고민감성 C-반응성단백질(High-Sensitivity C-Reactive Protein) 등 심질환 검사 시 사용되는 시약.
+K02040.01  유전성대사질환검사시약 [3]  IVD reagents for in born error of metabolism  아미노산 분석(Amino acid analysis), 뮤코다당증(Mucopolysacharide), 염화철(Ferric chloride), 긴사슬 지방산(Very long chain fatty acid), 유기산 분석(Pyruvic acid, Sialic acid, Lactic acid, Citric acid, Hyaluronic acid) 등 유전성 대사질환 검사 시 사용되는 시약.
+K02050.01  일반면역검사시약 [2] IVD reagents for general immune test  포도당(Glucose), 빌리루빈(Bilirubin), 혈액요소질소(BUN), 크레아티닌(Creatinine), 크레아틴(Creatine), 요산(Uric
+acid), 암모니아(Ammonia), 프룩토사민(Fructosamine), 아포지방단백(Apolipoproteins),
+베타지질단백질(β-lipoprotein), 호모시스테인(Homocysteine
+)
+, 간형 지방산-결합 단백질
+(Liver-Type Fatty Acid-Binding Protein)  시스타틴 C(Cystatin C), 혈장혈색소(Plasma
+hemoglobin), 락테이트(Lactate) 케톤체(Ketone body), 빌리노겐(Bilinogen), 답즙산(Bile acid),  카로틴(Carotene), 카르니틴(Carnitine) 등 검사 시 사용되는 시약.
+K02060.01  빈혈검사시약 [2]  IVD reagents for anemia test  적혈구형성인자(Erythropoietin), 페리틴(Ferritin), 엽산염(Folate), 철(Iron), 철 결합능(Iron Binding Capacity), 수용성 트랜스페린 수용체(Soluble Transferrin Receptor), 그물적혈구 헤모글로빈 함량(Reticulocyte Hemoglobin Content), 트렌스페린(Transferrin), 총 철 결합능(TIBC, Total Iron Binding Capacity), 불포화 철 결합능(UIBC, Unsaturated Iron Binding Capacity)등 빈혈검사 시 사용되는 시약.
+K02070.01  비타민검사시약 [2]  IVD reagents for vitamin test  비타민 B1, B2, B6, B12, D, 내인인자(Intrinsic Factor) 등 비타민 검사 시 사용되는 시약.
+K02080.01  종양표지자면역검사시약 [3]  IVD reagents for tumor marker  방광암(Bladder Tumor),  암항원(Cancer Antigen), 핵기질 단백 22(Nuclear Matrix Protein 22), 인간부고환단백 4(Human Epididymis Protein 4), 암배아 항원(Carcinoembryonic Antigen), 전립선 특이 항원(Total Prostatic Specific Antigen), 유리 전립선 특이 항원(Free  Prostatic Specific Antigen), 암 관련 혈청 항원(Cancer Associated Serum Antigen), 알파 태아 단백(Alphafetoprotein, AFP), 신경 특이 에놀라제(Neuron Specific  Enolase, NSE), 단백질 S-100B(Protein S-100 B), 크로모그라닌 A(Chromogranin A), PIVKA-II, CYFRA 21-1, 티미딘
+인산화효소(Thymidine Kinase), 복합 전립선 특이 항원(Complexed Prostatic Specific
+Antigen), 조기 전립선암 항원(Early Prostate Cancer Antigen–2) 등 기타 종양표지 검사 시 사용되는 시약.
+K02090.01  면역검사범용정도관리물질Ⅰ
+[1]
+General Calibrators, controls or standards, classⅠ,
+for clinical immunology,
+not a component of specific kit, wide use  특정 키트의 부분품이 아닌 잠재적 위해성이 1등급인 면역검사 정도관리물질(진단검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+K02090.02  면역검사범용정도관리물질Ⅱ [2]
+General Calibrators, controls or standards, classⅡ,
+for clinical immunology, not a component of specific kit, wide use  특정 키트의 부분품이 아닌 잠재적 위해성이 2등급인 면역검사 정도관리물질(진단검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+K02090.03  면역검사범용정도관리물질Ⅲ [3]
+General Calibrators, controls or standards, classⅢ,
+for clinical immunology, not a component of specific kit, wide use  특정 키트의 부분품이 아닌 잠재적 위해성이 3등급인 면역검사 정도관리물질(진단검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+K02090.04  면역검사범용정도관리물질Ⅳ [4]
+General Calibrators, controls or standards, classⅢ,
+for clinical immunology, not a component of specific kit, wide use  특정 키트의 부분품이 아닌 H
+IV, HTLV, HCV, HBV 감염체 검사용 또는 ABO, RhD 혈액형 검사용 정도관리물질(진단검사
+용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+K03000 자가면역질환 검사시약 IVD reagents for autoimune disease
+K03010.01  자가면역질환검사시약 [2]  IVD reagents for autoimmune disease  류마티스 인자(Rheu
+matoid Factor), 항-환식 시트룰린화 펩티드(Anti-Cyclic Citrullinated Peptide), 항-핵 항체
+(Anti-nuclear Ab, ANA), 항-DNA 항체(anti-DNA Ab), 각종 추출성 핵 항원항체(Anti
+-ENA Ab : Sm, RNP, Scl-70 등), 티로이드 자가 항체(Thyroid auto Ab : TPO Ab, Thyroglobulin
+Ab, Microsomal Ab, Anti-TSHR Ab), 항-미토콘드리아 항체(Anti-Mitochondria
+Ab), 항-연근육 항체(Anti-Smooth muscle Ab), 항-인지질 항체(Anti-Phospholipid Ab, Anti-Cardiolipin Ab),
+항-호중구 항체(Anti-Neutrophil Ab, Anti-neutrophil cytoplasmic Ab), 항-혈소판 항체(Anti-Platelet Ab), 항-장내상피세포 항체(Anti-Parietal cell Ab), 항-당단백 항체(Anti-ß-2-Glycoprotein I Ab), 항-인슐린 항체(Anti-Insulin Ab), 항-췌도세포질 항체(Anti-ICA 512 Ab), 항-아세틸콜린수용체 항체(Anti-Acetylcholine Receptor Ab), 항-사구체기저막 항체(Anti-Glomerular Basement Membrane Ab), 항-글루탐산탈탄산효소 항체(Anti-Glutamic Acid Decarboxylase Ab) 등 자가면역 질환 검사 시 사용되는 시약.
+K03020.01  염증표지자검사시약 [2]  IVD reagents for inflammatory tests  순환면역복합체(Circulating Immune Complexes), C반응성 단백질 검사(C-Reactive Protein) 등 염증질환 검사 시 사용되는 시약.
+K03030.01  알레르기검사시약 [2]  IVD reagents for allergy test  히스타민(Histamine), 면역글로불린(Immunoglobulin) E, 류코트리엔 자극검사(Leukotriene Stimulation test), 항원 특이적 면역 글로불린E(Allergen specific IgE) 등 검사 시 사용되는 시약
+K04000 조직적합성 면역 검사시약 IVD reagents for
+histocompatibility
+K04010.01  수혈및이식용조직면역검사시약 [3]
+IVD reagents for histocompatibility antigen, antibody
+for transfusion or transplantation, immunological method  수혈, 장기 또는 골수 이식을
+위하여 공여자와 수용자의 백혈구 항원형(HLA Ag) 선별 또는 확인검사(백혈구 항체검사) 등을
+위하여 항원·항체 면역검사에 사용하는 시약. 단, 유세포분석법을 이용한 시약은 여기서 제외한다.
+K04010.02  교차시험용보체시약 [1]
+Complement for lymphocytotoxicity
+수혈, 장기 또는 골수 이식을
+위하여 공여자와 환자의 혈구 항원과 항체간 면역반응을 확인하는 보체 의존성 교차시험(Complement Dependent Cytotoxicity, CDC)에 사용하는 보체.
+단, 보체와 혈청형을 확인하는 패널 등이 함께 구성된 키트는 ‘수혈및이식용조직면역검사시약’[3]에 해당
+K04020.01  질환진단용조직적합성면역검사시약
+[2]  IVD reagents for histocompatibility antigen, antibody
+not for transfusion or transplantation, immunological method  수혈이나 이식 목적이 아닌 강직성척추염 또는 베체트병 등 특정질환 진단을 위하여 사람 백혈구 항원-B27(HLA-B27), 사람 백혈구 항원-B51(HLA-B51), 혈소판 또는 백혈구의 항원·항체 면역검사에 사용하는 시약.
+K04030.01  유세포분석용조직적합성검사시약 [3]
+IVD reagents for flow cytometric HLA test  조직
+적합성검사 목적의 유세포분석용 혈구검사시약.
+K05000
+감염체 진단 면역 검사시약 IVD reagent for infectious disease, immunological method
+K05010.01
+HIV·HBV·HCV·HTLV진단면역검사시약 [4]  IVD reagents for diagnosis of HIV, HBV,
+HCV, HTLV, immunological method  사람 면역결핍 바이러스(Human immunodeficiency virus(HIV)), 사람 B형간염 바이러스(Human hepatitis B virus(HBV)), 사람 C형간염 바이
+러스(Human hepatitis C virus(HCV)), 사람 T림프구친화성 바이러스(Human T-Lymphotropic
+virus(HTLV)) 감염 여부를 진단하기 위하여 HIV, HBV, HCV, HTLV 관련 항원·항체 검출에 사용되는 시약.
+K05020.01  HIV·HBV·HCV·HTLV혈청형·아형검사시약 [3]  IVD reagents for serotyping or patient monitoring of HIV, HBV, HCV, HTLV, immunological method  사람 면역결핍 바이러스(Human immunodeficiency virus(HIV)), 사람 B형간염 바이러스(Human hepatitis B virus(HBV)), 사람 C형간염 바이러스(Human hepatitis C virus(HCV)), 사람 T림프구친화성 바이러스(Human T-Lymphotropic virus(HTLV))의 혈청형, 아형 확인 및 치료 경과 확인 등을 위해 사용되는 시약.
+K05030.01  고위험성감염체면역검사시약 [3]  IVD reagents for infectious disease marker(Diagnosis
+of Sexually transmitted disease, Legally designated infectious pathogens other than
+‘high risk pathogens’, Infectious agents with moderate infectivity), immunological method
+톡소플라스마(Toxoplasma), 풍진(Rubella), 사이토메갈로바이러스(CMV), 엔테로
+바이러스(Enterovirus), 파르보바이러스 B19(Parvovirus B19), 아데노바이러스(Adenovirus),
+로타바이러스(Rotavirus), 단순포진(Herpes simplex), 엡스테인-바 바이러스(EBV), 홍역 바이러스(Measles virus), 대상포진(Herpes zoster), 크립토코쿠스 네오포르만스(Cryptoco
+ccus neoformans), 수막염균(Neisseria meningitidis), 클라미디아 트라코마티스(Chlamydia
+trachomatis), 임질균(Neisseria gonorrhoeae), 매독균(Treponema pallidum), 클렙시엘라 그래뉼로마티스(Klebsiella granlomatis), 사람유두종바이러스(HPV), 유전형 사람유두종
+바이러스(HPV genotype), 질편모충(Trichomonas vaginalis), 헨드라바이러스(Hendra virus
+), 말라리아(Malaria), 결핵균군(Mycobacterium tuberculosis complex) 등 성매개성질환, 사망이나 기형을 초래하는 감염, 뇌척수액 및 혈액의 감염 질환, 법정전염병의 감염진단을 감염원, 항원, 항체 또는 기타 유래물질을 검출하는데 사용되는 시약.
+K05040.01  저위험성감염체면역검사시약 [2]  IVD reagents for Infectious disease marker(Detection of low infectivity pathogen), immunological method  위달 검사(Widal test), 사람 E형간염(HEV), 헬리코박터 파일로리(Helicobacter pylori), 효모균(Saccharomyces), 클로스트리디움 디피실레(Clostridium difficile) 등의 감염 진단을 위하여 감염원, 항원, 항체 또는 기타 유래물질을 검출하는데 사용되는 시약,
+K05050.01  감염성염증검사시약 [2]
+IVD reagents for infectious inflammatory test  항-연쇄상구균
+DNAse B항체(Anti-Streptococcal Deoxyribonuclease B(Anti-DNAase B)), 항-사슬알균 히알루론산분해효소(Anti-Streptococcal Hyaluronidase), 항-스트렙토키나아제(Anti-Strep
+tokinase), 항-사슬알균용혈소 O 반응시간/역가(Anti-Streptolysin O Reaction Time/Titer),
+항-사슬알균용혈소 O(Anti-Streptolysin O), 항-스타필롤리신 반응시간/역가(Anti-Staphylolysin Reaction Time/Titer), 항-스타필롤리신(정량)(Anti-Staphylolysin(quantitative)), 순환
+면역복합체(Circulating Immune Complexes), 항-연쇄상구균 스크리닝(Anti-Streptococcal
+Screening), 베타 디펜신(Human β Defensin, HBD) 등 감염성 염증 검사 시 사용되는 시약.
+K05060.01  자가검사용HIV면역검사시약 [4] IVD reagents for diagnosis of HIV immunological method for self test 자가검사용으로 사람 면역결핍 바이러스(Human immunodeficiency virus(HIV)) 감염 여부를 검사하기 위하여 HIV 관련 항원·항체 검출에 사용되는 시약.
+K05070.01  자가검사용호흡기바이러스면역검사시약[3] IVD reagents for self testing of Influenza virus or SARS-CoV-2 using immunological method 자가검사용으로 비강 검체 등을 사용하여 인플루엔자 바이러스(Influenza virus) 또는 제2형 중증급성호흡기증후군 코로나바이러스(SARS-CoV-2) 관련 항원․항체 검출에 사용되는 시약
+K06000 약물농도 검사시약 IVD reagent for drug monitoring test
+K06010.01  심
+혈관및중추신경계치료약물농도감시검사시약 [3]  IVD reagents for Cardiovascular, central nervous system TDM test
+디곡신(Digoxin), 디기톡신(Digitoxin), 디소피라미드(Disopyramide), 플레케이타이드(Flecainide), 리도카인(Lidocaine),
+프로카인아미드(Proca
+inamide)
+, 프로프라놀롤(Propranolol), 퀴니딘(Quinidine) 카바마제핀(Carbamazepine), 에토숙시미드(Ethosuximide),
+유리 카르바마제핀(Free Carbamazepine), 유리 페니토인
+(Free Phenytoin), 유리 프리미돈(Free Primidone), 유리 밸프로익산(Free Valproic Acid),
+페노바르비탈(Phenobarbital), 페니토인(Phenytoin), 프리미돈(Primidone), 밸프로익산
+(Valproic Acid), 가바펜틴(Gabapentin), 라모트리진(Lamotrigine), 토피라메이트(Topiramate), 조니사마이드(Zonisamide) 등의 치료약물농도감시 검사 시 사용되는 시약.
+K06020.01
+항생제및항바이러스치료약물농도감시검사시약 [3]  IVD Reagents for antibiotic and anti
+viral TDM test  아미카신(Amikacin), 클로람페니콜(Chloramphenicol), 디베카신(Dibekacin), 겐
+타마이신(Gentamicin), 카나마이신(Kanamycin), 네틸마이신(Netilmycin), 시소마이신(Sisomycin), 스트렙토마이신(Streptomycin), 토브라마이신(Tobramycin), 반코마이신(Vancomycin), 테이코플라닌(Teicoplanin) 등의 치료약물농도 검사 시 사용되는 시약.
+K06030.01  마
+약및독성물질대사검사시약 [2]  IVD reagents for toxin, heavy metal and drugs of abuse
+의학적 결정을 내리는데 단독으로 사용되지 않는 시약으로 파라쿼트(Paraquat),
+에틸렌 글리콜(Ethylene glycol), 벤젠(Benzene), 페놀(Phenol), 톨루엔(Toluene), 스티렌
+(Styrene), 자일렌(Xylene), 마뇨산(Hippuric acid), 스티렌 대사산물(Mandelic acid), 자일렌
+대사산물(Methyl hippuric acid), 메틸에틸케톤(Methyl ethyl ketone), N-메틸폼아마이드(N
+-methylformamide), 아세톤(Acetone), 구리(Cu), 납(Pb), 수은(Hg), 카드뮴(Cd), 망간(Mn),
+아연(Zn), 유기인제 농약(Organophosphates), 카르밤산염(Carbamates), 알콜(Alcohol), 대마
+(Cannabinoids), 아편(Opiates), 코카인(Cocaine), 벤조디아제핀(Benzodiazepine) 등의 독물, 중금속, 마약 대사체 검사 시 사용되는 시약
+(임상증상 및 증후, 다른 검사결과 참조 필요).
+K06040.01  동반보조진단용면역검사시약 [2]  IVD reagents for complementary companion diagnostics with immunological method  특정의약품을 처방하기 전에 반드시 필요한 검사는 아니나 해당약물에 대한 약물반응성을 예측하기 위해 면역 반응을 이용하여 검사하는 시약
+K06050.01  동반진단용면역검사시약 [3]  IVD reagents for companion diagnostics with immunological method 특정의약품을 처방하기 전에 반드시 필요한 검사로 해당약물에 대한 약물반응성을 예측하기 위해 면역 반응을 이용하여 검사하는 시약.
+K06060.01  자가검사용마약류물질대사검사시약[2] IVD reagents for self testing of drugs of abuse 자가검사용으로 소변 또는 타액에서 마약, 대마 등 마약류 및/또는 그 대사체 검출에 사용되는 시약. 다만, 범죄 수사 등의 목적으로 수사기관에서 구매․사용하기 위해서 제조된 제품은 제외한다.
+K20000 기타 면역 검사기기  IVD devices for other Clinical Immunology
+K20010.01  기타면역검사기 [1]  Devices for other clinical immunology  면역진단검사용  기타 장치 또는 기구.
+K20020.01  기타면역검사시약Ⅰ [1]  Other reagents, class Ⅰ, for clinical immunology  잠재적 위해성이 1등급인 면역진단검사용 기타 검사시약.
+K20020.02  기타면역검사시약Ⅱ [2]  Other reagents, class Ⅱ, for clinical immunology  잠재적 위해성이 2등급인 면역진단검사용 기타 검사시약.
+K20020.03  기타면역검사시약Ⅲ [3]  Other reagents, class Ⅲ, for clinical immunology  잠재적 위해성이 3등급인 면역진단검사용 기타 검사시약.
+K20020.04  기타면역검사시약Ⅳ [4]  Other reagents, class Ⅳ, for clinical immunology  잠재적 위해성이 4등급인 면역진단검사용 기타 검사시약.
+(L) 수혈의학 검사기기 Devices for Blood Transfusion
+L01000 수혈의학 검사장비 Blood transfusion analyzer
+L01010.01  수혈의학용혈구응집검사장치 [1]  Hemagglutination assay device for transfusion  항-
+글로루빈(Anti-globulin), 항-글로불린 혈청(Polyspecific anti-human globulin, Monospecific
+anti-human globulin), 쿰스 검사(Coombs test) 등 수혈검사에 사용되는 혈구응집검사장치.
+L01020.01  자동혈액형판정장치 [1]  Blood type(automation) analyzer  수혈 전 검사 및 아형 판정, Rh 및 다른 적혈구의 표현형 판정, 혈액형 및 혈액형 항체를 검사하는 자동 또는 반자동 장치.
+L02000 혈액형 검사시약 IVD reagent for blood typing test
+L02010.01  A
+BO·RhD혈액형면역검사시약 [4]  IVD reagents for ABO‧RhD blood typing, red cell agglutination
+ABO typing test, RhD typing test 등 ABO(아형 제외), RhD 혈액형 검사에 사용되는 시약.
+L02020.01  ABO
+·RhD이외의혈액형면역검사시약 [3]  IVD reagents for blood typing other than ABO·RhD,
+red cell agglutination  ABO 아형, Rh 아형(C, c, E, e), 적혈구 항원(Duffy, Kell, Kidd, MNS) 등 ABO, RhD 이외의 혈액형 검사에 사용되는 시약.
+L02030.01  수혈용혈구응집검사시약 [3]
+IVD reagents for red cell agglutination  항-글로불린(Anti-globulin), 항-글로불린 혈청(Polyspecific anti-human globulin, Monospecific anti-human
+globulin), 쿰스 검사(Coombs test) 등 수혈 검사에 사용되는 혈구응집 검사 시약.
+L02040.01  ABO
+·RhD혈액형분자진단검사시약 [4]  IVD reagents for ABO‧RhD blood typing test
+not for transfusion or transplantation, molecular diagnostic test  수혈 및 이식을 위한 검사 중 ABO와 RhD 검사 시 사용되는 시약으로 분자진단을 이용하는 시약.
+L02050.01  ABO·RhD이외의수혈및이식을위한혈액형분자진단검사시약 [3]  IVD reagents for transf
+usion or transplantation for not ABO·RhD blood typing test, molecular diagnostic test
+수혈 및 이식을 위한 검사 중 ABO와 RhD 검사 시 사용되는 시약으로 분자진단을 이용하는 시약.
+L02060.01  수혈의학범용정도관리물질
+Ⅰ
+[1]  General calibrators, controls or standards, class Ⅰ, for blood transfusion  잠재적 위해성이 1등급인 수혈의학 정도관리물질
+(수혈검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+L02060.02  수혈의학범용정도관리물질
+Ⅱ
+[2]  General calibrators, controls or standards, class Ⅱ, for blood transfusion  잠재적 위해성이 2등급인 수혈의학 정도관리물질
+(수혈검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+L02060.03  수혈의학범용정도관리물질
+Ⅲ
+[3]  General calibrators, controls or standards, class Ⅲ, for blood transfusion  잠재적 위해성이 3등급인 수혈의학 정도관리물질
+(수혈검사용 대조·보정물질만 해당, 검사실 평가용 표준품 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+L02060.04  수혈의학범용정도관리물질
+Ⅳ
+[4]  General calibrators, controls or standards, class Ⅳ, for blood transfusion  잠재적 위해성이 4등급인
+ABO, RhD 혈액형 검사용 정도관리물질(수혈검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+L20000 기타 수혈의학 검사기기 IVD Devices for other blood transfusion
+L20010.01  기타수혈의학검사기Ⅰ [1]  Other devices, class Ⅰ, for blood transfusion  잠재적 위해성이 1등급인 수혈의학검사용 기타 장치 또는 기구.
+L20010.02  기타수혈의학검사기Ⅱ [2]  Other devices, class Ⅱ, for blood transfusion  잠재적 위해성이 2등급인 수혈의학검사용 기타 장치 또는 기구.
+L20020.01  기타수혈의학검사시약Ⅰ [1]  Other reagents, class Ⅰ, for blood transfusion  잠재적 위해성이 1등급인 수혈의학검사용 기타 검사시약.
+L20020.02  기타수혈의학검사시약Ⅱ [2]  Other reagents, class Ⅱ, for blood transfusion  잠재적 위해성이 2등급인 수혈의학검사용 기타 검사시약.
+L20020.03  기타수혈의학검사시약Ⅲ [3]  Other reagents, class Ⅲ, for blood transfusion  잠재적 위해성이 3등급인 수혈의학검사용 기타 검사시약.
+L20020.04  기타수혈의학검사시약Ⅳ [4]  Other reagents, class Ⅳ, for blood transfusion  잠재적 위해성이 4등급인 수혈의학검사용 기타 검사시약.
+(M) 임상미생물 검사기기 Devices for Clinical Microbiology
+M01000 임상미생물 검사장비 Clinical microbiology analyzer
+M01010.01  미생물분류동정장치 [1]  Microbial identification analyzer  미생물을 분류하고 동정하는 장치.
+M01020.01  미생물감수성시험장치 [1]  Microbial susceptibility testing analyzer  미생물의 항생 물질에 대한 감수성을 시험하는 장치.
+M01030.01  미생물자동염색장치 [1]  Microbial auto stainer  감염성 미생물을 그람 염색(Gram Staining) 등 분류를 위해 염색하는 자동 장치.
+M02000 임상미생물 검사시약 Cultural reagent for clinical microbiology
+M02010.01  미생물염색및배양시약 [1]  IVD reagents for staining or culturing clinical microbiology  각종 미생물 염색 시약 및 미생물 배양용 선택ㆍ동정용 증식 배지, 혈액 배양 배지.
+M02020.01  약
+제감수성및내성미생물검사시약 [2]  IVD reagents and media for antibiotic susceptibility
+내성미생물 검출을 위한 동정용 배지, 항균성 확인 배지, 항균제 디스크 등 미생물 약제감수성 검사에 사용되는 시약.
+M02030.01  약
+제감수성및내성표지자검사시약 [3]  IVD reagents for Infectious disease marker(Drug resistant microorganism)  항균제 내성과 관련된 단백질, 유전자(예 : PBP2a, mec, 메티실
+린내성황색포도알균-MRSA 특이 유전자, 반코마이신내성장구균-VRE 특이 유전자) 등의 미생물 항균제 내성 검사에 사용되는 시약.
+M02040.01  임상미생물검사범용정도관리물질Ⅰ [1]  General calibrators, controls or standards, classⅠ, for clinical microbiology  잠재적 위해성이 1등급인 임상미생물 분석용 정도관리물질
+(진단검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+M02040.02  임상미생물검사범용정도관리물질Ⅱ [2]  General calibrators, controls or standards, classⅡ, for clinical microbiology  잠재적 위해성이 2등급인 임상미생물 분석용 정도관리물질
+(진단검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+M02040.03  임상미생물검사범용정도관리물질Ⅲ [3]  General calibrators, controls or standards, classⅢ, for clinical microbiology  잠재적 위해성이 3등급인 임상미생물 분석용 정도관리물질
+(진단검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+M20000 기타 임상미생물 검사기기 IVD devices for other clinical microbiology
+M20010.01  기타임상미생물검사기 [1]  Devices for other clinical microbiology  임상미생물검사용 기타 장치 또는 기구.
+M20020.01  기타임상미생물검사시약Ⅰ [1]  Other Reagents, classⅠ, for clinical microbiology  잠재적 위해성이 1등급인 임상미생물검사용 기타 검사시약.
+M20020.02  기타임상미생물검사시약Ⅱ [2]  Other Reagents, classⅡ, for clinical microbiology  잠재적 위해성이 2등급인 임상미생물검사용 기타 검사시약.
+M20020.03  기타임상미생물검사시약Ⅲ [3]  Other Reagents, classⅢ, for clinical microbiology  잠재적 위해성이 3등급인 임상미생물검사용 기타 검사시약.
+(N) 분자진단기기 Devices for Molecular Diagnostics
+N01000 분자유전 검사장비 Molecular diagnostic analyzer
+N01010.01  핵산전기영동검사장치 [1]  Nucleic acid electrophoresis devices  전기영동법을 이용하여 혈액, 혈장, 뇨, 뇌척수액 등의 체액 내
+핵산
+등을 분리, 그 변화를 측정하는 자동 또는 반자동 장치.
+N01020.01  일반유전자증폭장치 [1]  General gene amplificator, nucleic acid, without fluorescence meter
+형광검출기가 없이 질병진단을 위해 임상 검체 중 세포 또는 감염체의 핵산(DNA 또는 RNA)을
+증폭하는 장치.
+N01030.01  실시간유전자증폭장치 [2]  Real-time gene amplificator, nucleic acid  질병진단을 위해 임상 검체 중 세포 또는 감염체의 핵산(DNA 또는 RNA)을 증폭하고 형광검출기를 통해 실시간 증폭확인 및 검체 중의 핵산을 분석하는 장치.
+N01040.01  마
+이크로어레이칩분석장치 [2]  analyzer, microarray chip  질병을 진단하기 위하여 유전자(DNA)
+또는 단백질 칩 등에서 특정 유전자의 변이 및 발현 정도 또는 특정 단백질의 분포 및 반응 양상을 분석하는 장치.
+N01050.01  유
+전자서열검사장치 [2]  Genetic analyzer, sequencing, sanger’s method  유전자(DNA
+또는 RNA)의 특정 여러 위치에서 변이 등을 검출하기 위하여 생어법(sanger`s method) 또는 파이로 시퀀싱(pyrosequencing) 등으로 유전자(DNA 또는 RNA) 서열을 검사하는 장치.
+N01060.01  차세대염기서열분석장치 [2]  Next-generation sequencer  짧은 범위의 유전자 염기서열만 분석 가능한 기존 염기서열분석기와 달리 유전자 라이브러리 기술, 형광검출기술, 전위차검출 기술 등으로 넒은 범위의 유전자 염기서열을 분석하여 진단에 사용하는 장치
+N01070.01  디지털유전자증폭장치 [2] Digital gene amplificator, nucleic acid  질병진단을 위해 미세반응용기에 나누어 담는 등 임상 검체를 작은 단위로 나누고, 미세반응용기 등에 나누어 담긴 임상 검체 중 세포 또는 감염체의 핵산(DNA 또는 RNA)을 증폭하고 형광검출기를 통해 검체 중의 핵산을 분석하는 장치.
+N02000 분자진단 검사시약  IVD reagents for molecular diagnostic test
+N02010.01
+유전질환분자진단검사시약 [3]  Molecular diagnostic reagents for congenital or geneti
+c diseas
+e  지중해 빈혈 돌연변이 분석(thalassemia  mutation), GJB2 유전자 돌연변이 분석
+(GJB2 gene), V인자 라이텐돌연변이(Factor V Leiden), 유약엑스증후군(Fragile X syndrome) 등 선천성 질환 및 유전질환 검사 시 사용되는 시약. 단, 태아 및 유아를 대상으로 하는 선천성질환및기형아검사용은 여기서 제외한다.
+N02020.01  선천성질환및기형아분자진단검사시약 [3]  IVD reagents for congenital anomaly screening  산전 검사 또는 선천성 기형아 검사 시 사용되는 분자유전검사 시약.
+N02030.01  종
+양관련유전자검사시약 [3]  IVD reagents for cancer related gene BRAF  유전자 돌연
+변이 분석(BRAF gene mutation), BRCA1,2 유전자 돌연변이 분석(BRCA1,2), RET 유전자
+돌연변이 분석(RET gene), 급성 골수모구성백혈병 1/ETO(AML1/ETO), 만성골수병 백혈병검사(BCR-ABL), 급성전골수구성백혈병 유전자 검사(PMLㆍRARA), 유전자돌연변이검
+사(MLL, FLT3 유전자 돌연변이 분석(FLT3-TKDㆍITD), JAK2 유전자 돌연변이 분석(JAK2 gene), NPM1 유전자 돌연변이 분석(NPM1), K-ras 유전자 돌연변이 검사(K-ras), EGFR 유전자 돌연변이 분석(EGFR), PIK3CA 유전자 돌연변이 분석(PIK3CA) 등 종양 관련 유전자 검사 시 사용되는 시약.
+N03000 약물유전자 검사시약 IVD reagents for pharmacogenetic test
+N03010.01  약물유전체검사시약 [3]  IVD reagents for pharmacogenetics  항응고제관련 유전자(CYP2C19, CYP2C9, VKORC1 등) 돌연변이 분석 등 특정 약물성분에 대한 반응성 정보를 제공하기 위해 약물유전체학 검사 시 사용되는 시약.
+N03020.01  동
+반보조진단유전자검사시약 [2]  IVD reagents for complementary companion
+diagnostics
+with NAT  특정의약품을 처방하기 전에 반드시 필요한 검사
+는
+아니나 해당
+약물에 대한 약물반응성을 예측하기 위해 특정유전자의 변이 또는 이상을 검사하는 시약.
+N03030.01  동반진단유전자검사시약 [3]
+IVD reagents for companion diagnostics with
+NAT
+특정의약품을 처방하기 전에 반드시 필요한 검사로 해당약물에 대한 약물반응성을 예측하기 위해 특정유전자의 변이 또는 이상을 검사하는 시약.
+N04000 혈구세포 항원유전자 검사시약  IVD reagents for blood cell antigen genetic test
+N04010.01  수혈및이식용조직유전자검사시약 [3]  IVD reagents for histocompatibility antigen, antibody for transfusion or transplantation, molecular diagnostics  수혈, 장기 또는 골수 이식을 위하여 공여자와 수용자의 백혈구 항원형(HLA Ag) 선별 등을 위하여 분자진단검사에 사용하는 시약.
+N04020.01  질환진단용조직적합성유전자검사시약 [2]  IVD reagents for histocompatibility antigen, antibody not for transfusion or transplantation but for specific disease diagnosis, mole
+cular diagnostics  수혈이나 이식 목적이 아닌 강직성척추염 또는 베체트병 등 특정질환
+진단을 위하여 백혈구 항원-B27(HLA-B27), 백혈구 항원-B51(HLA-B51), 혈소판 또는 백혈구의 항원ㆍ항체를 분자진단법으로 검사하는 시약.
+N05000 감염체 분자진단 검사시약 IVD reagents for infectious molecular diagnostic test
+N05010.01  HIV·HBV·HCV·HTLV유전자검사시약 [4]  IVD reagents for diagnosis of HIV, HBV, HCV, HTLV, molecular diagnostics  사람 면역결핍 바이러스(Human immunodeficiency
+virus(HIV)),
+사람 B형간염 바이러스(Human hepatitis B virus(HBV)), 사람 C형간염 바이
+러스(Human hepatitis C virus(HCV)), 사람 T림프구친화성 바이러스(Human T-Lymphotropic virus(HTLV))
+감염 여부를 진단하기 위하여 HIV, HBV, HCV, HTLV 관련 유전자 검출에 사용되는 시약.
+N05020.01  HIV·HBV·HCV·HTLV유전형검사시약 [3]  IVD reagents for genotyping or patient
+monitoring of HIV, HBV, HCV, HTLV, molecular diagnostics  사람 면역결핍 바이러스(Human i
+mmunodeficiency virus(HIV)), 사람 B형간염 바이러스(Human hepatitis B virus
+(HBV)), 사람 C형간염 바이러스(Human hepatitis C virus(HCV)), 사람 T 림프구친화성
+바이러스(Human T-Lymphotropic virus(HTLV))의 유전형, 아형 확인 및 치료 경과 확인
+등을 위해 사용되는 시약.
+N05030.01  고위험성감염체유전자검사시약 [3]
+IVD reagents for infectious disease marker(Diagnosis
+of Sexually transmitted disease, Legally designated infectious pathogens other than ‘high risk pathogens’, Infectious agents with moderate infectivity), molecular diagnostics  톡소플라스마(Toxoplasma), 풍진(Rubella), 사이토메갈로바이러스(CMV),
+아데노바이러스(Adenovirus), 로타바이러스(Rotavirus) 엔테로바이러스(Enterovirus), 파르보바
+이러스 B19(Parvovirus B19),
+단순포진(Herpes simplex), 엡스테인-바 바이러스(EBV),
+홍역바이러스(Measles virus), 대상포진(Herpes zoster), 크립토코쿠스네오포르만스(Cryp
+to
+coccus neoformans), 수막염균(Neisseria meningitidis), 클라미디아트라코마티스(Chlamydia
+trachomatis), 임균(Neisseria gonorrhoeae), 매독균(Treponema pallidum), 클렙시엘라 그래뉼로마티스(Klebsiella granlomatis), 사람유두종바이러스(HPV), 유전형 사람유두종바이러스(HPV genotype), 질편모충(Trichomonas vaginalis), 헨드라바이러스(Hendra virus), 말라리아(Malaria), 결핵균군(Mycobacterium tuberculosis complex) 등 성매개성질환, 사망이나 기형을 초래하는 감염, 뇌척수액 및 혈액의 감염 질환, 법정전염병의 감염진단을 위하여 감염원 등의 유전자를 검출하는데 사용되는 시약.
+N05040.01  저위험성감염체유전자검사시약 [2]
+IVD reagents for Infectious disease marker(Detection
+of low infectivity pathogen), nucleic acid test  사람 E형간염(HEV), 헬리코박터 파일
+로리(Helicobacter pylori), 효모균(Saccharomyces), 클로스트리듐 디피실레(Clostrium diffi
+cile)
+등 감염 질환 진단을 위하여 감염원 등의 유전자를 검출하는데 사용되는 시약
+N05050.01  분자검사범용정도관리물질Ⅰ [1]  General calibrators, controls or standards, classⅠ, for molecular diagnosis  분자진단 검사에 사용되는 시약 또는 장비와 함께 사용하는 범용 정도관리물질로 잠재적 위해성이 1등급인
+정도관리물질(진단검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+N05050.02  분자검사범용정도관리물질Ⅱ [2]  General calibrators, controls or standards, classⅡ, for molecular diagnosis  분자진단 검사에 사용되는 시약 또는 장비와 함께 사용하는 범용 정도관리물질로 잠재적 위해성이 2등급인 정도관리물질(진단검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+N05050.03
+분자검사범용정도관리물질Ⅲ [3]  General calibrators, controls or standards, classⅢ, for
+molecular diagnosis  분자진단 검사에 사용되는 시약 또는 장비와 함께 사용하는 범용 정도관리물질로 잠재적 위해성이 3등급인 정도관리물질(진단검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+N05050.04
+분자검사범용정도관리물질Ⅳ [4]  General calibrators, controls or standards, classⅣ, f
+or molecular diagnosis  분자진단 검사에 사용되는 시약 또는 장비와 함께 사용하는 범용 정도관리물질로 잠재적 위해성이 4등급인 정도관리물질(진단검사용 대조·보정물질만 해당, 검사실 평가용 정도관리물질 제외). 단, 전용 정도관리물질은 주반응시약이나 장비의 부분품에 해당
+N20000 기타 분자유전 검사기기  IVD devices for other molecular diagnostics
+N20010.01  기타분자유전검사기Ⅰ [1]  Other devices, classⅠ, for molecular diagnostics  잠재적 위해성이 1등급인 분자유전검사용 기타 장치 또는 기구
+N20010.02  기타분자유전검사기Ⅱ [2]  Other devices, classⅡ, for molecular diagnostics  잠재적 위해성이 2등급인 분자유전검사용 기타 장치 또는 기구
+N20020.01  기타분자유전검사시약Ⅰ [1]  Other reagents, classⅠ, for molecular diagnostics  잠재적 위해성이 1등급인 분자유전검사용 기타 검사시약
+N20020.02  기타분자유전검사시약Ⅱ [2]  Other reagents, classⅡ, for molecular diagnostics  잠재적 위해성이 2등급인 분자유전검사용 기타 검사시약
+N20020.03  기타분자유전검사시약Ⅲ [3]  Other reagents, classⅢ, for molecular diagnostics  잠재적 위해성이 3등급인 분자유전검사용 기타 검사시약
+N20020.04  기타분자유전검사시약Ⅳ [4]  Other reagents, classⅣ, for molecular diagnostics  잠재적 위해성이 4등급인 분자유전검사용 기타 검사시약
+(O) 조직병리 검사기기 Devices for Immuno Cyto/Histo Chemistry
+O01000 세포 및 조직병리 검사장비 Cell/Histopathology test analyzer
+O01010.01  세포및조직병리검사장치 [1]  Cell/histopathologic image processor  세포 또는 조직을 확인하거나 영상을 저장, 확대, 축소, 조회, 전송 등을 하는 장치로 판독자가 설정한 특이 세포 또는 조직을 구분하는 소프트웨어가 포함된 장치도 포함한다
+O01020.01  세포및조직병리진단보조장치 [2]
+Cell/histo
+pathology diagnostic analyzer
+세포 또는 조직의 영상을 저장, 확대, 축소, 조회, 전송 외에도 판독자의 병리적 판단을 돕기 위해 병변이 있는 세포 또는 조직을 자동으로 구분하는 소프트웨어가 포함된 장치
+O02000 세포 및 조직병리 검사시약 IVD reagents for cell/histopathology
+O02010.01  세포및조직염색시약I [1]  Histological staining reagent Ⅰ  현미경 등을 이용한 병리학적 진단을 위해 조직절편 및 세포도말 검체를 일반염색(Romanowsky, H&amp;E 등) 또는 특수염색(Sudan Black B)하는 시약 단, Wright 염색 등의 혈구 염색검사에 사용되는 시약은 여기서 제외한다
+O02010.02  세포및조직염색시약II [2]
+Histological staining reagent Ⅱ, Immunohistochemistry re
+agent  현미경 등을 이용한 내·외인성 질환의 병리학적 진단을 위하여 호르몬 수용체(ER, PR 등), 세포단백질(p53, CD4, CD8), 감염체(CMV 등) 감염 세포, 글로불린(IgG 등)
+등을 염색하는 면역조직화학염색시약
+O03000 핵산제자리 부합 검사시약 IVD reagents for Nucleic acid in situ hybridization
+O03010.01  핵산제자리부합검사용염색시약I [1]  Nucleic acid in situ hybridization (FISH, SISH) Ⅰ
+핵산제자리부합 원리를 이용한 유전자검사에 사용되는 발색제, 완충액, 세정액 등 보조시약
+O03010.02  핵산제자리부합검사용염색시약II [2]  Nucleic acid in situ hybridization (FISH, SISH) II
+핵산제자리부합 원리를 이용하여 유전자 변이, 미생물 등 감염 유무, 환자의 예후 검사에 사용되는 시약
+O03010.03  핵산제자리부합검사용염색시약III [3]  Nucleic acid in situ hybridization (FISH, SISH) III 핵산제자리부합 원리를 이용하여 태아의 유전질환 검사에 사용되는 시약
+O04000 동반진단 병리 검사시약 IVD reagent for pathology companion diagnostic
+O04010.01  동반보조진단용조직병리검사시약 [2]  IVD reagents for complementary companion diagnostics with protein level  특정의약품을 처방하기 전에 반드시 필요한 검사는 아니나 해당약물에 대한 약물반응성을 예측하기 위해 세포 또는 조직의 단백질 또는 유전자를 염색하여 검사하는 시약
+O04020.01  동반진단용조직병리검사시약 [3]  IVD reagents for companion diagnostics with protein level  특정의약품을 처방하기 전에 반드시 필요한 검사로 해당약물에 대한 약물반응성을 예측하기 위해 세포 또는 조직의 단백질 또는 유전자를 염색하여 검사하는 시약
+O20000 기타 조직병리 검사기기 IVD pathology devices for Others
+O20010.01  기타조직병리검사기Ⅰ [1]  Other devices, classⅠ, for pathological test  잠재적 위해성이 1등급인 조직병리검사용 기타 장치 또는 기구
+O20010.02  기타조직병리검사기Ⅱ [2]  Other devices, classⅡ, for pathological test  잠재적 위해성이 2등급인 조직병리검사용 기타 장치 또는 기구
+O20020.01  기타조직병리검사시약Ⅰ [1]  Other reagents, classⅠ, for pathological test  잠재적 위해성이 1등급인 조직병리검사용 기타 검사시약
+O20020.02  기타조직병리검사시약Ⅱ [2]  Other reagents, classⅡ, for pathological test  잠재적 위해성이 2등급인 조직병리검사용 기타 검사시약
+O20020.03  기타조직병리검사시약Ⅲ [3]  Other reagent,s classⅢ, for pathological test  잠재적 위해성이 3등급인 조직병리검사용 기타 검사시약
+((P) &lt;삭제&gt; (2025.4.7.)
+P01000  &lt;삭제&gt; (2025.4.7.)
+P01010.01  &lt;삭제&gt; (2025.4.7.)
+P01020.01  &lt;삭제&gt; (2025.4.7.)
+P02000 &lt;삭제&gt; (2025.4.7.)
+P02010.01  &lt;삭제&gt; (2025.4.7.)
+P02020.01  &lt;삭제&gt; (2025.4.7.)
+P03000 &lt;삭제&gt; (2025.4.7.)
+P03010.01  &lt;삭제&gt; (2025.4.7.)
+P03020.01  &lt;삭제&gt; (2025.4.7.)
+P04000 &lt;삭제&gt; (2025.4.7.)
+P04010.01  &lt;삭제&gt; (2025.4.7.)
+P04010.02 &lt;삭제&gt; (2025.4.7.)
+P04020.01  &lt;삭제&gt; (2025.4.7.)
+P04030.01  &lt;삭제&gt; (2025.4.7.)
+P20000 &lt;삭제&gt; (2025.4.7.)
+P20010.01  &lt;삭제&gt; (2025.4.7.)
+P20010.02  &lt;삭제&gt; (2025.4.7.)
+P20010.03  &lt;삭제&gt; (2025.4.7.)
+■ 체외진단의료기기 품목 및 품목별 등급에 관한 규정 [별지 제1호서식]
+체외진단의료기기 재분류신청서
+접수번호
+접수일시
+처리일
+처리기간
+90일
+신청인
+(대표자)
+성명
+(법인은 법인 명칭 및 대표자 성명)
+생년월일
+(법인은 법인등록번호 및 대표자 생년월일)
+주소
+제조소
+(영업소)
+명칭
+업 허가번호
+소재지
+재분류
+신청
+등급지정
+명칭(제품명)
+제조원(제조국)
+등급변경
+명칭(제품명, 품목명, 모델명)
+분류번호
+현행등급
+변경신청등급
+신청사유
+기타
+「체외진단의료기기법 시행규칙」 제2조 및 「체외진단의료기기 품목 및 품목별 등급에 관한 규정」제2조에 따라 위와 같이 체외진단의료기기 등급의 재분류를 신청합니다.
+년          월          일
+신청인(대표자) 성명
+(서명 또는 인)
+담당자 성명
+담당자 전화번호
+식품의약품안전처장
+귀하
+첨부서류
+1. 기술문서 등에 관한 자료
+2. 재분류대상 의료기기와 유사한 다른 체외진단의료기기와의 작용원리, 성능, 사용 목적, 사용방법 등 기술적 특성의 비교
+ㆍ
+분석에 관한 자료
+수수료
+없음
+처리절차
+신청서 작성
+
+접  수
+
+검  토
+
+결  재
+
+검토결과서
+작성
+
+회  신
+신청인
+식품의약품안전처
+식품의약품안전처
+식품의약품안전처
+식품의약품안전처
+신청인
+210㎜ × 297㎜[백상지 80g/㎡ 또는 중질지 80g/㎡]
