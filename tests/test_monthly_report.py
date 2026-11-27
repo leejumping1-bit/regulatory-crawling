@@ -74,7 +74,7 @@ def test_report_matches_filtered_ledger_and_saved_summary(monkeypatch, filename)
 def test_report_table_excerpts_are_verbatim_for_real_records_and_escaping():
     import json
     from html.parser import HTMLParser
-    from app_logic import monthly_report_html
+    from app_logic import monthly_report_html, display_publisher
 
     class Parser(HTMLParser):
         def __init__(self):
@@ -105,7 +105,7 @@ def test_report_table_excerpts_are_verbatim_for_real_records_and_escaping():
         assert row[0] == str(item['no'])
         if item.get('publisher') != 'MHRA (UK)':
             assert row[1] == (item.get('publish_date') or '-')
-        assert row[2] == (item.get('publisher') or '-')
+        assert row[2] == display_publisher(item)
         assert row[3].startswith(item.get('title') or '-')
         assert row[5] == (item.get('manufacturer_obligation', item.get('sop_required')) or '-')
         if item.get('summary_retained_stale'):

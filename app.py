@@ -8,6 +8,7 @@ from datetime import date, datetime, timezone
 from urllib.parse import urlsplit
 
 from collectors.store import load_regulations
+from crawler import AUTO_AGENCIES
 from collectors.mfds_pdf_display import evidence_for_item, load_evidence_images
 import importlib
 import app_logic
@@ -19,6 +20,8 @@ from app_logic import (
     effective_month,
     filter_by_month,
     effective_publisher,
+    display_publisher,
+    publisher_label,
     filter_by_publisher,
     estimate_export_row_height,
     extract_core_content,
@@ -280,7 +283,7 @@ render_html(f"""
       <p>Global Regulatory &amp; Standards Watch — Gap Analysis Console</p>
     </div>
   </div>
-  <div class="rw-topbar-meta">수집 항목 {len(data)}건 · 8개 기관 모니터링</div>
+  <div class="rw-topbar-meta">수집 항목 {len(data)}건 · 수집 대상 {len(AUTO_AGENCIES)}개 (기관·프로그램)</div>
 </div>
 """)
 
@@ -301,7 +304,7 @@ publisher_options = ["전체"] + sorted({effective_publisher(item) for item in d
 
 with ctrl2:
     st.markdown('<div class="rw-controlbar-label">🏢 발행처 선택 (기본: 전체)</div>', unsafe_allow_html=True)
-    selected_publisher = st.selectbox("발행처", publisher_options, index=0, label_visibility="collapsed")
+    selected_publisher = st.selectbox("발행처", publisher_options, index=0, format_func=publisher_label, label_visibility="collapsed")
 
 filtered_data = filter_by_publisher(filter_by_month(data, selected_month), selected_publisher)
 
@@ -317,7 +320,7 @@ with ctrl3:
                 "고시일 Published Date": item.get("publish_date") or "",
                 "개정·업데이트일 Revision or update date": item.get("change_date") or item.get("revision_date") or "",
                 "시행일 Effectiveness Date": item.get("effective_date") or "",
-                "발행처 Published by": item.get("publisher") or "",
+                "발행처 Published by": display_publisher(item) if item.get("publisher") else "",
                 "규격 및 가이던스 번호 Regulation & Guidance No.": display_doc_no(item),
                 "제목 Title": item.get("title") or "",
                 "내용요약 Summary": item.get("summary") or "",
@@ -386,7 +389,7 @@ with ctrl3:
         st.download_button(
             "엑셀 다운로드",
             data=output.getvalue(),
-            file_name=f"국내외_규격_및_가이던스_업데이트_검토_대장_{selected_month}_{selected_publisher}.xlsx",
+            file_name=f"국내외_규격_및_가이던스_업데이트_검토_대장_{selected_month}_{publisher_label(selected_publisher)}.xlsx",
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             use_container_width=True,
         )
@@ -442,7 +445,7 @@ with st.container(border=True):
             f'<td class="date-cell">{item.get("publish_date") or "-"}</td>'
             f'<td class="date-cell">{item.get("change_date") or item.get("revision_date") or "-"}</td>'
             f'<td class="date-cell">{item.get("effective_date") or "-"}</td>'
-            f'<td>{item.get("publisher") or "-"}</td>'
+            f'<td>{escape(str(display_publisher(item)))}</td>'
             f'<td>{doc_no_clean}</td>'
             f'<td class="title-cell"><a href="{item.get("url") or "#"}" target="_blank">{item["title"]}</a></td>'
             f'<td><span class="reg-scope-tag">{item.get("scope") or "-"}</span></td>'
@@ -459,7 +462,7 @@ with st.container(border=True):
         f'</tr></thead><tbody>{rows_html}</tbody></table></div>'
     )
     render_html(table_html)
-    st.caption(f"조회 월: {selected_month} · 발행처: {selected_publisher} · 총 {len(filtered_data)}건")
+    st.caption(f"조회 월: {selected_month} · 발행처: {publisher_label(selected_publisher)} · 총 {len(filtered_data)}건")
 
 st.markdown("<div style='height:18px'></div>", unsafe_allow_html=True)
 
@@ -480,7 +483,7 @@ with st.container(border=True):
         '<div class="summary-card">'
         f'<h4>📌 {escape(str(selected_item["title"]))}</h4>'
         f'<p><b>• 규격 번호:</b> {escape(str(display_doc_no(selected_item)))} '
-        f'| <b>발행처:</b> {escape(str(selected_item.get("publisher") or "-"))}</p>'
+        f'| <b>발행처:</b> {escape(str(display_publisher(selected_item)))}</p>'
         f'<p><b>• 적용 범위:</b> {escape(str(selected_item.get("scope") or "-"))} '
         f'| <b>Manufacturer obligation:</b> <span style="color:var(--amber);font-weight:bold;">{escape(str(selected_item.get("manufacturer_obligation", selected_item.get("sop_required")) or "-"))}</span></p>'
         '<hr><p><b>[요약 내용]</b></p>'
@@ -520,7 +523,7 @@ with st.container(border=True):
 
 st.markdown(
     "<p style='text-align:center;font-size:11px;color:var(--slate-500);padding:14px 0;'>"
-    "데이터 출처: MFDS · MDCG(EU) · FDA(US) · MHRA(UK) · MDSAP · TGA(AU) · Health Canada · PMDA(JP). "
+    "데이터 출처: MFDS · MDCG(EU) · FDA(US) · MHRA(UK) · MDSAP AU · TGA(AU) · Health Canada · PMDA(JP). "
     "각 항목의 원문 링크에서 최종 확인하시기 바랍니다.</p>",
     unsafe_allow_html=True,
 )

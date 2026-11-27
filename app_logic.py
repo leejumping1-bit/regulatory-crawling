@@ -72,6 +72,15 @@ def effective_publisher(item):
     return item.get("publisher") or "UNKNOWN"
 
 
+def publisher_label(value):
+    """Display label only; never change the stored publisher identity."""
+    return "MDSAP AU" if value == "MDSAP" else value
+
+
+def display_publisher(item):
+    return publisher_label(item.get("publisher") or "-")
+
+
 def filter_by_publisher(data, selected_publisher="전체"):
     """Return all data by default, filtering only when a publisher is selected."""
     if not selected_publisher or selected_publisher == "전체":
@@ -199,7 +208,7 @@ def monthly_report_html(items, selected_month, selected_publisher):
     def e(value):
         return escape(str(value or ""), quote=True)
 
-    parts = [f'<div class="monthly-report"><h2>월별 업데이트 요약 보고서</h2><p>조회 월: {e(selected_month)} · 발행처: {e(selected_publisher)} · 총 {len(items)}건<br>월 기준: 대장 분류 월(search_month), 기관별로 고시·변경·개정일 기준이 다를 수 있음. 전체는 모든 월을 포함합니다.</p><div class="monthly-footnote">MHRA는 해당 월의 업데이트일 우선 표시</div><div class="monthly-table-container"><table class="monthly-table"><thead><tr><th>No.</th><th>고시일</th><th>발행처</th><th>제목</th><th>요약내용</th><th>Manufacturer obligation</th></tr></thead><tbody>']
+    parts = [f'<div class="monthly-report"><h2>월별 업데이트 요약 보고서</h2><p>조회 월: {e(selected_month)} · 발행처: {e(publisher_label(selected_publisher))} · 총 {len(items)}건<br>월 기준: 대장 분류 월(search_month), 기관별로 고시·변경·개정일 기준이 다를 수 있음. 전체는 모든 월을 포함합니다.</p><div class="monthly-footnote">MHRA는 해당 월의 업데이트일 우선 표시</div><div class="monthly-table-container"><table class="monthly-table"><thead><tr><th>No.</th><th>고시일</th><th>발행처</th><th>제목</th><th>요약내용</th><th>Manufacturer obligation</th></tr></thead><tbody>']
     for item in items:
         excerpts, shortened = monthly_summary_excerpts(item.get("summary"))
         summary = '<br>'.join('<span class="monthly-excerpt">' + e(x).replace("\n", "<br>") + '</span>' for x in excerpts) or '요약 없음'
@@ -213,6 +222,6 @@ def monthly_report_html(items, selected_month, selected_publisher):
         title = e(item.get("title") or "-")
         obligation = item.get("manufacturer_obligation", item.get("sop_required")) or "-"
         date, annotation = monthly_report_date(item)
-        parts.append(f'<tr class="monthly-row"><td>{e(item["no"])}</td><td><span style="white-space:nowrap">{e(date)}</span>{e(annotation)}</td><td>{e(item.get("publisher") or "-")}</td><td>{title}</td><td>{summary}</td><td>{e(obligation)}</td></tr>')
+        parts.append(f'<tr class="monthly-row"><td>{e(item["no"])}</td><td><span style="white-space:nowrap">{e(date)}</span>{e(annotation)}</td><td>{e(display_publisher(item))}</td><td>{title}</td><td>{summary}</td><td>{e(obligation)}</td></tr>')
     parts.append('</tbody></table></div></div>')
     return ''.join(parts)
